@@ -1,0 +1,26 @@
+# build
+dist/
+build/
+.solid/
+.output/
+.vercel/
+.netlify/
+netlify/
+
+
+# dependencies
+node_modules/
+.env
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.vercel

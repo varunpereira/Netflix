@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+$white: white;
+$black: black;
+$aqua_1: aqua;
+$grey_1: rgb(144, 144, 144);
+$grey_2: rgb(39, 39, 39);
+$red: red;
+@layer utilities {
+	// use rem, based of root
+	:root {
+		font-size: 16px;
+	}
+	// fit
+	.fit_1 {
+		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem] py-[1rem];
+	}
+	.fit_2 {
+		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem];
+	}
+	.fit_3 {
+		@apply mx_auto min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem];
+	}
+	/* text colour */
+	.tc_white {
+		color: $white;
+	}
+	.tc_aqua {
+		color: $aqua_1;
+	}
+	.tc_grey {
+		color: $grey_1;
+	}
+	.tc_black {
+		color: $black;
+	}
+	.tc_red {
+		color: $red;
+	}
+	/* text size */
+	.ts_1 {
+		font-size: 0.75rem;
+	}
+	.ts_2 {
+		font-size: 1rem;
+	}
+	.ts_3 {
+		font-size: 1.25rem;
+	}
+	.ts_4 {
+		font-size: 1.5rem;
+	}
+	/* text fam */
+	.tf_1 {
+		font-family: verdana;
+	}
+	// text inside
+	.ti_aqua_1 {
+		fill: $aqua_1;
+	}
+	/* text weight */
+	.tw_1 {
+		font-weight: 900;
+	}
+	.tw_2 {
+		font-weight: 800;
+	}
+	.tw_3 {
+		font-weight: 700;
+	}
+	/* text case/shift */
+	.ts_upper {
+		text-transform: uppercase;
+	}
+	/* text align */
+	.ta_mid {
+		text-align: center;
+	}
+	.ta_equal {
+		text-align: justify;
+	}
+	.ta_left {
+		text-align: left;
+	}
+	.ta_right {
+		text-align: l;
+	}
+	/* expose  */
+	.e_fit {
+		object-fit: contain;
+	}
+	.e_full {
+		object-fit: cover;
+	}
+	.e_fill {
+		object-fit: fill;
+	}
+	// background colour
+	.c_aqua_1 {
+		background-color: $aqua_1;
+	}
+	.c_white {
+		background-color: $white;
+	}
+	.c_black {
+		background-color: $black;
+	}
+	.c_grey {
+		background-color: $grey_1;
+	}
+	.c_null {
+		background-color: transparent;
+	}
+	/* border */
+	.bc_black {
+		border-color: $black;
+	}
+	.bc_white {
+		border-color: $white;
+	}
+	.bc_grey {
+		border-color: $grey_2;
+	}
+	.bw_null {
+		border-width: 0rem;
+	}
+	.bw_1 {
+		border-width: 0.05rem;
+	}
+	.bw_2 {
+		border-width: 0.15rem;
+	}
+	// outline
+	.o_null {
+		outline: none;
+	}
+	// icon
+	.ic_null {
+		fill: none;
+	}
+	.ic_aqua_1 {
+		fill: $aqua_1;
+	}
+	.ic_black {
+		fill: $black;
+	}
+	.ic_white {
+		fill: $white;
+	}
+	.ic_grey {
+		fill: $grey_1;
+	}
+	.iw_1 {
+		stroke-width: 1;
+	}
+	.ibc_null {
+		stroke: none;
+	}
+	.ibc_black {
+		stroke: $black;
+	}
+	.ibc_white {
+		stroke: $white;
+	}
+	.ibc_grey {
+		stroke: $grey_1;
+	}
+	/* viewport - see config (v1 - v5) */
+	/* round */
+	.r_null {
+		border-radius: 0rem;
+	}
+	.r_full {
+		border-radius: 100rem;
+	}
+	.rt_full {
+		border-top-left-radius: 100rem;
+		border-top-right-radius: 100rem;
+	}
+	.rb_full {
+		border-bottom-left-radius: 100rem;
+		border-bottom-right-radius: 100rem;
+	}
+	.r_1 {
+		border-radius: 0.75rem;
+	}
+	.rb_1 {
+		border-bottom-left-radius: 0.75rem;
+		border-bottom-right-radius: 0.75rem;
+	}
+	.rt_1 {
+		border-top-left-radius: 0.75rem;
+		border-top-right-radius: 0.75rem;
+	}
+	// shadow
+	.s_1 {
+		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	}
+	/* w_full, max_w-[10rem] */
+	/* align , flex has def dir of row*/
+	.a_null {
+		flex: none;
+	}
+	.a_row {
+		display: flex;
+		flex-direction: row;
+	}
+	.a_col {
+		display: flex;
+		flex-direction: column;
+	}
+	.a_row_auto {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.a_col_auto {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.ax_left {
+		justify-content: flex-start;
+	}
+	.ax_mid {
+		justify-content: center;
+	}
+	.ax_right {
+		justify-content: flex-end;
+	}
+	// or use gap-[1rem]
+	.ax_equal {
+		justify-content: space-between;
+	}
+	.ay_top {
+		align-content: flex-start;
+	}
+	.ay_mid {
+		align-content: center;
+	}
+	.ay_bottom {
+		align-content: flex-end;
+	}
+	.ay_equal {
+		align-content: space-between;
+	}
+	/* default: block, also: flex, grid */
+	.hide {
+		display: none;
+	}
+	.see {
+		display: block;
+	}
+	.z_normal {
+		position: static;
+	}
+	.z_fit {
+		position: relative;
+	}
+	// sometimes add z-[n], n is int
+	.z_put {
+		position: absolute;
+	}
+	.z_fix {
+		position: fixed;
+	}
+	// states : hover:tc_red , focus:c_blue ,
+	.w_fit {
+		width: fit-content;
+	}
+	.w_full {
+		width: 100%;
+	}
+	.h_fit {
+		height: fit-content;
+	}
+	.h_full {
+		height: 100%;
+	}
+	.mx_auto {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.my_auto {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	.left_auto {
+		left: auto;
+	}
+	.right_auto {
+		right: auto;
+	}
+	.top_auto {
+		top: auto;
+	}
+	.bottom_auto {
+		bottom: auto;
+	}
+}
