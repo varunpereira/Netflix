@@ -1,4 +1,4 @@
-import logo from "~/globe/config/asset/logo.jpg"
+import logo from "~/globe/asset/logo.jpg"
 import nav from "~/globe/config/nav"
 import footer from "~/globe/config/footer"
 import def from "~/globe/config/def"
