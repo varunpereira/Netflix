@@ -3,7 +3,7 @@
 @tailwind utilities;
 $white: white;
 $black: black;
-$aqua_1: aqua;
+$c_1: red;
 $grey_1: rgb(144, 144, 144);
 $grey_2: rgb(39, 39, 39);
 $red: red;
@@ -14,10 +14,10 @@ $red: red;
 	}
 	// fit
 	.fit_1 {
-		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem] py-[1rem];
+		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem];
 	}
 	.fit_2 {
-		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem];
+		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[60rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem];
 	}
 	.fit_3 {
 		@apply mx_auto min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem];
@@ -26,8 +26,8 @@ $red: red;
 	.tc_white {
 		color: $white;
 	}
-	.tc_aqua {
-		color: $aqua_1;
+	.tc_1 {
+		color: $c_1;
 	}
 	.tc_grey {
 		color: $grey_1;
@@ -56,8 +56,8 @@ $red: red;
 		font-family: verdana;
 	}
 	// text inside
-	.ti_aqua_1 {
-		fill: $aqua_1;
+	.ti_c_1 {
+		fill: $c_1;
 	}
 	/* text weight */
 	.tw_1 {
@@ -97,8 +97,8 @@ $red: red;
 		object-fit: fill;
 	}
 	// background colour
-	.c_aqua_1 {
-		background-color: $aqua_1;
+	.c_c_1 {
+		background-color: $c_1;
 	}
 	.c_white {
 		background-color: $white;
@@ -139,8 +139,8 @@ $red: red;
 	.ic_null {
 		fill: none;
 	}
-	.ic_aqua_1 {
-		fill: $aqua_1;
+	.ic_c_1 {
+		fill: $c_1;
 	}
 	.ic_black {
 		fill: $black;

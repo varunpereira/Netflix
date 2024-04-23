@@ -1,7 +1,7 @@
-import logo from "~/globe/asset/logo.jpg"
-// import nav from "~/globe/nav"
-import footer from "~/globe/footer"
-import def from "~/globe/def"
+import logo from "~/globe/config/asset/logo.jpg"
+import nav from "~/globe/config/nav"
+import footer from "~/globe/config/footer"
+import def from "~/globe/config/def"
 import home from "~/home/home"
 // import sign_in from "~/login/sign_in"
 // import sign_up from "~/login/sign_up"
@@ -27,7 +27,7 @@ export default () => {
 		title: () => "iStuff",
 		color: () => "c_black",
 		logo,
-		nav: ()=><></>,
+		nav,
 		footer,
 		style: () => "c_black tc_white ts_2 tf_1 min-w-[320px]",
 	}

@@ -1,4 +1,4 @@
-import {createSignal, createEffect, onMount, onCleanup,} from "solid-js"
+import {createSignal, createEffect, onMount, onCleanup} from "solid-js"
 import {useNavigate, useSearchParams, useParams} from "@solidjs/router"
 
 export var state = (def) => {
@@ -59,7 +59,7 @@ export var dic = Object
 // structs
 export var D = ({
 	mount = async () => "",
-	style = "",
+	style = () => "",
 	key = () => "",
 	name = () => "",
 	custom = () => "",
@@ -67,14 +67,14 @@ export var D = ({
 }) => {
 	onMount(async () => await mount())
 	return (
-		<div onKeyDown={key} id={name()} use:custom class={style}>
+		<div onKeyDown={key} id={name()} use:custom class={style()}>
 			{children}
 		</div>
 	)
 }
 
-export var T = ({style = "", name = "", children}) => (
-	<p class={style} id={name}>
+export var T = ({style = () => "", id = () => "", children}) => (
+	<p class={style()} id={id()}>
 		{children}
 	</p>
 )
@@ -98,17 +98,17 @@ export var I = ({
 		class={style() + " o_null"}
 		type={type()}
 		value={value()}
+		placeholder={holder()}
 		onInput={input}
 		onClick={click}
 		onKeyDown={key}
-		placeholder={holder()}
 	/>
 )
 
 export var P = ({
-	style = ()=>"",
+	style = () => "",
 	value = () => "",
-	def = "",
+	def = () => "",
 	hover_in = () => "",
 	hover_out = () => "",
 	click = () => "",
@@ -116,7 +116,7 @@ export var P = ({
 	<img
 		class={style()}
 		src={value()}
-		alt={def}
+		alt={def()}
 		onMouseOver={hover_in}
 		onMouseLeave={hover_out}
 		onClick={click}
@@ -124,28 +124,28 @@ export var P = ({
 )
 
 export var V = ({
-	style = ()=>"",
-	value = ()=>"",
+	style = () => "",
+	value = () => "",
 	def = () => "",
-	type = "",
-	controls = false,
+	type = () => "",
+	controls = () => false,
 	mute = () => true,
 	hover_in = () => "",
 	hover_out = () => "",
 	click = () => "",
-	rep = false,
+	...props
 }) => (
 	<video
+		{...props}
 		class={style()}
-		// poster={def()}
-		controls={controls}
+		poster={def()}
+		controls={controls()}
 		muted={mute()}
 		playsinline
 		onMouseOver={hover_in}
 		onMouseLeave={hover_out}
-		onClick={click}
-		loop={rep}>
-		<source src={value()} type={type} />
+		onClick={click}>
+		<source src={value()} type={type()} />
 		Browser doesn't support video tag.
 	</video>
 )

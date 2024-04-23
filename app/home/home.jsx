@@ -13,7 +13,7 @@ import {
 	B,
 	V,
 	P,
-} from "~/globe/shop"
+} from "~/globe/config/shop"
 import car1 from "~/home/asset/1.jpg"
 import car2 from "~/home/asset/2.jpg"
 import car3 from "~/home/asset/3.jpg"
@@ -50,6 +50,20 @@ export default () => {
 		timer.cut(car_interv)
 	})
 
+	window.addEventListener("load", function () {
+		var newVideo = document.getElementById("vid")
+		newVideo.addEventListener(
+			"ended",
+			function () {
+				this.currentTime = 0
+				this.play()
+			},
+			false,
+		)
+
+		newVideo.play()
+	})
+
 	var hover_in = (e) => {
 		e.target.play()
 		event(e)
@@ -64,16 +78,16 @@ export default () => {
 
 	return (
 		<>
-			<D style={`z_fit`}>
+			<D style={()=>`z_fit z-[1]`}>
 				<V
+					id="vid"
 					def={() => lotr_pic}
 					value={() => lotr_vid}
 					mute={() => mute()}
-					rep={true}
 					hover_in={hover_in}
 					hover_out={hover_out}
 					click={() => mute(!mute())}
-					style={() => `fit_3 w_full h-[40vw] e_full`}
+					style={() => `w_full e_full aspect-[25/10]`}
 				/>
 				<P
 					hover_in={() => {
@@ -89,13 +103,6 @@ export default () => {
 					style={() => `z_put bottom-[.25rem] w-[50%] ${pause() ? `hide` : ``}`}
 				/>
 			</D>
-			<T style={`fit_1 px-[1rem] py-[1rem] a_row ay_mid mt-[3rem] mb-[2rem] tc_aqua ts_3 tw_2`}>
-				Trending
-			</T>
-			<D style={`fit_1 a_row_auto gap-[1rem] mb-[3rem]`}>
-				{/* {prod().map((v, k) => prod_short({prod: v}))} */}
-			</D>
-			<P def={`trending`} value={() => car()[car_index()]} style={() => `fit_3 w_full`} />
 		</>
 	)
 }
