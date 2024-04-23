@@ -1,4 +1,4 @@
-import logo from "~/globe/asset/logo.jpg"
+import logo from "~/globe/asset/logo_tab.png"
 import nav from "~/globe/config/nav"
 import footer from "~/globe/config/footer"
 import def from "~/globe/config/def"
@@ -24,7 +24,7 @@ export default () => {
 			// ["/cart", cart],
 			// ["/cart/paid", paid],
 		],
-		title: () => "iStuff",
+		title: () => "Netflix",
 		color: () => "c_black",
 		logo,
 		nav,

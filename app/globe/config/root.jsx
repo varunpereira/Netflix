@@ -11,7 +11,6 @@ document.getElementById("style").className = struct()?.style()
 render(
 	() => (
 		<Router>
-			<div class="fit_1">
 				{struct()?.nav()}
 				<Routes>
 					{struct()
@@ -21,7 +20,6 @@ render(
 						))}
 				</Routes>
 				{struct()?.footer()}
-			</div>
 		</Router>
 	),
 	document.getElementById("style"),

@@ -14,7 +14,7 @@ $red: red;
 	}
 	// fit
 	.fit_1 {
-		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem];
+		@apply min-w-[20rem] v2:max-w-[60rem] v5:max-w-[150rem] mx_auto;
 	}
 	.fit_2 {
 		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[60rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem];

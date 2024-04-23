@@ -40,7 +40,7 @@ export default () => {
 	var pages = state()
 
 	construct(async () => {
-		page.title = `Home - iStuff`
+		page.title = `Home - Netflix`
 		// auth func
 		// var res = await req("/search/trend")
 		// prod(res.prod)
@@ -77,32 +77,31 @@ export default () => {
 	}
 
 	return (
-		<>
-			<D style={()=>`z_fit z-[1]`}>
-				<V
-					id="vid"
-					def={() => lotr_pic}
-					value={() => lotr_vid}
-					mute={() => mute()}
-					hover_in={hover_in}
-					hover_out={hover_out}
-					click={() => mute(!mute())}
-					style={() => `w_full e_full aspect-[25/10]`}
-				/>
-				<P
-					hover_in={() => {
-						event().target.play()
-						pause(true)
-					}}
-					hover_out={() => {
-						event().target.pause()
-						pause(false)
-					}}
-					click={() => mute(!mute())}
-					value={() => lotr_logo}
-					style={() => `z_put bottom-[.25rem] w-[50%] ${pause() ? `hide` : ``}`}
-				/>
-			</D>
-		</>
+		<D style={() => `fit_1 z_fit z-[1]`}>
+			<V
+				id="vid"
+				def={() => lotr_pic}
+				value={() => lotr_vid}
+				mute={() => mute()}
+				rep={()=>true}
+				hover_in={hover_in}
+				hover_out={hover_out}
+				click={() => mute(!mute())}
+				style={() => `w_full e_full aspect-[25/10]`}
+			/>
+			<P
+				hover_in={() => {
+					event().target.play()
+					pause(true)
+				}}
+				hover_out={() => {
+					event().target.pause()
+					pause(false)
+				}}
+				click={() => mute(!mute())}
+				value={() => lotr_logo}
+				style={() => `z_put bottom-[.25rem] w-[50%] ${pause() ? `hide` : ``}`}
+			/>
+		</D>
 	)
 }
