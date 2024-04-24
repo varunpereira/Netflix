@@ -8,6 +8,7 @@ import {
 	page,
 	timer,
 	req,
+	dir,
 	D,
 	T,
 	B,
@@ -34,7 +35,7 @@ export default () => {
 	}, 3000)
 	var nav = route()
 	var mute = state(true)
-	var pause = state(false)
+	var vid_playing = state(false)
 	var event = state()
 	var prod = state([])
 	var pages = state()
@@ -50,58 +51,64 @@ export default () => {
 		timer.cut(car_interv)
 	})
 
-	window.addEventListener("load", function () {
-		var newVideo = document.getElementById("vid")
-		newVideo.addEventListener(
-			"ended",
-			function () {
-				this.currentTime = 0
-				this.play()
-			},
-			false,
-		)
-
-		newVideo.play()
-	})
-
 	var hover_in = (e) => {
 		e.target.play()
 		event(e)
-		pause(true)
+		vid_playing(true)
 	}
 
 	var hover_out = (e) => {
 		e.target.pause()
 		event(e)
-		pause(false)
+		vid_playing(false)
+	}
+
+	var Tape = () => {
+		return (
+			<D>
+				<T>Popular on Netflix</T>
+				<D style={() => `a_row gap-[.5rem]`}>
+					{dir(5)
+						.fill(car1)
+						.map((v) => (
+							<P value={() => car1} style={() => `w-[10rem]`} />
+						))}
+				</D>
+			</D>
+		)
 	}
 
 	return (
-		<D style={() => `fit_1 z_fit z-[1]`}>
+		<D style={() => `z_fit z-[1]`}>
 			<V
-				id="vid"
 				def={() => lotr_pic}
 				value={() => lotr_vid}
 				mute={() => mute()}
-				rep={()=>true}
+				rep={() => true}
 				hover_in={hover_in}
 				hover_out={hover_out}
 				click={() => mute(!mute())}
 				style={() => `w_full e_full aspect-[25/10]`}
 			/>
-			<P
+			<D style={() => `z_put a_col gap-[2rem] v2:pl-[1rem] v3:pl-[5rem] v4:pl-[10rem]`}>
+				<Tape />
+				<Tape />
+				<Tape />
+				<Tape />
+			</D>
+			{/* <P
 				hover_in={() => {
 					event().target.play()
-					pause(true)
+					vid_playing(true)
 				}}
 				hover_out={() => {
 					event().target.pause()
-					pause(false)
+					vid_playing(false)
 				}}
 				click={() => mute(!mute())}
 				value={() => lotr_logo}
-				style={() => `z_put bottom-[.25rem] w-[50%] ${pause() ? `hide` : ``}`}
-			/>
+				style={() => `z_put bottom-[.25rem] w-[50%] ${vid_playing() ? `hide` : ``}`}
+			/> */}
 		</D>
 	)
 }

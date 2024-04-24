@@ -22,6 +22,8 @@ export default () => {
 	var nav = route()
 	var acc_click = state(false)
 	var menu_click = state(false)
+	var menu_options = ["Home", "TV Shows", "Movies", "New & Popular", "My List"]
+	var opt_pick = state(0)
 
 	construct(async () => {
 		// write(globe())
@@ -50,12 +52,21 @@ export default () => {
 	return (
 		<D
 			style={() =>
-				"z_put z-[2] c_null a_row my-[1.5rem] w_full v2:px-[1rem] v3:px-[5rem] v4:px-[10rem]"
+				"z_put z-[2] c_null a_row my-[1.25rem] w_full v2:px-[1rem] v3:px-[5rem] v4:px-[10rem]"
 			}>
-			<B click={() => nav("/")} style={() => "a_row ay_mid tc_1 tw_1 ts_3 mr-[1rem]"}>
-				<P value={()=>logo} style={()=>`w-[6rem] `}/>
+			<B click={() => nav("/")} style={() => "tc_1 tw_1 ts_3 mr-[2rem]"}>
+				<P value={() => logo} style={() => `w-[4rem]`} />
 			</B>
-			<Searcher />
+			<D style={() => `a_row ax_equal gap-[1rem] tc_grey ts_1`}>
+				{menu_options.map((v, i) => (
+					<B
+						click={() => opt_pick(i)}
+						style={() => `hover:tc_white ${opt_pick() === i && `tc_white`}`}>
+						{v}
+					</B>
+				))}
+			</D>
+			{/* <Searcher /> */}
 			<B click={() => menu_click(!menu_click())}>
 				{menu_icon({style: () => "v2:see v3:hide w-[1.75rem] h-[1.75rem] hover:ibc_grey"})}
 			</B>

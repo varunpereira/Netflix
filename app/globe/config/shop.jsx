@@ -127,6 +127,7 @@ export var V = ({
 	style = () => "",
 	value = () => "",
 	def = () => "",
+	rep = () => true,
 	type = () => "",
 	controls = () => false,
 	mute = () => true,
@@ -139,6 +140,7 @@ export var V = ({
 		{...props}
 		class={style()}
 		poster={def()}
+		loop={rep()}
 		controls={controls()}
 		muted={mute()}
 		playsinline

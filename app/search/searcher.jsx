@@ -36,7 +36,7 @@ export default () => {
 	}
 
 	var form_submit = async (term) => {
-		term.trim() !== "" ? nav("/search/all/" + encodeURIComponent(term) + "/1") : ""
+		term.trim() !== "" && nav("/search/all/" + encodeURIComponent(term) + "/1")
 		suggest_on(false)
 	}
 

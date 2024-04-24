@@ -1,1 +1,1 @@
-# https://flixtr.vercel.app
+# https://netflixz.vercel.app
