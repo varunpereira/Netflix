@@ -52,10 +52,10 @@ export default () => {
 	return (
 		<D
 			style={() =>
-				"z_put z-[2] c_null a_row my-[1.25rem] w_full v2:px-[1rem] v3:px-[5rem] v4:px-[10rem]"
+				"z_put z-[2] c_null a_row my-[1.25rem] w_full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]"
 			}>
-			<B click={() => nav("/")} style={() => "tc_1 tw_1 ts_3 mr-[2rem]"}>
-				<P value={() => logo} style={() => `w-[4rem]`} />
+			<B click={() => nav("/")} style={() => "tc_1 tw_1 ts_3 mr-[2.5rem]"}>
+				<P value={() => logo} style={() => `w-[6rem]`} />
 			</B>
 			<D style={() => `a_row ax_equal gap-[1rem] tc_grey ts_1`}>
 				{menu_options.map((v, i) => (

@@ -39,6 +39,7 @@ export default () => {
 	var event = state()
 	var prod = state([])
 	var pages = state()
+	var chosen = state(null)
 
 	construct(async () => {
 		page.title = `Home - Netflix`
@@ -63,15 +64,15 @@ export default () => {
 		vid_playing(false)
 	}
 
-	var Tape = () => {
+	var Tape = ({first}) => {
 		return (
 			<D>
-				<T>Popular on Netflix</T>
-				<D style={() => `a_row gap-[.5rem]`}>
+				<T style={() => `tw_5 ts_4 mb-[.5rem] ${first && `z_put top-[-2rem] `}`}>New Releases</T>
+				<D style={() => `a_row gap-[.2rem]`}>
 					{dir(5)
-						.fill(car1)
+						.fill()
 						.map((v) => (
-							<P value={() => car1} style={() => `w-[10rem]`} />
+							<P value={() => car3} style={() => `h-[8rem] hover:scale-[2]`} />
 						))}
 				</D>
 			</D>
@@ -79,7 +80,7 @@ export default () => {
 	}
 
 	return (
-		<D style={() => `z_fit z-[1]`}>
+		<D style={() => ``}>
 			<V
 				def={() => lotr_pic}
 				value={() => lotr_vid}
@@ -90,9 +91,8 @@ export default () => {
 				click={() => mute(!mute())}
 				style={() => `w_full e_full aspect-[25/10]`}
 			/>
-			<D style={() => `z_put a_col gap-[2rem] v2:pl-[1rem] v3:pl-[5rem] v4:pl-[10rem]`}>
-				<Tape />
-				<Tape />
+			<D style={() => `z_fit a_col gap-[2.5rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
+				<Tape first={true}/>
 				<Tape />
 				<Tape />
 			</D>

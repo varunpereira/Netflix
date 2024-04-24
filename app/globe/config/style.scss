@@ -40,16 +40,10 @@ $red: red;
 	}
 	/* text size */
 	.ts_1 {
-		font-size: 0.75rem;
+		font-size: .8rem;
 	}
 	.ts_2 {
-		font-size: 1rem;
-	}
-	.ts_3 {
-		font-size: 1.25rem;
-	}
-	.ts_4 {
-		font-size: 1.5rem;
+		font-size: 1.1rem;
 	}
 	/* text fam */
 	.tf_1 {
@@ -68,6 +62,12 @@ $red: red;
 	}
 	.tw_3 {
 		font-weight: 700;
+	}
+	.tw_4 {
+		font-weight: 600;
+	}
+	.tw_5 {
+		font-weight: 500;
 	}
 	/* text case/shift */
 	.ts_upper {
