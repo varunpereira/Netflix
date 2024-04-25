@@ -13,9 +13,9 @@ import {
 	V,
 	P,
 } from "~/globe/config/shop"
-import {shop_icon, menu_icon, cart_icon, sign_in_icon} from "~/globe/asset/icon"
-import Searcher from "~/search/searcher"
+import {SearchIcon, MenuIcon} from "~/globe/asset/icon"
 import logo from "~/globe/asset/logo.png"
+// import Searcher from "~/search/searcher"
 
 export default () => {
 	var width = state()
@@ -37,17 +37,7 @@ export default () => {
 
 	react(() => {})
 
-	var handler = () => {
-		width(view.width())
-	}
-
-	var sign_out = async () => {
-		var res = await req("/login/auth_cut")
-		if (res?.flaw != null) {
-			return
-		}
-		nav_full("/signin")
-	}
+	var handler = () => width(view.width())
 
 	return (
 		<D
@@ -57,23 +47,30 @@ export default () => {
 			<B click={() => nav("/")} style={() => "tc_1 tw_1 ts_3 mr-[2.5rem]"}>
 				<P value={() => logo} style={() => `w-[6rem]`} />
 			</B>
-			<D style={() => `a_row ax_equal gap-[1rem] tc_grey ts_1`}>
-				{menu_options.map((v, i) => (
-					<B
-						click={() => opt_pick(i)}
-						style={() => `hover:tc_white ${opt_pick() === i && `tc_white`}`}>
-						{v}
-					</B>
-				))}
+			<D style={() => `a_row ax_equal w_full tc_grey ts_1`}>
+				<D style={() => `a_row ax_equal gap-[1rem] `}>
+					{menu_options.map((v, i) => (
+						<B
+							click={() => opt_pick(i)}
+							style={() => `hover:tc_white ${opt_pick() === i && `tc_white`}`}>
+							{v}
+						</B>
+					))}
+				</D>
+				<D style={() => `a_row ax_equal gap-[1rem] `}>
+					<SearchIcon style={() => `w-[1rem] h-[1rem] ic_white ibc_white iw_1`} />
+					<T>KIDS</T>
+					<T>DVD</T>
+				</D>
 			</D>
-			{/* <Searcher /> */}
+
 			<B click={() => menu_click(!menu_click())}>
-				{menu_icon({style: () => "v2:see v3:hide w-[1.75rem] h-[1.75rem] hover:ibc_grey"})}
+				<MenuIcon style={() => `v2:see v3:hide w-[1.75rem] h-[1.75rem] hover:ibc_grey`} />
 			</B>
-			<D
+			{/* <D
 				style={() =>
 					`z_fit v2:z_put v2:z-[4] v2:c_null v2:a_row v2:ax_left v2:px-[1rem] v2:left-[0rem] v2:top-[2.5rem] v2:w_full v3:z_normal v3:px-[0rem] v3:w_fit`
-				}></D>
+				}></D> */}
 		</D>
 	)
 }

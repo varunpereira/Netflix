@@ -64,15 +64,23 @@ export default () => {
 		vid_playing(false)
 	}
 
-	var Tape = ({first}) => {
+	var Tape = ({first, title}) => {
+		var hover = state(null)
 		return (
-			<D>
-				<T style={() => `tw_5 ts_4 mb-[.5rem] ${first && `z_put top-[-2rem] `}`}>New Releases</T>
-				<D style={() => `a_row gap-[.2rem]`}>
-					{dir(5)
+			<D style={() => `z_fit`}>
+				<T style={() => `tw_5 ts_4 mb-[.5rem] ${first && `z_put top-[-2rem] `}`}>{title}</T>
+				<D style={() => `a_row gap-[.2rem] overflow-x-auto no_scroll `}>
+					{dir(3)
 						.fill()
-						.map((v) => (
-							<P value={() => car3} style={() => `h-[8rem] hover:scale-[2]`} />
+						.map((v, i) => (
+							// <D style={() => `z_fit hover:h-[12rem] hover:right-[5rem] hover:scale-[2]`}>
+							// 	<D style={() => `bg-red-500 w-[16rem] h-[8rem] hover:bg-white hover:z_put hover:z-[4] hover:top-[-3rem] hover:h-[16rem] hover:w-[32rem]`}></D>
+
+							// </D>
+							<P
+								value={() => (i % 2 === 0 ? car3 : car4)}
+								style={() => `e_full h-[8rem] w-[16rem] hover:w-[32rem] `}
+							/>
 						))}
 				</D>
 			</D>
@@ -80,7 +88,7 @@ export default () => {
 	}
 
 	return (
-		<D style={() => ``}>
+		<D style={() => `z_fit`}>
 			<V
 				def={() => lotr_pic}
 				value={() => lotr_vid}
@@ -91,24 +99,11 @@ export default () => {
 				click={() => mute(!mute())}
 				style={() => `w_full e_full aspect-[25/10]`}
 			/>
-			<D style={() => `z_fit a_col gap-[2.5rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
-				<Tape first={true}/>
-				<Tape />
-				<Tape />
+			<D style={() => ` a_col gap-[2.5rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
+				<Tape first={true} title="New Releases" />
+				<Tape title="Trending Now" />
+				<Tape title="Popular on Netflix" />
 			</D>
-			{/* <P
-				hover_in={() => {
-					event().target.play()
-					vid_playing(true)
-				}}
-				hover_out={() => {
-					event().target.pause()
-					vid_playing(false)
-				}}
-				click={() => mute(!mute())}
-				value={() => lotr_logo}
-				style={() => `z_put bottom-[.25rem] w-[50%] ${vid_playing() ? `hide` : ``}`}
-			/> */}
 		</D>
 	)
 }

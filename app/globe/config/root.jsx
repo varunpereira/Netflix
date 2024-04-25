@@ -15,8 +15,8 @@ var route = [
 
 page.title = "Netflix"
 page.getElementById("logo").href = logo
-page.getElementById("color").content = "c_black"
-page.getElementById("style").className = "c_black tc_white ts_2 tf_1 min-w-[320px]"
+page.getElementById("color").content = "c_grey_2"
+page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 min-w-[320px]"
 
 render(
 	() => (
@@ -28,7 +28,7 @@ render(
 						<Route path={route[0]} component={route[1]} />
 					))}
 				</Routes>
-				<Footer />
+				{/* <Footer /> */}
 			</D>
 		</Router>
 	),

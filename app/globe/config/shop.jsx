@@ -57,30 +57,22 @@ export var dir = Array
 export var dic = Object
 
 // structs
-export var D = ({
-	mount = async () => "",
-	style = () => "",
-	key = () => "",
-	name = () => "",
-	custom = () => "",
-	children,
-}) => {
-	onMount(async () => await mount())
+export var D = ({style = () => "", key = () => "", custom = () => "", children, ...rest}) => {
 	return (
-		<div onKeyDown={key} id={name()} use:custom class={style()}>
+		<div onKeyDown={key} use:custom class={style()} {...rest}>
 			{children}
 		</div>
 	)
 }
 
-export var T = ({style = () => "", id = () => "", children}) => (
-	<p class={style()} id={id()}>
+export var T = ({style = () => "", children, ...rest}) => (
+	<p class={style()} {...rest}>
 		{children}
 	</p>
 )
 
-export var B = ({style = () => "", click = () => "", children}) => (
-	<button onClick={click} class={style() + " o_null"} type="button">
+export var B = ({style = () => "", click = () => "", children, ...rest}) => (
+	<button onClick={click} class={style() + " o_null"} type="button" {...rest}>
 		{children}
 	</button>
 )
@@ -93,6 +85,7 @@ export var I = ({
 	click = () => "",
 	holder = () => "",
 	key = () => "",
+	...rest
 }) => (
 	<input
 		class={style() + " o_null"}
@@ -102,6 +95,7 @@ export var I = ({
 		onInput={input}
 		onClick={click}
 		onKeyDown={key}
+		{...rest}
 	/>
 )
 
@@ -112,6 +106,7 @@ export var P = ({
 	hover_in = () => "",
 	hover_out = () => "",
 	click = () => "",
+	...rest
 }) => (
 	<img
 		class={style()}
@@ -120,6 +115,7 @@ export var P = ({
 		onMouseOver={hover_in}
 		onMouseLeave={hover_out}
 		onClick={click}
+		{...rest}
 	/>
 )
 
@@ -134,10 +130,10 @@ export var V = ({
 	hover_in = () => "",
 	hover_out = () => "",
 	click = () => "",
-	...props
+	...rest
 }) => (
 	<video
-		{...props}
+		{...rest}
 		class={style()}
 		poster={def()}
 		loop={rep()}

@@ -5,7 +5,7 @@ $white: white;
 $black: black;
 $c_1: red;
 $grey_1: rgb(144, 144, 144);
-$grey_2: rgb(39, 39, 39);
+$grey_2: rgb(20, 20, 20);
 $red: red;
 @layer utilities {
 	// use rem, based of root
@@ -40,7 +40,7 @@ $red: red;
 	}
 	/* text size */
 	.ts_1 {
-		font-size: .8rem;
+		font-size: 0.8rem;
 	}
 	.ts_2 {
 		font-size: 1.1rem;
@@ -97,6 +97,7 @@ $red: red;
 		object-fit: fill;
 	}
 	// background colour
+	// opacity
 	.c_c_1 {
 		background-color: $c_1;
 	}
@@ -106,8 +107,11 @@ $red: red;
 	.c_black {
 		background-color: $black;
 	}
-	.c_grey {
+	.c_grey_1 {
 		background-color: $grey_1;
+	}
+	.c_grey_2 {
+		background-color: $grey_2;
 	}
 	.c_null {
 		background-color: transparent;
@@ -193,6 +197,16 @@ $red: red;
 		border-top-left-radius: 0.75rem;
 		border-top-right-radius: 0.75rem;
 	}
+
+	// overflow
+	.no_scroll::-webkit-scrollbar {
+		display: none;
+	}
+	.no_scroll {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+
 	// shadow
 	.s_1 {
 		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
