@@ -65,22 +65,19 @@ export default () => {
 	}
 
 	var Tape = ({first, title}) => {
-		var hover = state(null)
 		return (
-			<D style={() => `z_fit`}>
+			<D style={() => `z_fit `}>
 				<T style={() => `tw_5 ts_4 mb-[.5rem] ${first && `z_put top-[-2rem] `}`}>{title}</T>
-				<D style={() => `a_row gap-[.2rem] overflow-x-auto no_scroll `}>
-					{dir(3)
+				<D style={() => `a_row gap-[.2rem] overflow-auto no_scroll `}>
+					{dir(6)
 						.fill()
 						.map((v, i) => (
-							// <D style={() => `z_fit hover:h-[12rem] hover:right-[5rem] hover:scale-[2]`}>
-							// 	<D style={() => `bg-red-500 w-[16rem] h-[8rem] hover:bg-white hover:z_put hover:z-[4] hover:top-[-3rem] hover:h-[16rem] hover:w-[32rem]`}></D>
-
-							// </D>
-							<P
-								value={() => (i % 2 === 0 ? car3 : car4)}
-								style={() => `e_full h-[8rem] w-[16rem] hover:w-[32rem] `}
-							/>
+							<D style={() => ` h-[8rem] w-[16rem] hover:w-[32rem] hover:h-[16rem]  `}>
+								<P
+									value={() => (i == 1 ? car3 : car4)}
+									style={() => `e_full h-[8rem] w-[16rem] hover:z_put hover:w-[32rem] hover:h-[16rem] hover:top-[-4rem] `}
+								/>
+							</D>
 						))}
 				</D>
 			</D>
