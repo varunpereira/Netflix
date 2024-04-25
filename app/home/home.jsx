@@ -68,14 +68,16 @@ export default () => {
 		return (
 			<D style={() => `z_fit `}>
 				<T style={() => `tw_5 ts_4 mb-[.5rem] ${first && `z_put top-[-2rem] `}`}>{title}</T>
-				<D style={() => `a_row gap-[.2rem] overflow-auto no_scroll `}>
+				<D style={() => `a_row gap-[.2rem] overflow-x-auto no_scroll `}>
 					{dir(6)
 						.fill()
 						.map((v, i) => (
-							<D style={() => ` h-[8rem] w-[16rem] hover:w-[32rem] hover:h-[16rem]  `}>
+							<D style={() => `h-[8rem] w-[16rem] hover:w-[32rem] hover:mr-[8.8rem] `}>
 								<P
-									value={() => (i == 1 ? car3 : car4)}
-									style={() => `e_full h-[8rem] w-[16rem] hover:z_put hover:w-[32rem] hover:h-[16rem] hover:top-[-4rem] `}
+									value={() => (i % 2 == 1 ? car3 : car4)}
+									style={() =>
+										`h-[8rem] w-[16rem] hover:z_put hover:w-[32rem] hover:h-[16rem] hover:bottom-[-4rem] `
+									}
 								/>
 							</D>
 						))}
@@ -96,7 +98,7 @@ export default () => {
 				click={() => mute(!mute())}
 				style={() => `w_full e_full aspect-[25/10]`}
 			/>
-			<D style={() => ` a_col gap-[2.5rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
+			<D style={() => `a_col gap-[2.5rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
 				<Tape first={true} title="New Releases" />
 				<Tape title="Trending Now" />
 				<Tape title="Popular on Netflix" />
