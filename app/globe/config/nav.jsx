@@ -13,7 +13,7 @@ import {
 	V,
 	P,
 } from "~/globe/config/shop"
-import {SearchIcon, MenuIcon} from "~/globe/asset/icon"
+import {SearchIcon, MenuIcon, BellIcon} from "~/globe/asset/icon"
 import logo from "~/globe/asset/logo.png"
 // import Searcher from "~/search/searcher"
 
@@ -61,6 +61,7 @@ export default () => {
 					<SearchIcon style={() => `w-[1rem] h-[1rem] ic_white ibc_white iw_1`} />
 					<T>KIDS</T>
 					<T>DVD</T>
+					<B style={() => `w-[1.25rem] h-[1.25rem] tc_white fill-white`}><BellIcon/></B>
 				</D>
 			</D>
 

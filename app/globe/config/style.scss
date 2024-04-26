@@ -4,8 +4,8 @@
 $white: white;
 $black: black;
 $c_1: red;
-$grey_1: rgb(144, 144, 144);
-$grey_2: rgb(20, 20, 20);
+$grey_1: #c1c1c1;
+$grey_2: #141414;
 $red: red;
 @layer utilities {
 	// use rem, based of root
@@ -40,9 +40,12 @@ $red: red;
 	}
 	/* text size */
 	.ts_1 {
-		font-size: 0.8rem;
+		font-size: .8rem;
 	}
 	.ts_2 {
+		font-size: .95rem;
+	}
+	.ts_3 {
 		font-size: 1.1rem;
 	}
 	/* text fam */
@@ -171,33 +174,7 @@ $red: red;
 		stroke: $grey_1;
 	}
 	/* viewport - see config (v1 - v5) */
-	/* round */
-	.r_null {
-		border-radius: 0rem;
-	}
-	.r_full {
-		border-radius: 100rem;
-	}
-	.rt_full {
-		border-top-left-radius: 100rem;
-		border-top-right-radius: 100rem;
-	}
-	.rb_full {
-		border-bottom-left-radius: 100rem;
-		border-bottom-right-radius: 100rem;
-	}
-	.r_1 {
-		border-radius: 0.75rem;
-	}
-	.rb_1 {
-		border-bottom-left-radius: 0.75rem;
-		border-bottom-right-radius: 0.75rem;
-	}
-	.rt_1 {
-		border-top-left-radius: 0.75rem;
-		border-top-right-radius: 0.75rem;
-	}
-
+	/* rounded */
 	// overflow
 	.no_scroll::-webkit-scrollbar {
 		display: none;
@@ -213,6 +190,7 @@ $red: red;
 	}
 	/* w_full, max_w-[10rem] */
 	/* align , flex has def dir of row*/
+	// todo justify, align
 	.a_null {
 		flex: none;
 	}

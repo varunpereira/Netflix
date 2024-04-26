@@ -19,7 +19,8 @@ import car1 from "~/home/asset/1.jpg"
 import car2 from "~/home/asset/2.jpg"
 import car3 from "~/home/asset/3.jpg"
 import car4 from "~/home/asset/4.jpg"
-import lotr_vid from "~/home/asset/lotr_1.mp4"
+import lotr_1 from "~/home/asset/lotr_1.mp4"
+import test_1 from "~/home/asset/test_1.mp4"
 import lotr_pic from "~/home/asset/lotr_1.png"
 import lotr_logo from "~/home/asset/lotr_1_logo.png"
 // import prod_short from "~/prod/short"
@@ -64,22 +65,20 @@ export default () => {
 		vid_playing(false)
 	}
 
-	var Tape = ({first, title}) => {
+	// video 16:9 fine
+
+	var Tape = ({title}) => {
 		return (
-			<D style={() => `z_fit `}>
-				<T style={() => `tw_5 ts_4 mb-[.5rem] ${first && `z_put top-[-2rem] `}`}>{title}</T>
-				<D style={() => `a_row gap-[.2rem] overflow-x-auto no_scroll `}>
-					{dir(6)
+			<D style={() => ``}>
+				<T style={() => `tw_5 ts_4 mb-[.5rem] `}>{title}</T>
+				<D style={() => `a_row gap-[.2rem] overflow-x-auto no_scroll  `}>
+					{dir(10)
 						.fill()
 						.map((v, i) => (
-							<D style={() => `h-[8rem] w-[16rem] hover:w-[32rem] hover:mr-[8.8rem] `}>
-								<P
-									value={() => (i % 2 == 1 ? car3 : car4)}
-									style={() =>
-										`h-[8rem] w-[16rem] hover:z_put hover:w-[32rem] hover:h-[16rem] hover:bottom-[-4rem] `
-									}
-								/>
-							</D>
+							<P
+								value={() => (i % 2 == 1 ? car3 : car4)}
+								style={() => `h-[8rem] w-[16rem] hover:w-[32rem] hover:h-[8rem]  `}
+							/>
 						))}
 				</D>
 			</D>
@@ -87,18 +86,53 @@ export default () => {
 	}
 
 	return (
-		<D style={() => `z_fit`}>
-			<V
-				def={() => lotr_pic}
-				value={() => lotr_vid}
-				mute={() => mute()}
-				rep={() => true}
-				hover_in={hover_in}
-				hover_out={hover_out}
-				click={() => mute(!mute())}
-				style={() => `w_full e_full aspect-[25/10]`}
-			/>
-			<D style={() => `a_col gap-[2.5rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
+		<D style={() => ``}>
+			<D style={() => `z_fit `}>
+				<D
+					style={() =>
+						"z_put w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
+					}>
+					<P value={()=>lotr_logo} style={() => `w_fit`}/>
+					<T style={() => `my-[1rem]`}>Six people go out into the woods. Only 4 return...</T>
+					<D style={() => `a_row gap-[.75rem]`}>
+						<B
+							style={() =>
+								`c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`
+							}>
+							Play
+						</B>
+						<B
+							style={() =>
+								`c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `
+							}>
+							My List
+						</B>
+					</D>
+				</D>
+				<V
+					value={() => test_1}
+					mute={() => mute()}
+					rep={() => true}
+					hover_in={hover_in}
+					hover_out={hover_out}
+					click={() => mute(!mute())}
+					style={() => `w_full e_full aspect-[20/10] z-[1]`}
+				/>
+				<D
+					style={() =>
+						"z_put z-[2] bottom-[0rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[4rem]"
+					}
+				/>
+				<D
+					style={() =>
+						"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"
+					}
+				/>
+			</D>
+			<D
+				style={() =>
+					`z_fit z-[2] mt-[-6rem] a_col gap-[2rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
+				}>
 				<Tape first={true} title="New Releases" />
 				<Tape title="Trending Now" />
 				<Tape title="Popular on Netflix" />
