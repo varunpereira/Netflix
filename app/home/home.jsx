@@ -39,11 +39,8 @@ export default () => {
 	var mute = state(true)
 	var vid_playing = state(false)
 	var event = state()
-	var prod = state([])
-	var pages = state()
 	var chosenSlider = state(null)
-	var tape_data = state([`New Releases`])
-	// `Trending Now`, `Popular on Netflix`
+	var tape_data = state([`New Releases`, `Trending Now`, `Popular on Netflix`])
 	var chosenSlide = state(null)
 
 	construct(async () => {
@@ -73,32 +70,24 @@ export default () => {
 
 	var Tape = ({title, i}) => {
 		return (
-			<div class={`bg-red-400 w-full`}>
-				<p class={`tw_5 ts_4 mb-[-30px] bg-blue-400`}>{title}</p>
+			<div>
+				<p class={`tw_5 ts_4 mb-[-60px]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
 					onMouseLeave={() => chosenSlider(null)}
-					class={`h-[200px] w-full a_row items-center justify-start gap-[10px] overflow-auto no_scroll bg-green-400`}>
+					class={`h-[260px] w-full a_row items-center justify-start gap-[10px] overflow-auto no_scroll`}>
 					{dir(10)
 						.fill()
-						.map(
-							() => (
-								<div>
-									<div class="z_fit w-[300px] h-[130px] bg-yellow-500 hover:h-[260px] hover:w-[400px]">
-									<img src={car1} class={`z_put w-[300px] h-[130px] hover:h-[260px] hover:w-[400px] hover:top-[-30px]`}/>
-									{/* <div
-										class={`z_put  top-[-10px]  bg-red-500 border-4 border-black w-[310px] h-[30px]`}
-									></div> */}
-								</div>
-								</div>
-							),
-						)}
-					{/* <button
+						.map(() => (
+							<img src={car1} class={`w-[300px] h-[130px] hover:h-[260px] hover:w-[400px] `} />
+						))}
+					{/* if wanting, div > rel > abs */}
+					<button
 						class={
 							"z_put z-[5] c_black opacity-[.6] right-0 w-[4.2rem] h-[130px] a_row justify-center items-center"
 						}>
 						{chosenSlider() === i && <div class={`text-3xl`}>&#10095;</div>}
-					</button> */}
+					</button>
 				</div>
 			</div>
 		)
@@ -152,26 +141,9 @@ export default () => {
 				style={() =>
 					`z_fit z-[2] w-full h-full mt-[-6rem] a_col gap-[2rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
 				}>
-				<>
-					{tape_data().map((v, i) => (
-						<Tape title={v} i={i} />
-					))}
-
-					<div class={`z_fit z-[3] w-full h-[400px] mt-[200px] `}>
-						<div
-							class={`z_put z-[4]  w-full items-end h-[300px] bg-yellow-500  a_row gap-[3px] overflow-x-auto no_scroll`}>
-							{dir(5)
-								.fill()
-								.map(() => (
-									<div class="z_fit z-[5] bg-white w-[400px] h-[130px] ">
-										<div
-											class={`z_put z-[6]  top-[-100px]  bg-red-500 border-4 border-black w-[400px] h-[130px]`}
-										/>
-									</div>
-								))}
-						</div>
-					</div>
-				</>
+				{tape_data().map((v, i) => (
+					<Tape title={v} i={i} />
+				))}
 			</D>
 		</D>
 	)
