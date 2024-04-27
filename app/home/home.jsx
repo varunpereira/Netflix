@@ -70,12 +70,12 @@ export default () => {
 
 	var Tape = ({title, i}) => {
 		return (
-			<div>
-				<p class={`tw_5 ts_4 mb-[-60px]`}>{title}</p>
+			<div class={`z_fit mt-[-2rem]`}>
+				<p class={`tw_5 ts_4 mb-[-58px]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
 					onMouseLeave={() => chosenSlider(null)}
-					class={`h-[260px] w-full a_row items-center justify-start gap-[10px] overflow-auto no_scroll`}>
+					class={`h-[260px] w-full a_row items-center justify-start gap-[.2rem] overflow-auto no_scroll`}>
 					{dir(10)
 						.fill()
 						.map(() => (
@@ -101,7 +101,7 @@ export default () => {
 						"z_put z-[1] w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
 					}>
 					<P value={() => lotr_logo} style={() => `w_fit`} />
-					<T style={() => `my-[1rem]`}>Six people go out into the woods. Only 4 return...</T>
+					<T style={() => `my-[1rem]`}>Six people go into the woods. But twelve return...</T>
 					<D style={() => `a_row gap-[.75rem]`}>
 						<B
 							style={() =>
@@ -139,7 +139,7 @@ export default () => {
 			</D>
 			<D
 				style={() =>
-					`z_fit z-[2] w-full h-full mt-[-6rem] a_col gap-[2rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
+					`z_fit z-[2] w-full h-full mt-[-6rem] a_col v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
 				}>
 				{tape_data().map((v, i) => (
 					<Tape title={v} i={i} />
