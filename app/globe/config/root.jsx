@@ -21,7 +21,7 @@ page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 min-w-[320
 render(
 	() => (
 		<Router>
-			<D style={()=>`z_fit min-w-[20rem] v2:max-w-[60rem] v5:max-w-[150rem] mx_auto`}>
+			<D style={()=>`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[150rem] mx_auto `}>
 				<Nav />
 				<Routes>
 					{route?.map((route) => (

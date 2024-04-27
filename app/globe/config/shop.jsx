@@ -72,7 +72,7 @@ export var T = ({style = () => "", children, ...rest}) => (
 )
 
 export var B = ({style = () => "", click = () => "", children, ...rest}) => (
-	<button onClick={click} class={style() + " o_null"} type="button" {...rest}>
+	<button onClick={click} type="button" class={style()} {...rest}>
 		{children}
 	</button>
 )

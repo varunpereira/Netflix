@@ -23,6 +23,7 @@ import lotr_1 from "~/home/asset/lotr_1.mp4"
 import test_1 from "~/home/asset/test_1.mp4"
 import lotr_pic from "~/home/asset/lotr_1.png"
 import lotr_logo from "~/home/asset/lotr_1_logo.png"
+import {ChevronRightIcon} from "../globe/asset/icon"
 // import prod_short from "~/prod/short"
 
 export default () => {
@@ -40,7 +41,10 @@ export default () => {
 	var event = state()
 	var prod = state([])
 	var pages = state()
-	var chosen = state(null)
+	var chosenSlider = state(null)
+	var tape_data = state([`New Releases`])
+	// `Trending Now`, `Popular on Netflix`
+	var chosenSlide = state(null)
 
 	construct(async () => {
 		page.title = `Home - Netflix`
@@ -65,34 +69,49 @@ export default () => {
 		vid_playing(false)
 	}
 
-	// video 16:9 fine
+	// video 16:9 fine, use unicode
 
-	var Tape = ({title}) => {
+	var Tape = ({title, i}) => {
 		return (
-			<D style={() => ``}>
-				<T style={() => `tw_5 ts_4 mb-[.5rem] `}>{title}</T>
-				<D style={() => `a_row gap-[.2rem] overflow-x-auto no_scroll  `}>
+			<div class={`bg-red-400 w-full`}>
+				<p class={`tw_5 ts_4 mb-[-30px] bg-blue-400`}>{title}</p>
+				<div
+					onMouseOver={() => chosenSlider(i)}
+					onMouseLeave={() => chosenSlider(null)}
+					class={`h-[200px] w-full a_row items-center justify-start gap-[10px] overflow-auto no_scroll bg-green-400`}>
 					{dir(10)
 						.fill()
-						.map((v, i) => (
-							<P
-								value={() => (i % 2 == 1 ? car3 : car4)}
-								style={() => `h-[8rem] w-[16rem] hover:w-[32rem] hover:h-[8rem]  `}
-							/>
-						))}
-				</D>
-			</D>
+						.map(
+							() => (
+								<div>
+									<div class="z_fit w-[300px] h-[130px] bg-yellow-500 hover:h-[260px] hover:w-[400px]">
+									<img src={car1} class={`z_put w-[300px] h-[130px] hover:h-[260px] hover:w-[400px] hover:top-[-30px]`}/>
+									{/* <div
+										class={`z_put  top-[-10px]  bg-red-500 border-4 border-black w-[310px] h-[30px]`}
+									></div> */}
+								</div>
+								</div>
+							),
+						)}
+					{/* <button
+						class={
+							"z_put z-[5] c_black opacity-[.6] right-0 w-[4.2rem] h-[130px] a_row justify-center items-center"
+						}>
+						{chosenSlider() === i && <div class={`text-3xl`}>&#10095;</div>}
+					</button> */}
+				</div>
+			</div>
 		)
 	}
 
 	return (
 		<D style={() => ``}>
-			<D style={() => `z_fit `}>
+			<D style={() => `z_fit z-[1] `}>
 				<D
 					style={() =>
-						"z_put w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
+						"z_put z-[1] w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
 					}>
-					<P value={()=>lotr_logo} style={() => `w_fit`}/>
+					<P value={() => lotr_logo} style={() => `w_fit`} />
 					<T style={() => `my-[1rem]`}>Six people go out into the woods. Only 4 return...</T>
 					<D style={() => `a_row gap-[.75rem]`}>
 						<B
@@ -116,7 +135,7 @@ export default () => {
 					hover_in={hover_in}
 					hover_out={hover_out}
 					click={() => mute(!mute())}
-					style={() => `w_full e_full aspect-[20/10] z-[1]`}
+					style={() => `w_full e_full aspect-[20/10] `}
 				/>
 				<D
 					style={() =>
@@ -131,11 +150,28 @@ export default () => {
 			</D>
 			<D
 				style={() =>
-					`z_fit z-[2] mt-[-6rem] a_col gap-[2rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
+					`z_fit z-[2] w-full h-full mt-[-6rem] a_col gap-[2rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
 				}>
-				<Tape first={true} title="New Releases" />
-				<Tape title="Trending Now" />
-				<Tape title="Popular on Netflix" />
+				<>
+					{tape_data().map((v, i) => (
+						<Tape title={v} i={i} />
+					))}
+
+					<div class={`z_fit z-[3] w-full h-[400px] mt-[200px] `}>
+						<div
+							class={`z_put z-[4]  w-full items-end h-[300px] bg-yellow-500  a_row gap-[3px] overflow-x-auto no_scroll`}>
+							{dir(5)
+								.fill()
+								.map(() => (
+									<div class="z_fit z-[5] bg-white w-[400px] h-[130px] ">
+										<div
+											class={`z_put z-[6]  top-[-100px]  bg-red-500 border-4 border-black w-[400px] h-[130px]`}
+										/>
+									</div>
+								))}
+						</div>
+					</div>
+				</>
 			</D>
 		</D>
 	)
