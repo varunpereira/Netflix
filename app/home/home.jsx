@@ -28,7 +28,7 @@ export default () => {
 	var nav = route()
 	var mute = state(true)
 	var chosenSlider = state(null)
-	var tape_data = state([`Trending Now`, `New Releases`,  `Popular on Netflix`])
+	var tape_data = state([`Trending Now`, `New Releases`, `Popular on Netflix`])
 	var chosenSlide = state(null)
 	var video_ref
 
@@ -49,41 +49,29 @@ export default () => {
 		// timer.cut(car_interv)
 	})
 
-	function shuffle(array) {
-		let currentIndex = array.length;
-	
-		// While there remain elements to shuffle...
-		while (currentIndex != 0) {
-	
-			// Pick a remaining element...
-			let randomIndex = Math.floor(Math.random() * currentIndex);
-			currentIndex--;
-	
-			// And swap it with the current element.
-			[array[currentIndex], array[randomIndex]] = [
-				array[randomIndex], array[currentIndex]];
-		}
-	}
-
 	// video 16:9 fine,
 
 	var Tape = ({title, i}) => {
 		return (
-			<div class={`z_fit mt-[-2rem]`}>
+			<div class={`z_fit z-[3] mt-[-2rem]`}>
 				<p class={`tw_5 ts_4 mb-[-58px]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
-					onMouseLeave={() => chosenSlider(null)}
-					class={`h-[260px] w-full a_row items-center justify-start gap-[.2rem] overflow-auto no_scroll`}>
+					onMouseLeave={() => "chosenSlider(null)"}
+					class={`h-[260px] w-full a_row items-center justify-start gap-[.3rem] overflow-auto no_scroll`}>
 					{dir(22)
 						.fill()
-						.map((v,i2) => (
-							<img src={`/home/trending/${i2+1}.jpg`} class={`w-[300px] h-[130px] hover:h-[260px] hover:w-[400px] `} />
+						.map((v, i2) => (
+							<img
+								src={`/home/trending/${i2 + 1}.jpg`}
+								class={`w-[300px] h-[130px] hover:h-[260px] hover:w-[400px] `}
+							/>
 						))}
 					{/* if wanting, div > rel > abs */}
 					<button
+						type="button"
 						class={
-							"z_put z-[5] c_black opacity-[.6] right-0 w-[4.2rem] h-[130px] a_row justify-center items-center"
+							"z_put z-[4] c_black opacity-[.6] right-0 w-[4.2rem] h-[130px] a_row justify-center items-center"
 						}>
 						{chosenSlider() === i && (
 							<div class={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>

@@ -15,7 +15,7 @@ import {
 	P,
 	I,
 } from "~/config/shop"
-import {cart_icon, search_icon, close_icon, mic_icon} from "~/pieces/icon"
+import {search_icon, close_icon, mic_icon} from "~/pieces/icon"
 
 export default () => {
 	var nav = route()

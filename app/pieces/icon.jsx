@@ -64,6 +64,23 @@ export var DownTriangleIcon = () => (
 	</svg>
 )
 
+export var CrossIcon = () => (
+	<svg
+		class="svg-snoweb svg-theme-dark"
+		preserveaspectratio="xMidYMid meet"
+		viewbox="0 0 100 100"
+		x="0"
+		xmlns="http://www.w3.org/2000/svg"
+		y="0">
+		<path
+			class="svg-stroke-primary"
+			d="M13.7,86.3,86.3,13.7m-72.6,0L86.3,86.3"
+			fill="none"
+			stroke-linecap="round"
+			stroke-linejoin="round"></path>
+	</svg>
+)
+
 export var close_icon = ({style = () => ""}) => (
 	<svg viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class={style()}>
 		<path d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" />
