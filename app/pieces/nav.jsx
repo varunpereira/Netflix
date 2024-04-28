@@ -35,7 +35,8 @@ export default () => {
 		view.cut_listen("resize", handler)
 	})
 
-	react(() => {})
+	react(() => {
+	})
 
 	var form_submit = async (term) => {
 		term.trim() !== "" && nav("/search/" + encodeURIComponent(term) + "/1")
@@ -64,6 +65,7 @@ export default () => {
 				<D style={() => `a_row ax_equal gap-[1.2rem] `}>
 					{see_search() === true ? (
 						<div
+							style={`transition: width 5s, height 2s;`}
 							class={`a_row items-center w-[14rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]`}>
 							<B
 								click={() => {
@@ -74,18 +76,17 @@ export default () => {
 							</B>
 							<I
 								value={() => form_data().search}
-								input={(e) => form_data({search: e.target.value, ...form_data()})}
+								input={(e) => form_data({...form_data(), search: e.target.value})}
 								holder={() => "Title, people, genres"}
-								style={() => `outline-none c_black tc_white ml-[.3rem] mr-[.2rem]`}
+								style={() => ` c_black tc_white ml-[.3rem] w-full`}
 							/>
-							{form_data().search.trim() !== "" ||
-								(true && (
-									<B
-										click={form_data({search: "", ...form_data()})}
-										style={() => `w-[.75rem] h-[.75rem] stroke-white stroke-[1rem] mr-0 `}>
-										<CrossIcon />
-									</B>
-								))}
+							{form_data().search.trim() !== "" && (
+								<B
+									click={() => form_data({...form_data(), search: ""})}
+									style={() => `ml-[.2rem] mr-[.3rem] w-[.75rem] h-[.75rem] stroke-white stroke-[1rem]`}>
+									<CrossIcon />
+								</B>
+							)}
 						</div>
 					) : (
 						<B

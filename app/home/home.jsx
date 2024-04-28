@@ -30,13 +30,13 @@ export default () => {
 	var chosenSlider = state(null)
 	var tape_data = state([`Trending Now`, `New Releases`, `Popular on Netflix`])
 	var chosenSlide = state(null)
+	var isPlaying = state(false)
 	var video_ref
 
-	const handlePlayPause = () => {
-		if (isPlaying) video_ref.current.pause()
-		else video_ref.current.play()
-		setIsPlaying(!isPlaying)
-	}
+	react(()=>{
+		if (isPlaying()) video_ref.pause()
+		else video_ref.play()
+	})
 
 	construct(async () => {
 		page.title = `Home - Netflix`
@@ -87,8 +87,8 @@ export default () => {
 	return (
 		<D style={() => ``}>
 			<D
-				hover_in={handlePlayPause}
-				hover_out={handlePlayPause}
+				hover_in={()=>isPlaying(false)}
+				hover_out={()=>isPlaying(true)}
 				click={() => mute(!mute())}
 				style={() => `z_fit z-[1] `}>
 				<D
@@ -96,13 +96,13 @@ export default () => {
 						"z_put z-[1] w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
 					}>
 					<img src={`/home/lotr_1_logo.png`} class={`w_fit`} />
-					<T style={() => `my-[1rem]`}>Six people go into the woods. But twelve return...</T>
+					<T style={() => `my-[1rem]`}>Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.</T>
 					<D style={() => `a_row gap-[.75rem]`}>
 						<B
 							style={() =>
-								`c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`
+								`z_fit c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`
 							}>
-							Play
+							<T>Play</T>
 						</B>
 						<B
 							style={() =>
@@ -114,7 +114,8 @@ export default () => {
 				</D>
 				<video
 					ref={video_ref}
-					src={`/home/test_1.mp4`}
+					src={`/home/lotr_2.mp4`}
+					poster="/home/lotr_1.png"
 					muted={mute()}
 					loop={true}
 					class={`w_full e_full aspect-[20/10] `}

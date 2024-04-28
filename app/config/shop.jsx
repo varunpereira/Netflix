@@ -57,9 +57,25 @@ export var dir = Array
 export var dic = Object
 
 // structs
-export var D = ({style = () => "", key = () => "", custom = () => "", children, ...rest}) => {
+export var D = ({
+	style = () => "",
+	click = () => "",
+	key = () => "",
+	hover_in = () => "",
+	hover_out = () => "",
+	custom = () => "",
+	children,
+	...rest
+}) => {
 	return (
-		<div onKeyDown={key} use:custom class={style()} {...rest}>
+		<div
+			onClick={click}
+			onKeyDown={key}
+			onMouseOver={hover_in}
+			onMouseLeave={hover_out}
+			use:custom
+			class={style()}
+			{...rest}>
 			{children}
 		</div>
 	)
@@ -71,7 +87,14 @@ export var T = ({style = () => "", children, ...rest}) => (
 	</p>
 )
 
-export var B = ({style = () => "", click = () => "", children, ...rest}) => (
+export var B = ({
+	style = () => "",
+	click = () => "",
+	hover_in = () => "",
+	hover_out = () => "",
+	children,
+	...rest
+}) => (
 	<button onClick={click} type="button" class={style()} {...rest}>
 		{children}
 	</button>
