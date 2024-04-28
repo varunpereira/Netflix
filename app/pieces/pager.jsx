@@ -12,8 +12,8 @@ import {
 	globe,
 	dir,
 	num,
-} from "~/globe/shop"
-import {right_icon, left_icon} from "~/globe/asset/icon"
+} from "~/shop"
+import {right_icon, left_icon} from "~/pieces/icon"
 
 export default ({cur, size, link}) => {
 	var nav = route()

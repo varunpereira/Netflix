@@ -12,9 +12,8 @@ import {
 	B,
 	V,
 	P,
-} from "~/globe/config/shop"
-import {SearchIcon, MenuIcon, BellIcon} from "~/globe/asset/icon"
-import logo from "~/globe/asset/logo.png"
+} from "~/config/shop"
+import {SearchIcon, MenuIcon, BellIcon, DownTriangleIcon} from "~/pieces/icon"
 // import Searcher from "~/search/searcher"
 
 export default () => {
@@ -22,7 +21,7 @@ export default () => {
 	var nav = route()
 	var acc_click = state(false)
 	var menu_click = state(false)
-	var menu_options = ["Home", "TV Shows", "Movies", "New & Popular", "My List"]
+	var menu_options = ["Home", "TV Shows", "Movies", "Latest", "My List"]
 	var opt_pick = state(0)
 
 	construct(async () => {
@@ -45,7 +44,7 @@ export default () => {
 				"z_put z-[2] c_null a_row my-[1.25rem] w_full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]"
 			}>
 			<B click={() => nav("/")} style={() => "tc_1 tw_1 ts_3 mr-[2.5rem]"}>
-				<P value={() => logo} style={() => `w-[6rem]`} />
+				<img src={'/logo.png'} class={`w-[6rem]`} />
 			</B>
 			<D style={() => `a_row ax_equal w_full tc_grey ts_1`}>
 				<D style={() => `a_row ax_equal gap-[1rem] `}>
@@ -57,11 +56,20 @@ export default () => {
 						</B>
 					))}
 				</D>
-				<D style={() => `a_row ax_equal gap-[1rem] `}>
-					<SearchIcon style={() => `w-[1rem] h-[1rem] ic_white ibc_white iw_1`} />
-					<T>KIDS</T>
-					<T>DVD</T>
-					<B style={() => `w-[1.25rem] h-[1.25rem] tc_white fill-white`}><BellIcon/></B>
+				<D style={() => `a_row ax_equal gap-[1.2rem] `}>
+					<B style={() => `w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem] `}>
+						<SearchIcon />
+					</B>
+					<T>Kids</T>
+					<B style={() => `w-[1.5rem] h-[1.5rem] stroke-white fill-white mt-[-.2rem]`}>
+						<BellIcon />
+					</B>
+					<B style={() => `a_row`}>
+						<img src={`/profile.jpg`} class={`w-[1.75rem] h-[1.75rem] mt-[-.4rem] mr-[.5rem]`} />
+						<div class={`w-[.8rem] h-[.4rem] ic_white a_row mt-[.5rem]`}>
+							<DownTriangleIcon />
+						</div>
+					</B>
 				</D>
 			</D>
 

@@ -12,9 +12,9 @@ import {
 	page,
 	req,
 	path,
-} from "~/globe/shop"
+} from "~/shop"
 import prod_short from "~/prod/short"
-import pager from "~/globe/piece/pager"
+import pager from "~/piece/pager"
 
 export default () => {
 	var nav = route()

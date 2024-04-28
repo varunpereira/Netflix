@@ -6,8 +6,9 @@ export default defineConfig({
 	server: {
 		port: 4000,
 	},
+	publicDir:'assets', // public
 	build: {
-		// outDir: "dist",
+		outDir: "build", // dist
 		target: "esnext",
 	},
 	resolve: {

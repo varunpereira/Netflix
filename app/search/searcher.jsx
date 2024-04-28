@@ -14,8 +14,8 @@ import {
 	V,
 	P,
 	I,
-} from "~/globe/config/shop"
-import {cart_icon, search_icon, close_icon, mic_icon} from "~/globe/asset/icon"
+} from "~/config/shop"
+import {cart_icon, search_icon, close_icon, mic_icon} from "~/pieces/icon"
 
 export default () => {
 	var nav = route()

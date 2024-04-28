@@ -13,8 +13,8 @@ import {
 	B,
 	V,
 	P,
-} from "~/globe/config/shop"
-import logo from "~/globe/asset/logo.png"
+} from "~/config/shop"
+import logo from "~/pieces/logo.png"
 
 export default () => {
 	var nav = route()

@@ -13,7 +13,7 @@ import {
 	B,
 	V,
 	P,
-} from "~/globe/config/shop"
+} from "~/config/shop"
 
 export default () => {
 	var nav = route()

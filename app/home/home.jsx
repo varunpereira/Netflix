@@ -14,34 +14,29 @@ import {
 	B,
 	V,
 	P,
-} from "~/globe/config/shop"
-import car1 from "~/home/asset/1.jpg"
-import car2 from "~/home/asset/2.jpg"
-import car3 from "~/home/asset/3.jpg"
-import car4 from "~/home/asset/4.jpg"
-import lotr_1 from "~/home/asset/lotr_1.mp4"
-import test_1 from "~/home/asset/test_1.mp4"
-import lotr_pic from "~/home/asset/lotr_1.png"
-import lotr_logo from "~/home/asset/lotr_1_logo.png"
-import {ChevronRightIcon} from "../globe/asset/icon"
-// import prod_short from "~/prod/short"
+} from "~/config/shop"
+import {ChevronRightIcon} from "~/pieces/icon"
 
 export default () => {
-	var car = state([car1, car2, car3, car4])
-	var car_index = state(0)
-	var car_interv = timer.put(() => {
-		car_index((i) => {
-			if (i == car().length) i = 0
-			return (i + 1) % car().length
-		})
-	}, 3000)
+	// var car_index = state(0)
+	// var car_interv = timer.put(() => {
+	// 	car_index((i) => {
+	// 		if (i == car().length) i = 0
+	// 		return (i + 1) % car().length
+	// 	})
+	// }, 3000)
 	var nav = route()
 	var mute = state(true)
-	var vid_playing = state(false)
-	var event = state()
 	var chosenSlider = state(null)
-	var tape_data = state([`New Releases`, `Trending Now`, `Popular on Netflix`])
+	var tape_data = state([`Trending Now`, `New Releases`,  `Popular on Netflix`])
 	var chosenSlide = state(null)
+	var video_ref
+
+	const handlePlayPause = () => {
+		if (isPlaying) video_ref.current.pause()
+		else video_ref.current.play()
+		setIsPlaying(!isPlaying)
+	}
 
 	construct(async () => {
 		page.title = `Home - Netflix`
@@ -51,22 +46,26 @@ export default () => {
 	})
 
 	destruct(() => {
-		timer.cut(car_interv)
+		// timer.cut(car_interv)
 	})
 
-	var hover_in = (e) => {
-		e.target.play()
-		event(e)
-		vid_playing(true)
+	function shuffle(array) {
+		let currentIndex = array.length;
+	
+		// While there remain elements to shuffle...
+		while (currentIndex != 0) {
+	
+			// Pick a remaining element...
+			let randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex--;
+	
+			// And swap it with the current element.
+			[array[currentIndex], array[randomIndex]] = [
+				array[randomIndex], array[currentIndex]];
+		}
 	}
 
-	var hover_out = (e) => {
-		e.target.pause()
-		event(e)
-		vid_playing(false)
-	}
-
-	// video 16:9 fine, use unicode
+	// video 16:9 fine,
 
 	var Tape = ({title, i}) => {
 		return (
@@ -76,17 +75,21 @@ export default () => {
 					onMouseOver={() => chosenSlider(i)}
 					onMouseLeave={() => chosenSlider(null)}
 					class={`h-[260px] w-full a_row items-center justify-start gap-[.2rem] overflow-auto no_scroll`}>
-					{dir(10)
+					{dir(22)
 						.fill()
-						.map(() => (
-							<img src={car1} class={`w-[300px] h-[130px] hover:h-[260px] hover:w-[400px] `} />
+						.map((v,i2) => (
+							<img src={`/home/trending/${i2+1}.jpg`} class={`w-[300px] h-[130px] hover:h-[260px] hover:w-[400px] `} />
 						))}
 					{/* if wanting, div > rel > abs */}
 					<button
 						class={
 							"z_put z-[5] c_black opacity-[.6] right-0 w-[4.2rem] h-[130px] a_row justify-center items-center"
 						}>
-						{chosenSlider() === i && <div class={`text-3xl`}>&#10095;</div>}
+						{chosenSlider() === i && (
+							<div class={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
+								<ChevronRightIcon />
+							</div>
+						)}
 					</button>
 				</div>
 			</div>
@@ -95,12 +98,16 @@ export default () => {
 
 	return (
 		<D style={() => ``}>
-			<D style={() => `z_fit z-[1] `}>
+			<D
+				hover_in={handlePlayPause}
+				hover_out={handlePlayPause}
+				click={() => mute(!mute())}
+				style={() => `z_fit z-[1] `}>
 				<D
 					style={() =>
 						"z_put z-[1] w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
 					}>
-					<P value={() => lotr_logo} style={() => `w_fit`} />
+					<img src={`/home/lotr_1_logo.png`} class={`w_fit`} />
 					<T style={() => `my-[1rem]`}>Six people go into the woods. But twelve return...</T>
 					<D style={() => `a_row gap-[.75rem]`}>
 						<B
@@ -117,14 +124,12 @@ export default () => {
 						</B>
 					</D>
 				</D>
-				<V
-					value={() => test_1}
-					mute={() => mute()}
-					rep={() => true}
-					hover_in={hover_in}
-					hover_out={hover_out}
-					click={() => mute(!mute())}
-					style={() => `w_full e_full aspect-[20/10] `}
+				<video
+					ref={video_ref}
+					src={`/home/test_1.mp4`}
+					muted={mute()}
+					loop={true}
+					class={`w_full e_full aspect-[20/10] `}
 				/>
 				<D
 					style={() =>

@@ -1,11 +1,10 @@
 import {render} from "solid-js/web"
 import {Router, Routes, Route} from "@solidjs/router"
-import "~/globe/config/style.scss"
-import {page, D} from "~/globe/config/shop"
-import logo from "~/globe/asset/logo_tab.png"
-import Nav from "~/globe/config/nav"
-import Footer from "~/globe/config/footer"
-import def from "~/globe/config/def"
+import "~/config/style.scss"
+import {page, D} from "~/config/shop"
+import Nav from "~/pieces/nav"
+import Footer from "~/pieces/footer"
+import def from "~/pieces/def"
 import home from "~/home/home"
 
 var route = [
@@ -14,7 +13,7 @@ var route = [
 ]
 
 page.title = "Netflix"
-page.getElementById("logo").href = logo
+page.getElementById("logo").href = '/logo_tab.png'
 page.getElementById("color").content = "c_grey_2"
 page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 min-w-[320px]"
 

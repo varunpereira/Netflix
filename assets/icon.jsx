@@ -1,11 +1,3 @@
-export var shop_icon = ({style = () => ""}) => (
-	<svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={style()}>
-		<path d="M5 7H19V17C19 18.6569 17.6569 20 16 20H8C6.34315 20 5 18.6569 5 17V7Z" />
-		<path d="M9 10L9 11C9 12.6569 10.3431 14 12 14V14C13.6569 14 15 12.6569 15 11L15 10" />
-		<path d="M7 4H17L19 7H5L7 4Z" />
-	</svg>
-)
-
 export var MenuIcon = ({style = () => ""}) => (
 	<svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={style()}>
 		<path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -14,42 +6,64 @@ export var MenuIcon = ({style = () => ""}) => (
 
 export var BellIcon = () => (
 	<svg
-		viewBox="-1.5 0 20 20"
-		version="1.1"
+		class="svg-snoweb svg-theme-dark"
+		preserveaspectratio="xMidYMid meet"
+		viewbox="0 0 100 100"
+		x="0"
 		xmlns="http://www.w3.org/2000/svg"
-		xmlns:xlink="http://www.w3.org/1999/xlink"
-		fill="currentColor">
-		<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-		<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-		<g id="SVGRepo_iconCarrier">
-			{" "}
-			<title>notification_bell [#1396]</title> <desc>Created with Sketch.</desc> <defs> </defs>{" "}
-			<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-				{" "}
-				<g
-					id="Dribbble-Light-Preview"
-					transform="translate(-221.000000, -720.000000)"
-					fill="currentColor">
-					{" "}
-					<g id="icons" transform="translate(56.000000, 160.000000)">
-						{" "}
-						<path
-							d="M177.75,574 L169.25,574 L169.25,568 C169.25,565.334 171.375,564 173.498937,564 L173.501063,564 C175.625,564 177.75,565.334 177.75,568 L177.75,574 Z M174.5625,577 C174.5625,577.552 174.0865,578 173.5,578 C172.9135,578 172.4375,577.552 172.4375,577 L172.4375,576 L174.5625,576 L174.5625,577 Z M179.875,572 L179.875,568 C179.875,564.447 177.359,562.475 174.5625,562.079 L174.5625,560 L172.4375,560 L172.4375,562.079 C169.641,562.475 167.125,564.447 167.125,568 L167.125,572 C167.125,573.105 166.174062,574 165,574 L165,576 L170.3125,576 L170.3125,577 C170.3125,578.657 171.739437,580 173.5,580 C175.260563,580 176.6875,578.657 176.6875,577 L176.6875,576 L182,576 L182,574 C180.825938,574 179.875,573.105 179.875,572 L179.875,572 Z"
-							id="notification_bell-[#1396]">
-							{" "}
-						</path>{" "}
-					</g>{" "}
-				</g>{" "}
-			</g>{" "}
-		</g>
+		y="0">
+		<path
+			class="svg-stroke-primary"
+			d="M61.7,69.5H81.2L75.7,64a8.3,8.3,0,0,1-2.3-5.6V46.1A23.4,23.4,0,0,0,57.8,24V22.7a7.8,7.8,0,1,0-15.6,0V24A23.4,23.4,0,0,0,26.6,46.1V58.4A8.3,8.3,0,0,1,24.3,64l-5.5,5.5H38.3m23.4,0v3.9a11.7,11.7,0,0,1-23.4,0V69.5m23.4,0H38.3"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			stroke-width="8"></path>
 	</svg>
 )
 
-export var SearchIcon = ({style = () => ""}) => (
-	<svg viewBox="0 0 24 24" stroke-width=".1" stroke="currentColor" class={style()}>
-		<path d="M10 5C7.23858 5 5 7.23858 5 10C5 12.7614 7.23858 15 10 15C11.381 15 12.6296 14.4415 13.5355 13.5355C14.4415 12.6296 15 11.381 15 10C15 7.23858 12.7614 5 10 5ZM3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 11.5719 16.481 13.0239 15.6063 14.1921L20.7071 19.2929C21.0976 19.6834 21.0976 20.3166 20.7071 20.7071C20.3166 21.0976 19.6834 21.0976 19.2929 20.7071L14.1921 15.6063C13.0239 16.481 11.5719 17 10 17C6.13401 17 3 13.866 3 10Z" />
+export var SearchIcon = () => (
+	<svg
+		class="svg-snoweb svg-theme-dark"
+		preserveaspectratio="xMidYMid meet"
+		viewbox="0 0 100 100"
+		x="0"
+		xmlns="http://www.w3.org/2000/svg"
+		y="0">
+		<path
+			class="svg-fill-primary"
+			d="M40.6,21.9A18.8,18.8,0,1,0,59.4,40.6,18.7,18.7,0,0,0,40.6,21.9Zm-28,18.7A28.1,28.1,0,1,1,63.5,56.9L86.1,79.4a4.7,4.7,0,0,1-6.7,6.7L56.9,63.5A28,28,0,0,1,12.6,40.6Z"
+			fill-rule="evenodd"></path>
 	</svg>
 )
+
+export var ChevronRightIcon = () => (
+	<svg
+		class="svg-snoweb svg-theme-dark"
+		preserveaspectratio="xMidYMid meet"
+		viewbox="0 0 100 100"
+		x="0"
+		xmlns="http://www.w3.org/2000/svg"
+		y="0">
+		<path
+			class="svg-stroke-primary"
+			d="M27.7,13.4,64.3,50,27.7,86.6"
+			fill="none"
+			stroke-linecap="round"
+			stroke-linejoin="round"></path>
+	</svg>
+)
+
+export var DownTriangleIcon = () => (
+	<svg
+		preserveaspectratio="none"
+		viewbox="0 0 100 100"
+		x="0"
+		xmlns="http://www.w3.org/2000/svg"
+		y="0">
+		<polygon class="svg-fill-primary" points="0 0 50 100 100 0 0 0"></polygon>
+	</svg>
+)
+
 export var close_icon = ({style = () => ""}) => (
 	<svg viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class={style()}>
 		<path d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" />
@@ -87,22 +101,21 @@ export var user_icon = ({style = () => ""}) => (
 		<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
 	</svg>
 )
+
+export var shop_icon = ({style = () => ""}) => (
+	<svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={style()}>
+		<path d="M5 7H19V17C19 18.6569 17.6569 20 16 20H8C6.34315 20 5 18.6569 5 17V7Z" />
+		<path d="M9 10L9 11C9 12.6569 10.3431 14 12 14V14C13.6569 14 15 12.6569 15 11L15 10" />
+		<path d="M7 4H17L19 7H5L7 4Z" />
+	</svg>
+)
+
 export var sign_in_icon = ({style = () => ""}) => (
 	<svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={style()}>
 		<path d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
 	</svg>
 )
-export var ChevronRightIcon = ({style = () => ""}) => (
-	<svg
-		viewbox="200 200 200 200"
-		class={style()}>
-		<path
-			d="M27.7,13.4,64.3,50,27.7,86.6"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			stroke-width="8"></path>
-	</svg>
-)
+
 export var left_icon = ({style = () => ""}) => (
 	<svg class={style() + " rotate-[180deg]"} viewBox="0 0 24 24" fill="none">
 		<path
