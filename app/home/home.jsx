@@ -53,7 +53,7 @@ export default () => {
 
 	var Tape = ({title, i}) => {
 		return (
-			<div class={`z_fit z-[3] mt-[-2rem]`}>
+			<div class={`z_fit z-[3]`}>
 				<p class={`tw_5 ts_4 mb-[-58px]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
@@ -114,11 +114,11 @@ export default () => {
 				</D>
 				<video
 					ref={video_ref}
-					src={`/home/lotr_2.mp4`}
+					src={`/home/lotr_1.mp4`}
 					poster="/home/lotr_1.png"
 					muted={mute()}
 					loop={true}
-					class={`w_full e_full aspect-[20/10] `}
+					class={`w_full e_full aspect-[16/9] hover:scale-200`}
 				/>
 				<D
 					style={() =>
@@ -133,7 +133,7 @@ export default () => {
 			</D>
 			<D
 				style={() =>
-					`z_fit z-[2] w-full h-full mt-[-6rem] a_col v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
+					`w-full h-full mt-[-12rem] a_col v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
 				}>
 				{tape_data().map((v, i) => (
 					<Tape title={v} i={i} />
