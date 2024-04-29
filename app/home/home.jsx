@@ -33,7 +33,7 @@ export default () => {
 	var isPlaying = state(false)
 	var video_ref
 
-	react(()=>{
+	react(() => {
 		if (isPlaying()) video_ref.pause()
 		else video_ref.play()
 	})
@@ -53,7 +53,7 @@ export default () => {
 
 	var Tape = ({title, i}) => {
 		return (
-			<div class={`z_fit z-[3]`}>
+			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] ${`mt-[-5rem]`}`}>
 				<p class={`tw_5 ts_4 mb-[-58px]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
@@ -71,7 +71,7 @@ export default () => {
 					<button
 						type="button"
 						class={
-							"z_put z-[4] c_black opacity-[.6] right-0 w-[4.2rem] h-[130px] a_row justify-center items-center"
+							"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[130px] a_row justify-center items-center"
 						}>
 						{chosenSlider() === i && (
 							<div class={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
@@ -87,8 +87,8 @@ export default () => {
 	return (
 		<D style={() => ``}>
 			<D
-				hover_in={()=>isPlaying(false)}
-				hover_out={()=>isPlaying(true)}
+				hover_in={() => isPlaying(false)}
+				hover_out={() => isPlaying(true)}
 				click={() => mute(!mute())}
 				style={() => `z_fit z-[1] `}>
 				<D
@@ -96,7 +96,10 @@ export default () => {
 						"z_put z-[1] w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
 					}>
 					<img src={`/home/lotr_1_logo.png`} class={`w_fit`} />
-					<T style={() => `my-[1rem]`}>Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.</T>
+					<T style={() => `my-[1rem]`}>
+						Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
+						Frodo and Sam as they approach Mount Doom with the One Ring.
+					</T>
 					<D style={() => `a_row gap-[.75rem]`}>
 						<B
 							style={() =>
@@ -133,7 +136,7 @@ export default () => {
 			</D>
 			<D
 				style={() =>
-					`w-full h-full mt-[-12rem] a_col v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
+					`w-full h-full mt-[-8rem] a_col gap-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
 				}>
 				{tape_data().map((v, i) => (
 					<Tape title={v} i={i} />
