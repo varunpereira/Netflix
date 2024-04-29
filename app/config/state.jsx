@@ -1,5 +1,5 @@
 import {
 	state,
-} from "~/shop"
+} from "~/config/shop"
 
 export var test = state('')

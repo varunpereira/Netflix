@@ -102,6 +102,7 @@ export default () => {
 					</T>
 					<D style={() => `a_row gap-[.75rem]`}>
 						<B
+							click={() => nav('/watch')}
 							style={() =>
 								`z_fit c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`
 							}>

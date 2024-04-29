@@ -11,9 +11,10 @@ import {
 	D,
 	T,
 	B,
-	V,
 	P,
-} from "~/shop"
+	I,
+	V,
+} from "~/config/shop"
 
 export default () => {
 	var nav = route()
