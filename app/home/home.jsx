@@ -136,7 +136,7 @@ export default () => {
 			</D>
 			<D
 				style={() =>
-					`w-full h-full mt-[-8rem] a_col gap-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
+					`w-full h-full mt-[-6rem] a_col gap-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
 				}>
 				{tape_data().map((v, i) => (
 					<Tape title={v} i={i} />
