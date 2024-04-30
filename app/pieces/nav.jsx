@@ -106,7 +106,7 @@ export default () => {
 					<B style={() => `a_row`}>
 						<img
 							src={`/profile.jpg`}
-							class={`w-[1.75rem] h-[1.75rem] mt-[-.1rem] mr-[.6rem] rounded-[.2rem]`}
+							class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
 						/>
 						<div class={`w-[.8rem] h-[.4rem] ic_white a_row mt-[.5rem] `}>
 							<DownTriangleIcon />

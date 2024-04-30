@@ -2,4 +2,4 @@ import {
 	state,
 } from "~/config/shop"
 
-export var test = state('')
+export var show_nav = state(true)

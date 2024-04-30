@@ -81,6 +81,44 @@ export var CrossIcon = () => (
 	</svg>
 )
 
+export var PauseIcon = () => ``
+
+export var VolumeIcon = () => ``
+
+export var MuteIcon = () => ``
+
+export var HelpIcon = () => (
+	<svg
+		class="svg-snoweb svg-theme-dark"
+		preserveaspectratio="xMidYMid meet"
+		viewbox="0 0 100 100"
+		x="0"
+		xmlns="http://www.w3.org/2000/svg"
+		y="0">
+		<path
+			class="svg-fill-primary"
+			d="M82,50A32,32,0,1,1,50,18,32,32,0,0,1,82,50ZM50,38a4,4,0,0,0-3.5,2,4,4,0,0,1-5.4,1.5A4,4,0,0,1,39.6,36,12,12,0,0,1,62,42a11.9,11.9,0,0,1-8,11.3V54a4,4,0,0,1-8,0V50a4,4,0,0,1,4-4,4,4,0,0,0,0-8Zm0,32a4,4,0,1,0-4-4A4,4,0,0,0,50,70Z"
+			fill-rule="evenodd"></path>
+	</svg>
+)
+
+export var ArrowLeftIcon = () => (
+	<svg
+		class="svg-snoweb svg-theme-dark"
+		preserveaspectratio="xMidYMid meet"
+		viewbox="0 0 100 100"
+		x="0"
+		xmlns="http://www.w3.org/2000/svg"
+		y="0">
+		<path
+			class="svg-stroke-primary"
+			d="M43.3,73.5,19.8,50m0,0L43.3,26.5M19.8,50H80.2"
+			fill="none"
+			stroke-linecap="round"
+			stroke-linejoin="round"></path>
+	</svg>
+)
+
 export var close_icon = ({style = () => ""}) => (
 	<svg viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class={style()}>
 		<path d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" />

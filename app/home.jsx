@@ -18,13 +18,6 @@ import {
 import {ChevronRightIcon} from "~/pieces/icon"
 
 export default () => {
-	// var car_index = state(0)
-	// var car_interv = timer.put(() => {
-	// 	car_index((i) => {
-	// 		if (i == car().length) i = 0
-	// 		return (i + 1) % car().length
-	// 	})
-	// }, 3000)
 	var nav = route()
 	var mute = state(true)
 	var chosenSlider = state(null)
@@ -40,20 +33,13 @@ export default () => {
 
 	construct(async () => {
 		page.title = `Home - Netflix`
-		// auth func
-		// var res = await req("/search/trend")
-		// prod(res.prod)
-	})
-
-	destruct(() => {
-		// timer.cut(car_interv)
 	})
 
 	// video 16:9 fine,
 
 	var Tape = ({title, i}) => {
 		return (
-			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] ${`mt-[-5rem]`}`}>
+			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem]`}>
 				<p class={`tw_5 ts_4 mb-[-58px]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
@@ -102,7 +88,7 @@ export default () => {
 					</T>
 					<D style={() => `a_row gap-[.75rem]`}>
 						<B
-							click={() => nav('/watch')}
+							click={() => nav("/watch")}
 							style={() =>
 								`z_fit c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`
 							}>
