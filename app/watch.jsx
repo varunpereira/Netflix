@@ -15,18 +15,19 @@ import {
 	V,
 	P,
 } from "~/config/shop"
-import {show_nav} from "./config/state"
+import {show_nav} from "~/config/state"
+import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/pieces/icon"
 
 export default () => {
-	var progress = state(0)
 	var nav = route()
+	var progress = state(0)
 	var mute = state(true)
-	var playing = state(false)
+	var playing = state(true)
 	var video_ref
 	var time_left = state()
 
 	react(() => {
-		if (playing()) video_ref?.pause()
+		if (!playing()) video_ref?.pause()
 		else video_ref?.play()
 	})
 
@@ -65,7 +66,7 @@ export default () => {
 
 	return (
 		<>
-			<div style={() => `z_fit `}>
+			<div style={() => `z_fit z-[0]`}>
 				<video
 					onTimeUpdate={handleTimeUpdate}
 					ref={video_ref}
@@ -74,42 +75,47 @@ export default () => {
 					muted={mute()}
 					class={`e_full h-[100vh] w-full z-[-1]`}
 				/>
-				<div
-					class={`z_put z-[1] top-0 left-0 mt-[1rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
-					hi
-				</div>
-				<div class="z_put z-[2] bottom-0 left-0 a_row items-end h-[6rem] v2:mx-[1rem] v3:mx-[2rem] v4:mx-[2.5rem] v5:mx-[3rem]">
+				<button
+					type="button"
+					onClick={()=>nav('/')}
+					class={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
+					<ArrowLeftIcon />
+				</button>
+				<div class="z_put z-[1] bottom-0 left-0 a_row ax_equal items-end w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 					<div class="a_row gap-[1rem]">
-						<button onClick={() => playing(!playing())} type="button">
-							{playing() === true ? "Play" : "Pause"}
+						<button onClick={() => playing(!playing())} type="button" class="w-[1.5rem] fill-white">
+							{playing() === true ? <PauseIcon /> : <PlayIcon />}
 						</button>
-						<p>de</p>
+						<button type="button" class="w-[2rem] fill-white">
+							<VolumeIcon />
+						</button>
+						<p class='mt-[.4rem]'>Lord of the Rings - The Fellowship of the Ring</p>
 					</div>
 					<div class="a_row gap-[1rem]">
-						<button type="button">Full</button>
-						<button type="button">Full</button>
+						<button type="button" class="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">
+							<HelpIcon />
+						</button>
+						<button type="button" class="w-4 h-4 fill-white">
+							Full
+						</button>
 					</div>
 				</div>
 
 				<div
-					class={`z_put z-[1] left-0 bottom-0 w-full h-[4rem] v2:mx-[1rem] v3:mx-[2rem] v4:mx-[2.5rem] v5:mx-[3rem]`}>
-					<div class="a_row w-full z_put bottom-[3.7rem] right-[2rem]">
-						<div class="w-full z_fit">
-							<div
-								class={`c_red z_put z-[3]  h-[.3rem] w-full top-[.75rem]`}
-								style={`width:calc(${progress()}%)`}></div>
-							<input
-								type="range"
-								class=" w-full h-[.3rem] cursor-pointer slider"
-								value={progress()}
-								onInput={handleSliderChange}
-								step=".000000000001"
-							/>
-						</div>
-						<p class="w-fit ml-[1rem] z_put z-[4] top-[-.5rem] right-0">
-							{formatSeconds(time_left())}
-						</p>
+					class={`z_put z-[2] left-0 bottom-[3rem] a_row w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
+					<div class="z_fit w-full h-full">
+						<div
+							class={`c_red z_put z-[3]  h-[.3rem] w-full top-[.75rem]`}
+							style={`width:calc(${progress()}%)`}></div>
+						<input
+							type="range"
+							class=" h-[.3rem] cursor-pointer slider"
+							value={progress()}
+							onInput={handleSliderChange}
+							step=".000000000001"
+						/>
 					</div>
+					<p class="w-fit ml-[1rem] ">{formatSeconds(time_left())}</p>
 				</div>
 			</div>
 		</>

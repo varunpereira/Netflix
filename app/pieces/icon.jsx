@@ -81,11 +81,73 @@ export var CrossIcon = () => (
 	</svg>
 )
 
-export var PauseIcon = () => ``
+export var PlayIcon = () => (
+	<svg
+		id="Layer_1"
+		style="enable-background:new 0 0 512 512;"
+		version="1.1"
+		viewBox="0 0 512 512"
+		xml:space="preserve"
+		xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink">
+		<path d="M405.2,232.9L126.8,67.2c-3.4-2-6.9-3.2-10.9-3.2c-10.9,0-19.8,9-19.8,20H96v344h0.1c0,11,8.9,20,19.8,20  c4.1,0,7.5-1.4,11.2-3.4l278.1-165.5c6.6-5.5,10.8-13.8,10.8-23.1C416,246.7,411.8,238.5,405.2,232.9z" />
+	</svg>
+)
 
-export var VolumeIcon = () => ``
+export var PauseIcon = () => (
+	<svg
+		id="Layer_1"
+		style="enable-background:new 0 0 512 512;"
+		version="1.1"
+		viewBox="0 0 512 512"
+		xml:space="preserve"
+		xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink">
+		<g>
+			<path d="M224,435.8V76.1c0-6.7-5.4-12.1-12.2-12.1h-71.6c-6.8,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6   C218.6,448,224,442.6,224,435.8z" />
+			<path d="M371.8,64h-71.6c-6.7,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6c6.7,0,12.2-5.4,12.2-12.2V76.1   C384,69.4,378.6,64,371.8,64z" />
+		</g>
+	</svg>
+)
 
-export var MuteIcon = () => ``
+export var VolumeIcon = () => (
+	<svg
+		class="svg-snoweb svg-theme-dark"
+		preserveaspectratio="xMidYMid meet"
+		viewbox="0 0 100 100"
+		x="0"
+		xmlns="http://www.w3.org/2000/svg"
+		y="0">
+		<path
+			class="svg-fill-primary"
+			d="M47.8,25.8a3.6,3.6,0,0,0-3.8.8L31.1,39.5H22A3.5,3.5,0,0,0,18.5,43V57A3.5,3.5,0,0,0,22,60.5h9.1L44,73.4a3.6,3.6,0,0,0,3.8.8A3.5,3.5,0,0,0,50,71V29A3.5,3.5,0,0,0,47.8,25.8Z"></path>
+		<path
+			class="svg-fill-primary"
+			d="M65.7,41.6a18.8,18.8,0,0,0-4.4-6.4,3.5,3.5,0,0,0-4.9,4.9,14.2,14.2,0,0,1,2.9,4.3A13.1,13.1,0,0,1,60.5,50a14,14,0,0,1-4.1,9.9,3.5,3.5,0,0,0,4.9,4.9A20.9,20.9,0,0,0,67.5,50,19.8,19.8,0,0,0,65.7,41.6Z"></path>
+		<path
+			class="svg-fill-primary"
+			d="M71.2,25.3a3.5,3.5,0,0,0-4.9,4.9,28,28,0,0,1,0,39.6,3.5,3.5,0,0,0,4.9,4.9,34.8,34.8,0,0,0,0-49.4Z"></path>
+	</svg>
+)
+
+export var MuteIcon = () => (
+	<svg
+		class="svg-snoweb svg-theme-dark"
+		preserveaspectratio="xMidYMid meet"
+		viewbox="0 0 100 100"
+		x="0"
+		xmlns="http://www.w3.org/2000/svg"
+		y="0">
+		<path
+			class="svg-fill-primary"
+			d="M49.6,24.1a4.1,4.1,0,0,0-4.1.8L31.6,38.8H22a3.8,3.8,0,0,0-3.8,3.7v15A3.8,3.8,0,0,0,22,61.2h9.6L45.5,75.1a4.1,4.1,0,0,0,4.1.8,3.8,3.8,0,0,0,2.3-3.5V27.6A3.8,3.8,0,0,0,49.6,24.1Z"
+			fill-rule="evenodd"></path>
+		<path
+			class="svg-fill-primary"
+			d="M75.8,50l4.9-4.8a3.9,3.9,0,0,0,0-5.3,3.7,3.7,0,0,0-5.3,0l-4.9,4.8-4.8-4.8a3.7,3.7,0,0,0-5.3,0,3.9,3.9,0,0,0,0,5.3L65.3,50l-4.9,4.8a3.9,3.9,0,0,0,0,5.3,3.7,3.7,0,0,0,5.3,0l4.8-4.8,4.9,4.8a3.7,3.7,0,0,0,5.3,0,3.9,3.9,0,0,0,0-5.3Z"
+			fill-rule="evenodd"></path>
+	</svg>
+)
 
 export var HelpIcon = () => (
 	<svg
