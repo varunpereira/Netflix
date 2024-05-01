@@ -64,6 +64,16 @@ export default () => {
 		return hDisplay + mDisplay + sDisplay
 	}
 
+	var openFullscreen = () => {
+		if (video_ref.requestFullscreen) {
+			video_ref.requestFullscreen();
+		} else if (video_ref.webkitRequestFullscreen) { /* Safari */
+			video_ref.webkitRequestFullscreen();
+		} else if (video_ref.msRequestFullscreen) { /* IE11 */
+			video_ref.msRequestFullscreen();
+		}
+	}
+
 	return (
 		<>
 			<div style={() => `z_fit z-[0]`}>
@@ -89,14 +99,14 @@ export default () => {
 						<button type="button" class="w-[2rem] fill-white">
 							<VolumeIcon />
 						</button>
-						<p class='mt-[.4rem]'>Lord of the Rings - The Fellowship of the Ring</p>
+						<p class='mt-[.3rem]'>Lord of the Rings - The Fellowship of the Ring</p>
 					</div>
-					<div class="a_row gap-[1rem]">
+					<div class="a_row gap-[1.2rem]">
 						<button type="button" class="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">
 							<HelpIcon />
 						</button>
-						<button type="button" class="w-4 h-4 fill-white">
-							Full
+						<button type="button" class="fill-white">
+							<img src='/watch/full_screen.png' class='w-6 h-6' onClick={openFullscreen}/>
 						</button>
 					</div>
 				</div>
