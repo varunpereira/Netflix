@@ -8,11 +8,13 @@ import Footer from "~/pieces/footer"
 import def from "~/pieces/def"
 import home from "~/home"
 import watch from "~/watch"
+import results from "~/results"
 
 var route = [
 	["*", def],
 	["/", home],
 	["/watch", watch],
+	["/search", results],
 ]
 
 page.title = "Netflix"

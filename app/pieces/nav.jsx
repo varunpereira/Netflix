@@ -35,14 +35,17 @@ export default () => {
 		view.cut_listen("resize", handler)
 	})
 
-	react(() => {
-	})
+	react(() => {})
 
-	var form_submit = async (term) => {
-		term.trim() !== "" && nav("/search/" + encodeURIComponent(term) + "/1")
+	var form_submit = async () => {
+		form_data().search.trim() !== "" && nav("/search/" + encodeURIComponent(form_data().search) + "/1")
 	}
 
 	var handler = () => width(view.width())
+
+	var get_results = () => {
+		form_data().search.trim() !== "" && nav("/search/" + encodeURIComponent(form_data().search) + "/1")
+	}
 
 	return (
 		<D
@@ -76,14 +79,19 @@ export default () => {
 							</B>
 							<I
 								value={() => form_data().search}
-								input={(e) => form_data({...form_data(), search: e.target.value})}
+								input={(e) => {
+									form_data({...form_data(), search: e.target.value})
+									get_results()
+								}}
 								holder={() => "Title, people, genres"}
 								style={() => ` c_black tc_white ml-[.3rem] w-full`}
 							/>
 							{form_data().search.trim() !== "" && (
 								<B
 									click={() => form_data({...form_data(), search: ""})}
-									style={() => `ml-[.2rem] mr-[.3rem] w-[.75rem] h-[.75rem] stroke-white stroke-[1rem]`}>
+									style={() =>
+										`ml-[.2rem] mr-[.3rem] w-[.75rem] h-[.75rem] stroke-white stroke-[1rem]`
+									}>
 									<CrossIcon />
 								</B>
 							)}
@@ -104,10 +112,7 @@ export default () => {
 						<BellIcon />
 					</B>
 					<B style={() => `a_row`}>
-						<img
-							src={`/profile.jpg`}
-							class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
-						/>
+						<img src={`/profile.jpg`} class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`} />
 						<div class={`w-[.8rem] h-[.4rem] ic_white a_row mt-[.5rem] `}>
 							<DownTriangleIcon />
 						</div>
