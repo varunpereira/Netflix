@@ -7,6 +7,7 @@ import {
 	route,
 	view,
 	req,
+	path,
 	D,
 	T,
 	B,
@@ -38,13 +39,13 @@ export default () => {
 	react(() => {})
 
 	var form_submit = async () => {
-		form_data().search.trim() !== "" && nav("/search/" + encodeURIComponent(form_data().search) + "/1")
+		get_results()
 	}
 
 	var handler = () => width(view.width())
 
 	var get_results = () => {
-		form_data().search.trim() !== "" && nav("/search/" + encodeURIComponent(form_data().search) + "/1")
+		nav("/search/" + path.encode(form_data().search) + "/1")
 	}
 
 	return (

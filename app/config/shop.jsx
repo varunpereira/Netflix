@@ -22,6 +22,8 @@ export var path = {
 	get: () => window.location.pathname,
 	var: useParams,
 	par: () => useSearchParams()[0],
+	encode: encodeURIComponent,
+	decode: decodeURIComponent,
 }
 
 export var page = document

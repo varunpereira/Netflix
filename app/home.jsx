@@ -50,7 +50,7 @@ export default () => {
 						.map((v, i2) => (
 							<img
 								src={`/home/trending/${i2 + 1}.jpg`}
-								class={`w-[300px] h-[130px] hover:h-[260px] hover:w-[400px] `}
+								class={`w-[260px] h-[130px] hover:w-[520px] hover:h-[260px] `}
 							/>
 						))}
 					{/* if wanting, div > rel > abs */}
