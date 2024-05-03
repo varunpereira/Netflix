@@ -14,7 +14,7 @@ var route = [
 	["*", def],
 	["/", home],
 	["/watch", watch],
-	["/search", results],
+	["/search/:term/:page", results],
 ]
 
 page.title = "Netflix"
