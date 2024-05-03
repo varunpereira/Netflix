@@ -19,9 +19,8 @@ export var route = useNavigate
 export var nav_full = (link) => (window.location.href = link)
 
 export var path = {
-	get: () => window.location.pathname,
-	var: useParams,
-	par: () => useSearchParams()[0],
+	route: () => window.location.pathname,
+	search: () => useSearchParams()[0],
 	encode: encodeURIComponent,
 	decode: decodeURIComponent,
 }

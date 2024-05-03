@@ -45,7 +45,7 @@ export default () => {
 	var handler = () => width(view.width())
 
 	var get_results = () => {
-		nav("/search/" + path.encode(form_data().search) + "/1")
+		form_data().search.trim() !== '' && nav("/search?q=" + form_data().search)
 	}
 
 	return (
