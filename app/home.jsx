@@ -16,7 +16,7 @@ import {
 	P,
 } from "~/config/shop"
 import {ChevronRightIcon} from "~/pieces/icon"
-import {trending_shows_data} from "~/data/shows/trending"
+import {all_shows_data} from "~/data/shows/all"
 
 export default () => {
 	var nav = route()
@@ -37,17 +37,17 @@ export default () => {
 
 	// video 16:9 fine,
 
-	var Tape = ({data = ()=>[], title, i}) => {
+	var Tape = ({data = () => [], title, i}) => {
 		return (
 			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem]`}>
 				<p class={`tw_5 ts_4 mb-[-58px]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
-					onMouseLeave={() => "chosenSlider(null)"}
+					onMouseLeave={() => chosenSlider(null)}
 					class={`h-[260px] w-full a_row items-center justify-start gap-x-[.3rem] overflow-auto no_scroll`}>
 					{data().map((v, i2) => (
 						<img
-							src={v?.img_link}
+							src={v?.poster_link}
 							class={`w-[260px] h-[130px] hover:w-[520px] hover:h-[260px] aspect-[16/9]`}
 						/>
 					))}
@@ -110,7 +110,7 @@ export default () => {
 				/>
 				<D
 					style={() =>
-						"z_put z-[2] bottom-[0rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[4rem]"
+						"z_put z-[2] bottom-[0rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[6rem]"
 					}
 				/>
 				<D
@@ -123,9 +123,16 @@ export default () => {
 				style={() =>
 					`w-full h-full mt-[-6rem] a_col gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
 				}>
-					<Tape data={()=>trending_shows_data()} title={`Trending Now`} i={1} />
-					<Tape title={`New Releases`} i={2} />
-					<Tape title={`Popular on Netflix`} i={3} />
+				<Tape data={() => all_shows_data().slice(0, 18)} title={`Trending Now`} i={1} />
+				<Tape data={() => all_shows_data().slice(18, 36)} title={`New Releases`} i={2} />
+				<Tape data={() => all_shows_data().slice(36, 54)} title={`Popular on Netflix`} i={3} />
+				<Tape data={() => all_shows_data().slice(54, 72)} title={`Comedy`} i={4} />
+				<Tape data={() => all_shows_data().slice(72, 90)} title={`Thriller`} i={5} />
+				<Tape data={() => all_shows_data().slice(90, 108)} title={`Action`} i={6} />
+				<Tape data={() => all_shows_data().slice(108, 126)} title={`Drama`} i={7} />
+				<Tape data={() => all_shows_data().slice(126, 144)} title={`Adventure`} i={8} />
+				<Tape data={() => all_shows_data().slice(144, 162)} title={`Romance`} i={9} />
+				<Tape data={() => all_shows_data().slice(162, 180)} title={`Kids`} i={10} />
 			</D>
 		</D>
 	)
