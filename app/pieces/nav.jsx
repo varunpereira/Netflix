@@ -8,6 +8,7 @@ import {
 	view,
 	req,
 	path,
+	page,
 	D,
 	T,
 	B,
@@ -26,6 +27,7 @@ export default () => {
 	var opt_pick = state(0)
 	var see_search = state(false)
 	var form_data = state({search: ""})
+	var search_field
 
 	construct(async () => {
 		width(view.width())
@@ -36,8 +38,6 @@ export default () => {
 		view.cut_listen("resize", handler)
 	})
 
-	react(() => {})
-
 	var form_submit = async () => {
 		get_results()
 	}
@@ -45,7 +45,7 @@ export default () => {
 	var handler = () => width(view.width())
 
 	var get_results = () => {
-		form_data().search.trim() !== '' && nav("/search?q=" + form_data().search)
+		form_data().search.trim() !== "" && nav("/search?q=" + form_data().search)
 	}
 
 	return (
@@ -54,7 +54,7 @@ export default () => {
 				"z_put z-[2] c_null a_row my-[1.25rem] w_full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]"
 			}>
 			<B click={() => nav("/")} style={() => "tc_1 tw_1 ts_3 mr-[2.5rem]"}>
-				<img src={"/logo.png"} class={`w-[6rem]`} />
+				<img src={"/config/logo.png"} class={`w-[6rem]`} />
 			</B>
 			<D style={() => `a_row ax_equal w_full tc_grey ts_1`}>
 				<D style={() => `a_row ax_equal gap-[1rem] `}>
@@ -67,43 +67,52 @@ export default () => {
 					))}
 				</D>
 				<D style={() => `a_row ax_equal gap-[1.2rem] `}>
-					{see_search() === true ? (
-						<div
-							style={`transition: width 5s, height 2s;`}
-							class={`a_row items-center w-[14rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]`}>
-							<B
-								click={() => {
-									form_submit(form_data().search)
-								}}
-								style={() => `w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem]  `}>
-								<SearchIcon />
-							</B>
-							<I
-								value={() => form_data().search}
-								input={(e) => {
-									form_data({...form_data(), search: e.target.value})
-									get_results()
-								}}
-								holder={() => "Title, people, genres"}
-								style={() => ` c_black tc_white ml-[.3rem] w-full`}
-							/>
-							{form_data().search.trim() !== "" && (
-								<B
-									click={() => form_data({...form_data(), search: ""})}
-									style={() =>
-										`ml-[.2rem] mr-[.3rem] w-[.75rem] h-[.75rem] stroke-white stroke-[1rem]`
-									}>
-									<CrossIcon />
-								</B>
-							)}
-						</div>
-					) : (
+					<div
+						style={"transition:width 2s;"}
+						class={
+							!see_search()
+								? "a_row items-center w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
+								: "a_row items-center w-[14rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
+						}>
 						<B
-							click={() => see_search(true)}
+							click={() => {
+								form_submit(form_data().search)
+							}}
+							style={() => `w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem]  `}>
+							<SearchIcon />
+						</B>
+						<I
+							ref={search_field}
+							value={() => form_data().search}
+							input={(e) => {
+								form_data({...form_data(), search: e.target.value})
+								get_results()
+							}}
+							holder={() => "Title, people, genres"}
+							style={() => ` c_black tc_white ml-[.3rem] w-full`}
+						/>
+						{form_data().search.trim() !== "" && (
+							<B
+								click={() => form_data({...form_data(), search: ""})}
+								style={() =>
+									`ml-[.2rem] mr-[.3rem] w-[.75rem] h-[.75rem] stroke-white stroke-[1rem]`
+								}>
+								<CrossIcon />
+							</B>
+						)}
+					</div>
+
+					{!see_search() && (
+						<B
+							click={() => {
+								see_search(true);
+								search_field?.focus()
+							}}
 							style={() => `w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem] mt-[.2rem] `}>
 							<SearchIcon />
 						</B>
 					)}
+
 					<B
 						click={() => opt_pick(-1)}
 						style={() => `hover:tc_white ${opt_pick() === -1 && `tc_white`}`}>
@@ -113,7 +122,7 @@ export default () => {
 						<BellIcon />
 					</B>
 					<B style={() => `a_row`}>
-						<img src={`/profile.jpg`} class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`} />
+						<img src={`/icons/profile.jpg`} class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`} />
 						<div class={`w-[.8rem] h-[.4rem] ic_white a_row mt-[.5rem] `}>
 							<DownTriangleIcon />
 						</div>

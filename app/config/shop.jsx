@@ -26,6 +26,9 @@ export var path = {
 }
 
 export var page = document
+export var get = (id) => document.getElementById(id)
+export var style = (id, className) => document.getElementById(id).className = className
+
 
 export var view = {
 	width: () => window.innerWidth,

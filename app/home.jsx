@@ -16,12 +16,12 @@ import {
 	P,
 } from "~/config/shop"
 import {ChevronRightIcon} from "~/pieces/icon"
+import {trending_shows_data} from "~/data/shows/trending"
 
 export default () => {
 	var nav = route()
 	var mute = state(true)
 	var chosenSlider = state(null)
-	var tape_data = state([`Trending Now`, `New Releases`, `Popular on Netflix`])
 	var chosenSlide = state(null)
 	var isPlaying = state(false)
 	var video_ref
@@ -37,22 +37,20 @@ export default () => {
 
 	// video 16:9 fine,
 
-	var Tape = ({title, i}) => {
+	var Tape = ({data = ()=>[], title, i}) => {
 		return (
 			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem]`}>
 				<p class={`tw_5 ts_4 mb-[-58px]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
 					onMouseLeave={() => "chosenSlider(null)"}
-					class={`h-[260px] w-full a_row items-center justify-start gap-[.3rem] overflow-auto no_scroll`}>
-					{dir(22)
-						.fill()
-						.map((v, i2) => (
-							<img
-								src={`/home/trending/${i2 + 1}.jpg`}
-								class={`w-[260px] h-[130px] hover:w-[520px] hover:h-[260px] `}
-							/>
-						))}
+					class={`h-[260px] w-full a_row items-center justify-start gap-x-[.3rem] overflow-auto no_scroll`}>
+					{data().map((v, i2) => (
+						<img
+							src={v?.img_link}
+							class={`w-[260px] h-[130px] hover:w-[520px] hover:h-[260px] aspect-[16/9]`}
+						/>
+					))}
 					{/* if wanting, div > rel > abs */}
 					<button
 						type="button"
@@ -81,12 +79,12 @@ export default () => {
 					style={() =>
 						"z_put z-[1] w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
 					}>
-					<img src={`/home/lotr_1_logo.png`} class={`w_fit`} />
+					<img src={`/shows/snippets/lotr_1_logo.png`} class={`w_fit`} />
 					<T style={() => `my-[1rem]`}>
 						Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
 						Frodo and Sam as they approach Mount Doom with the One Ring.
 					</T>
-					<D style={() => `a_row gap-[.75rem]`}>
+					<D style={() => `a_row gap-y-[.75rem]`}>
 						<B
 							click={() => nav("/watch")}
 							style={() =>
@@ -104,8 +102,8 @@ export default () => {
 				</D>
 				<video
 					ref={video_ref}
-					src={`/home/lotr_1.mp4`}
-					poster="/home/lotr_1.png"
+					src={`/shows/snippets/lotr_1.mp4`}
+					poster="/shows/snippets/lotr_1.png"
 					muted={mute()}
 					loop={true}
 					class={`w_full e_full aspect-[16/9] hover:scale-200`}
@@ -123,11 +121,11 @@ export default () => {
 			</D>
 			<D
 				style={() =>
-					`w-full h-full mt-[-6rem] a_col gap-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
+					`w-full h-full mt-[-6rem] a_col gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
 				}>
-				{tape_data().map((v, i) => (
-					<Tape title={v} i={i} />
-				))}
+					<Tape data={()=>trending_shows_data()} title={`Trending Now`} i={1} />
+					<Tape title={`New Releases`} i={2} />
+					<Tape title={`Popular on Netflix`} i={3} />
 			</D>
 		</D>
 	)

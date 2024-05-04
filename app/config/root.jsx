@@ -18,7 +18,7 @@ var route = [
 ]
 
 page.title = "Netflix"
-page.getElementById("logo").href = "/logo_tab.png"
+page.getElementById("logo").href = "/config/logo_tab.png"
 page.getElementById("color").content = "c_grey_2"
 page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 min-w-[320px]"
 

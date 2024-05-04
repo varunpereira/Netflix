@@ -18,20 +18,19 @@ import {
 	V,
 	str,
 } from "~/config/shop"
-import {shows_data} from "~/data/shows"
+import {all_shows_data} from "~/data/shows/all"
 
 export default () => {
 	var nav = route()
 	var chosenSlider = state(null)
 	var shows_filt = state([])
 	var term = state()
-	var urlParams = state()
 	var path_par = path.search()
 
 	react(() => {
 		page.title = `Search Results - Netflix`
 		term(path_par?.q.trim().toUpperCase())
-		shows_filt(shows_data().filter((show) => show?.title.toUpperCase().includes(term())))
+		shows_filt(all_shows_data().filter((show) => show?.keywords.toUpperCase().includes(term())))
  	})
 
 	return (
@@ -39,8 +38,8 @@ export default () => {
 			<D style={() => `w-full h-full a_col gap-[4rem]`}>
 				<div class={`a_row_auto items-center justify-start gap-x-[.3rem] gap-y-[4rem] `}>
 					{shows_filt().length > 0 ? shows_filt()?.map((v) => (
-						<img src={v?.img_url} class={`w-[260px] h-[130px] `} />
-					)) : <p>No results found for "{term()}"</p>}
+						<img src={v?.img_link} class={`w-[260px] h-[130px] aspect-[16/9]`} />
+					)) : <p>No results found for "{path_par?.q}"</p>}
 				</div>
 			</D>
 		</div>

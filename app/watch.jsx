@@ -80,8 +80,8 @@ export default () => {
 				<video
 					onTimeUpdate={handleTimeUpdate}
 					ref={video_ref}
-					src={`/home/lotr_1.mp4`}
-					poster="/home/lotr_1.png"
+					src={`/shows/snippets/lotr_1.mp4`}
+					poster="/shows/snippets/lotr_1.png"
 					muted={mute()}
 					class={`e_full h-[100vh] w-full z-[-1]`}
 				/>
@@ -106,7 +106,7 @@ export default () => {
 							<HelpIcon />
 						</button>
 						<button type="button" class="fill-white">
-							<img src='/watch/full_screen.png' class='w-6 h-6' onClick={openFullscreen}/>
+							<img src='/icons/full_screen.png' class='w-6 h-6' onClick={openFullscreen}/>
 						</button>
 					</div>
 				</div>
