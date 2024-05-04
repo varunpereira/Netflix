@@ -40,22 +40,21 @@ export default () => {
 	var Tape = ({data = () => [], title, i}) => {
 		return (
 			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem]`}>
-				<p class={`tw_5 ts_4 mb-[-58px]`}>{title}</p>
+				<p class={`tw_5 ts_4 mb-[-3rem]`}>{title}</p>
 				<div
 					onMouseOver={() => chosenSlider(i)}
 					onMouseLeave={() => chosenSlider(null)}
-					class={`h-[260px] w-full a_row items-center justify-start gap-x-[.3rem] overflow-auto no_scroll`}>
+					class={`w-full h-[14rem] a_row items-center justify-start gap-x-[.3rem] overflow-auto no_scroll`}>
 					{data().map((v, i2) => (
 						<img
 							src={v?.poster_link}
-							class={`w-[260px] h-[130px] hover:w-[520px] hover:h-[260px] aspect-[16/9]`}
+							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full `}
 						/>
 					))}
-					{/* if wanting, div > rel > abs */}
 					<button
 						type="button"
 						class={
-							"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[130px] a_row justify-center items-center"
+							"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] a_row justify-center items-center"
 						}>
 						{chosenSlider() === i && (
 							<div class={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
