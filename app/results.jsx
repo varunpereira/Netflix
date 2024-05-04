@@ -43,6 +43,7 @@ export default () => {
 								class={`z_fit w-[14rem] h-[7rem] hover:w-[28rem] hover:mt-[-7rem]`}>
 								<img
 									src={v?.poster_link}
+									style={"transition:width 1s, height 1s;"}
 									class={`z_put z-[0] w-full h-full aspect-[16/9] hover:h-[14rem] hover:z-[1] `}
 								/>
 							</div>

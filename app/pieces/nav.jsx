@@ -26,6 +26,7 @@ export default () => {
 	var menu_options = ["Home", "TV Shows", "Movies", "Latest", "My List", "Kids"]
 	var opt_pick = state(0)
 	var see_search = state(false)
+	var see_profile_list = state(false)
 	var form_data = state({search: ""})
 	var search_field
 
@@ -66,9 +67,9 @@ export default () => {
 						</B>
 					))}
 				</D>
-				<D style={() => `a_row ax_equal gap-[1.2rem] `}>
+				<D style={() => `a_row ax_equal gap-[1.2rem] z_fit`}>
 					<div
-						style={"transition:width 2s;"}
+						style={"transition:width 1s;"}
 						class={
 							!see_search()
 								? "a_row items-center w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
@@ -105,7 +106,7 @@ export default () => {
 					{!see_search() && (
 						<B
 							click={() => {
-								see_search(true);
+								see_search(true)
 								search_field?.focus()
 							}}
 							style={() => `w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem] mt-[.2rem] `}>
@@ -121,12 +122,40 @@ export default () => {
 					<B style={() => `w-[1.5rem] h-[1.5rem] stroke-white fill-white `}>
 						<BellIcon />
 					</B>
-					<B style={() => `a_row`}>
-						<img src={`/icons/profile.jpg`} class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`} />
+					<B click={() => see_profile_list(!see_profile_list())} style={() => `a_row`}>
+						<img
+							src={`/icons/profile_blue.jpg`}
+							class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
+						/>
 						<div class={`w-[.8rem] h-[.4rem] ic_white a_row mt-[.5rem] `}>
 							<DownTriangleIcon />
 						</div>
 					</B>
+					{see_profile_list() === true && (
+						<div
+							class={`z_put c_black opacity-[.8] w-[10rem] h-fit top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
+							<div class="a_col gap-y-[.5rem]">
+								<div class="a_row items-center">
+									<img
+										src={`/icons/profile_yellow.jpg`}
+										class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
+									/>{" "}
+									<p>Smith</p>
+								</div>
+								<div class="a_row items-center">
+									<img
+										src={`/icons/profile_green.jpg`}
+										class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
+									/>{" "}
+									<p>John</p>
+								</div>
+							</div>
+							<p class='py-[1rem]'>Manage Profiles</p>
+							<p class='pb-[.5rem]'>Account</p>
+							<p>Help Center</p>
+							<p class='py-[1rem]'>Sign out of Netflix</p>
+						</div>
+					)}
 				</D>
 			</D>
 

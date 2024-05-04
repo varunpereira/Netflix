@@ -13,7 +13,7 @@ import results from "~/results"
 var route = [
 	["*", def],
 	["/", home],
-	["/watch", watch],
+	["/watch/:id", watch],
 	["/search", results],
 ]
 

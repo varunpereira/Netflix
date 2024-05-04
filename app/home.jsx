@@ -48,6 +48,7 @@ export default () => {
 					{data().map((v, i2) => (
 						<img
 							src={v?.poster_link}
+							style={"transition:width 1s, height 1s;"}
 							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full `}
 						/>
 					))}
@@ -85,7 +86,7 @@ export default () => {
 					</T>
 					<D style={() => `a_row gap-y-[.75rem]`}>
 						<B
-							click={() => nav("/watch")}
+							click={() => nav("/watch/1")}
 							style={() =>
 								`z_fit c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`
 							}>
