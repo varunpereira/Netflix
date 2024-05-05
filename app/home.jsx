@@ -39,17 +39,19 @@ export default () => {
 
 	var Tape = ({data = () => [], title, i}) => {
 		return (
-			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem]`}>
+			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] xbg-yellow-500`}>
 				<p class={`tw_5 ts_4 mb-[-3rem]`}>{title}</p>
 				<div
-					onMouseOver={() => chosenSlider(i)}
-					onMouseLeave={() => chosenSlider(null)}
-					class={`w-full h-[14rem] a_row items-center justify-start gap-x-[.3rem] overflow-auto no_scroll`}>
+					class={`w-full h-[14rem] a_row items-center justify-start gap-x-[.3rem] ${
+						chosenSlider() ? "overflow-x-auto" : "overflow-x-hidden"
+					} no_scroll`}>
 					{data().map((v, i2) => (
 						<img
+							onMouseOver={() => chosenSlider(i)}
+							onMouseLeave={() => chosenSlider(null)}
 							src={v?.poster_link}
 							style={"transition:width 1s, height 1s;"}
-							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full `}
+							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full a_null`}
 						/>
 					))}
 					<button
@@ -84,7 +86,7 @@ export default () => {
 						Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
 						Frodo and Sam as they approach Mount Doom with the One Ring.
 					</T>
-					<D style={() => `a_row gap-y-[.75rem]`}>
+					<D style={() => `a_row gap-x-[.75rem]`}>
 						<B
 							click={() => nav("/watch/1")}
 							style={() =>
@@ -119,9 +121,10 @@ export default () => {
 					}
 				/>
 			</D>
+
 			<D
 				style={() =>
-					`w-full h-full mt-[-6rem] a_col gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`
+					`w-full h-full mt-[-6rem] a_col gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `
 				}>
 				<Tape data={() => all_shows_data().slice(0, 18)} title={`Trending Now`} i={1} />
 				<Tape data={() => all_shows_data().slice(18, 36)} title={`New Releases`} i={2} />
