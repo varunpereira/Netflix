@@ -34,25 +34,19 @@ export default () => {
 	})
 
 	return (
-		<div class="pt-[10rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
-			<D style={() => `w-full h-full a_col gap-[4rem]`}>
-				<div class={`a_row_auto items-center justify-start gap-x-[.3rem] gap-y-[4rem] `}>
-					{shows_filt().length > 0 ? (
-						shows_filt()?.map((v, i) => (
-							<div
-								class={`z_fit w-[14rem] h-[7rem] hover:w-[28rem] hover:mt-[-7rem]`}>
-								<img
-									src={v?.poster_link}
-									style={"transition:width 1s, height 1s;"}
-									class={`z_put z-[0] w-full h-full aspect-[16/9] hover:h-[14rem] hover:z-[1] `}
-								/>
-							</div>
-						))
-					) : (
-						<p>No results found for "{path_par?.q}"</p>
-					)}
-				</div>
-			</D>
+		<div class="pt-[10rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem] hover:px-0 a_row ax_mid items-start gap-x-[.3rem] overflow-x-hidden overflow-y-visible">
+			{shows_filt()
+				?.slice(0, 5)
+				.map((v, i) => (
+					<div
+						// style={"transition:width 1s, height 1s;"}
+						class={`z_fit w-[14rem] h-[7rem] hover:h-[14rem] hover:w-[28rem] hover:mt-[-3.5rem] a_null `}>
+						<img
+							src={v?.poster_link}
+							class={`z_put z-[0] w-full h-full aspect-[16/9] hover:z-[1] `}
+						/>
+					</div>
+				))}
 		</div>
 	)
 }
