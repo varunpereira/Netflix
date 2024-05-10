@@ -39,7 +39,7 @@ export default () => {
 
 	var Tape = ({data = () => [], title, i}) => {
 		return (
-			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] xbg-yellow-500`}>
+			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
 				<p class={`tw_5 ts_4 mb-[-3rem]`}>{title}</p>
 				<div
 					class={`w-full h-[14rem] dx_right ay_mid gap-x-[.3rem] ${
