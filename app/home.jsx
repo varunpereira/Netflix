@@ -50,8 +50,8 @@ export default () => {
 							onMouseOver={() => chosenSlider(i)}
 							onMouseLeave={() => chosenSlider(null)}
 							src={v?.poster_link}
-							style={"transition:width 1s, height 1s;"}
-							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null`}
+							style={"transition:width 1s 1s, height 1s 1s;"}
+							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer`}
 						/>
 					))}
 					<button

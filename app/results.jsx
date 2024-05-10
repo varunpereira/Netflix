@@ -46,7 +46,7 @@ export default () => {
 
 	var results = memo(() => {
 		// must call signal at least once, for this memo to rerun
-		;[term()]
+		[term()]
 		var get_results = shows_filt(
 			all_shows_data().filter((show) => show?.keywords.toUpperCase().includes(term())),
 		)
@@ -56,18 +56,19 @@ export default () => {
 
 	return (
 		<div
-			class={`pt-[10rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem] hover:px-0 dy_mid w-full h-full`}>
+			class={`pt-[10rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem] hover:px-0 dy_mid w-full h-full overflow-x-hidden`}>
 			{results().map((v, i) => (
 				<div
 					class={`z_fit z-[${
 						i === chosenSlider() ? "2" : "1"
-					}] w-full h-[14rem] dx_mid ay_mid gap-x-[.3rem] mt-[-4rem] overflow-x-hidden `}>
+					}] w-full h-[14rem] dx_mid ay_mid gap-x-[.3rem] mt-[-4rem]  `}>
 					{v.map((v2, i2) => (
 						<img
 							src={v2?.poster_link}
 							onMouseOver={() => chosenSlider(i)}
 							onMouseLeave={() => chosenSlider(null)}
-							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full `}
+							style={"transition:width 1s 1s, height 1s 1s;"}
+							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer `}
 						/>
 					))}
 				</div>
