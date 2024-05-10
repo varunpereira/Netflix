@@ -1,10 +1,12 @@
-import {createSignal, createEffect, onMount, onCleanup} from "solid-js"
+import {createSignal, createMemo, createEffect, onMount, onCleanup} from "solid-js"
 import {useNavigate, useSearchParams, useParams} from "@solidjs/router"
 
 export var state = (def) => {
 	var [get, set] = createSignal(def)
 	return (put) => (put !== undefined ? set(put) : get())
 }
+
+export var memo = createMemo
 
 export var react = createEffect
 
