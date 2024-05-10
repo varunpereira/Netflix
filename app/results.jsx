@@ -61,7 +61,7 @@ export default () => {
 				<div
 					class={`z_fit z-[${
 						i === chosenSlider() ? "2" : "1"
-					}] w-full h-[14rem] bg-white border-black border-2 dx_mid ay_mid gap-x-[.3rem] mt-[-4rem] overflow-x-hidden `}>
+					}] w-full h-[14rem] dx_mid ay_mid gap-x-[.3rem] mt-[-4rem] overflow-x-hidden `}>
 					{v.map((v2, i2) => (
 						<img
 							src={v2?.poster_link}
