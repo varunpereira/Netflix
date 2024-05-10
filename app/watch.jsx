@@ -91,8 +91,8 @@ export default () => {
 					class={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
 					<ArrowLeftIcon />
 				</button>
-				<div class="z_put z-[1] bottom-0 left-0 a_row ax_equal items-end w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
-					<div class="a_row gap-[1rem]">
+				<div class="z_put z-[1] bottom-0 left-0 dx_right dx_equal ay_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
+					<div class="dx_right gap-[1rem]">
 						<button onClick={() => playing(!playing())} type="button" class="w-[1.5rem] fill-white">
 							{playing() === true ? <PauseIcon /> : <PlayIcon />}
 						</button>
@@ -101,7 +101,7 @@ export default () => {
 						</button>
 						<p class='mt-[.3rem]'>Lord of the Rings - The Fellowship of the Ring</p>
 					</div>
-					<div class="a_row gap-[1.2rem]">
+					<div class="dx_right gap-[1.2rem]">
 						<button type="button" class="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">
 							<HelpIcon />
 						</button>
@@ -112,7 +112,7 @@ export default () => {
 				</div>
 
 				<div
-					class={`z_put z-[2] left-0 bottom-[3rem] a_row w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
+					class={`z_put z-[2] left-0 bottom-[3rem] dx_right w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
 					<div class="z_fit w-full h-full">
 						<div
 							class={`c_red z_put z-[3]  h-[.3rem] w-full top-[.75rem]`}

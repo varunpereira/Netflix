@@ -8,10 +8,6 @@ $grey_1: #c1c1c1;
 $grey_2: #141414;
 $red: red;
 @layer utilities {
-	// use rem, based of root
-	:root {
-		font-size: 16px;
-	}
 	// fit
 	.fit_1 {
 		@apply min-w-[20rem] v2:max-w-[60rem] v5:max-w-[150rem] mx_auto;
@@ -40,10 +36,10 @@ $red: red;
 	}
 	/* text size */
 	.ts_1 {
-		font-size: .8rem;
+		font-size: 0.8rem;
 	}
 	.ts_2 {
-		font-size: .95rem;
+		font-size: 0.95rem;
 	}
 	.ts_3 {
 		font-size: 1.1rem;
@@ -194,51 +190,68 @@ $red: red;
 	/* w_full, max_w-[10rem] */
 	/* align , flex has def dir of row*/
 	// todo justify, align
-	.a_null {
+	.d_null {
 		flex: none;
 	}
-	.a_row {
+	.dx_left {
 		display: flex;
 		flex-direction: row;
-	}
-	.a_col {
-		display: flex;
-		flex-direction: column;
-	}
-	.a_row_auto {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-	.a_col_auto {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-	.ax_left {
-		justify-content: flex-start;
-	}
-	.ax_mid {
-		justify-content: center;
-	}
-	.ax_right {
 		justify-content: flex-end;
 	}
+	.dx_right {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+	.dx_mid {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
 	// or use gap-[1rem]
-	.ax_equal {
+	.dx_equal {
+		display: flex;
+		flex-direction: row;
 		justify-content: space-between;
 	}
-	.ay_top {
-		align-content: flex-start;
+	.dx_auto {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
-	.ay_mid {
-		align-content: center;
+	.ay_top {
+		align-items: flex-start;
 	}
 	.ay_bottom {
-		align-content: flex-end;
+		align-items: flex-end;
 	}
-	.ay_equal {
-		align-content: space-between;
+	.ay_mid {
+		align-items: center;
+	}
+	.dy_top {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+	.dy_bottom {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	.dy_mid {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.dy_equal {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.dy_auto {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
 	/* default: block, also: flex, grid */
 	.hide {
@@ -293,35 +306,43 @@ $red: red;
 	.bottom_auto {
 		bottom: auto;
 	}
-}
 
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: .3rem;
-  background: #d3d3d3;
-  outline: none;
-}
+	.slider {
+		-webkit-appearance: none;
+		width: 100%;
+		height: 0.3rem;
+		background: #d3d3d3;
+		outline: none;
+	}
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1rem;
-  height: 1rem;
-  background: #aa0404;
-	border-radius: 100%;
-  cursor: pointer;
-}
+	.slider::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 1rem;
+		height: 1rem;
+		background: #aa0404;
+		border-radius: 100%;
+		cursor: pointer;
+	}
 
-.slider::-moz-range-thumb {
-	width: 1rem;
-  height: 1rem;
-  background: #aa0404;
-	border-radius: 100%;
-  cursor: pointer;
-}
+	.slider::-moz-range-thumb {
+		width: 1rem;
+		height: 1rem;
+		background: #aa0404;
+		border-radius: 100%;
+		cursor: pointer;
+	}
 
-button {
-	outline: none;
-}
+	// use rem, based of root
+	:root {
+		font-size: 16px;
+	}
 
+	button {
+		outline: none;
+	}
+
+	input {
+		outline: none;
+	}
+}

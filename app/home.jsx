@@ -42,7 +42,7 @@ export default () => {
 			<div class={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] xbg-yellow-500`}>
 				<p class={`tw_5 ts_4 mb-[-3rem]`}>{title}</p>
 				<div
-					class={`w-full h-[14rem] a_row items-center justify-start gap-x-[.3rem] ${
+					class={`w-full h-[14rem] dx_right ay_mid gap-x-[.3rem] ${
 						chosenSlider() ? "overflow-x-auto" : "overflow-x-hidden"
 					} no_scroll`}>
 					{data().map((v, i2) => (
@@ -51,13 +51,13 @@ export default () => {
 							onMouseLeave={() => chosenSlider(null)}
 							src={v?.poster_link}
 							style={"transition:width 1s, height 1s;"}
-							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full a_null`}
+							class={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null`}
 						/>
 					))}
 					<button
 						type="button"
 						class={
-							"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] a_row justify-center items-center"
+							"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] dx_mid ay_mid"
 						}>
 						{chosenSlider() === i && (
 							<div class={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
@@ -76,17 +76,17 @@ export default () => {
 				hover_in={() => isPlaying(false)}
 				hover_out={() => isPlaying(true)}
 				click={() => mute(!mute())}
-				style={() => `z_fit z-[1] `}>
+				style={() => `z_fit z-[1]`}>
 				<D
 					style={() =>
-						"z_put z-[1] w-[30rem] h_full inset-0 a_col justify-center items-start p v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 text-shadow-md "
+						"z_put z-[1] w-[30rem] h_full dy_mid v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
 					}>
 					<img src={`/shows/snippets/lotr_1_logo.png`} class={`w_fit`} />
 					<T style={() => `my-[1rem]`}>
 						Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
 						Frodo and Sam as they approach Mount Doom with the One Ring.
 					</T>
-					<D style={() => `a_row gap-x-[.75rem]`}>
+					<D style={() => `dx_right gap-x-[.75rem]`}>
 						<B
 							click={() => nav("/watch/1")}
 							style={() =>
@@ -124,7 +124,7 @@ export default () => {
 
 			<D
 				style={() =>
-					`w-full h-full mt-[-6rem] a_col gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `
+					`w-full h-full mt-[-6rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `
 				}>
 				<Tape data={() => all_shows_data().slice(0, 18)} title={`Trending Now`} i={1} />
 				<Tape data={() => all_shows_data().slice(18, 36)} title={`New Releases`} i={2} />

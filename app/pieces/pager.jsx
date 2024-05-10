@@ -20,7 +20,7 @@ export default ({cur, size, link}) => {
 	var flaw = state()
 
 	return d(
-		{style: () => "c_white tc_black r_1 ts_1 h_fit w_fit a_row ay_mid"},
+		{style: () => "c_white tc_black r_1 ts_1 h_fit w_fit dx_right ay_mid"},
 		b(
 			{
 				style: () => "px-[.2rem]",

@@ -34,13 +34,13 @@ export default () => {
 	})
 
 	return (
-		<div class="pt-[10rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem] hover:px-0 a_row ax_mid items-start gap-x-[.3rem] overflow-x-hidden overflow-y-visible">
+		<div class="pt-[10rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem] hover:px-0 dx_right dx_mid ay_top gap-x-[.3rem] overflow-x-hidden overflow-y-visible">
 			{shows_filt()
 				?.slice(0, 5)
 				.map((v, i) => (
 					<div
 						// style={"transition:width 1s, height 1s;"}
-						class={`z_fit w-[14rem] h-[7rem] hover:h-[14rem] hover:w-[28rem] hover:mt-[-3.5rem] a_null `}>
+						class={`z_fit w-[14rem] h-[7rem] hover:h-[14rem] hover:w-[28rem] hover:mt-[-3.5rem] d_null `}>
 						<img
 							src={v?.poster_link}
 							class={`z_put z-[0] w-full h-full aspect-[16/9] hover:z-[1] `}

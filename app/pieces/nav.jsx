@@ -52,13 +52,13 @@ export default () => {
 	return (
 		<D
 			style={() =>
-				"z_put z-[2] c_null a_row my-[1.25rem] w_full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]"
+				"z_put z-[2] c_null dx_right my-[1.25rem] w_full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]"
 			}>
 			<B click={() => nav("/")} style={() => "tc_1 tw_1 ts_3 mr-[2.5rem]"}>
 				<img src={"/config/logo.png"} class={`w-[6rem]`} />
 			</B>
-			<D style={() => `a_row ax_equal w_full tc_grey ts_1`}>
-				<D style={() => `a_row ax_equal gap-[1rem] `}>
+			<D style={() => `dx_right dx_equal w_full tc_grey ts_1`}>
+				<D style={() => `dx_right dx_equal gap-[1rem] `}>
 					{menu_options.slice(0, -1).map((v, i) => (
 						<B
 							click={() => opt_pick(i)}
@@ -67,13 +67,13 @@ export default () => {
 						</B>
 					))}
 				</D>
-				<D style={() => `a_row ax_equal gap-[1.2rem] z_fit`}>
+				<D style={() => `dx_right dx_equal gap-[1.2rem] z_fit`}>
 					<div
 						style={"transition:width 1s;"}
 						class={
 							!see_search()
-								? "a_row items-center w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
-								: "a_row items-center w-[14rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
+								? "dx_right ay_mid w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
+								: "dx_right ay_mid w-[14rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
 						}>
 						<B
 							click={() => {
@@ -122,27 +122,27 @@ export default () => {
 					<B style={() => `w-[1.5rem] h-[1.5rem] stroke-white fill-white `}>
 						<BellIcon />
 					</B>
-					<B click={() => see_profile_list(!see_profile_list())} style={() => `a_row`}>
+					<B click={() => see_profile_list(!see_profile_list())} style={() => `dx_right`}>
 						<img
 							src={`/icons/profile_blue.jpg`}
 							class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
 						/>
-						<div class={`w-[.8rem] h-[.4rem] ic_white a_row mt-[.5rem] `}>
+						<div class={`w-[.8rem] h-[.4rem] ic_white dx_right mt-[.5rem] `}>
 							<DownTriangleIcon />
 						</div>
 					</B>
 					{see_profile_list() === true && (
 						<div
 							class={`z_put c_black opacity-[.8] w-[10rem] h-fit top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
-							<div class="a_col gap-y-[.5rem]">
-								<div class="a_row items-center">
+							<div class="dy_mid gap-y-[.5rem]">
+								<div class="dx_right ay_mid">
 									<img
 										src={`/icons/profile_yellow.jpg`}
 										class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
 									/>{" "}
 									<p>Smith</p>
 								</div>
-								<div class="a_row items-center">
+								<div class="dx_right ay_mid">
 									<img
 										src={`/icons/profile_green.jpg`}
 										class={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
@@ -164,7 +164,7 @@ export default () => {
 			</B>
 			{/* <D
 				style={() =>
-					`z_fit z-[2] v2:z_put v2:z-[4] v2:c_null v2:a_row v2:ax_left v2:px-[1rem] v2:left-[0rem] v2:top-[2.5rem] v2:w_full v3:z_normal v3:px-[0rem] v3:w_fit`
+					`z_fit z-[2] v2:z_put v2:z-[4] v2:c_null v2:dx_right v2:dx_right v2:px-[1rem] v2:left-[0rem] v2:top-[2.5rem] v2:w_full v3:z_normal v3:px-[0rem] v3:w_fit`
 				}></D> */}
 		</D>
 	)
