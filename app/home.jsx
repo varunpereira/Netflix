@@ -44,9 +44,7 @@ export default () => {
 			<D style={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
-					style={`w-full h-[14rem] dx_right ay_mid gap-x-[.3rem] ${
-						chosenSlider() ? "overflow-x-auto" : "overflow-x-hidden"
-					} no_scroll`}>
+					style={`w-full h-[14rem] dx_right ay_mid gap-x-[.3rem] ${chosenSlider() ? "overflow-x-auto no_scroll `" : "overflow-x-hidden"} `}>
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
@@ -98,11 +96,11 @@ export default () => {
 				</D>
 				<V
 					ref={video_ref}
-					value={`/shows/snippets/lotr_1.mp4#t=80,298`}
+					value={`/shows/snippets/lotr_2.mp4#t=80,298`}
 					def="/shows/snippets/lotr_1.png"
 					mute={mute()}
 					rep={true}
-					style={`w-[180%] overflow-x-hidden e_full aspect-[2.4/1] hover:scale-200 `}
+					style={`w_full overflow-x-hidden e_full aspect-[16/9] hover:scale-200 `}
 				/>
 				<D
 					style={
@@ -115,7 +113,7 @@ export default () => {
 			</D>
 
 			<D
-				style={`w-full h-full mt-[2rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
+				style={`w-full h-full mt-[-6rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				<Tape data={all_shows_data().slice(0, 18)} title={`Trending Now`} i={1} />
 				<Tape data={all_shows_data().slice(18, 36)} title={`New Releases`} i={2} />
 				<Tape data={all_shows_data().slice(36, 54)} title={`Popular on Netflix`} i={3} />
