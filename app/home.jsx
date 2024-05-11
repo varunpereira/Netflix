@@ -75,10 +75,10 @@ export default () => {
 				hover_in={() => isPlaying(false)}
 				hover_out={() => isPlaying(true)}
 				click={() => mute(!mute())}
-				style={`z_fit z-[1]`}>
+				style={`z_fit z-[1] dx_mid`}>
 				<D
 					style={
-						"z_put z-[1] w-[30rem] h_full dy_mid v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
+						"z_put z-[1] left-0 top-[12rem] w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
 					}>
 					<P value={`/shows/snippets/lotr_1_logo.png`} style={`w_fit`} />
 					<T style={`my-[1rem]`}>
@@ -98,11 +98,11 @@ export default () => {
 				</D>
 				<V
 					ref={video_ref}
-					value={`/shows/snippets/lotr_1.mp4`}
+					value={`/shows/snippets/lotr_1.mp4#t=80,298`}
 					def="/shows/snippets/lotr_1.png"
 					mute={mute()}
 					rep={true}
-					style={`w_full e_full aspect-[16/9] hover:scale-200`}
+					style={`w-[180%] overflow-x-hidden e_full aspect-[2.4/1] hover:scale-200 `}
 				/>
 				<D
 					style={
@@ -115,7 +115,7 @@ export default () => {
 			</D>
 
 			<D
-				style={`w-full h-full mt-[-6rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
+				style={`w-full h-full mt-[2rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				<Tape data={all_shows_data().slice(0, 18)} title={`Trending Now`} i={1} />
 				<Tape data={all_shows_data().slice(18, 36)} title={`New Releases`} i={2} />
 				<Tape data={all_shows_data().slice(36, 54)} title={`Popular on Netflix`} i={3} />

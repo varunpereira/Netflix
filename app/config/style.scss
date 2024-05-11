@@ -247,6 +247,12 @@ $red: red;
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
+	.ax_left {
+		align-items: flex-end;
+	}
+	.ax_right {
+		align-items: flex-start;
+	}
 	.ax_mid {
 		align-items: center;
 	}

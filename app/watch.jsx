@@ -24,7 +24,7 @@ import {all_shows_data} from "~/data/shows/all"
 export default () => {
 	var nav = route()
 	var progress = state(0)
-	var mute = state(true)
+	var mute = state(false)
 	var playing = state(true)
 	var video_ref
 	var time_left = state()
@@ -84,12 +84,12 @@ export default () => {
 	}
 
 	return (
-		<D style={`z_fit z-[0]`}>
+		<D style={`z_fit z-[0]`} hover_in={() => mute(false)}>
 			<V
 				onTimeUpdate={handleTimeUpdate}
 				ref={video_ref}
-				value={`/shows/snippets/lotr_1.mp4`}
-				def="/shows/snippets/lotr_1.png"
+				value={show()?.id == 0 ? `/shows/snippets/lotr_1.mp4` : `/shows/snippets/univ_studios.mp4`}
+				def={show()?.id == 0 && `/shows/snippets/lotr_1.png`}
 				mute={mute()}
 				style={`e_full h-[100vh] w-full z-[-1]`}
 			/>
@@ -122,8 +122,8 @@ export default () => {
 				style={`z_put z-[2] left-0 bottom-[3rem] dx_right w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
 				<D style="z_fit w-full h-full">
 					<D
-						style={`c_red z_put z-[3]  h-[.3rem] w-full top-[.79rem]`}
-						css={`width:calc(${progress() > 65 ? progress() - 1: progress()}%)`}
+						style={`c_red z_put z-[3]  h-[.3rem] w-full top-[.75rem]`}
+						css={`width:calc(${progress() > 75 ? progress() - 1: progress()}%)`}
 					/>
 					<I
 						type="range"
