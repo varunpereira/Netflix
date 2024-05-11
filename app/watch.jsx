@@ -9,6 +9,7 @@ import {
 	timer,
 	req,
 	dir,
+	path,
 	D,
 	T,
 	B,
@@ -17,6 +18,7 @@ import {
 } from "~/config/shop"
 import {show_nav} from "~/config/state"
 import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/pieces/icon"
+import {all_shows_data} from "~/data/shows/all"
 
 export default () => {
 	var nav = route()
@@ -25,6 +27,8 @@ export default () => {
 	var playing = state(true)
 	var video_ref
 	var time_left = state()
+	var show_id = path.props()?.id
+	var show = state()
 
 	react(() => {
 		if (!playing()) video_ref?.pause()
@@ -34,6 +38,8 @@ export default () => {
 	construct(async () => {
 		page.title = `Watch - Netflix`
 		show_nav(false)
+		show(all_shows_data().find((show) => show?.id == show_id))
+		page.title = `${show()?.title} - Netflix`
 	})
 
 	destruct(() => {
@@ -99,7 +105,7 @@ export default () => {
 						<button type="button" class="w-[2rem] fill-white">
 							<VolumeIcon />
 						</button>
-						<p class='mt-[.3rem]'>Lord of the Rings - The Fellowship of the Ring</p>
+						<p class='mt-[.3rem]'>{show()?.title}</p>
 					</div>
 					<div class="dx_right gap-[1.2rem]">
 						<button type="button" class="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">

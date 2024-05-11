@@ -47,6 +47,7 @@ export default () => {
 					} no_scroll`}>
 					{data().map((v, i2) => (
 						<img
+							onClick={()=>nav(`/watch/${v?.id}`)}
 							onMouseOver={() => chosenSlider(i)}
 							onMouseLeave={() => chosenSlider(null)}
 							src={v?.poster_link}
@@ -88,7 +89,7 @@ export default () => {
 					</T>
 					<D style={() => `dx_right gap-x-[.75rem]`}>
 						<B
-							click={() => nav("/watch/1")}
+							click={() => nav("/watch/0")}
 							style={() =>
 								`z_fit c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`
 							}>

@@ -22,6 +22,7 @@ export var nav_full = (link) => (window.location.href = link)
 
 export var path = {
 	route: () => window.location.pathname,
+	props: useParams,
 	search: () => useSearchParams()[0],
 	encode: encodeURIComponent,
 	decode: decodeURIComponent,
