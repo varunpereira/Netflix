@@ -52,7 +52,7 @@ export default () => {
 	return (
 		<D
 			style={
-				"z_put z-[2] c_null dx_right my-[1.25rem] w_full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]"
+				"z_put z-[2] c_null fit_1 dx_right my-[1.25rem] w_full "
 			}>
 			<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[2.5rem]"}>
 				<P value={"/config/logo.png"} style={`w-[6rem]`} />
