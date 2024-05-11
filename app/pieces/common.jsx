@@ -23,7 +23,5 @@ export default () => {
 		page.title = ``
 	})
 
-	react(() => {})
-
 	return <></>
 }

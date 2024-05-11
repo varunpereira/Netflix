@@ -30,8 +30,7 @@ export var path = {
 
 export var page = document
 export var get = (id) => document.getElementById(id)
-export var style = (id, className) => document.getElementById(id).className = className
-
+export var style = (id, className) => (document.getElementById(id).className = className)
 
 export var view = {
 	width: () => window.innerWidth,
@@ -64,121 +63,83 @@ export var dir = Array
 export var dic = Object
 
 // structs
-export var D = ({
-	style = () => "",
-	click = () => "",
-	key = () => "",
-	hover_in = () => "",
-	hover_out = () => "",
-	custom = () => "",
-	children,
-	...rest
-}) => {
+export var D = (props) => {
+	// var custom = props?.custom
 	return (
 		<div
-			onClick={click}
-			onKeyDown={key}
-			onMouseOver={hover_in}
-			onMouseLeave={hover_out}
-			use:custom
-			class={style()}
-			{...rest}>
-			{children}
+			onClick={props?.click}
+			onMouseOver={props?.hover_in}
+			onMouseLeave={props?.hover_out}
+			onKeyDown={props?.key}
+			// use:custom
+			style={props?.css}
+			class={props.style}>
+			{props.children}
 		</div>
 	)
 }
 
-export var T = ({style = () => "", children, ...rest}) => (
-	<p class={style()} {...rest}>
-		{children}
+export var T = (props) => (
+	<p class={props.style}>
+		{props.children}
 	</p>
 )
 
-export var B = ({
-	style = () => "",
-	click = () => "",
-	hover_in = () => "",
-	hover_out = () => "",
-	children,
-	...rest
-}) => (
-	<button onClick={click} type="button" class={style()} {...rest}>
-		{children}
+export var B = (props) => (
+	<button type="button" onClick={props?.click} class={props.style}>
+		{props.children}
 	</button>
 )
 
-export var I = ({
-	style = () => "",
-	type = () => "text",
-	value = () => "",
-	input = () => "",
-	click = () => "",
-	holder = () => "",
-	key = () => "",
-	...rest
-}) => (
+export var I = (props) => (
 	<input
-		class={style() + " o_null"}
-		type={type()}
-		value={value()}
-		placeholder={holder()}
-		onInput={input}
-		onClick={click}
-		onKeyDown={key}
-		{...rest}
+		{...props}
+		type={props?.type}
+		value={props?.value}
+		placeholder={props.holder}
+		onInput={props?.input}
+		onClick={props?.click}
+		onKeyDown={props?.key}
+		ref={props?.ref}
+		class={props?.style}
 	/>
 )
 
-export var P = ({
-	style = () => "",
-	value = () => "",
-	def = () => "",
-	hover_in = () => "",
-	hover_out = () => "",
-	click = () => "",
-	...rest
-}) => (
+export var P = (props) => (
 	<img
-		class={style()}
-		src={value()}
-		alt={def()}
-		onMouseOver={hover_in}
-		onMouseLeave={hover_out}
-		onClick={click}
-		{...rest}
+		src={props.value}
+		alt={props.def}
+		onClick={props?.click}
+		onMouseOver={props?.hover_in}
+		onMouseLeave={props?.hover_out}
+		onKeyDown={props?.key}
+		// use:custom
+		style={props?.css}
+		class={props.style}
 	/>
 )
 
-export var V = ({
-	style = () => "",
-	value = () => "",
-	def = () => "",
-	rep = () => true,
-	type = () => "",
-	controls = () => false,
-	mute = () => true,
-	hover_in = () => "",
-	hover_out = () => "",
-	click = () => "",
-	...rest
-}) => (
+export var V = (props) => (
 	<video
-		{...rest}
-		class={style()}
-		poster={def()}
-		loop={rep()}
-		controls={controls()}
-		muted={mute()}
+		{...props}
+		poster={props?.def}
+		loop={props?.rep}
+		controls={props?.controls}
+		muted={props?.mute}
 		playsinline
-		onMouseOver={hover_in}
-		onMouseLeave={hover_out}
-		onClick={click}>
-		<source src={value()} type={type()} />
+		onClick={props?.click}
+		onMouseOver={props?.hover_in}
+		onMouseLeave={props?.hover_out}
+		onKeyDown={props?.key}
+		ref={props?.ref}
+		// use:custom
+		class={props?.style}>
+		<source src={props?.value} type={props?.type} />
 		Browser doesn't support video tag.
 	</video>
 )
 
-// separate piece
+// backend connection
 export var auth = async (link) => {
 	try {
 		var res = await req("/login/auth_get")

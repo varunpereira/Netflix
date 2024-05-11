@@ -19,13 +19,11 @@ export default () => {
 	var nav = route()
 
 	construct(() => {
-		page.title = `Page not found - iStuff`
+		page.title = `404 - Netflix`
 	})
 
-	react(() => {})
-
 	return (
-		<D style={() => `fit_1`}>
+		<D style={``}>
 			<B click={() => nav("/")} style={() => "hover:tc_grey"}>
 				Go Home
 			</B>

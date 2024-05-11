@@ -15,6 +15,7 @@ import {
 	B,
 	V,
 	P,
+	I
 } from "~/config/shop"
 import {show_nav} from "~/config/state"
 import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/pieces/icon"
@@ -72,68 +73,68 @@ export default () => {
 
 	var openFullscreen = () => {
 		if (video_ref.requestFullscreen) {
-			video_ref.requestFullscreen();
-		} else if (video_ref.webkitRequestFullscreen) { /* Safari */
-			video_ref.webkitRequestFullscreen();
-		} else if (video_ref.msRequestFullscreen) { /* IE11 */
-			video_ref.msRequestFullscreen();
+			video_ref.requestFullscreen()
+		} else if (video_ref.webkitRequestFullscreen) {
+			/* Safari */
+			video_ref.webkitRequestFullscreen()
+		} else if (video_ref.msRequestFullscreen) {
+			/* IE11 */
+			video_ref.msRequestFullscreen()
 		}
 	}
 
 	return (
-		<>
-			<div style={() => `z_fit z-[0]`}>
-				<video
-					onTimeUpdate={handleTimeUpdate}
-					ref={video_ref}
-					src={`/shows/snippets/lotr_1.mp4`}
-					poster="/shows/snippets/lotr_1.png"
-					muted={mute()}
-					class={`e_full h-[100vh] w-full z-[-1]`}
-				/>
-				<button
-					type="button"
-					onClick={()=>nav('/')}
-					class={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
-					<ArrowLeftIcon />
-				</button>
-				<div class="z_put z-[1] bottom-0 left-0 dx_right dx_equal ay_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
-					<div class="dx_right gap-[1rem]">
-						<button onClick={() => playing(!playing())} type="button" class="w-[1.5rem] fill-white">
-							{playing() === true ? <PauseIcon /> : <PlayIcon />}
-						</button>
-						<button type="button" class="w-[2rem] fill-white">
-							<VolumeIcon />
-						</button>
-						<p class='mt-[.3rem]'>{show()?.title}</p>
-					</div>
-					<div class="dx_right gap-[1.2rem]">
-						<button type="button" class="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">
-							<HelpIcon />
-						</button>
-						<button type="button" class="fill-white">
-							<img src='/icons/full_screen.png' class='w-6 h-6' onClick={openFullscreen}/>
-						</button>
-					</div>
-				</div>
+		<D style={`z_fit z-[0]`}>
+			<V
+				onTimeUpdate={handleTimeUpdate}
+				ref={video_ref}
+				value={`/shows/snippets/lotr_1.mp4`}
+				def="/shows/snippets/lotr_1.png"
+				mute={mute()}
+				style={`e_full h-[100vh] w-full z-[-1]`}
+			/>
+			<B
+				click={() => nav("/")}
+				style={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
+				<ArrowLeftIcon />
+			</B>
+			<D style="z_put z-[1] bottom-0 left-0 dx_right dx_equal ay_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
+				<D style="dx_right gap-[1rem]">
+					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
+						{playing() === true ? <PauseIcon /> : <PlayIcon />}
+					</B>
+					<B style="w-[2rem] fill-white">
+						<VolumeIcon />
+					</B>
+					<T style="mt-[.3rem]">{show()?.title}</T>
+				</D>
+				<D style="dx_right gap-[1.2rem]">
+					<B style="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">
+						<HelpIcon />
+					</B>
+					<B style="fill-white">
+						<P value="/icons/full_screen.png" style="w-6 h-6" click={openFullscreen} />
+					</B>
+				</D>
+			</D>
 
-				<div
-					class={`z_put z-[2] left-0 bottom-[3rem] dx_right w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
-					<div class="z_fit w-full h-full">
-						<div
-							class={`c_red z_put z-[3]  h-[.3rem] w-full top-[.75rem]`}
-							style={`width:calc(${progress()}%)`}></div>
-						<input
-							type="range"
-							class=" h-[.3rem] cursor-pointer slider"
-							value={progress()}
-							onInput={handleSliderChange}
-							step=".000000000001"
-						/>
-					</div>
-					<p class="w-fit ml-[1rem] ">{formatSeconds(time_left())}</p>
-				</div>
-			</div>
-		</>
+			<D
+				style={`z_put z-[2] left-0 bottom-[3rem] dx_right w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
+				<D style="z_fit w-full h-full">
+					<D
+						style={`c_red z_put z-[3]  h-[.3rem] w-full top-[.79rem]`}
+						css={`width:calc(${progress() > 65 ? progress() - 1: progress()}%)`}
+					/>
+					<I
+						type="range"
+						value={progress()}
+						input={handleSliderChange}
+						step=".0000000000000001"
+						style=" h-[.3rem] cursor-pointer slider"
+					/>
+				</D>
+				<T style="w-fit ml-[1rem] ">{formatSeconds(time_left())}</T>
+			</D>
+		</D>
 	)
 }
