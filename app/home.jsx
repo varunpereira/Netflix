@@ -17,8 +17,10 @@ import {
 } from "~/config/shop"
 import {ChevronRightIcon} from "~/pieces/icon"
 import {all_shows_data} from "~/data/shows/all"
+import {show_nav} from "~/config/state"
 
 export default () => {
+	show_nav(true)
 	var nav = route()
 	var mute = state(true)
 	var chosenSlider = state(null)

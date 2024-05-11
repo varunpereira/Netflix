@@ -6,13 +6,13 @@ import {page, D} from "~/config/shop"
 import Nav from "~/pieces/nav"
 import Footer from "~/pieces/footer"
 import def from "~/pieces/def"
-import home from "~/home"
+import land from "~/land"
 import watch from "~/watch"
 import results from "~/results"
 
 var route = [
 	["*", def],
-	["/", home],
+	["/", land],
 	["/watch/:id", watch],
 	["/search", results],
 ]
@@ -26,7 +26,7 @@ var root = () => {
 	
 	return (
 		<Router>
-			<D style={`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[150rem] mx_auto `}>
+			<D style={`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[150rem] mx_auto`}>
 				{show_nav() && <Nav />}
 				<Routes>
 					{route?.map((route) => (

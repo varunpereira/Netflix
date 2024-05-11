@@ -56,21 +56,18 @@ export default () => {
 
 	return (
 		<D
-			style={`pt-[10rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem] hover:px-0 dy_mid w-full h-full overflow-x-hidden`}>
+			style={`fit_1 pt-[10rem] hover:px-0 dy_mid w-full h-full overflow-x-hidden`}>
 			{results().map((v, i) => (
 				<D
 					style={`z_fit z-[${
 						i === chosenSlider() ? "2" : "1"
-					}] w-full h-[14rem] dx_mid ay_mid gap-x-[.3rem] mt-[-4rem] `}>
+					}] w-full h-[14rem] dx_mid ay_mid gap-x-[.3rem] mt-[-3rem] `}>
 					{v.map((v2, i2) => (
 						<P
 							value={v2?.poster_link}
 							click={() => nav(`/watch/${v2?.id}`)}
 							hover_in={() => {
 								chosenSlider(i)
-							}}
-							hover_out={() => {
-								chosenSlider(null)
 							}}
 							css={"transition:width 1s .5s, height 1s .5s;"}
 							style={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer `}

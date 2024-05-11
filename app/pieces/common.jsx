@@ -1,7 +1,8 @@
 import {
 	state,
-	react,
+	memo,
 	construct,
+	react,
 	destruct,
 	write,
 	route,
@@ -23,5 +24,5 @@ export default () => {
 		page.title = ``
 	})
 
-	return <></>
+	return <D style={`fit_1`}></D>
 }

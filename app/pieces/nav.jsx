@@ -65,7 +65,7 @@ export default () => {
 						</B>
 					))}
 				</D>
-				<D style={`dx_right dx_equal gap-[1.2rem] z_fit`}>
+				<D style={`dx_right dx_equal gap-[1.2rem] z_fit z-[3]`}>
 					<D
 						css={"transition:width 1s;"}
 						style={
@@ -127,7 +127,7 @@ export default () => {
 					</B>
 					{see_profile_list() === true && (
 						<D
-							style={`z_put c_black opacity-[.8] w-[10rem] h-fit top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
+							style={`z_put z-[4] c_black opacity-[.8] w-[10rem] h-fit top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
 							<D style="dy_mid gap-y-[.5rem]">
 								<D style="dx_right ay_mid">
 									<P
@@ -140,7 +140,7 @@ export default () => {
 									<P
 										value={`/icons/profile_green.jpg`}
 										style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
-									/>{" "}
+									/>
 									<T>John</T>
 								</D>
 							</D>

@@ -10,13 +10,7 @@ $red: red;
 @layer utilities {
 	// fit
 	.fit_1 {
-		@apply min-w-[20rem] v2:max-w-[60rem] v5:max-w-[150rem] mx_auto;
-	}
-	.fit_2 {
-		@apply min-w-[20rem] v2:max-w-[90rem] v5:max-w-[60rem] mx_auto v2:px-[1rem] v3:px-[3rem] v4:px-[5rem];
-	}
-	.fit_3 {
-		@apply mx_auto min-w-[20rem] v2:max-w-[90rem] v5:max-w-[150rem];
+		@apply z_fit z-[1] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem];
 	}
 	/* text colour */
 	.tc_white {
@@ -252,6 +246,9 @@ $red: red;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+	}
+	.ax_mid {
+		align-items: center;
 	}
 	/* default: block, also: flex, grid */
 	.hide {
