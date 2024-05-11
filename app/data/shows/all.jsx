@@ -1,4 +1,5 @@
 export var all_shows_data = () => [
+	{id:0,title: "The Lord of the Rings - The Fellowship", keywords: "The Lord of the Rings - The Fellowship", poster_link: "/shows/snippets/lotr_1.png"},
 	{id:1,title: "2012", keywords: "2012", poster_link: "/shows/posters/2012.jpg"},
 	{id: 2, 
 		title: "50 First Dates",

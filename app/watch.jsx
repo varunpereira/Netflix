@@ -48,9 +48,9 @@ export default () => {
 	})
 
 	var handleTimeUpdate = () => {
-		progress((video_ref.currentTime / video_ref.duration) * 100)
-		var duration = video_ref.duration
+		var duration = video_ref.duration // sec
 		var currentTime = video_ref.currentTime
+		progress((currentTime / duration) * 100)
 		time_left(duration - currentTime)
 	}
 
