@@ -23,7 +23,7 @@ export default () => {
 	show_nav(true)
 	var nav = route()
 	var mute = state(true)
-	var chosenSlider = state(null)
+	var chosenSlider = state(undefined)
 	var chosenSlide = state(null)
 	var isPlaying = state(false)
 	var video_ref
@@ -44,7 +44,7 @@ export default () => {
 			<D style={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
-					style={`w-full h-[14rem] dx_right ay_mid gap-x-[.3rem] ${chosenSlider() ? "overflow-x-auto no_scroll `" : "overflow-x-hidden"} `}>
+					style={`w-full h-[14rem] dx_right ay_mid gap-x-[.3rem] no_scroll ${chosenSlider() !== null ? "overflow-x-auto " : "overflow-x-hidden"} `}>
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
