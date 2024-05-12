@@ -44,7 +44,7 @@ export default () => {
 			<D style={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
-					style={`w-full h-[14rem] dx_right ay_mid gap-x-[.3rem] no_scroll ${chosenSlider() !== null ? "overflow-x-auto " : "overflow-x-hidden"} `}>
+					style={`w-full ${chosenSlider() === undefined ? 'h-[7rem] my-[3.5rem]':'h-[14rem]'} dx_right ay_mid gap-x-[.3rem] no_scroll ${chosenSlider() !== null ? "overflow-x-auto " : "overflow-x-hidden"} `}>
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
