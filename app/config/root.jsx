@@ -26,7 +26,7 @@ var root = () => {
 	
 	return (
 		<Router>
-			<D style={`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] mx_auto z_fit`}>
+			<D style={`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] mx_auto z_fit z-[0]`}>
 				{show_nav() && <Nav />}
 				<Routes>
 					{route?.map((route) => (

@@ -60,7 +60,7 @@ export default () => {
 			{results().map((v, i) => (
 				<D
 					style={`z_fit z-[${
-						i === chosenSlider() ? "2" : "1"
+						i === chosenSlider() ? "1" : "0"
 					}] w-full h-[14rem] dx_mid ay_mid gap-x-[.3rem] mt-[-3rem] `}>
 					{v.map((v2, i2) => (
 						<P
