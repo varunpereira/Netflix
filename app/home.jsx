@@ -44,7 +44,11 @@ export default () => {
 			<D style={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
-					style={`w-full ${chosenSlider() === undefined ? 'h-[7rem] my-[3.5rem]':'h-[14rem]'} dx_right ay_mid gap-x-[.3rem] no_scroll ${chosenSlider() !== null ? "overflow-x-auto " : "overflow-x-hidden"} `}>
+					style={`w-full ${
+						chosenSlider() === undefined ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
+					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
+						chosenSlider() !== null ? "overflow-x-auto " : "overflow-x-hidden"
+					} `}>
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
@@ -76,7 +80,7 @@ export default () => {
 				style={`z_fit z-[1] dx_mid`}>
 				<D
 					style={
-						"z_put z-[1] left-0 top-[12rem] w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
+						"z_put z-[1] left-0 top-[14rem] w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
 					}>
 					<P value={`/shows/snippets/lotr_1_logo.png`} style={`w_fit`} />
 					<T style={`my-[1rem]`}>
@@ -94,16 +98,16 @@ export default () => {
 						</B>
 					</D>
 				</D>
-				<V
-					ref={video_ref}
-					value={`/shows/snippets/lotr_1
-					
-					.mp4#t=80,298`}
-					def="/shows/snippets/lotr_1.png"
-					mute={mute()}
-					rep={true}
-					style={`w_full overflow-x-hidden e_full aspect-[2.4/1] hover:scale-200 `}
-				/>
+				<D style={`h-[40rem] overflow-y-hidden`}>
+					<V
+						ref={video_ref}
+						value={`/shows/snippets/lotr_1.mp4#t=80,298`}
+						def="/shows/snippets/lotr_1.png"
+						mute={mute()}
+						rep={true}
+						style={`h-[70rem] mt-[-8.75rem] overflow-x-hidden e_full aspect-[2.4/1]`}
+					/>
+				</D>
 				<D
 					style={
 						"z_put z-[2] bottom-[0rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[6rem]"
