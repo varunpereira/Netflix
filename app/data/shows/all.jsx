@@ -800,7 +800,7 @@ export var all_shows_data = () => [
 	{
 		id: 135,
 		title: "Madagascar",
-		keywords: "Lord of the Rings",
+		keywords: "madagascar",
 		poster_link: "/shows/posters/madagascar.jpg",
 	},
 	{id: 136, title: "Matilda", keywords: "Matilda", poster_link: "/shows/posters/matilda.jpg"},

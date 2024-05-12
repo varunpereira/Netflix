@@ -50,22 +50,19 @@ export default () => {
 	}
 
 	return (
-		<D
-			style={
-				"z_put z-[2] c_null fit_1 dx_right my-[1.25rem] w_full "
-			}>
-			<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[2.5rem]"}>
-				<P value={"/config/logo.png"} style={`w-[6rem]`} />
-			</B>
-			<D style={`dx_right dx_equal w_full tc_grey ts_1`}>
-				<D style={`dx_right dx_equal gap-[1rem] `}>
+		<D style={"z_put z-[2] c_null w_full fit_1 dx_right my-[1.25rem] "}>
+			<D style={`dx_equal w_full  tc_grey ts_1 `}>
+				<D style={`dx_equal gap-[1rem] `}>
+					<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[2rem]"}>
+						<P value={"/config/logo.png"} style={`w-[6rem]`} />
+					</B>
 					{menu_options.slice(0, -1).map((v, i) => (
 						<B click={() => opt_pick(i)} style={`hover:tc_white ${opt_pick() === i && `tc_white`}`}>
 							{v}
 						</B>
 					))}
 				</D>
-				<D style={`dx_right dx_equal gap-[1.2rem] z_fit z-[3]`}>
+				<D style={`dx_equal gap-[1.2rem] z_fit z-[3] `}>
 					<D
 						css={"transition:width 1s;"}
 						style={
