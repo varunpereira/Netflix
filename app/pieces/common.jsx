@@ -1,6 +1,6 @@
 import {
 	state,
-	memo,
+	react,
 	construct,
 	react,
 	destruct,

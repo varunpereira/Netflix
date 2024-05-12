@@ -26,11 +26,11 @@ export default () => {
 	var mute = state(true)
 	var chosenSlider = state(undefined)
 	var chosenSlide = state(null)
-	var isPlaying = state(false)
+	var playing = state(false)
 	var video_ref
 
 	react(() => {
-		if (isPlaying()) video_ref?.pause()
+		if (playing()) video_ref?.pause()
 		else video_ref?.play()
 	})
 
@@ -75,8 +75,8 @@ export default () => {
 	return (
 		<D style={``}>
 			<D
-				hover_in={() => isPlaying(false)}
-				hover_out={() => isPlaying(true)}
+				hover_in={() => playing(false)}
+				hover_out={() => playing(true)}
 				style={`z_fit z-[1] dx_mid`}>
 				<D
 					style={

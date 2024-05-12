@@ -30,6 +30,7 @@ export default () => {
 	var time_left = state()
 	var show_id = path.props()?.id
 	var show = state()
+	page.title = `Watch - Netflix`
 
 	react(() => {
 		if (playing()) video_ref?.pause()
@@ -37,10 +38,10 @@ export default () => {
 	})
 
 	construct(async () => {
-		page.title = `Watch - Netflix`
 		show_nav(false)
 		show(all_shows_data().find((show) => show?.id == show_id))
 		page.title = `${show()?.title} - Netflix`
+		video_ref?.play()
 	})
 
 	destruct(() => {

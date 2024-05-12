@@ -1,4 +1,4 @@
-import {createSignal, createMemo, createEffect, onMount, onCleanup} from "solid-js"
+import {createSignal, createMemo, onMount, onCleanup} from "solid-js"
 import {useNavigate, useSearchParams, useParams} from "@solidjs/router"
 
 export var state = (def) => {
@@ -6,9 +6,7 @@ export var state = (def) => {
 	return (put) => (put !== undefined ? set(put) : get())
 }
 
-export var memo = createMemo
-
-export var react = createEffect
+export var react = createMemo // any state inside is set in piece it runs
 
 export var construct = onMount
 
@@ -139,7 +137,7 @@ export var V = (props) => (
 	</video>
 )
 
-// backend connection
+// networks
 export var auth = async (link) => {
 	try {
 		var res = await req("/login/auth_get")

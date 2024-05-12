@@ -17,7 +17,6 @@ import {
 	I,
 	V,
 	str,
-	memo,
 } from "~/config/shop"
 import {all_shows_data} from "~/data/shows/all"
 
@@ -28,11 +27,7 @@ export default () => {
 	var term = state()
 	var path_par = path.search()
 	var chosen_slider = state()
-
-	react(() => {
-		page.title = `Search Results - Netflix`
-		term(path_par?.q.trim().toUpperCase())
-	})
+	page.title = `Search Results - Netflix`
 
 	var chunk_dir = (array) => {
 		const chunkSize = 5
@@ -44,11 +39,10 @@ export default () => {
 		return chunks
 	}
 
-	var results = memo(() => {
-		// must call signal at least once, for this memo to rerun
-		;[term()]
+	var results = react(() => {
+		var term = path_par?.q.trim().toUpperCase() // path is like state so rerenders
 		var get_results = shows_filt(
-			all_shows_data().filter((show) => show?.keywords.toUpperCase().includes(term())),
+			all_shows_data().filter((show) => show?.keywords.toUpperCase().includes(term)),
 		)
 		var chunks = chunk_dir(get_results)
 		return chunks
