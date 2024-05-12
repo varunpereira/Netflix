@@ -107,7 +107,7 @@ export default () => {
 					<V
 						ref={video_ref}
 						value={`/shows/snippets/lotr_1.mp4#t=80,298`}
-						def="/shows/snippets/lotr_1.png"
+						// def="/shows/snippets/lotr_1.png"
 						mute={mute()}
 						rep={true}
 						style={`h-[70rem] mt-[-8.75rem] overflow-x-hidden e_full aspect-[2.4/1]`}

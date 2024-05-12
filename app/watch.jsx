@@ -32,7 +32,7 @@ export default () => {
 	var show = state()
 
 	react(() => {
-		if (!playing()) video_ref?.pause()
+		if (playing()) video_ref?.pause()
 		else video_ref?.play()
 	})
 
@@ -56,7 +56,7 @@ export default () => {
 
 	var handleSliderChange = (e) => {
 		video_ref.currentTime = video_ref.duration * (e.target.value / 100)
-		progress(e.target.value)
+		// progress(e.target.value)
 	}
 
 	var formatSeconds = (d) => {
@@ -84,12 +84,12 @@ export default () => {
 	}
 
 	return (
-		<D style={`z_fit z-[0]`} hover_in={() => mute(false)}>
+		<D style={`z_fit z-[0]`}>
 			<V
 				onTimeUpdate={handleTimeUpdate}
 				ref={video_ref}
 				value={show()?.id == 0 ? `/shows/snippets/lotr_1.mp4` : `/shows/snippets/univ_studios.mp4`}
-				def={show()?.id == 0 && `/shows/snippets/lotr_1.png`}
+				// def={show()?.id == 0 && `/shows/snippets/lotr_1.png`}
 				mute={mute()}
 				style={`e_full h-[100vh] w-full z-[-1]`}
 			/>
@@ -101,9 +101,11 @@ export default () => {
 			<D style="z_put z-[1] bottom-0 left-0 dx_right dx_equal ay_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 				<D style="dx_right gap-[1rem]">
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
-						{playing() === true ? <PauseIcon /> : <PlayIcon />}
+						{playing() === false ? <PauseIcon /> : <PlayIcon />}
 					</B>
-					<B click={() => mute(!mute())} style="w-[2rem] fill-white">{!mute() ? <MuteIcon /> : <VolumeIcon />}</B>
+					<B click={() => mute(!mute())} style="w-[2rem] fill-white">
+						{mute() ? <MuteIcon /> : <VolumeIcon />}
+					</B>
 					<T style="mt-[.3rem]">{show()?.title}</T>
 				</D>
 				<D style="dx_right gap-[1.2rem]">
@@ -122,7 +124,13 @@ export default () => {
 					<D
 						style={`c_red z_put z-[3]  h-[.3rem] w-full top-[.75rem]`}
 						css={`
-							width: calc(${progress() > 75 ? progress() - 1 : progress()}%);
+							width: calc(
+								${progress() < 25
+									? progress() + .25
+									: progress() > 75
+									? progress() - .75
+									: progress()}%
+							);
 						`}
 					/>
 					<I
