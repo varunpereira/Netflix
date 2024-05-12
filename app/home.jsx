@@ -28,6 +28,7 @@ export default () => {
 	var chosenSlide = state(null)
 	var playing = state(false)
 	var video_ref
+	page.title = `Home - Netflix`
 
 	react(() => {
 		if (playing()) video_ref?.pause()
@@ -35,7 +36,7 @@ export default () => {
 	})
 
 	construct(async () => {
-		page.title = `Home - Netflix`
+		video_ref?.play()
 	})
 
 	// video 16:9 fine,
