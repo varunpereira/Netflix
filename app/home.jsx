@@ -18,6 +18,7 @@ import {
 import {ChevronRightIcon} from "~/pieces/icon"
 import {all_shows_data} from "~/data/shows/all"
 import {show_nav} from "~/config/state"
+import {VolumeIcon, MuteIcon} from "~/pieces/icon"
 
 export default () => {
 	show_nav(true)
@@ -76,11 +77,10 @@ export default () => {
 			<D
 				hover_in={() => isPlaying(false)}
 				hover_out={() => isPlaying(true)}
-				click={() => mute(!mute())}
 				style={`z_fit z-[1] dx_mid`}>
 				<D
 					style={
-						"z_put z-[1] left-0 top-[14rem] w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
+						"z_put z-[1] left-0 top-[17rem] w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
 					}>
 					<P value={`/shows/snippets/lotr_1_logo.png`} style={`w_fit`} />
 					<T style={`my-[1rem]`}>
@@ -90,15 +90,20 @@ export default () => {
 					<D style={`dx_right gap-x-[.75rem]`}>
 						<B
 							click={() => nav("/watch/0")}
-							style={`z_fit c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
+							style={`z_fit c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
 							<T>Play</T>
 						</B>
-						<B style={`c_black opacity-[.4] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `}>
+						<B style={`c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `}>
 							My List
 						</B>
 					</D>
 				</D>
-				<D style={`h-[40rem] overflow-y-hidden`}>
+				<B
+					style={`z_put z-[1] right-[2.5rem] top-[30rem] ic_white opacity w-[1.75rem] h-[1.75rem] c_black rounded-full opacity-[.7] `}
+					click={() => mute(!mute())}>
+					{mute() ? <MuteIcon /> : <VolumeIcon />}
+				</B>
+				<D style={`h-[45rem] overflow-y-hidden`}>
 					<V
 						ref={video_ref}
 						value={`/shows/snippets/lotr_1.mp4#t=80,298`}
@@ -110,7 +115,7 @@ export default () => {
 				</D>
 				<D
 					style={
-						"z_put z-[2] bottom-[0rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[6rem]"
+						"z_put z-[2] bottom-[0rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
 					}
 				/>
 				<D
@@ -119,7 +124,7 @@ export default () => {
 			</D>
 
 			<D
-				style={`w-full h-full mt-[2rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
+				style={`w-full h-full mt-[-4rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				<Tape data={all_shows_data().slice(0, 18)} title={`Trending Now`} i={1} />
 				<Tape data={all_shows_data().slice(18, 36)} title={`New Releases`} i={2} />
 				<Tape data={all_shows_data().slice(36, 54)} title={`Popular on Netflix`} i={3} />

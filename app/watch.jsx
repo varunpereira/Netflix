@@ -15,7 +15,7 @@ import {
 	B,
 	V,
 	P,
-	I
+	I,
 } from "~/config/shop"
 import {show_nav} from "~/config/state"
 import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/pieces/icon"
@@ -24,8 +24,8 @@ import {all_shows_data} from "~/data/shows/all"
 export default () => {
 	var nav = route()
 	var progress = state(0)
-	var mute = state(false)
-	var playing = state(true)
+	var mute = state(true)
+	var playing = state(false)
 	var video_ref
 	var time_left = state()
 	var show_id = path.props()?.id
@@ -103,9 +103,7 @@ export default () => {
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === true ? <PauseIcon /> : <PlayIcon />}
 					</B>
-					<B style="w-[2rem] fill-white">
-						<VolumeIcon />
-					</B>
+					<B click={() => mute(!mute())} style="w-[2rem] fill-white">{!mute() ? <MuteIcon /> : <VolumeIcon />}</B>
 					<T style="mt-[.3rem]">{show()?.title}</T>
 				</D>
 				<D style="dx_right gap-[1.2rem]">
@@ -123,7 +121,9 @@ export default () => {
 				<D style="z_fit w-full h-full">
 					<D
 						style={`c_red z_put z-[3]  h-[.3rem] w-full top-[.75rem]`}
-						css={`width:calc(${progress() > 75 ? progress() - 1: progress()}%)`}
+						css={`
+							width: calc(${progress() > 75 ? progress() - 1 : progress()}%);
+						`}
 					/>
 					<I
 						type="range"
