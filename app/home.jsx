@@ -81,7 +81,7 @@ export default () => {
 				style={`z_fit z-[1] dx_mid`}>
 				<D
 					style={
-						"z_put z-[1] left-0 top-[17rem] w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
+						"z_put z-[1] left-0 top-[17rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
 					}>
 					<P value={`/shows/snippets/lotr_1_logo.png`} style={`w_fit`} />
 					<T style={`my-[1rem]`}>

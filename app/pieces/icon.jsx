@@ -1,5 +1,5 @@
 export var MenuIcon = () => (
-	<svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+	<svg viewBox="0 0 24 24" x="0" y="0" stroke-width="1.5" stroke="currentColor">
 		<path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 	</svg>
 )
