@@ -5,29 +5,17 @@ export var MenuIcon = () => (
 )
 
 export var BellIcon = () => (
-	<svg
-		viewbox="0 0 100 100"
-		x="0"
-		xmlns="http://www.w3.org/2000/svg"
-		y="0">
+	<svg viewbox="0 0 100 100" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
 		<path
 			d="M61.7,69.5H81.2L75.7,64a8.3,8.3,0,0,1-2.3-5.6V46.1A23.4,23.4,0,0,0,57.8,24V22.7a7.8,7.8,0,1,0-15.6,0V24A23.4,23.4,0,0,0,26.6,46.1V58.4A8.3,8.3,0,0,1,24.3,64l-5.5,5.5H38.3m23.4,0v3.9a11.7,11.7,0,0,1-23.4,0V69.5m23.4,0H38.3"
-			strokeWidth="8"/>
+			// strokeWidth="8"
+		/>
 	</svg>
 )
 
 export var SearchIcon = () => (
-	<svg
-		class="svg-snoweb svg-theme-dark"
-		preserveaspectratio="xMidYMid meet"
-		viewbox="0 0 100 100"
-		x="0"
-		xmlns="http://www.w3.org/2000/svg"
-		y="0">
-		<path
-			class="svg-fill-primary"
-			d="M40.6,21.9A18.8,18.8,0,1,0,59.4,40.6,18.7,18.7,0,0,0,40.6,21.9Zm-28,18.7A28.1,28.1,0,1,1,63.5,56.9L86.1,79.4a4.7,4.7,0,0,1-6.7,6.7L56.9,63.5A28,28,0,0,1,12.6,40.6Z"
-			fill-rule="evenodd"></path>
+	<svg viewbox="0 0 100 100" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
+		<path d="M40.6,21.9A18.8,18.8,0,1,0,59.4,40.6,18.7,18.7,0,0,0,40.6,21.9Zm-28,18.7A28.1,28.1,0,1,1,63.5,56.9L86.1,79.4a4.7,4.7,0,0,1-6.7,6.7L56.9,63.5A28,28,0,0,1,12.6,40.6Z"></path>
 	</svg>
 )
 
