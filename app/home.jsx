@@ -25,7 +25,7 @@ export default () => {
 	var nav = route()
 	var mute = state(true)
 	var chosenSlider = state(undefined)
-	var chosenSlide = state(null)
+	var chosenSlide = state(undefined)
 	var playing = state(false)
 	var video_ref
 
@@ -50,7 +50,7 @@ export default () => {
 						chosenSlider() === undefined ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
 						chosenSlider() !== null ? "overflow-x-auto" : "overflow-x-hidden"
-					} transition-all ease-in-out hover:delay-[1500ms] duration-[1000ms]`}>
+					} `}>
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
