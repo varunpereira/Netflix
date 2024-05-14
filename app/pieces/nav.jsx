@@ -76,12 +76,12 @@ export default () => {
 					<D style={`dy_top ax_left v4:dx_equal v4:ay_mid gap-[1.2rem] z_fit z-[3] `}>
 						<D
 							css={"transition: width 1s ease-in-out;"}
-							style={
-								(!see_search()
+							style={`${
+								!see_search()
 									? "dx_right v4:dx_right ay_mid w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
-									: "dx_right v4:dx_right ay_mid w-full v5:w-[14rem] mt-[1rem] v5:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]") +
-								` hover:transition-all hover:ease-in-out hover:delay-[2000ms] hover:duration-[1000ms] duration-[1000ms] `
-							}>
+									: "dx_right v4:dx_right ay_mid w-full v5:w-[14rem] mt-[1rem] v5:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
+							} 
+								 transition-all ease-in-out duration-[1000ms] `}>
 							<B
 								click={() => {
 									form_submit(form_data().search)
