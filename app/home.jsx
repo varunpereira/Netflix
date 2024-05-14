@@ -25,7 +25,7 @@ export default () => {
 	var nav = route()
 	var mute = state(true)
 	var chosenSlider = state(undefined)
-	var chosenSlide = state(undefined)
+	var chosenSlide = state(null)
 	var playing = state(false)
 	var video_ref
 
@@ -58,7 +58,7 @@ export default () => {
 							hover_out={() =>{chosenSlider(null); chosenSlide(null)}}
 							value={v?.poster_link}
 							// css={"transition: width 1s .5s ease-in-out, height 1s .5s ease-in-out;"}
-							style={`aspect-[16/9] ${chosenSlide() === i2 && chosenSlider() === i ? `w-[28rem] h-[14rem]`:`w-[14rem] h-[7rem]`} d_null cursor_pointer transition-all ease-in-out hover:delay-[1500ms] duration-[1000ms] `}
+							style={`aspect-[16/9] ${chosenSlide() === i2 && chosenSlider() === i ? `w-[28rem] h-[14rem]`:`w-[14rem] h-[7rem]`} d_null cursor_pointer transition-all ease-in-out delay-[1500ms] duration-[1000ms] `}
 						/>
 					))}
 					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] dx_mid ay_mid"}>
