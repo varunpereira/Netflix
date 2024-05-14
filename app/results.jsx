@@ -27,7 +27,10 @@ export default () => {
 	var term = state()
 	var path_par = path.search()
 	var chosen_slider = state()
-	page.title = `Search Results - Netflix`
+
+	construct(()=>{
+		page.title = `Search Results - Netflix`
+	})
 
 	var chunk_dir = (array) => {
 		const chunkSize = 5
@@ -63,7 +66,7 @@ export default () => {
 							hover_in={() => {
 								chosenSlider(i)
 							}}
-							css={"transition:width 1s .5s, height 1s .5s;"}
+							css={"transition: width 1s .5s ease-in-out, height 1s .5s ease-in-out;"}
 							style={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer `}
 						/>
 					))}

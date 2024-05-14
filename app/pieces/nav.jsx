@@ -69,7 +69,7 @@ export default () => {
 					</D>
 					<D style={`dy_top ax_left v4:dx_equal v4:ay_mid gap-[1.2rem] z_fit z-[3] `}>
 						<D
-							css={"transition:width 1s;"}
+							css={"transition: width 1s ease-in-out;"}
 							style={
 								!see_search()
 									? "dx_right v4:dx_right ay_mid w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
