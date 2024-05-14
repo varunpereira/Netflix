@@ -24,7 +24,7 @@ export default () => {
 	show_nav(true)
 	var nav = route()
 	var mute = state(true)
-	var chosenSlider = state(null)
+	var chosenSlider = state(undefined)
 	var chosenSlide = state(undefined)
 	var playing = state(false)
 	var video_ref
