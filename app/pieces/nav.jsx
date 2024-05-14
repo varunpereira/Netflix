@@ -29,7 +29,7 @@ export default () => {
 	var see_profile_list = state(false)
 	var form_data = state({search: ""})
 	var search_field
-	var menu_on = state(true)
+	var menu_on = state(false)
 
 	construct(async () => {
 		width(view.width())
