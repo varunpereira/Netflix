@@ -24,7 +24,7 @@ export default () => {
 	show_nav(true)
 	var nav = route()
 	var mute = state(true)
-	var chosenSlider = state(null)
+	var chosenSlider = state(undefined)
 	var chosenSlide = state(null)
 	var playing = state(false)
 	var video_ref
@@ -47,7 +47,7 @@ export default () => {
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
 					style={`w-full ${
-						chosenSlider() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
+						chosenSlider() === undefined ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
 						chosenSlider() != null ? "overflow-x-auto" : "overflow-x-hidden"
 					} transition-all ease-in-out hover:delay-[1500ms] duration-[1000ms]`}>
