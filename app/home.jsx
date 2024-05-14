@@ -24,7 +24,7 @@ export default () => {
 	show_nav(true)
 	var nav = route()
 	var mute = state(true)
-	var chosenSlider = state(undefined)
+	var chosenSlider = state(null)
 	var chosenSlide = state(undefined)
 	var playing = state(false)
 	var video_ref
@@ -43,7 +43,7 @@ export default () => {
 
 	var Tape = ({data = [], title, i}) => {
 		return (
-			<D style={`z_fit z-[${chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
+			<D style={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
 					style={`w-full ${
