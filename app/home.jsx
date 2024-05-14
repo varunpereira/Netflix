@@ -47,10 +47,10 @@ export default () => {
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
 					style={`w-full ${
-						chosenSlider() === undefined ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
+						chosenSlider() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
-						chosenSlider() !== null ? "overflow-x-auto" : "overflow-x-hidden"
-					} `}>
+						chosenSlider() != null ? "overflow-x-auto" : "overflow-x-hidden"
+					} transition-all ease-in-out duration-[1000ms]`}>
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
