@@ -58,7 +58,7 @@ export default () => {
 							hover_out={() => chosenSlider(null)}
 							value={v?.poster_link}
 							// css={"transition: width 1s .5s ease-in-out, height 1s .5s ease-in-out;"}
-							style={`z_fit z-[5] transition-all ease-in-out delay-[500ms] duration-[1000ms] w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer`}
+							style={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer hover:transition-all hover:ease-in-out hover:delay-[2000ms] hover:duration-[1000ms] duration-[1000ms] `}
 						/>
 					))}
 					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] dx_mid ay_mid"}>

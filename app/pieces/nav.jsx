@@ -52,12 +52,18 @@ export default () => {
 
 	return (
 		<>
-			<D style={"z_put z-[2] c_grey_2 v4:c_null  w_full fit_1 v5:dx_equal pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "}>
+			<D
+				style={
+					"z_put z-[2] c_grey_2 v4:c_null  w_full fit_1 v5:dx_equal pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
+				}>
 				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[2rem]"}>
 					<P value={"/config/logo.png"} style={` w-[6rem] hide v4:see`} />
 					<P value={"/config/logo_tab.png"} style={`w-[1.75rem] v4:hide`} />
 				</B>
-				<D style={`${!menu_on() && `hide`} dy_top v5:dx_equal w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
+				<D
+					style={`${
+						!menu_on() && `hide`
+					} dy_top v5:dx_equal w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
 					<D style={`dy_top v4:dx_equal gap-[1rem] w-full v5:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B
@@ -71,9 +77,10 @@ export default () => {
 						<D
 							css={"transition: width 1s ease-in-out;"}
 							style={
-								!see_search()
+								(!see_search()
 									? "dx_right v4:dx_right ay_mid w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
-									: "dx_right v4:dx_right ay_mid w-full v5:w-[14rem] mt-[1rem] v5:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
+									: "dx_right v4:dx_right ay_mid w-full v5:w-[14rem] mt-[1rem] v5:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]") +
+								` hover:transition-all hover:ease-in-out hover:delay-[2000ms] hover:duration-[1000ms] duration-[1000ms] `
 							}>
 							<B
 								click={() => {
