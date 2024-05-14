@@ -57,6 +57,7 @@ export default () => {
 							hover_in={() => {chosenSlider(i); chosenSlide(i2)}}
 							hover_out={() =>{chosenSlider(null); chosenSlide(null)}}
 							value={v?.poster_link}
+							css={"transition: width 1s ease-in-out, height 1s ease-in-out; -webkit-transition: width 1s ease-in-out, height 1s ease-in-out;"}
 							style={`aspect-[16/9] ${chosenSlide() === i2 && chosenSlider() === i ? `w-[28rem] h-[14rem]`:`w-[14rem] h-[7rem]`} d_null cursor_pointer transition-all ease-in-out hover:delay-[1500ms] duration-[1000ms] `}
 						/>
 					))}
