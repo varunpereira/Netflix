@@ -122,7 +122,7 @@ export default () => {
 							style={`hover:tc_white ${opt_pick() === -1 && `tc_white `} mx_auto`}>
 							Kids
 						</B>
-						<B style={`w-[1.5rem] h-[1.5rem] stroke-white fill-white c_white dx_mid mx_auto `}>
+						<B style={`w-[1.5rem] h-[1.5rem] stroke-white fill-white stroke-[2rem] dx_mid mx_auto `}>
 							<BellIcon />
 						</B>
 						<B click={() => see_profile_list(!see_profile_list())} style={`dx_right mx_auto  `}>
