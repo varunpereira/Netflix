@@ -57,7 +57,7 @@ export default () => {
 							hover_in={() => chosenSlider(i)}
 							hover_out={() => chosenSlider(null)}
 							value={v?.poster_link}
-							css={"transition: width 1s .5s ease-in-out, height 1s .5s ease-in-out;"}
+							css={"transition: width 1s .5s ease-in-out, height 1s .5s ease-in-out;-webkit-transition: width 1s .5s ease-in-out, height 1s .5s ease-in-out;"}
 							style={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer`}
 						/>
 					))}
