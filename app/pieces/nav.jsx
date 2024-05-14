@@ -60,9 +60,6 @@ export default () => {
 					<P value={"/config/logo.png"} style={` w-[6rem] hide v4:see`} />
 					<P value={"/config/logo_tab.png"} style={`w-[1.75rem] v4:hide`} />
 				</B>
-				<B style={`w-[1.5rem] h-[1.5rem] stroke-white fill-white dx_mid mx_auto `}>
-							<BellIcon />
-						</B>
 				<D
 					style={`${
 						!menu_on() && `hide`
