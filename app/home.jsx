@@ -45,7 +45,7 @@ export default () => {
 		return (
 			<D style={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
-				<D
+				<D hover_in={() => {chosenSlider(i);}}
 					style={`w-full ${
 						chosenSlider() === undefined ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
@@ -54,7 +54,7 @@ export default () => {
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
-							hover_in={() => {chosenSlider(i); chosenSlide(i2)}}
+							hover_in={() => {chosenSlide(i2)}}
 							hover_out={() =>{chosenSlider(null); chosenSlide(null)}}
 							value={v?.poster_link}
 							css={"transition: width 1s ease-in-out, height 1s ease-in-out; -webkit-transition: width 1s ease-in-out, height 1s ease-in-out;"}
