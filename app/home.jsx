@@ -55,7 +55,11 @@ export default () => {
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
 							hover_in={() => chosenSlider(i)}
-							hover_out={() => chosenSlider(null)}
+							hover_out={() =>
+								setTimeout(() => {
+									chosenSlider(null)
+								}, "1000")
+							}
 							value={v?.poster_link}
 							// css={"transition: width 1s .5s ease-in-out, height 1s .5s ease-in-out;"}
 							style={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer transition-all ease-in-out hover:delay-[1500ms] duration-[1000ms] `}
