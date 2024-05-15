@@ -24,8 +24,8 @@ export default () => {
 	show_nav(true)
 	var nav = route()
 	var mute = state(true)
-	var chosenSlider = state(undefined)
-	var chosenSlide = state(undefined)
+	var chosenSlider = state()
+	var chosenSlide = state()
 	var playing = state(false)
 	var video_ref
 
@@ -47,9 +47,9 @@ export default () => {
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
 					style={`w-full ${
-						chosenSlider() === undefined ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
+						chosenSlider() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
-						chosenSlider() !== null ? "overflow-x-auto" : "overflow-x-hidden"
+						chosenSlider() != null ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
 					{data.map((v, i2) => (
 						<P
@@ -59,14 +59,14 @@ export default () => {
 								chosenSlide(i2)
 							}}
 							hover_out={() => {
-								chosenSlider(null)
-								chosenSlide(null)
+								chosenSlider(false)
+								chosenSlide(false)
 							}}
 							value={v?.poster_link}
 							style={`aspect-[16/9]  ${
 								chosenSlide() === i2 && chosenSlider() === i
 									? `w-[28rem] h-[14rem] trans_start`
-									: `w-[14rem] h-[7rem] trans_end`
+									: `w-[14rem] h-[7rem] ${chosenSlide() === false ? `trans_end`:`trans_start`}`
 							} d_null cursor_pointer`}
 						/>
 					))}

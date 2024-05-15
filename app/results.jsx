@@ -22,8 +22,8 @@ import {all_shows_data} from "~/data/shows/all"
 
 export default () => {
 	var nav = route()
-	var chosenSlider = state(undefined)
-	var chosenSlide = state(undefined)
+	var chosenSlider = state()
+	var chosenSlide = state()
 	var shows_filt = state([])
 	var term = state()
 	var path_par = path.search()
@@ -68,8 +68,8 @@ export default () => {
 								chosenSlide(i2)
 							}}
 							hover_out={() => {
-								chosenSlider(null)
-								chosenSlide(null)
+								chosenSlider(false)
+								chosenSlide(false)
 							}}
 							style={` ${
 								chosenSlide() === i2 && chosenSlider() === i
