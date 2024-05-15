@@ -54,11 +54,23 @@ export default () => {
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
-							hover_in={() => {chosenSlider(i); chosenSlide(i2)}}
-							hover_out={() =>{chosenSlider(null); chosenSlide(null)}}
+							hover_in={() => {
+								chosenSlider(i)
+								chosenSlide(i2)
+							}}
+							hover_out={() => {
+								chosenSlider(null)
+								chosenSlide(null)
+							}}
 							value={v?.poster_link}
-							css={"transition: width 1s ease-in-out, height 1s ease-in-out; -webkit-transition: width 1s ease-in-out, height 1s ease-in-out;"}
-							style={`aspect-[16/9] ${chosenSlide() === i2 && chosenSlider() === i ? `w-[28rem] h-[14rem]`:`w-[14rem] h-[7rem]`} d_null cursor_pointer transition-all ease-in-out hover:delay-[1500ms] duration-[1000ms] `}
+							css={
+								"transition: width 1s ease-in-out, height 1s ease-in-out; -webkit-transition: width 1s ease-in-out, height 1s ease-in-out;"
+							}
+							style={`aspect-[16/9] ${
+								chosenSlide() === i2 && chosenSlider() === i
+									? `w-[28rem] h-[14rem]`
+									: `w-[14rem] h-[7rem]`
+							} d_null cursor_pointer`}
 						/>
 					))}
 					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] dx_mid ay_mid"}>
@@ -125,16 +137,20 @@ export default () => {
 
 			<D
 				style={`w-full h-full mt-[-4rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
-				<Tape data={all_shows_data().slice(0, 18)} title={`Trending Now`} i={1} />
-				<Tape data={all_shows_data().slice(18, 36)} title={`New Releases`} i={2} />
+				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
+				<Tape
+					data={all_shows_data().slice(18, 36).reverse()}
+					title={`Because You Watched Peppa Pig`}
+					i={2}
+				/>
 				<Tape data={all_shows_data().slice(36, 54)} title={`Popular on Netflix`} i={3} />
 				<Tape data={all_shows_data().slice(54, 72)} title={`Comedy`} i={4} />
 				<Tape data={all_shows_data().slice(72, 90)} title={`Thriller`} i={5} />
 				<Tape data={all_shows_data().slice(90, 108)} title={`Action`} i={6} />
 				<Tape data={all_shows_data().slice(108, 126)} title={`Drama`} i={7} />
 				<Tape data={all_shows_data().slice(126, 144)} title={`Adventure`} i={8} />
-				<Tape data={all_shows_data().slice(144, 162)} title={`Romance`} i={9} />
-				<Tape data={all_shows_data().slice(162, 180)} title={`Kids`} i={10} />
+				<Tape data={all_shows_data().slice(144, 162).reverse()} title={`Romance`} i={9} />
+				<Tape data={all_shows_data().slice(162, 180).reverse()} title={`Kids`} i={10} />
 			</D>
 		</D>
 	)

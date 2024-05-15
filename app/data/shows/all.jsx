@@ -1,10 +1,4 @@
 export var all_shows_data = () => [
-	{
-		id: 0,
-		title: "The Lord of the Rings - The Return of the Ring",
-		keywords: "The Lord of the Rings - The Return of the ring",
-		poster_link: "/shows/lotr/cover.jpg",
-	},
 	{id: 1, title: "2012", keywords: "2012", poster_link: "/shows/covers/2012.jpg"},
 	{
 		id: 2,
@@ -795,7 +789,12 @@ export var all_shows_data = () => [
 		poster_link: "/shows/covers/jl.jpg",
 	},
 	{id: 133, title: "Leo", keywords: "Leo", poster_link: "/shows/covers/leo.jpg"},
-	{id: 134, title: "Lord of the Rings", keywords: "", poster_link: "/shows/covers/lotr.jpg"},
+	{
+		id: 134,
+		title: "The Lord of the Rings - The Return of the Ring",
+		keywords: "The Lord of the Rings - The Return of the ring",
+		poster_link: "/shows/lotr/cover.jpg",
+	},
 	{
 		id: 135,
 		title: "Madagascar",
