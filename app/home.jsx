@@ -24,8 +24,7 @@ export default () => {
 	show_nav(true)
 	var nav = route()
 	var mute = state(true)
-	var chosenSlider = state()
-	var chosenSlide = state()
+	var sel_tape = state()
 	var playing = state(false)
 	var video_ref
 
@@ -43,41 +42,31 @@ export default () => {
 
 	var Tape = ({data = [], title, i}) => {
 		return (
-			<D style={`z_fit z-[${i === chosenSlider() ? "2" : "1"}] mt-[-5rem] `}>
+			<D style={`z_fit z-[${i === sel_tape() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
 					style={`w-full ${
-						chosenSlider() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
+						sel_tape() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
-						chosenSlider() === i ? "overflow-x-auto" : "overflow-x-hidden"
+						sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
 					{data.map((v, i2) => (
 						<P
 							click={() => nav(`/watch/${v?.id}`)}
-							hover_in={() => {
-								chosenSlider(i)
-								chosenSlide(i2)
-							}}
-							hover_out={() => {
-								chosenSlider(false)
-								chosenSlide(false)
-							}}
-							// ${
-							// 	chosenSlide() === i2 && chosenSlider() === i
-							// 		? `w-[28rem] h-[14rem] trans_start`
-							// 		: `w-[14rem] h-[7rem] trans_end`
-							// } 
+							hover_in={() => sel_tape(i)}
+							hover_out={() => sel_tape(false)}
 							value={v?.poster_link}
 							style={`aspect-[16/9] 
 							w-[14rem] h-[7rem]
+							d_null cursor_pointer
 							trans_end
 							hover:trans_start
 							hover:w-[28rem] hover:h-[14rem]
-							d_null cursor_pointer`}
+						`}
 						/>
 					))}
 					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] dx_mid ay_mid"}>
-						{chosenSlider() === i && (
+						{sel_tape() === i && (
 							<D style={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
 								<ChevronRightIcon />
 							</D>
