@@ -89,7 +89,7 @@ export default () => {
 			<V
 				onTimeUpdate={handleTimeUpdate}
 				ref={video_ref}
-				value={show()?.id == 0 ? `/shows/lotr/full.mp4` : `/shows/intro.mp4`}
+				value={show()?.id == 134 ? `/shows/lotr/full.mp4` : `/shows/intro.mp4`}
 				mute={mute()}
 				style={`e_full h-[100vh] w-full z-[-1]`}
 			/>

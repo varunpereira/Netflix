@@ -76,8 +76,8 @@ export default () => {
 							}
 							style={` ${
 								chosenSlide() === i2 && chosenSlider() === i
-									? `w-[28rem] h-[14rem]`
-									: `w-[14rem] h-[7rem]`
+									? `w-[28rem] h-[14rem] trans_start`
+									: `w-[14rem] h-[7rem] trans_end`
 							} aspect-[16/9] d_null cursor_pointer`}
 						/>
 					))}

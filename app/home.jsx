@@ -63,13 +63,10 @@ export default () => {
 								chosenSlide(null)
 							}}
 							value={v?.poster_link}
-							css={
-								"transition: width 1s ease-in-out, height 1s ease-in-out; -webkit-transition: width 1s ease-in-out, height 1s ease-in-out;"
-							}
-							style={`aspect-[16/9] ${
+							style={`aspect-[16/9]  ${
 								chosenSlide() === i2 && chosenSlider() === i
-									? `w-[28rem] h-[14rem]`
-									: `w-[14rem] h-[7rem]`
+									? `w-[28rem] h-[14rem] trans_start`
+									: `w-[14rem] h-[7rem] trans_end`
 							} d_null cursor_pointer`}
 						/>
 					))}
@@ -102,7 +99,7 @@ export default () => {
 					</T>
 					<D style={`dx_right gap-x-[.75rem]`}>
 						<B
-							click={() => nav("/watch/0")}
+							click={() => nav("/watch/134")}
 							style={`z_fit c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
 							<T>Play</T>
 						</B>
