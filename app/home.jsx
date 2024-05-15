@@ -49,7 +49,7 @@ export default () => {
 					style={`w-full ${
 						chosenSlider() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
-						chosenSlider() != null ? "overflow-x-auto" : "overflow-x-hidden"
+						chosenSlider() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
 					{data.map((v, i2) => (
 						<P
