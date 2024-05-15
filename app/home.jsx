@@ -63,10 +63,10 @@ export default () => {
 								chosenSlide(false)
 							}}
 							value={v?.poster_link}
-							style={`aspect-[16/9] ${
+							style={`aspect-[16/9] trans_start ${
 								chosenSlide() === i2 && chosenSlider() === i
-									? `w-[28rem] h-[14rem] trans_start`
-									: `w-[14rem] h-[7rem] trans_start`
+									? `w-[28rem] h-[14rem] `
+									: `w-[14rem] h-[7rem] `
 							} d_null cursor_pointer`}
 						/>
 					))}
