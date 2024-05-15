@@ -56,7 +56,7 @@ export default () => {
 				}>
 				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem]"}>
 					<P value={"/config/logo.png"} style={` w-[6rem] hide v5:see`} />
-					<P value={"/config/logo_tab.png"} style={`w-[1.75rem] v5:hide`} />
+					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:hide`} />
 				</B>
 				<D
 					style={`${
