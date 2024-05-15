@@ -22,13 +22,14 @@ import {all_shows_data} from "~/data/shows/all"
 
 export default () => {
 	var nav = route()
-	var chosenSlider = state(null)
+	var chosenSlider = state(undefined)
+	var chosenSlide = state(undefined)
 	var shows_filt = state([])
 	var term = state()
 	var path_par = path.search()
 	var chosen_slider = state()
 
-	construct(()=>{
+	construct(() => {
 		page.title = `Search Results - Netflix`
 	})
 
@@ -52,8 +53,7 @@ export default () => {
 	})
 
 	return (
-		<D
-			style={`fit_1 pt-[10rem] hover:px-0 dy_mid w-full h-full overflow-x-hidden`}>
+		<D style={`fit_1 pt-[10rem] hover:px-0 dy_mid w-full h-full overflow-x-hidden`}>
 			{results().map((v, i) => (
 				<D
 					style={`z_fit z-[${
@@ -65,8 +65,17 @@ export default () => {
 							click={() => nav(`/watch/${v2?.id}`)}
 							hover_in={() => {
 								chosenSlider(i)
+								chosenSlide(i2)
 							}}
-							style={`w-[14rem] h-[7rem] aspect-[16/9] hover:w-[28rem] hover:h-full d_null cursor_pointer transition-all ease-in-out hover:delay-[1500ms] duration-[1000ms] `}
+							hover_out={() => {
+								chosenSlider(null)
+								chosenSlide(null)
+							}}
+							style={` ${
+								chosenSlide() === i2 && chosenSlider() === i
+									? `w-[28rem] h-[14rem]`
+									: `w-[14rem] h-[7rem]`
+							} aspect-[16/9] d_null cursor_pointer transition-all ease-in-out hover:delay-[1500ms] duration-[1000ms] `}
 						/>
 					))}
 				</D>
