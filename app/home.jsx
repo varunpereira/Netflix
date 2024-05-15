@@ -62,12 +62,18 @@ export default () => {
 								chosenSlider(false)
 								chosenSlide(false)
 							}}
+							// ${
+							// 	chosenSlide() === i2 && chosenSlider() === i
+							// 		? `w-[28rem] h-[14rem] trans_start`
+							// 		: `w-[14rem] h-[7rem] trans_end`
+							// } 
 							value={v?.poster_link}
-							style={`aspect-[16/9] ${
-								chosenSlide() === i2 && chosenSlider() === i
-									? `w-[28rem] h-[14rem] trans_start`
-									: `w-[14rem] h-[7rem] trans_end`
-							} d_null cursor_pointer`}
+							style={`aspect-[16/9] 
+							w-[14rem] h-[7rem]
+							trans_end
+							hover:trans_start
+							hover:w-[28rem] hover:h-[14rem]
+							d_null cursor_pointer`}
 						/>
 					))}
 					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] dx_mid ay_mid"}>
