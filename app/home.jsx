@@ -38,8 +38,6 @@ export default () => {
 		video_ref?.play()
 	})
 
-	// video 16:9 fine,
-
 	var Tape = ({data = [], title, i}) => {
 		return (
 			<D style={`z_fit z-[${i === sel_tape() ? "2" : "1"}] mt-[-5rem] `}>
