@@ -66,7 +66,7 @@ export default () => {
 							style={`aspect-[16/9] ${
 								chosenSlide() === i2 && chosenSlider() === i
 									? `w-[28rem] h-[14rem] trans_start`
-									: `w-[14rem] h-[7rem] trans_end`
+									: `w-[14rem] h-[7rem] trans_start`
 							} d_null cursor_pointer`}
 						/>
 					))}
