@@ -71,9 +71,6 @@ export default () => {
 								chosenSlider(null)
 								chosenSlide(null)
 							}}
-							css={
-								"transition: width 1s ease-in-out, height 1s ease-in-out; -webkit-transition: width 1s ease-in-out, height 1s ease-in-out;"
-							}
 							style={` ${
 								chosenSlide() === i2 && chosenSlider() === i
 									? `w-[28rem] h-[14rem] trans_start`
