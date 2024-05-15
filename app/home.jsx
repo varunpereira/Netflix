@@ -81,9 +81,9 @@ export default () => {
 				style={`z_fit z-[1] dx_mid`}>
 				<D
 					style={
-						"z_put z-[1] left-0 top-[17rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
+						"z_put z-[1] left-0 top-[12rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
 					}>
-					<P value={`/shows/snippets/lotr_1_logo.png`} style={`w_fit`} />
+					<P value={`/shows/lotr/logo2.png`} style={`w_fit`} />
 					<T style={`my-[1rem]`}>
 						Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
 						Frodo and Sam as they approach Mount Doom with the One Ring.
@@ -107,8 +107,7 @@ export default () => {
 				<D style={`h-[45rem] overflow-y-hidden`}>
 					<V
 						ref={video_ref}
-						value={`/shows/snippets/lotr_1.mp4#t=80,298`}
-						// def="/shows/snippets/lotr_1.png"
+						value={`/shows/lotr/snip.mp4`}
 						mute={mute()}
 						rep={true}
 						style={`h-[70rem] mt-[-8.75rem] overflow-x-hidden e_full aspect-[2.4/1]`}

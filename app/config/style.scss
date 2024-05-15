@@ -10,7 +10,7 @@ $red: red;
 @layer utilities {
 	// fit
 	.fit_1 {
-		@apply v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem];
+		@apply v2:px-[.5rem] v3:px-[1rem] v4:px-[1.5rem] v5:px-[3rem];
 	}
 	/* text colour */
 	.tc_white {
@@ -176,7 +176,6 @@ $red: red;
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
 	}
-
 	// shadow
 	.s_1 {
 		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
@@ -192,18 +191,17 @@ $red: red;
 		flex-direction: row;
 		justify-content: flex-end;
 	}
-	.dx_right {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-	}
 	.dx_mid {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 	}
-	// or use gap-[1rem]
-	.dx_equal {
+	.dx_right {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+	.dx_same {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -216,28 +214,28 @@ $red: red;
 	.ay_top {
 		align-items: flex-start;
 	}
-	.ay_bottom {
-		align-items: flex-end;
-	}
 	.ay_mid {
 		align-items: center;
+	}
+	.ay_bottom {
+		align-items: flex-end;
 	}
 	.dy_top {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
 	}
-	.dy_bottom {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-	}
 	.dy_mid {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 	}
-	.dy_equal {
+	.dy_bottom {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	.dy_same {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -256,6 +254,8 @@ $red: red;
 	.ax_mid {
 		align-items: center;
 	}
+	//  gap-[1rem]
+
 	/* default: block, also: flex, grid */
 	.hide {
 		display: none;
@@ -274,7 +274,7 @@ $red: red;
 		position: absolute;
 	}
 	.z_fix {
-		position: fixed;
+		position: sticky;
 	}
 	// states : hover:tc_red , focus:c_blue ,
 	.w_fit {
@@ -310,9 +310,9 @@ $red: red;
 		bottom: auto;
 	}
 
-.cursor_pointer {
-	cursor: pointer;
-}
+	.cursor_pointer {
+		cursor: pointer;
+	}
 	.slider {
 		-webkit-appearance: none;
 		width: 100%;

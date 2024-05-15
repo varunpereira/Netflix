@@ -89,8 +89,7 @@ export default () => {
 			<V
 				onTimeUpdate={handleTimeUpdate}
 				ref={video_ref}
-				value={show()?.id == 0 ? `/shows/snippets/lotr_1.mp4` : `/shows/snippets/univ_studios.mp4`}
-				// def={show()?.id == 0 && `/shows/snippets/lotr_1.png`}
+				value={show()?.id == 0 ? `/shows/lotr/full.mp4` : `/shows/intro.mp4`}
 				mute={mute()}
 				style={`e_full h-[100vh] w-full z-[-1]`}
 			/>
@@ -99,7 +98,7 @@ export default () => {
 				style={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
 				<ArrowLeftIcon />
 			</B>
-			<D style="z_put z-[1] bottom-0 left-0 dx_right dx_equal ay_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
+			<D style="z_put z-[1] bottom-0 left-0 dx_right dx_same ay_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 				<D style="dx_right gap-[1rem]">
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === false ? <PauseIcon /> : <PlayIcon />}

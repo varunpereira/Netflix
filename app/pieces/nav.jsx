@@ -21,8 +21,6 @@ import {SearchIcon, MenuIcon, BellIcon, DownTriangleIcon, CrossIcon} from "~/pie
 export default () => {
 	var width = state()
 	var nav = route()
-	var acc_click = state(false)
-	var menu_click = state(false)
 	var menu_options = ["Home", "TV Shows", "Movies", "Latest", "My List", "Kids"]
 	var opt_pick = state(0)
 	var see_search = state(false)
@@ -54,17 +52,17 @@ export default () => {
 		<>
 			<D
 				style={
-					"z_put z-[2] c_grey_2 v4:c_null  w_full fit_1 v5:dx_equal pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
+					"z_put z-[2] c_grey_2 v4:c_null w_full fit_1 v4:dx_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
 				}>
-				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[2rem]"}>
-					<P value={"/config/logo.png"} style={` w-[6rem] hide v4:see`} />
-					<P value={"/config/logo_tab.png"} style={`w-[1.75rem] v4:hide`} />
+				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem]"}>
+					<P value={"/config/logo.png"} style={` w-[6rem] hide v5:see`} />
+					<P value={"/config/logo_tab.png"} style={`w-[1.75rem] v5:hide`} />
 				</B>
 				<D
 					style={`${
-						!menu_on() && `hide`
-					} dy_top v5:dx_equal w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
-					<D style={`dy_top v4:dx_equal gap-[1rem] w-full v5:w-fit`}>
+						menu_on() ? `hide` : `v4:static`
+					} dy_top v4:dx_same w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
+					<D style={`dy_top v4:dx_same gap-[1rem] w-full v4:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B
 								click={() => opt_pick(i)}
@@ -73,13 +71,13 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`dy_top ax_left v4:dx_equal v4:ay_mid gap-[1.2rem] z_fit z-[3] `}>
+					<D style={`dy_top ax_left v4:dx_same v4:ay_mid gap-[1.2rem] z_fit z-[3] `}>
 						<D
 							css={"transition: width 1s ease-in-out;"}
 							style={`${
 								!see_search()
 									? "dx_right v4:dx_right ay_mid w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
-									: "dx_right v4:dx_right ay_mid w-full v5:w-[14rem] mt-[1rem] v5:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
+									: "dx_right v4:dx_right ay_mid w-full v4:w-[14rem] mt-[1rem] v4:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
 							} 
 								 transition-all ease-in-out duration-[1000ms] `}>
 							<B
@@ -122,7 +120,8 @@ export default () => {
 							style={`hover:tc_white ${opt_pick() === -1 && `tc_white `} mx_auto`}>
 							Kids
 						</B>
-						<B style={`w-[1.5rem] h-[1.5rem] stroke-[.5rem] stroke-white fill-white dx_mid mx_auto `}>
+						<B
+							style={`w-[1.5rem] h-[1.5rem] stroke-[.5rem] stroke-white fill-white dx_mid mx_auto `}>
 							<BellIcon />
 						</B>
 						<B click={() => see_profile_list(!see_profile_list())} style={`dx_right mx_auto  `}>
