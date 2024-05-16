@@ -60,7 +60,7 @@ export default () => {
 				</B>
 				<D
 					style={`${
-						menu_on() ? `hide` : `v4:static`
+						!menu_on() && `hide`
 					} dy_top v4:dx_same w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
 					<D style={`dy_top v4:dx_same gap-[1rem] w-full v4:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
