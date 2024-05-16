@@ -344,12 +344,19 @@ $red: red;
 		transition-duration: 1s;
 		transition-timing-function: ease-in-out;
 		transition-delay: 1s;
+		-webkit-transition-property: width, height;
+		-webkit-transition-duration: 1s;
+		-webkit-transition-timing-function: ease-in-out;
+		-webkit-transition-delay: 1s;
 	}
 
 	.trans_end {
 		transition-property: width, height;
 		transition-duration: 1s;
 		transition-timing-function: ease-in-out;
+		-webkit-transition-property: width, height;
+		-webkit-transition-duration: 1s;
+		-webkit-transition-timing-function: ease-in-out;
 	}
 
 	// use rem, based of root
