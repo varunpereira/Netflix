@@ -17,7 +17,6 @@ import {
 	P,
 	I,
 } from "~/config/shop"
-import {show_nav} from "~/config/state"
 import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/pieces/icon"
 import {all_shows_data} from "~/data/shows/all"
 
@@ -37,15 +36,15 @@ export default () => {
 	})
 
 	construct(async () => {
-	page.title = `Watch - Netflix`
-		show_nav(false)
+		page.title = `Watch - Netflix`
+		// show_nav(false)
 		show(all_shows_data().find((show) => show?.id == show_id))
 		page.title = `${show()?.title} - Netflix`
 		video_ref?.play()
 	})
 
 	destruct(() => {
-		show_nav(true)
+		// show_nav(true)
 	})
 
 	var handleTimeUpdate = () => {
@@ -89,7 +88,7 @@ export default () => {
 			<V
 				onTimeUpdate={handleTimeUpdate}
 				ref={video_ref}
-				value={show()?.id == 134 ? `/shows/lotr/full.mp4` : `/shows/intro.mp4`}
+				value={show()?.id == 134 ? `/shows/lotr/full.mp4#t=0,298` : `/shows/intro.mp4`}
 				mute={mute()}
 				style={`e_full h-[100vh] w-full z-[-1]`}
 			/>
@@ -122,20 +121,20 @@ export default () => {
 				style={`z_put z-[2] left-0 bottom-[3rem] dx_right w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
 				<D style="z_fit w-full h-full">
 					<D
-						style={`c_red z_put z-[3]  h-[.3rem] w-full top-[.75rem]`}
+						style={`c_red z_put z-[3] h-[.3rem] w-full top-[.75rem]`}
 						css={`
 							width: calc(
-								${progress() < 25
-									? progress() + .25
+								${(progress() < 25
+									? progress() + 0.25
 									: progress() > 75
-									? progress() - .75
-									: progress()}%
+									? progress() - 0.75
+									: progress()) + 1}%
 							);
 						`}
 					/>
 					<I
 						type="range"
-						value={progress()}
+						value={progress() + 1}
 						input={handleSliderChange}
 						step=".0000000000000001"
 						style=" h-[.3rem] cursor-pointer slider"

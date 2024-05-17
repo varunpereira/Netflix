@@ -77,11 +77,7 @@ export var D = (props) => {
 	)
 }
 
-export var T = (props) => (
-	<p class={props.style}>
-		{props.children}
-	</p>
-)
+export var T = (props) => <p class={props.style}>{props.children}</p>
 
 export var B = (props) => (
 	<button type="button" onClick={props?.click} class={props.style}>
@@ -170,3 +166,26 @@ export var req = async (link = "", value = {}) => {
 }
 
 export var env = import.meta.env
+
+export var globe = state({})
+
+export var getAll = () => {
+	let items = {}
+	for (let i = 0; i < localStorage.length; i++) {
+		let key = localStorage.key(i)
+		items[key] = JSON.parse(localStorage.getItem(key))
+	}
+	return items
+}
+
+export var store = {
+	get: (key) => JSON.parse(globe()),
+	set: (key, value) => {
+		localStorage.setItem(key, JSON.stringify(value))
+		globe(JSON.stringify(getAll()))
+	},
+	cut: (key) => {
+		localStorage.removeItem(key)
+		globe(JSON.stringify(getAll()))
+	},
+}
