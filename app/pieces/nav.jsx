@@ -144,7 +144,7 @@ export default () => {
 						</B>
 						{see_profile_list() === true && (
 							<D
-								style={`z_put z-[3] c_black opacity-[.8] w-[10rem] h-fit top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
+								style={`v4:z_put z-[3] v4:c_black v4:opacity-[.8] w-full v4:w-[10rem] dy_top ax_mid v4:ax_right h-fit v4:top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
 								<D style="dy_mid gap-y-[.5rem]">
 									{profiles()
 										.filter((v) => v?.id !== globe()?.profile?.id)
@@ -161,7 +161,7 @@ export default () => {
 								<T style="py-[1rem]">Manage Profiles</T>
 								<T style="pb-[.5rem]">Account</T>
 								<T>Help Center</T>
-								<T style="py-[1rem]">Sign out of Netflix</T>
+								<T style="pt-[1rem]">Sign out of Netflix</T>
 							</D>
 						)}
 					</D>

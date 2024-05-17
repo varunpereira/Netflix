@@ -29,8 +29,8 @@ export default () => {
 	})
 
 	var set_profile = (v) => {
-		var data = db.set(`profile`, v)
-		globe({...globe(), profile: data})
+		var profile = db.set(`profile`, v)
+		globe({...globe(), profile})
 	}
 
 	return (

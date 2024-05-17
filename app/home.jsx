@@ -107,7 +107,7 @@ export default () => {
 				<D style={`h-[45rem] overflow-y-hidden`}>
 					<V
 						ref={video_ref}
-						value={`/shows/lotr/snip.mp4`}
+						value={`/shows/lotr/snip.mp4#t=0,25.5`}
 						mute={mute()}
 						rep={true}
 						style={`h-[70rem] mt-[-8.75rem] overflow-x-hidden e_full aspect-[2.4/1]`}
