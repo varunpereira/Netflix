@@ -47,7 +47,7 @@ export default () => {
 					</D>
 					<T style={`tc_white text-[2.5rem] mb-[1rem]`}>Who's watching?</T>
 					<D style={`dx_mid gap-x-[2rem] mb-[4rem]`}>
-						{profiles().map((v, i) => (
+						{profiles()?.map((v, i) => (
 							<D style={`dy_top ax_mid`}>
 								<>
 									<P
