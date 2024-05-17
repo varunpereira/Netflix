@@ -1,7 +1,8 @@
 import {render} from "solid-js/web"
 import {Router, Routes, Route} from "@solidjs/router"
 import "~/config/style.scss"
-import {globe, getAll, page, D, write} from "~/config/shop"
+import {globe, page, D, write} from "~/config/shop"
+import {db} from "~/config/db"
 import {show_nav} from "~/config/state"
 import Nav from "~/pieces/nav"
 import Footer from "~/pieces/footer"
@@ -22,8 +23,18 @@ page.getElementById("logo").href = "/config/logo_small.png"
 page.getElementById("color").content = "c_grey_2"
 page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1"
 
+// auth ok so update globe state
+var get_globe = () => {
+	var items = {}
+	for (var i = 0; i < localStorage.length; i++) {
+		var key = localStorage.key(i)
+		items[key] = JSON.parse(localStorage.getItem(key))
+	}
+	return items
+}
+
 var root = () => {
-	globe(getAll())
+	globe(get_globe())
 	return (
 		<Router>
 			<D style={`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] mx_auto z_fit z-[0]`}>

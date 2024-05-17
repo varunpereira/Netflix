@@ -169,22 +169,4 @@ export var env = import.meta.env
 
 export var globe = state({})
 
-export var getAll = () => {
-	let items = {}
-	for (let i = 0; i < localStorage.length; i++) {
-		let key = localStorage.key(i)
-		items[key] = JSON.parse(localStorage.getItem(key))
-	}
-	return items
-}
 
-export var store = {
-	set: (key, value) => {
-		localStorage.setItem(key, JSON.stringify(value))
-		globe(getAll())
-	},
-	cut: (key) => {
-		localStorage.removeItem(key)
-		globe(getAll())
-	},
-}

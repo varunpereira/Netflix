@@ -9,7 +9,7 @@ import {
 	req,
 	path,
 	page,
-	store,globe,
+	globe,
 	D,
 	T,
 	B,
@@ -18,7 +18,7 @@ import {
 	I,
 } from "~/config/shop"
 import {SearchIcon, MenuIcon, BellIcon, DownTriangleIcon, CrossIcon} from "~/pieces/icon"
-import {profiles} from "~/config/store"
+import {db} from '~/config/db'
 
 export default () => {
 	var width = state()
@@ -30,10 +30,12 @@ export default () => {
 	var form_data = state({search: ""})
 	var search_field
 	var menu_on = state(false)
+	var profiles = state()
 
 	construct(async () => {
 		width(view.width())
 		view.put_listen("resize", handler)
+		profiles(db.get(`profiles`))
 	})
 
 	destruct(() => {
@@ -48,6 +50,11 @@ export default () => {
 
 	var get_results = () => {
 		form_data().search.trim() !== "" && nav("/search?q=" + form_data().search)
+	}
+
+	var set_profile = (v) => {
+		var profile = db.set(`profile`, v)
+		globe({...globe(), profile})
 	}
 
 	return (
@@ -139,15 +146,17 @@ export default () => {
 							<D
 								style={`z_put z-[3] c_black opacity-[.8] w-[10rem] h-fit top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
 								<D style="dy_mid gap-y-[.5rem]">
-									{profiles.filter((v) => v?.id !== globe()?.profile?.id).map((v) => (
-										<D style="dx_right ay_mid" click={() => {store.set(`profile`, v)}}>
-											<P
-												value={v?.pic_link}
-												style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
-											/>
-											<T>{v?.id}</T>
-										</D>
-									))}
+									{profiles()
+										.filter((v) => v?.id !== globe()?.profile?.id)
+										.map((v) => (
+											<D style="dx_right ay_mid" click={() => set_profile(v)}>
+												<P
+													value={v?.pic_link}
+													style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
+												/>
+												<T>{v?.id}</T>
+											</D>
+										))}
 								</D>
 								<T style="py-[1rem]">Manage Profiles</T>
 								<T style="pb-[.5rem]">Account</T>

@@ -9,22 +9,29 @@ import {
 	timer,
 	req,
 	dir,
-	store,globe,
+	globe,
 	D,
 	T,
 	B,
 	V,
 	P,
 } from "~/config/shop"
-import {profiles} from "~/config/store"
 import Home from "~/home"
+import {db} from '~/config/db'
 
 export default () => {
 	var nav = route()
+	var profiles = state()
 
 	construct(async () => {
 		page.title = `Netflix`
+		profiles(db.get(`profiles`))
 	})
+
+	var set_profile = (v) => {
+		var data = db.set(`profile`, v)
+		globe({...globe(), profile: data})
+	}
 
 	return (
 		<>
@@ -40,12 +47,12 @@ export default () => {
 					</D>
 					<T style={`tc_white text-[2.5rem] mb-[1rem]`}>Who's watching?</T>
 					<D style={`dx_mid gap-x-[2rem] mb-[4rem]`}>
-						{profiles.map((v, i) => (
+						{profiles().map((v, i) => (
 							<D style={`dy_top ax_mid`}>
 								<>
 									<P
 										value={v?.pic_link}
-										click={() => store.set(`profile`,v)}
+										click={() => set_profile(v)}
 										style={`w-[8rem] h-[8rem] cursor_pointer`}
 									/>
 									<T style={`mt-[.75rem]`}>{v?.id}</T>
