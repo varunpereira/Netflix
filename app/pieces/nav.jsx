@@ -9,7 +9,7 @@ import {
 	req,
 	path,
 	page,
-	store,
+	store,globe,
 	D,
 	T,
 	B,
@@ -128,7 +128,7 @@ export default () => {
 						</B>
 						<B click={() => see_profile_list(!see_profile_list())} style={`dx_right mx_auto  `}>
 							<P
-								value={store.get()?.profile?.pic_link}
+								value={globe()?.profile?.pic_link}
 								style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
 							/>
 							<D style={`w-[.8rem] h-[.4rem] ic_white dx_right mt-[.5rem]`}>
@@ -139,7 +139,7 @@ export default () => {
 							<D
 								style={`z_put z-[3] c_black opacity-[.8] w-[10rem] h-fit top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
 								<D style="dy_mid gap-y-[.5rem]">
-									{profiles.filter((v) => v?.id !== store.get()?.profile?.id).map((v) => (
+									{profiles.filter((v) => v?.id !== globe()?.profile?.id).map((v) => (
 										<D style="dx_right ay_mid" click={() => {store.set(`profile`, v)}}>
 											<P
 												value={v?.pic_link}

@@ -9,7 +9,7 @@ import {
 	timer,
 	req,
 	dir,
-	store,
+	store,globe,
 	D,
 	T,
 	B,
@@ -24,12 +24,11 @@ export default () => {
 
 	construct(async () => {
 		page.title = `Netflix`
-		write(store.get())
 	})
 
 	return (
 		<>
-			{store.get()?.profile ? (
+			{globe()?.profile ? (
 				<Home />
 			) : (
 				<D style={`fit_1 pt-[10rem] dy_top ax_mid tc_grey`}>
