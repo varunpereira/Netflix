@@ -44,7 +44,7 @@ export default () => {
 					style={`w-full ${
 						sel_tape() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
-						sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
+						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
 					{data.map((v, i2) => (
 						<P
