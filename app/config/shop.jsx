@@ -179,7 +179,7 @@ export var getAll = () => {
 }
 
 export var store = {
-	get: (key) => JSON.parse(globe()),
+	get: () => JSON.parse(globe()),
 	set: (key, value) => {
 		localStorage.setItem(key, JSON.stringify(value))
 		globe(JSON.stringify(getAll()))

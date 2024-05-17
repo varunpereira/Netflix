@@ -26,7 +26,7 @@ var root = () => {
 	return (
 		<Router>
 			<D style={`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] mx_auto z_fit z-[0]`}>
-				{store.get(`profile`) && <Nav />}
+				{store.get()?.profile && <Nav />}
 				<Routes>
 					{route?.map((route) => (
 						<Route path={route[0]} component={route[1]} />
