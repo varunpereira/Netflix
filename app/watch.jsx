@@ -39,7 +39,6 @@ export default () => {
 	construct(async () => {
 		page.title = `Watch - Netflix`
 		show_nav(false)
-		// show_nav(false)
 		show(all_shows_data().find((show) => show?.id == show_id))
 		page.title = `${show()?.title} - Netflix`
 		video_ref?.play()
@@ -126,17 +125,17 @@ export default () => {
 						style={`c_red z_put z-[3] h-[.3rem] w-full top-[.75rem]`}
 						css={`
 							width: calc(
-								${(progress() < 25
+								${progress() < 25
 									? progress() + 0.25
 									: progress() > 75
 									? progress() - 0.75
-									: progress()) + 1}%
+									: progress()}%
 							);
 						`}
 					/>
 					<I
 						type="range"
-						value={progress() + 1}
+						value={progress()}
 						input={handleSliderChange}
 						step=".0000000000000001"
 						style=" h-[.3rem] cursor-pointer slider"
