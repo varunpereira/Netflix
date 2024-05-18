@@ -43,7 +43,7 @@ export default () => {
 				<D
 					style={`w-full ${
 						sel_tape() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
-					} dx_right ay_mid gap-x-[.3rem] no_scroll ${
+					} ax_right sx_mid gap-x-[.3rem] no_scroll ${
 						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
 					{data.map((v, i2) => (
@@ -54,14 +54,14 @@ export default () => {
 							value={v?.poster_link}
 							style={`aspect-[16/9] 
 							w-[14rem] h-[7rem]
-							d_null cursor_pointer
+							a_norm cursor_pointer
 							trans_end
 							hover:trans_start
 							hover:w-[28rem] hover:h-[14rem]
 						`}
 						/>
 					))}
-					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] dx_mid ay_mid"}>
+					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] ax_mid sx_mid"}>
 						{sel_tape() === i && (
 							<D style={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
 								<ChevronRightIcon />
@@ -78,7 +78,7 @@ export default () => {
 			<D
 				hover_in={() => playing(false)}
 				hover_out={() => playing(true)}
-				style={`z_fit z-[1] dx_mid`}>
+				style={`z_fit z-[1] ax_mid`}>
 				<D
 					style={
 						"z_put z-[1] left-0 top-[12rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
@@ -88,7 +88,7 @@ export default () => {
 						Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
 						Frodo and Sam as they approach Mount Doom with the One Ring.
 					</T>
-					<D style={`dx_right gap-x-[.75rem]`}>
+					<D style={`ax_right gap-x-[.75rem]`}>
 						<B
 							click={() => nav("/watch/134")}
 							style={`z_fit c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
@@ -124,7 +124,7 @@ export default () => {
 			</D>
 
 			<D
-				style={`w-full h-full mt-[-4rem] dy_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
+				style={`w-full h-full mt-[-4rem] ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
 				<Tape
 					data={all_shows_data().slice(18, 36).reverse()}

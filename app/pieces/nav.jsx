@@ -61,7 +61,7 @@ export default () => {
 		<>
 			<D
 				style={
-					"z_put z-[2] c_grey_2 v4:c_null w_full fit_1 v4:dx_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
+					"z_put z-[2] c_grey_2 v4:c_null w_full fit_1 v4:ax_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
 				}>
 				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem]"}>
 					<P value={"/config/logo.png"} style={` w-[6rem] hide v5:see`} />
@@ -70,8 +70,8 @@ export default () => {
 				<D
 					style={`${
 						!menu_on() && `hide`
-					} dy_top v4:dx_same w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
-					<D style={`dy_top v4:dx_same gap-[1rem] w-full v4:w-fit`}>
+					} ay_top v4:ax_same w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
+					<D style={`ay_top v4:ax_same gap-[1rem] w-full v4:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B
 								click={() => opt_pick(i)}
@@ -80,13 +80,13 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`dy_top ax_left v4:dx_same v4:ay_mid gap-[1.2rem] z_fit z-[3] `}>
+					<D style={`ay_top sy_left v4:ax_same v4:sx_mid gap-[1.2rem] z_fit z-[3] `}>
 						<D
 							css={"transition: width 1s ease-in-out;"}
 							style={`${
 								!see_search()
-									? "dx_right v4:dx_right ay_mid w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
-									: "dx_right v4:dx_right ay_mid w-full v4:w-[14rem] mt-[1rem] v4:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
+									? "ax_right v4:ax_right sx_mid w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
+									: "ax_right v4:ax_right sx_mid w-full v4:w-[14rem] mt-[1rem] v4:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
 							} 
 								 transition-all ease-in-out duration-[1000ms] `}>
 							<B
@@ -130,26 +130,26 @@ export default () => {
 							Kids
 						</B>
 						<B
-							style={`w-[1.5rem] h-[1.5rem] stroke-[.5rem] stroke-white fill-white dx_mid mx_auto `}>
+							style={`w-[1.5rem] h-[1.5rem] stroke-[.5rem] stroke-white fill-white ax_mid mx_auto `}>
 							<BellIcon />
 						</B>
-						<B click={() => see_profile_list(!see_profile_list())} style={`dx_right mx_auto  `}>
+						<B click={() => see_profile_list(!see_profile_list())} style={`ax_right mx_auto  `}>
 							<P
 								value={globe()?.profile?.pic_link}
 								style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
 							/>
-							<D style={`w-[.8rem] h-[.4rem] ic_white dx_right mt-[.5rem]`}>
+							<D style={`w-[.8rem] h-[.4rem] ic_white ax_right mt-[.5rem]`}>
 								<DownTriangleIcon />
 							</D>
 						</B>
 						{see_profile_list() === true && (
 							<D
-								style={`v4:z_put z-[3] v4:c_black v4:opacity-[.8] w-full v4:w-[10rem] dy_top ax_mid v4:ax_right h-fit v4:top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
-								<D style="dy_mid gap-y-[.5rem]">
+								style={`v4:z_put z-[3] v4:c_black v4:opacity-[.8] w-full v4:w-[10rem] ay_top sy_mid v4:sy_right h-fit v4:top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
+								<D style="ay_mid gap-y-[.5rem]">
 									{profiles()
 										.filter((v) => v?.id !== globe()?.profile?.id)
 										.map((v) => (
-											<D style="dx_right ay_mid" click={() => set_profile(v)}>
+											<D style="ax_right sx_mid" click={() => set_profile(v)}>
 												<P
 													value={v?.pic_link}
 													style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}

@@ -98,8 +98,8 @@ export default () => {
 				style={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
 				<ArrowLeftIcon />
 			</B>
-			<D style="z_put z-[1] bottom-0 left-0 dx_right dx_same ay_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
-				<D style="dx_right gap-[1rem]">
+			<D style="z_put z-[1] bottom-0 left-0 ax_right ax_same sx_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
+				<D style="ax_right gap-[1rem]">
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === false ? <PauseIcon /> : <PlayIcon />}
 					</B>
@@ -108,7 +108,7 @@ export default () => {
 					</B>
 					<T style="mt-[.3rem]">{show()?.title}</T>
 				</D>
-				<D style="dx_right gap-[1.2rem]">
+				<D style="ax_right gap-[1.2rem]">
 					<B style="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">
 						<HelpIcon />
 					</B>
@@ -119,7 +119,7 @@ export default () => {
 			</D>
 
 			<D
-				style={`z_put z-[2] left-0 bottom-[3rem] dx_right w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
+				style={`z_put z-[2] left-0 bottom-[3rem] ax_right w-full h-fit v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
 				<D style="z_fit w-full h-full">
 					<D
 						style={`c_red z_put z-[3] h-[.3rem] w-full top-[.75rem]`}

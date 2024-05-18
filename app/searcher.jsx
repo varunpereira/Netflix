@@ -117,7 +117,7 @@ export default () => {
 					{suggest_on() === true && suggest().length >= 1 ? (
 						<D
 							custom={(e) => click_outside(e, () => suggest_on(false))}
-							style={() => "z_put z-[2] dy_mid c_black top-[2.5rem] w_full r_1 p-[1rem]"}>
+							style={() => "z_put z-[2] ay_mid c_black top-[2.5rem] w_full r_1 p-[1rem]"}>
 							{suggest().map((v, k) => (
 								<B
 									click={() => {
@@ -125,7 +125,7 @@ export default () => {
 										form_submit(v.title)
 									}}
 									style={() =>
-										"dx_right hover:bg-gray-900 " + (suggest_pick() === k && "bg-gray-800")
+										"ax_right hover:bg-gray-900 " + (suggest_pick() === k && "bg-gray-800")
 									}>
 									{v?.title}
 								</B>

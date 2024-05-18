@@ -19,7 +19,7 @@ export default () => {
 	var nav = route()
 
 	return (
-		<D style={ "mx_auto dx_right dx_same v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem] "}>
+		<D style={ "mx_auto ax_right ax_same v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem] "}>
 			<B click={() => nav("/")} style={"tc_1 tw_1 ts_3"}>
 				<P value={'/logo.png'} style={`w-[6rem]`} />
 			</B>

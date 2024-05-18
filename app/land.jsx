@@ -38,7 +38,7 @@ export default () => {
 			{globe()?.profile ? (
 				<Home />
 			) : (
-				<D style={`fit_1 pt-[10rem] dy_top ax_mid tc_grey`}>
+				<D style={`fit_1 pt-[10rem] ay_top sy_mid tc_grey`}>
 					<D style={`z_put inset-0 fit_1 v4:my-[1.25rem] h-[6rem] pt-[.5rem] v4:pt-0`}>
 						<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem]"}>
 							<P value={"/config/logo.png"} style={` w-[6rem] hide v5:see`} />
@@ -46,9 +46,9 @@ export default () => {
 						</B>
 					</D>
 					<T style={`tc_white text-[2.5rem] mb-[1rem]`}>Who's watching?</T>
-					<D style={`dx_mid gap-x-[2rem] mb-[4rem]`}>
+					<D style={`ax_mid gap-x-[2rem] mb-[4rem]`}>
 						{profiles()?.map((v, i) => (
-							<D style={`dy_top ax_mid`}>
+							<D style={`ay_top sy_mid`}>
 								<>
 									<P
 										value={v?.pic_link}

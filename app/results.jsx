@@ -50,12 +50,12 @@ export default () => {
 	})
 
 	return (
-		<D style={`fit_1 pt-[10rem] hover:px-0 dy_mid w-full h-full overflow-x-hidden`}>
+		<D style={`fit_1 pt-[10rem] hover:px-0 ay_mid w-full h-full overflow-x-hidden`}>
 			{results().map((v, i) => (
 				<D
 					style={`z_fit z-[${
 						i === sel_tape() ? "1" : "0"
-					}] w-full h-[14rem] dx_mid ay_mid gap-x-[.3rem] mt-[-3rem] `}>
+					}] w-full h-[14rem] ax_mid sx_mid gap-x-[.3rem] mt-[-3rem] `}>
 					{v.map((v2, i2) => (
 						<P
 							value={v2?.poster_link}
@@ -64,7 +64,7 @@ export default () => {
 							hover_out={() => sel_tape(false)}
 							style={`aspect-[16/9] 
 							w-[14rem] h-[7rem]
-							d_null cursor_pointer
+							a_norm cursor_pointer
 							trans_end
 							hover:trans_start
 							hover:w-[28rem] hover:h-[14rem]`}
