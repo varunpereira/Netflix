@@ -79,14 +79,17 @@ $red: red;
 	.ta_right {
 		text-align: right;
 	}
-	/* expose  */
-	.e_fit {
+	/* contain  */
+	.c_norm {
+		object-fit: none;
+	}
+	.c_fit {
 		object-fit: contain;
 	}
-	.e_full {
+	.c_full {
 		object-fit: cover;
 	}
-	.e_fill {
+	.c_stretch {
 		object-fit: fill;
 	}
 	// background colour

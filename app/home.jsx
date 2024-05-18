@@ -74,57 +74,49 @@ export default () => {
 	}
 
 	return (
-		<D style={``}>
+		<D hover_in={() => playing(false)} hover_out={() => playing(true)} style={`z_fit z-[1]`}>
 			<D
-				hover_in={() => playing(false)}
-				hover_out={() => playing(true)}
-				style={`z_fit z-[1] ax_mid`}>
-				<D
-					style={
-						"z_put z-[1] left-0 top-[12rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
-					}>
-					<P value={`/shows/lotr/logo.png`} style={`w_fit`} />
-					<T style={`my-[1rem]`}>
-						Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
-						Frodo and Sam as they approach Mount Doom with the One Ring.
-					</T>
-					<D style={`ax_right gap-x-[.75rem]`}>
-						<B
-							click={() => nav("/watch/134")}
-							style={`z_fit c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
-							<T>Play</T>
-						</B>
-						<B style={`c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `}>
-							My List
-						</B>
-					</D>
+				style={
+					"z_put z-[1] left-0 top-[12rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
+				}>
+				<P value={`/shows/lotr/logo.png`} style={`w_fit`} />
+				<T style={`my-[1rem]`}>
+					Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
+					Frodo and Sam as they approach Mount Doom with the One Ring.
+				</T>
+				<D style={`ax_right gap-x-[.75rem]`}>
+					<B
+						click={() => nav("/watch/134")}
+						style={`z_fit c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
+						<T>Play</T>
+					</B>
+					<B style={`c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `}>
+						My List
+					</B>
 				</D>
-				<B
-					style={`z_put z-[1] right-[2.5rem] top-[30rem] ic_white opacity w-[1.75rem] h-[1.75rem] c_black rounded-full opacity-[.7] `}
-					click={() => mute(!mute())}>
-					{mute() ? <MuteIcon /> : <VolumeIcon />}
-				</B>
-				<D style={`h-[45rem] overflow-y-hidden`}>
-					<V
-						ref={video_ref}
-						value={`/shows/lotr/snip.mp4`}
-						mute={mute()}
-						rep={true}
-						style={`h-[70rem] mt-[-8.75rem] overflow-x-hidden e_full aspect-[2.4/1]`}
-					/>
-				</D>
-				<D
+			</D>
+			<B
+				style={`z_put z-[1] right-[2.5rem] top-[30rem] ic_white opacity w-[1.75rem] h-[1.75rem] c_black rounded-full opacity-[.7] `}
+				click={() => mute(!mute())}>
+				{mute() ? <MuteIcon /> : <VolumeIcon />}
+			</B>
+			<D
+				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
+			/>
+			<V
+				ref={video_ref}
+				value={`/shows/lotr/snip.mp4`}
+				mute={mute()}
+				rep={true}
+				style={`w-full h-[50rem] w-full c_norm `}
+			/>
+			<D
 					style={
-						"z_put z-[2] bottom-[0rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
+						"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
 					}
 				/>
-				<D
-					style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
-				/>
-			</D>
-
 			<D
-				style={`w-full h-full mt-[-4rem] ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
+				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
 				<Tape
 					data={all_shows_data().slice(18, 36).reverse()}

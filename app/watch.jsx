@@ -91,7 +91,7 @@ export default () => {
 				ref={video_ref}
 				value={show()?.id == 134 ? `/shows/lotr/full.mp4#t=0,298` : `/shows/intro.mp4`}
 				mute={mute()}
-				style={`e_full h-[100vh] w-full z-[-1]`}
+				style={`c_full h-[100vh] w-full z-[-1]`}
 			/>
 			<B
 				click={() => nav("/")}
