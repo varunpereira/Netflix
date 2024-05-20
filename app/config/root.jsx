@@ -22,7 +22,7 @@ page.getElementById("logo").href = "/config/logo_small.png"
 page.getElementById("color").content = "c_grey_2"
 page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1"
 
-// auth ok so update globe state
+// auth ok so update globe state - move to each page's const
 var get_globe = () => {
 	var items = {}
 	for (var i = 0; i < localStorage.length; i++) {
