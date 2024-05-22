@@ -49,12 +49,21 @@ export default () => {
 					} `}>
 					{data.map((v, i2) => (
 						<D
+							hover_in={() => {
+								sel_tape(i)
+								sel_slide(i2)
+							}}
+							hover_out={() => {
+								sel_tape(false)
+								sel_slide(false)
+							}}
 							style={`a_norm aspect-[16/9] 
 						w-[14rem] h-[7rem]
 						a_norm cursor_pointer
-						trans_end
-						hover:trans_start
+						
 						hover:w-[28rem] hover:h-[14rem]`}>
+							{/* trans_end
+						hover:trans_start */}
 							{sel_slide() === i2 && sel_tape() === i ? (
 								<V
 									value={`/shows/intro.mp4`}
@@ -71,16 +80,6 @@ export default () => {
 							) : (
 								<P
 									click={() => nav(`/watch/${v?.id}`)}
-									hover_in={() => {
-										sel_tape(i)
-										setTimeout(() => {
-											sel_slide(i2)
-										}, 1000)
-									}}
-									hover_out={() => {
-										sel_tape(false)
-										sel_slide(false)
-									}}
 									value={v?.poster_link}
 									style={`w-full h-full
 						`}
