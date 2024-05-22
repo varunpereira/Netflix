@@ -47,13 +47,42 @@ export default () => {
 					} ax_right sx_mid gap-x-[.3rem] no_scroll ${
 						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
-				<V
+					{
+					data.map((v, i2) => (
+						<D
+							hover_in={() => {
+								sel_tape(i)
+								sel_slide(i2)
+							}}
+							hover_out={() => {
+								sel_tape(false)
+								sel_slide(false)
+							}}
+							style={`a_norm aspect-[16/9] 
+						w-[14rem] h-[7rem]
+						a_norm cursor_pointer
+						
+						hover:w-[28rem] hover:h-[14rem]`}>
+							{/* trans_end
+						hover:trans_start */}
+							{(sel_slide() === i2 && sel_tape() === i) ? (
+								<V
 									value={`/shows/lotr/snip.mp4`}
 									rep={true}
 									mute={true}
 									autoplay
 									style={`w-full h-full`}
 								/>
+							) : (
+								<P
+									click={() => nav(`/watch/${v?.id}`)}
+									value={v?.poster_link}
+									style={`w-full h-full
+						`}
+								/>
+							)}
+						</D>
+					))}
 					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] ax_mid sx_mid"}>
 						{sel_tape() === i && (
 							<D style={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
@@ -110,7 +139,14 @@ export default () => {
 			/>
 			<D
 				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
-				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
+				<V
+									value={`/shows/lotr/snip.mp4`}
+									rep={true}
+									mute={true}
+									autoplay
+									style={`w-full h-full`}
+								/>
+				{/* <Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
 				<Tape
 					data={all_shows_data().slice(18, 36).reverse()}
 					title={`Because You Watched Peppa Pig`}
@@ -123,7 +159,7 @@ export default () => {
 				<Tape data={all_shows_data().slice(108, 126)} title={`Drama`} i={7} />
 				<Tape data={all_shows_data().slice(126, 144)} title={`Adventure`} i={8} />
 				<Tape data={all_shows_data().slice(144, 162).reverse()} title={`Romance`} i={9} />
-				<Tape data={all_shows_data().slice(162, 180).reverse()} title={`Kids`} i={10} />
+				<Tape data={all_shows_data().slice(162, 180).reverse()} title={`Kids`} i={10} /> */}
 			</D>
 		</D>
 	)
