@@ -362,12 +362,13 @@ $red: red;
 	:root {
 		font-size: 16px;
 	}
-
 	button {
 		outline: none;
 	}
-
 	input {
 		outline: none;
 	}
+	// video::-webkit-media-controls {
+	// 	display:none !important;
+	// }
 }

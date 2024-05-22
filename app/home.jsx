@@ -26,6 +26,7 @@ export default () => {
 	var playing = state(false)
 	var video_ref
 	var sel_slide = state(false)
+	var show_vid = state(false)
 
 	react(() => {
 		if (playing()) video_ref?.pause()
@@ -35,6 +36,15 @@ export default () => {
 	construct(async () => {
 		page.title = `Home - Netflix`
 		video_ref?.play()
+	})
+
+	react(() => {
+		if (sel_slide()) {
+			var timer = setTimeout(() => show_vid(true), 2000)
+			destruct(() => clearTimeout(timer))
+		} else {
+			show_vid(false)
+		}
 	})
 
 	var Tape = ({data = [], title, i}) => {
@@ -69,7 +79,7 @@ export default () => {
 						trans_end
 						hover:trans_start
 						hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
-							{sel_slide() === i2 && sel_tape() === i ? (
+							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
 										src={v?.id === 134 ? `/shows/lotr/snip.mp4` : "/shows/intro.mp4#t=2,25"}
@@ -82,7 +92,7 @@ export default () => {
 									<T style={`ml-[.5rem] mt-[-4rem] z-[5] a_null`}>{v?.title}</T>
 								</>
 							) : (
-								<P value={v?.poster_link} style={`w-full h-full`} />
+								<P value={v?.poster_link} style={`w-full h-full`}/>
 							)}
 						</D>
 					))}
