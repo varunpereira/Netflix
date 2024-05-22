@@ -60,7 +60,8 @@ export default () => {
 							style={`a_norm aspect-[16/9] 
 						w-[14rem] h-[7rem]
 						a_norm cursor_pointer
-						
+						trans_end
+						hover:trans_start
 						hover:w-[28rem] hover:h-[14rem]`}>
 							{/* trans_end
 						hover:trans_start */}
