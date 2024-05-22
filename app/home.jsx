@@ -66,14 +66,17 @@ export default () => {
 						hover:trans_start
 						hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
 							{sel_slide() === i2 && sel_tape() === i ? (
+								<>
 								<video
 									src="/shows/intro.mp4#t=2,25"
 									playsinline
 									autoplay
 									muted
 									loop
-									class="c_norm"
+									class="c_norm z-[4]"
 								/>
+								<T style={`ml-[.5rem] mt-[-4rem] z-[5]`}>{v?.title}</T>
+								</>
 							) : (
 								<P value={v?.poster_link} style={`w-full h-full`} />
 							)}
