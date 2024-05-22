@@ -64,7 +64,7 @@ export default () => {
 						hover:w-[28rem] hover:h-[14rem]`}>
 							{/* trans_end
 						hover:trans_start */}
-							{sel_slide() === i2 && sel_tape() === i ? (
+							{sel_slide() === i2 && sel_tape() === i || true ? (
 								<V
 									value={`/shows/intro.mp4`}
 									rep={true}

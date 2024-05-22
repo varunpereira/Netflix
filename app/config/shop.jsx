@@ -115,6 +115,7 @@ export var P = (props) => (
 
 export var V = (props) => (
 	<video
+		{...props}
 		poster={props?.def}
 		loop={props?.rep}
 		controls={props?.controls}
@@ -126,9 +127,7 @@ export var V = (props) => (
 		onKeyDown={props?.key}
 		ref={props?.ref}
 		// use:custom
-		class={props?.style}
-		{...props}
-		>
+		class={props?.style}>
 		<source src={props?.value} type={props?.type} />
 		Browser doesn't support video tag.
 	</video>
