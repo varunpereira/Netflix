@@ -85,16 +85,12 @@ export default () => {
 							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
-										src={
-											v2?.snip_link?.trim() !== ""
-												? v2?.snip_link
-												: "https://imdb-video.media-imdb.com/vi3115057433/1434659607842-pgv4ql-1563467990347.mp4?Expires=1716463820&Signature=pYEGdby5XSQXBBbBzrWWHMkIDmPuw5PxuqUp4WO~DuWW6QaY8lkgzvzQTqhCS4n8eP3VR2yuRMzCn9a4Yb7hJzijxPRCqzEX22h4w~eAfL24AsflWS0tFoSSjGtQ40VswtAfFfa4IMnRyHfB91CzKM-Ekc~sXbLPK2oH4JWpT~Z3XKKUdSJJQrn7U4-8LFS3k49ZCRUri5mjvO5ZlkaUjGF~C0H2mTXp926fC-Jgac8yIzJCO0ihNU4rpqfNjqcnCZtxqe7dXr~v6qhq6yArV06smU1IY1dAbVMCkbiIia9q8Cn-EabMTw4xZJdZIE6gRoMcXOBXuk9XgqGV6jdKKg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
-										}
+										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/intro.mp4#t=2"}
 										playsinline
 										autoplay
 										muted
 										loop
-										class="c_full z-[4] w-[28rem] h-[15rem]"
+										class="c_full z-[4] w-[30rem] h-[14rem]"
 									/>
 									{/* <iframe class="c_norm z-[4] w-[28rem] h-[14rem]" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe> */}
 									<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null`}>{v2?.title}</T>
