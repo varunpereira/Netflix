@@ -25,6 +25,8 @@ export default () => {
 	var sel_tape = state()
 	var playing = state(false)
 	var video_ref
+	var vid_snip_ref
+	var sel_slide = state(false)
 
 	react(() => {
 		if (playing()) video_ref?.pause()
@@ -34,6 +36,14 @@ export default () => {
 	construct(async () => {
 		page.title = `Home - Netflix`
 		video_ref?.play()
+	})
+
+	var sel_slide2 = react(() => {
+		if (sel_tape() === 1) {
+			setTimeout(() => {}, 1000)
+			return true
+		}
+		return false
 	})
 
 	var Tape = ({data = [], title, i}) => {
@@ -46,21 +56,48 @@ export default () => {
 					} ax_right sx_mid gap-x-[.3rem] no_scroll ${
 						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
-					{data.map((v, i2) => (
-						<P
-							click={() => nav(`/watch/${v?.id}`)}
-							hover_in={() => sel_tape(i)}
-							hover_out={() => sel_tape(false)}
-							value={v?.poster_link}
-							style={`aspect-[16/9] 
+					{data.map((v, i2) =>
+						sel_slide() === i2 && sel_tape() === i ? (
+							<V
+								value={`/shows/intro.mp4`}
+								rep={true}
+								mute={true}
+								hover_out={() => {
+									sel_tape(false)
+									sel_slide(false)
+								}}
+								autoplay
+								style={`aspect-[16/9] 
+						a_norm cursor_pointer
+						trans_end
+						trans_start
+						w-[28rem] h-[14rem]
+					`}
+							/>
+						) : (
+							<P
+								click={() => nav(`/watch/${v?.id}`)}
+								hover_in={() => {
+									sel_tape(i)
+									setTimeout(() => {
+										sel_slide(i2)
+									}, 1000)
+								}}
+								hover_out={() => {
+									sel_tape(false)
+									sel_slide(false)
+								}}
+								value={v?.poster_link}
+								style={`aspect-[16/9] 
 							w-[14rem] h-[7rem]
 							a_norm cursor_pointer
 							trans_end
 							hover:trans_start
 							hover:w-[28rem] hover:h-[14rem]
 						`}
-						/>
-					))}
+							/>
+						),
+					)}
 					<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] ax_mid sx_mid"}>
 						{sel_tape() === i && (
 							<D style={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
@@ -111,10 +148,10 @@ export default () => {
 				style={`w-full h-[50rem] w-full c_norm `}
 			/>
 			<D
-					style={
-						"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
-					}
-				/>
+				style={
+					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
+				}
+			/>
 			<D
 				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
