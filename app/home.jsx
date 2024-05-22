@@ -82,14 +82,14 @@ export default () => {
 							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
-										src={v?.id === 134 ? `/shows/lotr/snip.mp4` : "/shows/intro.mp4#t=2,25"}
+										src={v?.id === 134 ? `/shows/lotr/snip.mp4` : "https://imdb-video.media-imdb.com/vi3115057433/1434659607842-pgv4ql-1563467990347.mp4?Expires=1716463820&Signature=pYEGdby5XSQXBBbBzrWWHMkIDmPuw5PxuqUp4WO~DuWW6QaY8lkgzvzQTqhCS4n8eP3VR2yuRMzCn9a4Yb7hJzijxPRCqzEX22h4w~eAfL24AsflWS0tFoSSjGtQ40VswtAfFfa4IMnRyHfB91CzKM-Ekc~sXbLPK2oH4JWpT~Z3XKKUdSJJQrn7U4-8LFS3k49ZCRUri5mjvO5ZlkaUjGF~C0H2mTXp926fC-Jgac8yIzJCO0ihNU4rpqfNjqcnCZtxqe7dXr~v6qhq6yArV06smU1IY1dAbVMCkbiIia9q8Cn-EabMTw4xZJdZIE6gRoMcXOBXuk9XgqGV6jdKKg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" }
 										playsinline
 										autoplay
 										muted
 										loop
-										class="c_full mt-[-.9rem] z-[4]"
+										class="c_norm z-[4] w-[28rem] h-[14rem]"
 									/>
-									<T style={`ml-[.5rem] mt-[-4rem] z-[5] a_null`}>{v?.title}</T>
+									<T style={`ml-[.5rem] mt-[-2rem] z-[5] a_null`}>{v?.title}</T>
 								</>
 							) : (
 								<P value={v?.poster_link} style={`w-full h-full`}/>
