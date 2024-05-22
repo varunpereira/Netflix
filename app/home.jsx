@@ -65,10 +65,9 @@ export default () => {
 							{/* trans_end
 						hover:trans_start */}
 							{sel_slide() === i2 && sel_tape() === i ? (
-								<video src="/shows/lotr/snip.mp4" playsinline autoplay muted loop />
+								<video src="/shows/intro.mp4" playsinline autoplay muted loop />
 							) : (
 								// <V value={`/shows/lotr/snip.mp4`} rep={true} mute={true} autoplay style={`w-full h-full`} />
-
 								<P
 									click={() => nav(`/watch/${v?.id}`)}
 									value={v?.poster_link}
@@ -120,13 +119,14 @@ export default () => {
 			<D
 				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
 			/>
-			<V
+			<video ref={video_ref} src="/shows/lotr/snip.mp4" playsinline autoplay muted={mute()} loop class='w-full h-[50rem] c_norm' />
+			{/* <V
 				ref={video_ref}
 				value={`/shows/lotr/snip.mp4`}
 				mute={mute()}
 				rep={true}
 				style={`w-full h-[50rem] c_norm `}
-			/>
+			/> */}
 			<D
 				style={
 					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
