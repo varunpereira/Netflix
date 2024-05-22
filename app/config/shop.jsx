@@ -46,7 +46,6 @@ export var scroll = (id) => document.getElementById(id).scrollIntoView({behavior
 
 // parse
 export var str = JSON.stringify
-export var num = Number
 export var cookie = (req_cookie) => {
 	if (req_cookie == null) return {}
 	var cookies = () => parseCookie(req_cookie)
@@ -56,6 +55,9 @@ export var any = JSON.parse // eg bool
 
 // generic
 export var math = Math
+export var num = {
+	is_int: (v)=> Number.isInteger(v)
+}
 export var date = Date
 export var dir = Array
 export var dic = Object

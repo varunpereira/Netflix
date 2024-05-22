@@ -10,6 +10,7 @@ import {
 	req,
 	dir,
 	path,
+	num,
 	D,
 	T,
 	B,
@@ -43,7 +44,7 @@ export default () => {
 	}
 
 	react(() => {
-		if (sel_slide()) {
+		if (num.is_int(sel_tape())) {
 			var timer = setTimeout(() => {
 				show_vid(true)
 			}, 2000)

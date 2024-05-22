@@ -14,6 +14,7 @@ import {
 	B,
 	V,
 	P,
+	num,
 } from "~/config/shop"
 import {ChevronRightIcon} from "~/pieces/icon"
 import {VolumeIcon, MuteIcon} from "~/pieces/icon"
@@ -41,7 +42,7 @@ export default () => {
 	})
 
 	react(() => {
-		if (sel_slide()) {
+		if (num.is_int(sel_slide())) {
 			var timer = setTimeout(() => show_vid(true), 2000)
 			destruct(() => clearTimeout(timer))
 		} else {
