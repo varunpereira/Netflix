@@ -69,10 +69,6 @@ export default () => {
 									value={`/shows/intro.mp4`}
 									rep={true}
 									mute={true}
-									hover_out={() => {
-										sel_tape(false)
-										sel_slide(false)
-									}}
 									autoplay
 									style={`w-full h-full
 					`}
