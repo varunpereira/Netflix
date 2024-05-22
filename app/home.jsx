@@ -57,6 +57,8 @@ export default () => {
 								sel_tape(false)
 								sel_slide(false)
 							}}
+							click={() => nav(`/watch/${v?.id}`)}
+							css={`background-image: url(${v?.poster_link}); background-size: 14rem 7rem; background-repeat:no-repeat;`}
 							style={`a_norm aspect-[16/9] 
 						w-[14rem] h-[7rem]
 						a_norm cursor_pointer
@@ -64,15 +66,17 @@ export default () => {
 						hover:trans_start
 						hover:w-[28rem] hover:h-[14rem]`}>
 							{sel_slide() === i2 && sel_tape() === i ? (
-								<video src="/shows/intro.mp4#t=1,25" playsinline autoplay muted loop class='c_full mt-[-.9rem]'/>
+								<video
+									src="/shows/intro.mp4#t=2,25"
+									playsinline
+									autoplay
+									muted
+									loop
+									class="c_full mt-[-.9rem]"
+								/>
 							) : (
 								// <V value={`/shows/lotr/snip.mp4`} rep={true} mute={true} autoplay style={`w-full h-full`} />
-								<P
-									click={() => nav(`/watch/${v?.id}`)}
-									value={v?.poster_link}
-									style={`w-full h-full
-						`}
-								/>
+								<P value={v?.poster_link} style={`w-full h-full`} />
 							)}
 						</D>
 					))}
@@ -118,7 +122,15 @@ export default () => {
 			<D
 				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
 			/>
-			<video ref={video_ref} src="/shows/lotr/snip.mp4" playsinline autoplay muted={mute()} loop class='w-full h-[50rem] c_norm' />
+			<video
+				ref={video_ref}
+				src="/shows/lotr/snip.mp4"
+				playsinline
+				autoplay
+				muted={mute()}
+				loop
+				class="w-full h-[50rem] c_norm"
+			/>
 			{/* <V
 				ref={video_ref}
 				value={`/shows/lotr/snip.mp4`}
