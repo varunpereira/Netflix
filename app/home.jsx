@@ -44,7 +44,7 @@ export default () => {
 				<D
 					style={`w-full ${
 						sel_tape() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
-					} ax_right sx_mid gap-x-[.3rem] no_scroll ${
+					} ax_right sx_mid gap-x-[.3rem] no_scroll overflow-y-hidden ${
 						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
 					{data.map((v, i2) => (
@@ -63,10 +63,8 @@ export default () => {
 						trans_end
 						hover:trans_start
 						hover:w-[28rem] hover:h-[14rem]`}>
-							{/* trans_end
-						hover:trans_start */}
 							{sel_slide() === i2 && sel_tape() === i ? (
-								<video src="/shows/intro.mp4" playsinline autoplay muted loop />
+								<video src="/shows/intro.mp4#t=1,25" playsinline autoplay muted loop class='c_full mt-[-.9rem]'/>
 							) : (
 								// <V value={`/shows/lotr/snip.mp4`} rep={true} mute={true} autoplay style={`w-full h-full`} />
 								<P
