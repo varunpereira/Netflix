@@ -47,8 +47,7 @@ export default () => {
 					} ax_right sx_mid gap-x-[.3rem] no_scroll ${
 						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
-					{
-					data.map((v, i2) => (
+					{data.map((v, i2) => (
 						<D
 							hover_in={() => {
 								sel_tape(i)
@@ -65,7 +64,7 @@ export default () => {
 						hover:w-[28rem] hover:h-[14rem]`}>
 							{/* trans_end
 						hover:trans_start */}
-							{(sel_slide() === i2 && sel_tape() === i) ? (
+							{sel_slide() === i2 && sel_tape() === i ? (
 								<V
 									value={`/shows/lotr/snip.mp4`}
 									rep={true}
@@ -132,18 +131,12 @@ export default () => {
 				rep={true}
 				style={`w-full h-[50rem] c_norm `}
 			/> */}
+			<V value={`/shows/lotr/snip.mp4`} rep={true} mute={true} autoplay style={`w-full h-full`} />
 			<D
 				style={
 					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
 				}
 			/>
-			<V
-									value={`/shows/lotr/snip.mp4`}
-									rep={true}
-									mute={true}
-									autoplay
-									style={`w-full h-full`}
-								/>
 			{/* <D
 				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
