@@ -41,7 +41,7 @@ export default () => {
 	})
 
 	react(() => {
-		if (!isNaN(sel_slide())) {
+		if (sel_slide()) {
 			var timer = setTimeout(() => show_vid(true), 2000)
 			destruct(() => clearTimeout(timer))
 		} else {
