@@ -58,7 +58,11 @@ export default () => {
 								sel_slide(false)
 							}}
 							click={() => nav(`/watch/${v?.id}`)}
-							css={`background-image: url(${v?.poster_link}); background-size: 100% 100%; background-repeat:no-repeat;`}
+							css={`
+								background-image: url(${v?.poster_link});
+								background-size: 100% 100%;
+								background-repeat: no-repeat;
+							`}
 							style={`a_norm aspect-[16/9] 
 						w-[14rem] h-[7rem]
 						a_norm cursor_pointer
@@ -67,15 +71,15 @@ export default () => {
 						hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
 							{sel_slide() === i2 && sel_tape() === i ? (
 								<>
-								<video
-									src="/shows/intro.mp4#t=2,25"
-									playsinline
-									autoplay
-									muted
-									loop
-									class="c_norm z-[4]"
-								/>
-								<T style={`ml-[.5rem] mt-[-4rem] z-[5]`}>{v?.title}</T>
+									<video
+										src={v?.id === 134 ? `/shows/lotr/snip.mp4` : "/shows/intro.mp4#t=2,25"}
+										playsinline
+										autoplay
+										muted
+										loop
+										class="c_full mt-[-.9rem] z-[4]"
+									/>
+									<T style={`ml-[.5rem] mt-[-4rem] z-[5] a_null`}>{v?.title}</T>
 								</>
 							) : (
 								<P value={v?.poster_link} style={`w-full h-full`} />
