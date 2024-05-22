@@ -137,16 +137,16 @@ export default () => {
 					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
 				}
 			/>
-			<D
-				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
-				<V
+			<V
 									value={`/shows/lotr/snip.mp4`}
 									rep={true}
 									mute={true}
 									autoplay
 									style={`w-full h-full`}
 								/>
-				{/* <Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
+			{/* <D
+				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
+				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
 				<Tape
 					data={all_shows_data().slice(18, 36).reverse()}
 					title={`Because You Watched Peppa Pig`}
@@ -159,8 +159,8 @@ export default () => {
 				<Tape data={all_shows_data().slice(108, 126)} title={`Drama`} i={7} />
 				<Tape data={all_shows_data().slice(126, 144)} title={`Adventure`} i={8} />
 				<Tape data={all_shows_data().slice(144, 162).reverse()} title={`Romance`} i={9} />
-				<Tape data={all_shows_data().slice(162, 180).reverse()} title={`Kids`} i={10} /> */}
-			</D>
+				<Tape data={all_shows_data().slice(162, 180).reverse()} title={`Kids`} i={10} />
+			</D> */}
 		</D>
 	)
 }
