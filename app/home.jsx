@@ -66,7 +66,7 @@ export default () => {
 						hover:trans_start */}
 							{(sel_slide() === i2 && sel_tape() === i) ? (
 								<V
-									value={`/shows/intro.mp4`}
+									value={`/shows/lotr/snip.mp4`}
 									rep={true}
 									mute={true}
 									autoplay
@@ -126,7 +126,7 @@ export default () => {
 			/>
 			<V
 				ref={video_ref}
-				value={`/shows/intro.mp4`}
+				value={`/shows/lotr/snip.mp4`}
 				mute={mute()}
 				rep={true}
 				style={`w-full h-[50rem] w-full c_norm `}
