@@ -17,7 +17,7 @@ import {
 } from "~/config/shop"
 import {ChevronRightIcon} from "~/pieces/icon"
 import {VolumeIcon, MuteIcon} from "~/pieces/icon"
-import {db} from '~/config/db'
+import {db} from "~/config/db"
 
 export default () => {
 	var nav = route()
@@ -33,7 +33,6 @@ export default () => {
 		page.title = `Home - Netflix`
 		video_ref?.play()
 		shows(db?.get(`shows`))
-		write(shows())
 	})
 
 	react(() => {
@@ -42,7 +41,7 @@ export default () => {
 	})
 
 	react(() => {
-		if (sel_slide()) {
+		if (!isNaN(sel_slide())) {
 			var timer = setTimeout(() => show_vid(true), 2000)
 			destruct(() => clearTimeout(timer))
 		} else {
@@ -50,7 +49,7 @@ export default () => {
 		}
 	})
 
-	var Tape = ({data = ()=>[], title, i}) => {
+	var Tape = ({data = () => [], title, i}) => {
 		return (
 			<D style={`z_fit z-[${i === sel_tape() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
@@ -85,18 +84,22 @@ export default () => {
 							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
-										src={v2?.id === 134 ? `/shows/lotr/snip.mp4` : "https://imdb-video.media-imdb.com/vi3115057433/1434659607842-pgv4ql-1563467990347.mp4?Expires=1716463820&Signature=pYEGdby5XSQXBBbBzrWWHMkIDmPuw5PxuqUp4WO~DuWW6QaY8lkgzvzQTqhCS4n8eP3VR2yuRMzCn9a4Yb7hJzijxPRCqzEX22h4w~eAfL24AsflWS0tFoSSjGtQ40VswtAfFfa4IMnRyHfB91CzKM-Ekc~sXbLPK2oH4JWpT~Z3XKKUdSJJQrn7U4-8LFS3k49ZCRUri5mjvO5ZlkaUjGF~C0H2mTXp926fC-Jgac8yIzJCO0ihNU4rpqfNjqcnCZtxqe7dXr~v6qhq6yArV06smU1IY1dAbVMCkbiIia9q8Cn-EabMTw4xZJdZIE6gRoMcXOBXuk9XgqGV6jdKKg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" }
+										src={
+											v2?.snip_link?.trim() !== ""
+												? v2?.snip_link
+												: "https://imdb-video.media-imdb.com/vi3115057433/1434659607842-pgv4ql-1563467990347.mp4?Expires=1716463820&Signature=pYEGdby5XSQXBBbBzrWWHMkIDmPuw5PxuqUp4WO~DuWW6QaY8lkgzvzQTqhCS4n8eP3VR2yuRMzCn9a4Yb7hJzijxPRCqzEX22h4w~eAfL24AsflWS0tFoSSjGtQ40VswtAfFfa4IMnRyHfB91CzKM-Ekc~sXbLPK2oH4JWpT~Z3XKKUdSJJQrn7U4-8LFS3k49ZCRUri5mjvO5ZlkaUjGF~C0H2mTXp926fC-Jgac8yIzJCO0ihNU4rpqfNjqcnCZtxqe7dXr~v6qhq6yArV06smU1IY1dAbVMCkbiIia9q8Cn-EabMTw4xZJdZIE6gRoMcXOBXuk9XgqGV6jdKKg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
+										}
 										playsinline
 										autoplay
 										muted
 										loop
-										class="c_norm z-[4] w-[28rem] h-[14rem]"
+										class="c_full z-[4] w-[28rem] h-[15rem]"
 									/>
 									{/* <iframe class="c_norm z-[4] w-[28rem] h-[14rem]" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe> */}
-									<T style={`ml-[.5rem] mt-[-2rem] z-[5] a_null`}>{v2?.title}</T>
+									<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null`}>{v2?.title}</T>
 								</>
 							) : (
-								<P value={v2?.cover_link} style={`w-full h-full`}/>
+								<P value={v2?.cover_link} style={`w-full h-full`} />
 							)}
 						</D>
 					))}
@@ -165,20 +168,20 @@ export default () => {
 			/>
 			<D
 				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
-				<Tape data={()=>shows()?.slice(0, 18).reverse()} title={`Trending Now`} i={1} />
+				<Tape data={() => shows()?.slice(0, 18).reverse()} title={`Trending Now`} i={1} />
 				<Tape
-					data={()=> shows()?.slice(18, 36).reverse()}
+					data={() => shows()?.slice(18, 36).reverse()}
 					title={`Because You Watched Peppa Pig`}
 					i={2}
 				/>
-				<Tape data={()=> shows()?.slice(36, 54)} title={`Popular on Netflix`} i={3} />
-				<Tape data={()=> shows()?.slice(54, 72)} title={`Comedy`} i={4} />
-				<Tape data={()=> shows()?.slice(72, 90)} title={`Thriller`} i={5} />
-				<Tape data={()=> shows()?.slice(90, 108)} title={`Action`} i={6} />
-				<Tape data={()=> shows()?.slice(108, 126)} title={`Drama`} i={7} />
-				<Tape data={()=> shows()?.slice(126, 144)} title={`Adventure`} i={8} />
-				<Tape data={()=> shows()?.slice(144, 162).reverse()} title={`Romance`} i={9} />
-				<Tape data={()=> shows()?.slice(162, 180).reverse()} title={`Kids`} i={10} />
+				<Tape data={() => shows()?.slice(36, 54)} title={`Popular on Netflix`} i={3} />
+				<Tape data={() => shows()?.slice(54, 72)} title={`Comedy`} i={4} />
+				<Tape data={() => shows()?.slice(72, 90)} title={`Thriller`} i={5} />
+				<Tape data={() => shows()?.slice(90, 108)} title={`Action`} i={6} />
+				<Tape data={() => shows()?.slice(108, 126)} title={`Drama`} i={7} />
+				<Tape data={() => shows()?.slice(126, 144)} title={`Adventure`} i={8} />
+				<Tape data={() => shows()?.slice(144, 162).reverse()} title={`Romance`} i={9} />
+				<Tape data={() => shows()?.slice(162, 180).reverse()} title={`Kids`} i={10} />
 			</D>
 		</D>
 	)

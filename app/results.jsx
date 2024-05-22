@@ -43,14 +43,15 @@ export default () => {
 	}
 
 	react(() => {
-		if (sel_slide()) {
-			var timer = setTimeout(() => show_vid(true), 2000)
+		if (!isNaN(sel_slide())) {
+			var timer = setTimeout(() => {
+				show_vid(true)
+			}, 2000)
 			destruct(() => clearTimeout(timer))
 		} else {
 			show_vid(false)
 		}
 	})
-
 
 	var results = react(() => {
 		var term = path_par?.q.trim().toUpperCase() // path is like state so rerenders
@@ -70,42 +71,46 @@ export default () => {
 					}] w-full h-[14rem] ax_mid sx_mid gap-x-[.3rem] mt-[-3rem] `}>
 					{v.map((v2, i2) => (
 						<D
-						hover_in={() => {
-							sel_tape(i)
-							sel_slide(i2)
-						}}
-						hover_out={() => {
-							sel_tape(false)
-							sel_slide(false)
-						}}
-						click={() => nav(`/watch/${v2?.id}`)}
-						css={`
-							background-image: url(${v2?.cover_link});
-							background-size: 100% 100%;
-							background-repeat: no-repeat;
-						`}
-						style={`a_norm aspect-[16/9] 
+							hover_in={() => {
+								sel_tape(i)
+								sel_slide(i2)
+							}}
+							hover_out={() => {
+								sel_tape(false)
+								sel_slide(false)
+							}}
+							click={() => nav(`/watch/${v2?.id}`)}
+							css={`
+								background-image: url(${v2?.cover_link});
+								background-size: 100% 100%;
+								background-repeat: no-repeat;
+							`}
+							style={`a_norm aspect-[16/9] 
 					w-[14rem] h-[7rem]
 					a_norm cursor_pointer
 					trans_end
 					hover:trans_start
 					hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
-						{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
-							<>
-								<video
-									src={v2?.id === 134 ? `/shows/lotr/snip.mp4` : "https://imdb-video.media-imdb.com/vi3115057433/1434659607842-pgv4ql-1563467990347.mp4?Expires=1716463820&Signature=pYEGdby5XSQXBBbBzrWWHMkIDmPuw5PxuqUp4WO~DuWW6QaY8lkgzvzQTqhCS4n8eP3VR2yuRMzCn9a4Yb7hJzijxPRCqzEX22h4w~eAfL24AsflWS0tFoSSjGtQ40VswtAfFfa4IMnRyHfB91CzKM-Ekc~sXbLPK2oH4JWpT~Z3XKKUdSJJQrn7U4-8LFS3k49ZCRUri5mjvO5ZlkaUjGF~C0H2mTXp926fC-Jgac8yIzJCO0ihNU4rpqfNjqcnCZtxqe7dXr~v6qhq6yArV06smU1IY1dAbVMCkbiIia9q8Cn-EabMTw4xZJdZIE6gRoMcXOBXuk9XgqGV6jdKKg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" }
-									playsinline
-									autoplay
-									muted
-									loop
-									class="c_norm z-[4] w-[28rem] h-[14rem]"
-								/>
-								<T style={`ml-[.5rem] mt-[-2rem] z-[5] a_null`}>{v2?.title}</T>
-							</>
-						) : (
-							<P value={v2?.cover_link} style={`w-full h-full`}/>
-						)}
-					</D>
+							{sel_slide() === i2 && sel_tape() === i && show_vid() ? (
+								<>
+									<video
+										src={
+											v2?.snip_link?.trim() !== ""
+												? v2?.snip_link
+												: "https://imdb-video.media-imdb.com/vi3115057433/1434659607842-pgv4ql-1563467990347.mp4?Expires=1716463820&Signature=pYEGdby5XSQXBBbBzrWWHMkIDmPuw5PxuqUp4WO~DuWW6QaY8lkgzvzQTqhCS4n8eP3VR2yuRMzCn9a4Yb7hJzijxPRCqzEX22h4w~eAfL24AsflWS0tFoSSjGtQ40VswtAfFfa4IMnRyHfB91CzKM-Ekc~sXbLPK2oH4JWpT~Z3XKKUdSJJQrn7U4-8LFS3k49ZCRUri5mjvO5ZlkaUjGF~C0H2mTXp926fC-Jgac8yIzJCO0ihNU4rpqfNjqcnCZtxqe7dXr~v6qhq6yArV06smU1IY1dAbVMCkbiIia9q8Cn-EabMTw4xZJdZIE6gRoMcXOBXuk9XgqGV6jdKKg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
+										}
+										playsinline
+										autoplay
+										muted
+										loop
+										class="c_full z-[4] w-[28rem] h-[15rem]"
+									/>
+									<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null`}>{v2?.title}</T>
+								</>
+							) : (
+								<P value={v2?.cover_link} style={`w-full h-full`} />
+							)}
+						</D>
 					))}
 				</D>
 			))}

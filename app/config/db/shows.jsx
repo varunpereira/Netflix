@@ -1014,7 +1014,7 @@ export default [
 		id: 134,
 		title: "The Lord of the Rings - The Return of the Ring",
 		keywords: "The Lord of the Rings - The Return of the ring",
-		snip_link: "",
+		snip_link: "/shows/lotr/snip.mp4",
 		cover_link: "/shows/lotr/cover.jpg",
 	},
 	{
@@ -1253,7 +1253,7 @@ export default [
 		id: 169,
 		title: "The Office",
 		keywords: "The Office",
-		snip_link: "",
+		snip_link: "https://imdb-video.media-imdb.com/vi2731785497/1434659607842-pgv4ql-1554453034288.mp4?Expires=1716499692&Signature=oJuUcsMslv5O6LqIu0dMklFCWh7yZEJuFHNLax4QU6hnhk55tD9gNy-XUhLBpJzvjpxuXpVc-jWU4b91IE-znBt26VCWrBhhNE69hrTj0NggPKgG7C3pi07dJiTIvDx5~tYl6x78BPMTmTuZcJcNpgSFlIvbDXe5UVEtI11HmcpP8F6od5dyE1rvhOsj~FB6kHMdhrtorMTMLcUJpE7yQWQq505THVT5lK52LRNYaohrEum-BSJeJPyD2qc1dZ-G8I8X0M83yqAJgL~6dmy2NxDroF6oDW-dKmZ6GIqUbA6-~ZGmt4dbXzy9M3u55wi1Aeo9AT-YOJzKpf-S0X29zA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
 		cover_link: "/shows/covers/the_office.jpg",
 	},
 	{
