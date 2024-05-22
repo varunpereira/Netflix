@@ -131,7 +131,7 @@ export default () => {
 				rep={true}
 				style={`w-full h-[50rem] c_norm `}
 			/> */}
-			<V value={`/shows/lotr/snip.mp4`} rep={true} mute={true} autoplay style={`w-full h-full`} />
+			<video src={`/shows/lotr/snip.mp4`} loop muted autoplay class={`w-full h-full`} controls/>
 			<D
 				style={
 					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
