@@ -65,16 +65,10 @@ export default () => {
 							{/* trans_end
 						hover:trans_start */}
 							{sel_slide() === i2 && sel_tape() === i ? (
-								// <V
-								// 	value={`/shows/lotr/snip.mp4`}
-								// 	rep={true}
-								// 	mute={true}
-								// 	autoplay
-								// 	style={`w-full h-full`}
-								// />
-			<V value={`/shows/lotr/snip.mp4`} rep={true} mute={true} autoplay style={`w-full h-full`} />
-
+								<video src="/shows/lotr/snip.mp4" playsinline autoplay muted loop />
 							) : (
+								// <V value={`/shows/lotr/snip.mp4`} rep={true} mute={true} autoplay style={`w-full h-full`} />
+
 								<P
 									click={() => nav(`/watch/${v?.id}`)}
 									value={v?.poster_link}
