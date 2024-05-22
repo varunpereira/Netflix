@@ -115,11 +115,13 @@ export var P = (props) => (
 
 export var V = (props) => (
 	<video
-		{...props}
+		// {...props}
 		poster={props?.def}
 		loop={props?.rep}
 		controls={props?.controls}
-		muted={props?.mute}
+		// muted={props?.mute}
+		muted={true}
+		autoplay={true}
 		playsinline
 		onClick={props?.click}
 		onMouseOver={props?.hover_in}

@@ -65,13 +65,15 @@ export default () => {
 							{/* trans_end
 						hover:trans_start */}
 							{sel_slide() === i2 && sel_tape() === i ? (
-								<V
-									value={`/shows/lotr/snip.mp4`}
-									rep={true}
-									mute={true}
-									autoplay
-									style={`w-full h-full`}
-								/>
+								// <V
+								// 	value={`/shows/lotr/snip.mp4`}
+								// 	rep={true}
+								// 	mute={true}
+								// 	autoplay
+								// 	style={`w-full h-full`}
+								// />
+			<V value={`/shows/lotr/snip.mp4`} rep={true} mute={true} autoplay style={`w-full h-full`} />
+
 							) : (
 								<P
 									click={() => nav(`/watch/${v?.id}`)}
@@ -124,20 +126,19 @@ export default () => {
 			<D
 				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
 			/>
-			{/* <V
+			<V
 				ref={video_ref}
 				value={`/shows/lotr/snip.mp4`}
 				mute={mute()}
 				rep={true}
 				style={`w-full h-[50rem] c_norm `}
-			/> */}
-			<video src={`/shows/lotr/snip.mp4`} loop muted autoplay class={`w-full h-full`} controls/>
+			/>
 			<D
 				style={
 					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
 				}
 			/>
-			{/* <D
+			<D
 				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
 				<Tape
@@ -153,7 +154,7 @@ export default () => {
 				<Tape data={all_shows_data().slice(126, 144)} title={`Adventure`} i={8} />
 				<Tape data={all_shows_data().slice(144, 162).reverse()} title={`Romance`} i={9} />
 				<Tape data={all_shows_data().slice(162, 180).reverse()} title={`Kids`} i={10} />
-			</D> */}
+			</D>
 		</D>
 	)
 }
