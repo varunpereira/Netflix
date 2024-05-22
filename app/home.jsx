@@ -126,7 +126,7 @@ export default () => {
 			/>
 			<V
 				ref={video_ref}
-				value={`/shows/lotr/snip.mp4`}
+				value={`/shows/intro.mp4`}
 				mute={mute()}
 				rep={true}
 				style={`w-full h-[50rem] w-full c_norm `}
@@ -153,13 +153,6 @@ export default () => {
 				<Tape data={all_shows_data().slice(144, 162).reverse()} title={`Romance`} i={9} />
 				<Tape data={all_shows_data().slice(162, 180).reverse()} title={`Kids`} i={10} />
 			</D>
-			<V
-									value={`/shows/intro.mp4`}
-									rep={true}
-									mute={true}
-									autoplay
-									style={`w-full h-full`}
-								/>
 		</D>
 	)
 }
