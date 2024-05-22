@@ -22,12 +22,12 @@ import {db} from '~/config/db'
 export default () => {
 	var nav = route()
 	var mute = state(true)
-	var sel_tape = state()
-	var playing = state(false)
 	var video_ref
+	var playing = state(false)
+	var shows = state()
+	var sel_tape = state()
 	var sel_slide = state(false)
 	var show_vid = state(false)
-	var shows = state()
 
 	construct(async () => {
 		page.title = `Home - Netflix`
@@ -60,7 +60,7 @@ export default () => {
 					} ax_right sx_mid gap-x-[.3rem] no_scroll overflow-y-hidden ${
 						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
-					{data()?.map((v, i2) => (
+					{data()?.map((v2, i2) => (
 						<D
 							hover_in={() => {
 								sel_tape(i)
@@ -70,9 +70,9 @@ export default () => {
 								sel_tape(false)
 								sel_slide(false)
 							}}
-							click={() => nav(`/watch/${v?.id}`)}
+							click={() => nav(`/watch/${v2?.id}`)}
 							css={`
-								background-image: url(${v?.cover_link});
+								background-image: url(${v2?.cover_link});
 								background-size: 100% 100%;
 								background-repeat: no-repeat;
 							`}
@@ -85,17 +85,18 @@ export default () => {
 							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
-										src={v?.id === 134 ? `/shows/lotr/snip.mp4` : "https://imdb-video.media-imdb.com/vi3115057433/1434659607842-pgv4ql-1563467990347.mp4?Expires=1716463820&Signature=pYEGdby5XSQXBBbBzrWWHMkIDmPuw5PxuqUp4WO~DuWW6QaY8lkgzvzQTqhCS4n8eP3VR2yuRMzCn9a4Yb7hJzijxPRCqzEX22h4w~eAfL24AsflWS0tFoSSjGtQ40VswtAfFfa4IMnRyHfB91CzKM-Ekc~sXbLPK2oH4JWpT~Z3XKKUdSJJQrn7U4-8LFS3k49ZCRUri5mjvO5ZlkaUjGF~C0H2mTXp926fC-Jgac8yIzJCO0ihNU4rpqfNjqcnCZtxqe7dXr~v6qhq6yArV06smU1IY1dAbVMCkbiIia9q8Cn-EabMTw4xZJdZIE6gRoMcXOBXuk9XgqGV6jdKKg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" }
+										src={v2?.id === 134 ? `/shows/lotr/snip.mp4` : "https://imdb-video.media-imdb.com/vi3115057433/1434659607842-pgv4ql-1563467990347.mp4?Expires=1716463820&Signature=pYEGdby5XSQXBBbBzrWWHMkIDmPuw5PxuqUp4WO~DuWW6QaY8lkgzvzQTqhCS4n8eP3VR2yuRMzCn9a4Yb7hJzijxPRCqzEX22h4w~eAfL24AsflWS0tFoSSjGtQ40VswtAfFfa4IMnRyHfB91CzKM-Ekc~sXbLPK2oH4JWpT~Z3XKKUdSJJQrn7U4-8LFS3k49ZCRUri5mjvO5ZlkaUjGF~C0H2mTXp926fC-Jgac8yIzJCO0ihNU4rpqfNjqcnCZtxqe7dXr~v6qhq6yArV06smU1IY1dAbVMCkbiIia9q8Cn-EabMTw4xZJdZIE6gRoMcXOBXuk9XgqGV6jdKKg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" }
 										playsinline
 										autoplay
 										muted
 										loop
 										class="c_norm z-[4] w-[28rem] h-[14rem]"
 									/>
-									<T style={`ml-[.5rem] mt-[-2rem] z-[5] a_null`}>{v?.title}</T>
+									{/* <iframe class="c_norm z-[4] w-[28rem] h-[14rem]" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe> */}
+									<T style={`ml-[.5rem] mt-[-2rem] z-[5] a_null`}>{v2?.title}</T>
 								</>
 							) : (
-								<P value={v?.cover_link} style={`w-full h-full`}/>
+								<P value={v2?.cover_link} style={`w-full h-full`}/>
 							)}
 						</D>
 					))}
