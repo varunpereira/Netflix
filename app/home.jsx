@@ -125,13 +125,13 @@ export default () => {
 			<D
 				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
 			/>
-			<V
+			{/* <V
 				ref={video_ref}
 				value={`/shows/lotr/snip.mp4`}
 				mute={mute()}
 				rep={true}
-				style={`w-full h-[50rem] w-full c_norm `}
-			/>
+				style={`w-full h-[50rem] c_norm `}
+			/> */}
 			<D
 				style={
 					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
