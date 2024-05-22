@@ -16,8 +16,8 @@ import {
 	P,
 } from "~/config/shop"
 import {ChevronRightIcon} from "~/pieces/icon"
-import {all_shows_data} from "~/data/shows/all"
 import {VolumeIcon, MuteIcon} from "~/pieces/icon"
+import {db} from '~/config/db'
 
 export default () => {
 	var nav = route()
@@ -27,15 +27,18 @@ export default () => {
 	var video_ref
 	var sel_slide = state(false)
 	var show_vid = state(false)
-
-	react(() => {
-		if (playing()) video_ref?.pause()
-		else video_ref?.play()
-	})
+	var shows = state()
 
 	construct(async () => {
 		page.title = `Home - Netflix`
 		video_ref?.play()
+		shows(db?.get(`shows`))
+		write(shows())
+	})
+
+	react(() => {
+		if (playing()) video_ref?.pause()
+		else video_ref?.play()
 	})
 
 	react(() => {
@@ -47,7 +50,7 @@ export default () => {
 		}
 	})
 
-	var Tape = ({data = [], title, i}) => {
+	var Tape = ({data = ()=>[], title, i}) => {
 		return (
 			<D style={`z_fit z-[${i === sel_tape() ? "2" : "1"}] mt-[-5rem] `}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
@@ -57,7 +60,7 @@ export default () => {
 					} ax_right sx_mid gap-x-[.3rem] no_scroll overflow-y-hidden ${
 						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
-					{data.map((v, i2) => (
+					{data()?.map((v, i2) => (
 						<D
 							hover_in={() => {
 								sel_tape(i)
@@ -69,7 +72,7 @@ export default () => {
 							}}
 							click={() => nav(`/watch/${v?.id}`)}
 							css={`
-								background-image: url(${v?.poster_link});
+								background-image: url(${v?.cover_link});
 								background-size: 100% 100%;
 								background-repeat: no-repeat;
 							`}
@@ -92,7 +95,7 @@ export default () => {
 									<T style={`ml-[.5rem] mt-[-2rem] z-[5] a_null`}>{v?.title}</T>
 								</>
 							) : (
-								<P value={v?.poster_link} style={`w-full h-full`}/>
+								<P value={v?.cover_link} style={`w-full h-full`}/>
 							)}
 						</D>
 					))}
@@ -161,20 +164,20 @@ export default () => {
 			/>
 			<D
 				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
-				<Tape data={all_shows_data().slice(0, 18).reverse()} title={`Trending Now`} i={1} />
+				<Tape data={()=>shows()?.slice(0, 18).reverse()} title={`Trending Now`} i={1} />
 				<Tape
-					data={all_shows_data().slice(18, 36).reverse()}
+					data={()=> shows()?.slice(18, 36).reverse()}
 					title={`Because You Watched Peppa Pig`}
 					i={2}
 				/>
-				<Tape data={all_shows_data().slice(36, 54)} title={`Popular on Netflix`} i={3} />
-				<Tape data={all_shows_data().slice(54, 72)} title={`Comedy`} i={4} />
-				<Tape data={all_shows_data().slice(72, 90)} title={`Thriller`} i={5} />
-				<Tape data={all_shows_data().slice(90, 108)} title={`Action`} i={6} />
-				<Tape data={all_shows_data().slice(108, 126)} title={`Drama`} i={7} />
-				<Tape data={all_shows_data().slice(126, 144)} title={`Adventure`} i={8} />
-				<Tape data={all_shows_data().slice(144, 162).reverse()} title={`Romance`} i={9} />
-				<Tape data={all_shows_data().slice(162, 180).reverse()} title={`Kids`} i={10} />
+				<Tape data={()=> shows()?.slice(36, 54)} title={`Popular on Netflix`} i={3} />
+				<Tape data={()=> shows()?.slice(54, 72)} title={`Comedy`} i={4} />
+				<Tape data={()=> shows()?.slice(72, 90)} title={`Thriller`} i={5} />
+				<Tape data={()=> shows()?.slice(90, 108)} title={`Action`} i={6} />
+				<Tape data={()=> shows()?.slice(108, 126)} title={`Drama`} i={7} />
+				<Tape data={()=> shows()?.slice(126, 144)} title={`Adventure`} i={8} />
+				<Tape data={()=> shows()?.slice(144, 162).reverse()} title={`Romance`} i={9} />
+				<Tape data={()=> shows()?.slice(162, 180).reverse()} title={`Kids`} i={10} />
 			</D>
 		</D>
 	)

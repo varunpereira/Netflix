@@ -18,7 +18,7 @@ import {
 	I,
 } from "~/config/shop"
 import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/pieces/icon"
-import {all_shows_data} from "~/data/shows/all"
+import {db} from '~/config/db'
 import {show_nav} from "~/config/state"
 
 export default () => {
@@ -39,7 +39,7 @@ export default () => {
 	construct(async () => {
 		page.title = `Watch - Netflix`
 		show_nav(false)
-		show(all_shows_data().find((show) => show?.id == show_id))
+		show(db?.get(`shows`)?.find((show) => show?.id == show_id))
 		page.title = `${show()?.title} - Netflix`
 		video_ref?.play()
 	})

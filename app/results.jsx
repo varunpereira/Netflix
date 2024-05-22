@@ -18,7 +18,7 @@ import {
 	V,
 	str,
 } from "~/config/shop"
-import {all_shows_data} from "~/data/shows/all"
+import {db} from "~/config/db"
 
 export default () => {
 	var nav = route()
@@ -43,7 +43,7 @@ export default () => {
 	var results = react(() => {
 		var term = path_par?.q.trim().toUpperCase() // path is like state so rerenders
 		var get_results = shows_filt(
-			all_shows_data().filter((show) => show?.keywords.toUpperCase().includes(term)),
+			db?.get(`shows`)?.filter((show) => show?.keywords.toUpperCase().includes(term)),
 		)
 		var chunks = chunk_dir(get_results)
 		return chunks
@@ -58,7 +58,7 @@ export default () => {
 					}] w-full h-[14rem] ax_mid sx_mid gap-x-[.3rem] mt-[-3rem] `}>
 					{v.map((v2, i2) => (
 						<P
-							value={v2?.poster_link}
+							value={v2?.cover_link}
 							click={() => nav(`/watch/${v2?.id}`)}
 							hover_in={() => sel_tape(i)}
 							hover_out={() => sel_tape(false)}

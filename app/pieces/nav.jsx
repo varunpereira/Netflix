@@ -35,7 +35,7 @@ export default () => {
 	construct(async () => {
 		width(view.width())
 		view.put_listen("resize", handler)
-		profiles(db.get(`profiles`))
+		profiles(db?.get(`profiles`))
 	})
 
 	destruct(() => {
