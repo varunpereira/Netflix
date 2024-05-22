@@ -86,12 +86,14 @@ export default () => {
 
 	return (
 		<D style={`z_fit z-[0]`}>
-			<V
+			<video
 				onTimeUpdate={handleTimeUpdate}
 				ref={video_ref}
-				value={show()?.id == 134 ? `/shows/lotr/full.mp4#t=0,298` : `/shows/intro.mp4`}
-				mute={mute()}
-				style={`c_full h-[100vh] w-full z-[-1]`}
+				src={show()?.id == 134 ? `/shows/lotr/full.mp4#t=0,298` : `/shows/intro.mp4`}
+				muted={mute()}
+				playsinline
+				autoplay
+				class={`c_full h-[100vh] w-full z-[-1]`}
 			/>
 			<B
 				click={() => nav("/")}
