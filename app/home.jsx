@@ -64,14 +64,13 @@ export default () => {
 						hover:w-[28rem] hover:h-[14rem]`}>
 							{/* trans_end
 						hover:trans_start */}
-							{sel_slide() === i2 && sel_tape() === i || true ? (
+							{(sel_slide() === i2 && sel_tape() === i) || true ? (
 								<V
-									value={`/shows/intro.mp4`}
+									value={`/shows/lotr/snip.mp4`}
 									rep={true}
 									mute={true}
 									autoplay
-									style={`w-full h-full
-					`}
+									style={`w-full h-full`}
 								/>
 							) : (
 								<P
