@@ -24,7 +24,7 @@ export default () => {
 	var nav = route()
 	var mute = state(true)
 	var video_ref
-	var playing = state(false)
+	var playing = state(true)
 	var shows = state()
 	var sel_tape = state()
 	var sel_slide = state(false)
@@ -85,7 +85,7 @@ export default () => {
 							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
-										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/def.mp4#t=2"}
+										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/def.mp4"}
 										playsinline
 										autoplay
 										muted
@@ -112,8 +112,9 @@ export default () => {
 		)
 	}
 
+	// hover_in={() => playing(false)} hover_out={() => playing(true)}
 	return (
-		<D hover_in={() => playing(false)} hover_out={() => playing(true)} style={`z_fit z-[1]`}>
+		<D style={`z_fit z-[1]`}>
 			<D
 				style={
 					"z_put z-[1] left-0 top-[12rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
@@ -144,7 +145,7 @@ export default () => {
 			/>
 			<video
 				ref={video_ref}
-				src="/shows/The Lord of the Rings - The Return of the King/snip.mp4"
+				src="/shows/The Lord of the Rings - The Return of the King/snip.mp4#t=0,104"
 				playsinline
 				autoplay
 				muted={mute()}
