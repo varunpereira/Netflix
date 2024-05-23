@@ -4,105 +4,105 @@ export default [
     "title": "13 Reasons Why",
     "keywords": "13 Reasons Why",
     "cover_link": "/shows/13 Reasons Why/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/13 Reasons Why/snip.mp4"
   },
   {
     "id": 2,
     "title": "2012",
     "keywords": "2012",
     "cover_link": "/shows/2012/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/2012/snip.mp4"
   },
   {
     "id": 3,
     "title": "50 First Dates",
     "keywords": "50 First Dates",
     "cover_link": "/shows/50 First Dates/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/50 First Dates/snip.mp4"
   },
   {
     "id": 4,
     "title": "8 Mile",
     "keywords": "8 Mile",
     "cover_link": "/shows/8 Mile/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/8 Mile/snip.mp4"
   },
   {
     "id": 5,
     "title": "Allegiant",
     "keywords": "Allegiant",
     "cover_link": "/shows/Allegiant/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Allegiant/snip.mp4"
   },
   {
     "id": 6,
     "title": "American Pie",
     "keywords": "American Pie",
     "cover_link": "/shows/American Pie/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/American Pie/snip.mp4"
   },
   {
     "id": 7,
     "title": "American Psycho",
     "keywords": "American Psycho",
     "cover_link": "/shows/American Psycho/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/American Psycho/snip.mp4"
   },
   {
     "id": 8,
     "title": "Anne",
     "keywords": "Anne",
     "cover_link": "/shows/Anne/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Anne/snip.mp4"
   },
   {
     "id": 9,
     "title": "Aquaman",
     "keywords": "Aquaman",
     "cover_link": "/shows/Aquaman/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Aquaman/snip.mp4"
   },
   {
     "id": 10,
     "title": "Arcane",
     "keywords": "Arcane",
     "cover_link": "/shows/Arcane/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Arcane/snip.mp4"
   },
   {
     "id": 11,
     "title": "Are We There Yet",
     "keywords": "Are We There Yet",
     "cover_link": "/shows/Are We There Yet/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Are We There Yet/snip.mp4"
   },
   {
     "id": 12,
     "title": "Arrival",
     "keywords": "Arrival",
     "cover_link": "/shows/Arrival/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Arrival/snip.mp4"
   },
   {
     "id": 13,
     "title": "Avatar The Last Airbender",
     "keywords": "Avatar The Last Airbender",
     "cover_link": "/shows/Avatar The Last Airbender/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Avatar The Last Airbender/snip.mp4"
   },
   {
     "id": 14,
     "title": "Avatar The Last Airbender - 2",
     "keywords": "Avatar The Last Airbender - 2",
     "cover_link": "/shows/Avatar The Last Airbender - 2/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Avatar The Last Airbender - 2/snip.mp4"
   },
   {
     "id": 15,
     "title": "Avengers Endgame",
     "keywords": "Avengers Endgame",
     "cover_link": "/shows/Avengers Endgame/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Avengers Endgame/snip.mp4"
   },
   {
     "id": 16,
@@ -1084,7 +1084,7 @@ export default [
     "title": "The Office",
     "keywords": "The Office",
     "cover_link": "/shows/The Office/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/The Office/snip.mp4"
   },
   {
     "id": 156,
