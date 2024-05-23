@@ -33,11 +33,11 @@ export default () => {
 		page.title = `Search Results - Netflix`
 	})
 
-	var chunk_dir = (array) => {
-		const chunkSize = 5
-		const chunks = []
-		for (let i = 0; i < array.length; i += chunkSize) {
-			const chunk = array.slice(i, i + chunkSize)
+	var chunk_dir = (v) => {
+		var chunkSize = 5
+		var chunks = []
+		for (var i = 0; i < v.length; i += chunkSize) {
+			var chunk = v.slice(i, i + chunkSize)
 			chunks.push(chunk)
 		}
 		return chunks
