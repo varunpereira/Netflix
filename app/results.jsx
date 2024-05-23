@@ -95,7 +95,7 @@ export default () => {
 							{sel_slide() === i2 && sel_tape() === i && show_vid() ? (
 								<>
 									<video
-										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/intro.mp4#t=2"}
+										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/def.mp4#t=2"}
 										playsinline
 										autoplay
 										muted

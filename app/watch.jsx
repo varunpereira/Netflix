@@ -18,7 +18,7 @@ import {
 	I,
 } from "~/config/shop"
 import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/pieces/icon"
-import {db} from '~/config/db'
+import {db} from "~/config/db"
 import {show_nav} from "~/config/state"
 
 export default () => {
@@ -89,7 +89,13 @@ export default () => {
 			<video
 				onTimeUpdate={handleTimeUpdate}
 				ref={video_ref}
-				src={show()?.id == 134 ? `/shows/lotr/full.mp4#t=0,298` : `/shows/intro.mp4`}
+				src={
+					show()?.id == 153
+						? show()?.full_link
+						: show()?.snip_link?.trim() !== ""
+						? show()?.snip_link
+						: "/shows/def.mp4#t=2"
+				}
 				muted={mute()}
 				playsinline
 				autoplay
