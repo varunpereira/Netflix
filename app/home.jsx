@@ -118,7 +118,7 @@ export default () => {
 				style={
 					"z_put z-[1] left-0 top-[12rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
 				}>
-				<P value={`/shows/The Lord of the Rings - The Return of the Ring/logo.png`} style={`w_fit`} />
+				<P value={`/shows/The Lord of the Rings - The Return of the King/logo.png`} style={`w_fit`} />
 				<T style={`my-[1rem]`}>
 					Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
 					Frodo and Sam as they approach Mount Doom with the One Ring.
@@ -144,7 +144,7 @@ export default () => {
 			/>
 			<video
 				ref={video_ref}
-				src="/shows/The Lord of the Rings - The Return of the Ring/snip.mp4"
+				src="/shows/The Lord of the Rings - The Return of the King/snip.mp4"
 				playsinline
 				autoplay
 				muted={mute()}

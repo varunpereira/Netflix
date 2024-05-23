@@ -1065,12 +1065,12 @@ export default [
   },
   {
     "id": 153,
-    "title": "The Lord of the Rings - The Return of the Ring",
-    "keywords": "The Lord of the Rings - The Return of the Ring",
-    "cover_link": "/shows/The Lord of the Rings - The Return of the Ring/cover.jpg",
-    "snip_link": "/shows/The Lord of the Rings - The Return of the Ring/snip.mp4",
-    "full_link": "/shows/The Lord of the Rings - The Return of the Ring/full.mp4",
-    "logo_link": "/shows/The Lord of the Rings - The Return of the Ring/logo.png"
+    "title": "The Lord of the Rings - The Return of the King",
+    "keywords": "The Lord of the Rings - The Return of the King",
+    "cover_link": "/shows/The Lord of the Rings - The Return of the King/cover.jpg",
+    "snip_link": "/shows/The Lord of the Rings - The Return of the King/snip.mp4",
+    "full_link": "/shows/The Lord of the Rings - The Return of the King/full.mp4",
+    "logo_link": "/shows/The Lord of the Rings - The Return of the King/logo.png"
   },
   {
     "id": 154,
