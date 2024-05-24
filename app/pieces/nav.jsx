@@ -64,7 +64,7 @@ export default () => {
 					"z_put z-[2] c_grey_2 v4:c_null w_full fit_1 v4:ax_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
 				}>
 				{/* why not w 6rem try uncom footer */}
-				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] w-[7rem] "}>
+				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] w-fit v5:w-[7rem] "}>
 					<P value={"/config/logo.png"} style={`w-[6rem] hide v5:see`} />
 					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:hide`} />
 				</B>
