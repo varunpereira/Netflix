@@ -71,7 +71,7 @@ export default () => {
 				<D
 					style={`${
 						!menu_on() && `hide`
-					} ay_top v4:ax_same w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
+					} ay_top v4:ax_same w-full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
 					<D style={`ay_top v4:ax_same v4:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B

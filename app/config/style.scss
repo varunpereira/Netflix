@@ -358,14 +358,17 @@ $red: red;
 	input {
 		outline: none;
 	}
+	// video::-webkit-media-controls {
+	// 	display:none !important;
+	// }
 	/*
 	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 left-0),
 	css dont use confusing: space auto like mx-auto (use align/shift).
 	tailwind: *,first,last: states dont work
-	*/
-	// video::-webkit-media-controls {
-	// 	display:none !important;
-	// }
-	// make all elements display:block;
-	// look into inherit, initial, auto, none eg w flex and size
+	make all elements display:block;
+	look into inherit, initial, auto, none eg w flex and size
+	useful:
+	w-[calc(100%-1rem)]
+*/
+	
 }
