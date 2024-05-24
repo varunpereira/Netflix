@@ -104,7 +104,6 @@ export default () => {
 								`w-0 h-0 border-0 overflow-hidden`
 							}`
 							}>
-								bkjkkjbkjb jf rkjfl  dhbkew eji
 							{/* <B
 								click={() => {
 									form_submit(form_data().search)
