@@ -253,8 +253,6 @@ $red: red;
 	.sy_mid {
 		align-items: center;
 	}
-	//  dont use gap-[1rem] not sup in older browsers
-
 	/* default: block, also: flex, grid */
 	.hide {
 		display: none;
@@ -368,6 +366,10 @@ $red: red;
 	input {
 		outline: none;
 	}
+	/*
+	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 left-0),
+	tailwind: *,first,last: states dont work
+	*/
 	// video::-webkit-media-controls {
 	// 	display:none !important;
 	// }
