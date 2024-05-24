@@ -91,23 +91,22 @@ export default () => {
 										see_search(true)
 										search_field?.focus()
 									}}
-									style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem] ay_mid`}>
+									style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ay_mid`}>
 									<SearchIcon />
 								</B>
 							)}
 							{
 								<D
 									css={"transition: width 1s ease-in-out;"}
-									style={`ax_right v4:ax_right sx_mid border-white px-[.1rem] c_black  mt-[1rem] v4:mt-[0rem] ${
+									style={`ax_right v4:ax_right sx_mid border-white px-[.1rem] c_black mt-[1rem] v4:mt-[0rem] ${
 										!see_search()
-											? `w-0 h-0 border-0`
-											: `w-full v4:w-[14rem] h-[1.7rem] border-[.1rem] `
+											? `w-0 h-0 border-0 overflow-hidden`
+											: `w-full v4:w-[14rem] h-[1.7rem] border-[.1rem]`
 									}`}>
 									<B
 										click={() => {
 											form_submit(form_data().search)
-										}}
-										style={`w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem]  `}>
+										}}>
 										<SearchIcon />
 									</B>
 									<I
