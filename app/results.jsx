@@ -86,7 +86,6 @@ export default () => {
 							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
-										poster={v2?.cover_link}
 										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/def.mp4"}
 										playsinline
 										autoplay
