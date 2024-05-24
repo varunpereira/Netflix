@@ -83,12 +83,12 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`ay_top sy_mid v4:ax_same `}>
+					<D style={`ay_top sy_mid v4:ax_same v4:w-[14rem]`}>
 						{!see_search() && (
 							<B
 								click={() => {
 									see_search(true)
-									// search_field?.focus()
+									search_field?.focus()
 								}}
 								style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ay_mid`}>
 								<SearchIcon />
