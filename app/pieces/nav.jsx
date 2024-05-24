@@ -18,7 +18,7 @@ import {
 	I,
 } from "~/config/shop"
 import {SearchIcon, MenuIcon, BellIcon, DownTriangleIcon, CrossIcon} from "~/pieces/icon"
-import {db} from '~/config/db'
+import {db} from "~/config/db"
 
 export default () => {
 	var width = state()
@@ -71,11 +71,13 @@ export default () => {
 					style={`${
 						!menu_on() && `hide`
 					} ay_top v4:ax_same w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
-					<D style={`ay_top v4:ax_same gap-[1rem] w-full v4:w-fit`}>
+					<D style={`ay_top v4:ax_same w-full v4:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B
 								click={() => opt_pick(i)}
-								style={`hover:tc_white ${opt_pick() === i && `tc_white`}`}>
+								style={`${i && `mt-[1rem] v4:mt-0 v4:ml-[1rem]`} hover:tc_white ${
+									opt_pick() === i && `tc_white`
+								}`}>
 								{v}
 							</B>
 						))}
@@ -145,11 +147,13 @@ export default () => {
 						{see_profile_list() === true && (
 							<D
 								style={`v4:z_put z-[3] v4:c_black v4:opacity-[.8] w-full v4:w-[10rem] ay_top sy_mid v4:sy_right h-fit v4:top-[2.5rem] right-0 px-[.5rem] py-[1rem] `}>
-								<D style="ay_mid gap-y-[.5rem]">
+								<D style="ay_mid">
 									{profiles()
 										.filter((v) => v?.id !== globe()?.profile?.id)
-										.map((v) => (
-											<D style="ax_right sx_mid" click={() => set_profile(v)}>
+										.map((v, i) => (
+											<D
+												style={`ax_right sx_mid ${i && `mt-[.2rem]`}`}
+												click={() => set_profile(v)}>
 												<P
 													value={v?.pic_link}
 													style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
