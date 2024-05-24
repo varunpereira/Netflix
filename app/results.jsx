@@ -69,7 +69,7 @@ export default () => {
 				<D
 					style={`z_fit z-[${
 						i === sel_tape() ? "1" : "0"
-					}] w-full h-[14rem] ax_mid sx_mid gap-x-[.3rem] mt-[-3rem] `}>
+					}] w-full h-[14rem] ax_mid sx_mid mt-[-3rem] `}>
 					{v.map((v2, i2) => (
 						<D
 							hover_in={() => {
@@ -81,27 +81,25 @@ export default () => {
 								sel_slide(false)
 							}}
 							click={() => nav(`/watch/${v2?.id}`)}
-							css={`
-								background-image: url(${v2?.cover_link});
-								background-size: 100% 100%;
-								background-repeat: no-repeat;
-							`}
+							// css={`
+							// 	background-image: url(${v2?.cover_link});
+							// 	background-size: 100% 100%;
+							// 	background-repeat: no-repeat;
+							// `}
 							style={`a_norm aspect-[16/9] 
-					w-[14rem] h-[7rem]
-					a_norm cursor_pointer
-					trans_end
-					hover:trans_start
-					hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
-							{sel_slide() === i2 && sel_tape() === i && show_vid() ? (
+						w-[14rem] h-[7rem] ${i2 && `ml-[.3rem]`} cursor_pointer trans_end
+						hover:trans_start hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
+							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
-										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/def.mp4#t=2"}
+										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/def.mp4"}
 										playsinline
 										autoplay
 										muted
 										loop
 										class="c_full z-[4] w-[30rem] h-[14rem]"
 									/>
+									{/* <iframe class="c_norm z-[4] w-[28rem] h-[14rem]" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe> */}
 									<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null`}>{v2?.title}</T>
 								</>
 							) : (

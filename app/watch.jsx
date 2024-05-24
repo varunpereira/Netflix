@@ -107,20 +107,20 @@ export default () => {
 				<ArrowLeftIcon />
 			</B>
 			<D style="z_put z-[1] bottom-0 left-0 ax_right ax_same sx_bottom w-full h-fit my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
-				<D style="ax_right gap-[1rem]">
+				<D style="ax_right">
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === false ? <PauseIcon /> : <PlayIcon />}
 					</B>
-					<B click={() => mute(!mute())} style="w-[2rem] fill-white">
+					<B click={() => mute(!mute())} style="ml-[1rem] w-[2rem] fill-white">
 						{mute() ? <MuteIcon /> : <VolumeIcon />}
 					</B>
-					<T style="mt-[.3rem]">{show()?.title}</T>
+					<T style="ml-[1rem] mt-[.3rem]">{show()?.title}</T>
 				</D>
-				<D style="ax_right gap-[1.2rem]">
+				<D style="ax_right">
 					<B style="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">
 						<HelpIcon />
 					</B>
-					<B style="fill-white">
+					<B style="ml-[1.2rem] fill-white">
 						<P value="/icons/full_screen.png" style="w-6 h-6" click={openFullscreen} />
 					</B>
 				</D>

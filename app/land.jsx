@@ -46,9 +46,9 @@ export default () => {
 						</B>
 					</D>
 					<T style={`tc_white text-[2.5rem] mb-[1rem]`}>Who's watching?</T>
-					<D style={`ax_mid gap-x-[2rem] mb-[4rem]`}>
+					<D style={`ax_mid mb-[4rem]`}>
 						{profiles()?.map((v, i) => (
-							<D style={`ay_top sy_mid`}>
+							<D style={`ay_top sy_mid ${i && `ml-[2rem]`}`}>
 								<>
 									<P
 										value={v?.pic_link}

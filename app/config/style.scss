@@ -253,7 +253,7 @@ $red: red;
 	.sy_mid {
 		align-items: center;
 	}
-	//  gap-[1rem]
+	//  dont use gap-[1rem] not sup in older browsers
 
 	/* default: block, also: flex, grid */
 	.hide {
@@ -371,4 +371,6 @@ $red: red;
 	// video::-webkit-media-controls {
 	// 	display:none !important;
 	// }
+	// make all elements display:block;
+	// look into inherit, initial, auto, none eg w flex and size
 }

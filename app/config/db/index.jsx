@@ -1,9 +1,11 @@
 import profiles from "~/config/db/profiles"
 import shows from "~/config/db/shows"
+import home from "~/config/db/home"
 
 var tables = {
 	profiles,
 	shows,
+	home,
 }
 
 export var db = {

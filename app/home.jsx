@@ -24,21 +24,23 @@ export default () => {
 	var nav = route()
 	var mute = state(true)
 	var video_ref
-	var playing = state(true)
+	var playing = state(false)
 	var shows = state()
 	var sel_tape = state()
 	var sel_slide = state(false)
 	var show_vid = state(false)
+	var home = state()
 
 	construct(async () => {
 		page.title = `Home - Netflix`
 		video_ref?.play()
 		shows(db?.get(`shows`))
+		home(db?.get(`home`))
 	})
 
 	react(() => {
-		if (playing()) video_ref?.pause()
-		else video_ref?.play()
+		if (playing()) video_ref?.play()
+		else video_ref?.pause()
 	})
 
 	react(() => {
@@ -52,12 +54,12 @@ export default () => {
 
 	var Tape = ({data = () => [], title, i}) => {
 		return (
-			<D style={`z_fit z-[${i === sel_tape() ? "2" : "1"}] mt-[-5rem] `}>
+			<D style={`z_fit z-[${i === sel_tape() ? "2" : "1"}] ${i && `mt-[-1rem]`}`}>
 				<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 				<D
 					style={`w-full ${
 						sel_tape() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
-					} ax_right sx_mid gap-x-[.3rem] no_scroll overflow-y-hidden ${
+					} ax_right sx_mid no_scroll overflow-y-hidden ${
 						sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 					} `}>
 					{data()?.map((v2, i2) => (
@@ -71,17 +73,14 @@ export default () => {
 								sel_slide(false)
 							}}
 							click={() => nav(`/watch/${v2?.id}`)}
-							css={`
-								background-image: url(${v2?.cover_link});
-								background-size: 100% 100%;
-								background-repeat: no-repeat;
-							`}
+							// css={`
+							// 	background-image: url(${v2?.cover_link});
+							// 	background-size: 100% 100%;
+							// 	background-repeat: no-repeat;
+							// `}
 							style={`a_norm aspect-[16/9] 
-						w-[14rem] h-[7rem]
-						a_norm cursor_pointer
-						trans_end
-						hover:trans_start
-						hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
+								w-[14rem] h-[7rem] ${i2 && `ml-[.3rem]`} cursor_pointer trans_end
+								hover:trans_start hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
 							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
@@ -112,25 +111,28 @@ export default () => {
 		)
 	}
 
-	// hover_in={() => playing(false)} hover_out={() => playing(true)}
 	return (
-		<D style={`z_fit z-[1]`}>
+		<D hover_in={() => playing(true)} style={`z_fit z-[1]`}>
 			<D
 				style={
 					"z_put z-[1] left-0 top-[12rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
 				}>
-				<P value={`/shows/The Lord of the Rings - The Return of the King/logo.png`} style={`w_fit`} />
+				<P
+					value={`/shows/The Lord of the Rings - The Return of the King/logo.png`}
+					style={`w_fit`}
+				/>
 				<T style={`my-[1rem]`}>
 					Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
 					Frodo and Sam as they approach Mount Doom with the One Ring.
 				</T>
-				<D style={`ax_right gap-x-[.75rem]`}>
+				<D style={`ax_right`}>
 					<B
 						click={() => nav("/watch/153")}
-						style={`z_fit c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
+						style={`c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
 						<T>Play</T>
 					</B>
-					<B style={`c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `}>
+					<B
+						style={`ml-[.75rem] c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `}>
 						My List
 					</B>
 				</D>
@@ -145,7 +147,7 @@ export default () => {
 			/>
 			<video
 				ref={video_ref}
-				src="/shows/The Lord of the Rings - The Return of the King/snip.mp4#t=0,104"
+				src="/shows/The Lord of the Rings - The Return of the King/snip.mp4#t=0,103.5"
 				playsinline
 				autoplay
 				muted={mute()}
@@ -165,21 +167,18 @@ export default () => {
 				}
 			/>
 			<D
-				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid gap-y-[4rem] v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
-				<Tape data={() => shows()?.slice(0, 18).reverse()} title={`Trending Now`} i={1} />
-				<Tape
-					data={() => shows()?.slice(18, 36).reverse()}
-					title={`Because You Watched Peppa Pig`}
-					i={2}
-				/>
-				<Tape data={() => shows()?.slice(36, 54)} title={`Popular on Netflix`} i={3} />
-				<Tape data={() => shows()?.slice(54, 72)} title={`Comedy`} i={4} />
-				<Tape data={() => shows()?.slice(72, 90)} title={`Thriller`} i={5} />
-				<Tape data={() => shows()?.slice(90, 108)} title={`Action`} i={6} />
-				<Tape data={() => shows()?.slice(108, 126)} title={`Drama`} i={7} />
-				<Tape data={() => shows()?.slice(126, 144)} title={`Adventure`} i={8} />
-				<Tape data={() => shows()?.slice(144, 162).reverse()} title={`Romance`} i={9} />
-				<Tape data={() => shows()?.slice(162, 180).reverse()} title={`Kids`} i={10} />
+				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
+				{home()?.tapes?.map((v, i) => (
+					<Tape
+						data={() =>
+							shows()
+								?.slice((i + 1) * 18 - 18, (i + 1) * 18)
+								.reverse()
+						}
+						title={v?.title}
+						i={i}
+					/>
+				))}
 			</D>
 		</D>
 	)
