@@ -83,7 +83,7 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`ay_top sy_mid v4:ax_same v4:w-fit border-2 `}>
+					<D style={`ay_top sy_mid v4:ax_same v4:w-[8rem] overflow-hidden border-2 `}>
 						{!see_search() && (
 							<B
 								click={() => {
