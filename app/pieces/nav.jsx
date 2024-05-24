@@ -104,7 +104,8 @@ export default () => {
 								`w-0 h-0 border-0 overflow-hidden`
 							}`
 							}>
-							<B
+								bkjkkjbkjb jf rkjfl  dhbkew eji
+							{/* <B
 								click={() => {
 									form_submit(form_data().search)
 								}}>
@@ -126,7 +127,7 @@ export default () => {
 									style={`ml-[.2rem] mr-[.3rem] w-[.75rem] h-[.75rem] stroke-white stroke-[1rem]`}>
 									<CrossIcon />
 								</B>
-							)}
+							)} */}
 						</D>
 						<B
 							click={() => opt_pick(-1)}
