@@ -36,7 +36,7 @@ var root = () => {
 	globe(get_globe())
 	return (
 		<Router>
-			<D style={`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
+			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
 				{globe()?.profile && show_nav() && <Nav />}
 				<Routes>
 					{route?.map((route) => (
