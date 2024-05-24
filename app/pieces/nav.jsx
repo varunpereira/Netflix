@@ -83,7 +83,7 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`ay_top v4:ax_same v4:sx_mid z_fit z-[3]`}>
+					<D style={`ay_top sy_mid v4:ax_same v4:sx_mid z_fit z-[3]`}>
 						<D
 							css={"transition: width 1s ease-in-out;"}
 							style={`${
@@ -133,7 +133,7 @@ export default () => {
 							Kids
 						</B>
 						<B
-							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 stroke-[.5rem] stroke-white fill-white ax_mid`}>
+							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 stroke-[.5rem] stroke-white fill-white`}>
 							<BellIcon />
 						</B>
 						<B click={() => see_profile_list(!see_profile_list())} style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ax_mid`}>
