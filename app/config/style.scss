@@ -286,14 +286,6 @@ $red: red;
 	.h_full {
 		height: 100%;
 	}
-	.mx_auto {
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.my_auto {
-		margin-top: auto;
-		margin-bottom: auto;
-	}
 	.left_auto {
 		left: auto;
 	}
@@ -368,6 +360,7 @@ $red: red;
 	}
 	/*
 	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 left-0),
+	css dont use confusing: space auto like mx-auto (use align/shift).
 	tailwind: *,first,last: states dont work
 	*/
 	// video::-webkit-media-controls {

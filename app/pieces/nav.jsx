@@ -63,8 +63,9 @@ export default () => {
 				style={
 					"z_put z-[2] c_grey_2 v4:c_null w_full fit_1 v4:ax_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
 				}>
-				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem]"}>
-					<P value={"/config/logo.png"} style={` w-[6rem] hide v5:see`} />
+				{/* why not w 6rem try uncom footer */}
+				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] w-[7rem] "}>
+					<P value={"/config/logo.png"} style={`w-[6rem] hide v5:see`} />
 					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:hide`} />
 				</B>
 				<D
@@ -82,7 +83,7 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`ay_top sy_left v4:ax_same v4:sx_mid z_fit z-[3]`}>
+					<D style={`ay_top v4:ax_same v4:sx_mid z_fit z-[3]`}>
 						<D
 							css={"transition: width 1s ease-in-out;"}
 							style={`${
@@ -122,20 +123,20 @@ export default () => {
 									see_search(true)
 									search_field?.focus()
 								}}
-								style={`mt-[1rem] v4:mt-0 w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem] `}>
+								style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem] `}>
 								<SearchIcon />
 							</B>
 						)}
 						<B
 							click={() => opt_pick(-1)}
-							style={`mx-auto mt-[1rem] v4:ml-[1.2rem] v4:mt-0 hover:tc_white ${opt_pick() === -1 && `tc_white `}`}>
+							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 hover:tc_white ${opt_pick() === -1 && `tc_white `}`}>
 							Kids
 						</B>
 						<B
-							style={`mx-auto v4:ml-[1.2rem] v4:mr-0 mt-[1rem] v4:mt-0 w-[1.5rem] h-[1.5rem] stroke-[.5rem] stroke-white fill-white `}>
+							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 stroke-[.5rem] stroke-white fill-white ax_mid`}>
 							<BellIcon />
 						</B>
-						<B click={() => see_profile_list(!see_profile_list())} style={`mx-auto mt-[1rem] v4:ml-[1.2rem] v4:mt-0 ax_right`}>
+						<B click={() => see_profile_list(!see_profile_list())} style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ax_mid`}>
 							<P
 								value={globe()?.profile?.pic_link}
 								style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
