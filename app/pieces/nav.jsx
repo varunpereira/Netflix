@@ -84,7 +84,7 @@ export default () => {
 						))}
 					</D>
 					<D style={`ay_top sy_mid v4:ax_same v4:w-fit`}>
-						<D
+						{/* <D
 							css={"transition: width 1s ease-in-out;"}
 							style={`ax_right v4:ax_right sx_mid border-white px-[.1rem] c_black ${
 								!see_search()
@@ -115,7 +115,7 @@ export default () => {
 									<CrossIcon />
 								</B>
 							)}
-						</D>
+						</D> */}
 						{!see_search() && (
 							<B
 								click={() => {
