@@ -84,48 +84,52 @@ export default () => {
 						))}
 					</D>
 					<D style={`ay_top sy_mid v4:ax_same v4:w-fit`}>
-						{/* <D
-							css={"transition: width 1s ease-in-out;"}
-							style={`ax_right v4:ax_right sx_mid border-white px-[.1rem] c_black ${
-								!see_search()
-									? "w-[0rem] h-[0rem] border-[0rem]"
-									: "w-full v4:w-[14rem] h-[1.7rem] mt-[1rem] v4:mt-[0rem] border-[.1rem]"
-							}`}>
-							<B
-								click={() => {
-									form_submit(form_data().search)
-								}}
-								style={`w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem]  `}>
-								<SearchIcon />
-							</B>
-							<I
-								ref={search_field}
-								value={form_data().search}
-								input={(e) => {
-									form_data({...form_data(), search: e.target.value})
-									get_results()
-								}}
-								holder={"Title, people, genres"}
-								style={`c_black tc_white ml-[.3rem] w-full`}
-							/>
-							{form_data().search.trim() !== "" && (
+						<D style={``}>
+							{!see_search() && (
 								<B
-									click={() => form_data({...form_data(), search: ""})}
-									style={`ml-[.2rem] mr-[.3rem] w-[.75rem] h-[.75rem] stroke-white stroke-[1rem]`}>
-									<CrossIcon />
+									click={() => {
+										see_search(true)
+										search_field?.focus()
+									}}
+									style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem] ay_mid`}>
+									<SearchIcon />
 								</B>
 							)}
-						</D> */}
-						{!see_search() && (
-							<B
-								click={() => {
-									see_search(true)
-									search_field?.focus()
-								}}
-								style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem] `}>
-								<SearchIcon />
-							</B>
-						)}
+							{
+								<D
+									css={"transition: width 1s ease-in-out;"}
+									style={`ax_right v4:ax_right sx_mid border-white px-[.1rem] c_black  mt-[1rem] v4:mt-[0rem] ${
+										!see_search()
+											? `w-0 h-0 border-0`
+											: `w-full v4:w-[14rem] h-[1.7rem] border-[.1rem] `
+									}`}>
+									<B
+										click={() => {
+											form_submit(form_data().search)
+										}}
+										style={`w-[1.25rem] h-[1.25rem] ic_white stroke-[2rem]  `}>
+										<SearchIcon />
+									</B>
+									<I
+										ref={search_field}
+										value={form_data().search}
+										input={(e) => {
+											form_data({...form_data(), search: e.target.value})
+											get_results()
+										}}
+										holder={"Title, people, genres"}
+										style={`c_black tc_white ml-[.3rem] w-full`}
+									/>
+									{form_data().search.trim() !== "" && (
+										<B
+											click={() => form_data({...form_data(), search: ""})}
+											style={`ml-[.2rem] mr-[.3rem] w-[.75rem] h-[.75rem] stroke-white stroke-[1rem]`}>
+											<CrossIcon />
+										</B>
+									)}
+								</D>
+							}
+						</D>
 						<B
 							click={() => opt_pick(-1)}
 							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 hover:tc_white ${
