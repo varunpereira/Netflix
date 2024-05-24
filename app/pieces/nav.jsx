@@ -83,7 +83,7 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`ay_top sy_mid v4:ax_same v4:w-auto`}>
+					<D style={`ay_top sy_mid v4:ax_same`}>
 						{!see_search() && (
 							<B
 								click={() => {
@@ -95,8 +95,8 @@ export default () => {
 							</B>
 						)}
 						<D
-							css={"transition: width 1s ease-in-out;"}
-							style={`ax_right v4:ax_right sx_mid border-white px-[.1rem] c_black mt-[1rem] v4:mt-[0rem] ${
+							// css={"transition: width 1s ease-in-out;"}
+							style={`ax_right sx_mid border-white px-[.1rem] c_black mt-[1rem] v4:mt-[0rem] ${
 								!see_search()
 									? `w-0 h-0 border-0 overflow-hidden`
 									: `w-full v4:w-[14rem] h-[1.7rem] border-[.1rem]`
