@@ -83,7 +83,7 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`z_fit z-[3] ay_top sy_mid v4:ax_same v4:sx_mid v4:w-fit`}>
+					<D style={`z_fit z-[3] ay_top sy_mid v4:ax_same v4:w-fit`}>
 						<D
 							css={"transition: width 1s ease-in-out;"}
 							style={`${
