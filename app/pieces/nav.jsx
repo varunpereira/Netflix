@@ -83,7 +83,7 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`ay_top sy_mid v4:ax_same v4:w-[14rem]`}>
+					<D style={`ay_top sy_mid v4:ax_same v4:w-auto`}>
 						{!see_search() && (
 							<B
 								click={() => {
