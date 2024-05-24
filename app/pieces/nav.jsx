@@ -132,7 +132,7 @@ export default () => {
 							Kids
 						</B>
 						<B
-							style={`mx-auto mt-[1rem] v4:ml-[1.2rem] v4:mt-0 w-[1.5rem] h-[1.5rem] stroke-[.5rem] stroke-white fill-white ax_mid `}>
+							style={`mx-auto mt-[1rem] v4:ml-[1.2rem] v4:mt-0 w-[1.5rem] h-[1.5rem] stroke-[.5rem] stroke-white fill-white `}>
 							<BellIcon />
 						</B>
 						<B click={() => see_profile_list(!see_profile_list())} style={`mx-auto mt-[1rem] v4:ml-[1.2rem] v4:mt-0 ax_right`}>
