@@ -141,7 +141,7 @@ export default () => {
 								value={globe()?.profile?.pic_link}
 								style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
 							/>
-							<D style={`w-[.8rem] h-[.4rem] ic_white ax_right mt-[.5rem]`}>
+							<D style={`mt-[.5rem]`}>
 								<DownTriangleIcon />
 							</D>
 						</B>
