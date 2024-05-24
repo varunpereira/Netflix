@@ -101,9 +101,9 @@ export default () => {
 								// !see_search()
 								// 	? `w-0 h-0 border-0 overflow-hidden`
 								// 	: `w-full v4:w-[14rem] h-[1.7rem] border-[.1rem]`
-								`w-0 h-0 border-0 overflow-hidden`
+								`w-0 h-0 max-w-0 border-0 overflow-hidden`
 							}`
-							}>
+							}> njjfkkker fernkfnkjnk
 							{/* <B
 								click={() => {
 									form_submit(form_data().search)
