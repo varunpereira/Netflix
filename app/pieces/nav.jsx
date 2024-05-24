@@ -72,7 +72,7 @@ export default () => {
 					style={`${
 						!menu_on() && `hide`
 					} ay_top v4:ax_same w-[calc(100%)] tc_grey ts_1 mb-[1rem] v4:mb-0`}>
-					<D style={`ay_top v4:ax_same w-full v4:w-fit`}>
+					<D style={`ay_top v4:ax_same v4:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B
 								click={() => opt_pick(i)}
@@ -83,7 +83,7 @@ export default () => {
 							</B>
 						))}
 					</D>
-					<D style={`ay_top sy_mid v4:ax_same v4:sx_mid z_fit z-[3] v4:w-fit`}>
+					<D style={`z_fit z-[3] ay_top sy_mid v4:ax_same v4:sx_mid v4:w-fit`}>
 						<D
 							css={"transition: width 1s ease-in-out;"}
 							style={`${
