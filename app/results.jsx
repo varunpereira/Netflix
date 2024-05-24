@@ -86,9 +86,8 @@ export default () => {
 								background-size: 100% 100%;
 								background-repeat: no-repeat;
 							`}
-							style={`a_norm aspect-[16/9] 
-					w-[14rem] h-[7rem] ${i2 && `ml-[.3rem]`} cursor_pointer trans_end
-					hover:trans_start hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
+							style={`a_norm w-[14rem] h-[7rem] ${i2 && `ml-[.3rem]`} cursor_pointer trans_end
+								hover:trans_start hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
 							{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 								<>
 									<video
