@@ -99,7 +99,7 @@ export default () => {
 							style={`ax_right sx_mid border-white px-[.1rem] c_black mt-[1rem] v4:mt-[0rem] 
 							${
 								!see_search()
-									? `w-0 h-0 max-w-0 border-0 overflow-hidden`
+									? `s-0`
 									: `w-full v4:w-[14rem] h-[1.7rem] border-[.1rem]`
 							}`}>
 							<B

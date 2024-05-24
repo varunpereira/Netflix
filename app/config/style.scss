@@ -254,11 +254,17 @@ $red: red;
 		align-items: center;
 	}
 	/* default: block, also: flex, grid */
+	// size 0 for trans
+	.s-0 {
+		@apply w-0 h-0 max-w-0 border-0 overflow-hidden;
+	}
 	.hide {
 		display: none;
+		overflow: hidden;
 	}
 	.see {
 		display: block;
+		overflow: visible;
 	}
 	.z_norm {
 		position: static;
