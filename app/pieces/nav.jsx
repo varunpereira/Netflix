@@ -64,14 +64,14 @@ export default () => {
 					"z_put z-[2] c_grey_2 v4:c_null w_full fit_1 v4:ax_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
 				}>
 				{/* why not w 6rem try uncom footer */}
-				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] w-fit v5:w-[7rem] "}>
+				<B
+					click={() => nav("/")}
+					style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] w-fit v5:w-[7rem] "}>
 					<P value={"/config/logo.png"} style={`w-[6rem] hide v5:see`} />
 					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:hide`} />
 				</B>
 				<D
-					style={`${
-						!menu_on() && `hide`
-					} ay_top v4:ax_same w-full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
+					style={`${!menu_on() && `hide`} ay_top v4:ax_same w-full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
 					<D style={`ay_top v4:ax_same v4:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B
@@ -86,12 +86,11 @@ export default () => {
 					<D style={`ay_top sy_mid v4:ax_same v4:w-fit`}>
 						<D
 							css={"transition: width 1s ease-in-out;"}
-							style={`${
+							style={`ax_right v4:ax_right sx_mid border-white px-[.1rem] c_black ${
 								!see_search()
-									? "ax_right v4:ax_right sx_mid w-[0rem] h-[0rem] border-[0rem] border-white px-[.1rem] c_black"
-									: "ax_right v4:ax_right sx_mid w-full v4:w-[14rem] mt-[1rem] v4:mt-[0rem] h-[1.7rem] c_black border-[.1rem] border-white px-[.1rem]"
-							} 
-								 transition-all ease-in-out duration-[1000ms] `}>
+									? "w-[0rem] h-[0rem] border-[0rem]"
+									: "w-full v4:w-[14rem] h-[1.7rem] mt-[1rem] v4:mt-[0rem] border-[.1rem]"
+							}`}>
 							<B
 								click={() => {
 									form_submit(form_data().search)
@@ -129,14 +128,17 @@ export default () => {
 						)}
 						<B
 							click={() => opt_pick(-1)}
-							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 hover:tc_white ${opt_pick() === -1 && `tc_white `}`}>
+							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 hover:tc_white ${
+								opt_pick() === -1 && `tc_white `
+							}`}>
 							Kids
 						</B>
-						<B
-							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 stroke-[.5rem] stroke-white fill-white`}>
+						<B style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 stroke-[.5rem] stroke-white fill-white`}>
 							<BellIcon />
 						</B>
-						<B click={() => see_profile_list(!see_profile_list())} style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ax_mid`}>
+						<B
+							click={() => see_profile_list(!see_profile_list())}
+							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ax_mid`}>
 							<P
 								value={globe()?.profile?.pic_link}
 								style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
