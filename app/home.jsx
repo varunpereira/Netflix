@@ -38,7 +38,7 @@ export default () => {
 	})
 
 	var handleTimeUpdate = () => {
-		if (video_ref.currentTime >= 103) {
+		if (video_ref.currentTime >= 104) {
 			video_ref.currentTime = 0
 		}
 	}
