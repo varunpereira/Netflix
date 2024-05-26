@@ -33,14 +33,20 @@ export default () => {
 
 	construct(async () => {
 		page.title = `Home - Netflix`
-		video_ref?.play()
 		shows(db?.get(`shows`))
 		home(db?.get(`home`))
 	})
 
+	var handleTimeUpdate = () => {
+		if (video_ref.currentTime >= 3) {
+			video_ref.currentTime = 0
+		}
+	}
+
 	react(() => {
-		if (playing()) video_ref?.play()
-		else video_ref?.pause()
+		if (playing()) {
+			video_ref?.play()
+		} else video_ref?.pause()
 	})
 
 	react(() => {
@@ -141,7 +147,8 @@ export default () => {
 			/>
 			<video
 				ref={video_ref}
-				src="/shows/The Lord of the Rings - The Return of the King/snip.mp4#t=0,103.5"
+				onTimeUpdate={handleTimeUpdate}
+				src="/shows/The Lord of the Rings - The Return of the King/snip.mp4"
 				playsinline
 				autoplay
 				muted={mute()}
