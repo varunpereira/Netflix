@@ -67,11 +67,11 @@ export default () => {
 				<B
 					click={() => nav("/")}
 					style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] w-fit v5:w-[7rem] "}>
-					<P value={"/config/logo.png"} style={`w-[6rem] hide v5:see`} />
-					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:hide`} />
+					<P value={"/config/logo.png"} style={`w-[6rem] see_null v5:see_full`} />
+					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:see_null`} />
 				</B>
 				<D
-					style={`${!menu_on() && `hide`} ay_top v4:ax_same w-full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
+					style={`${!menu_on() && `see_null`} ay_top v4:ax_same w-full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
 					<D style={`ay_top v4:ax_same v4:w-fit`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B
@@ -99,7 +99,7 @@ export default () => {
 							style={`ax_right sx_mid border-white px-[.1rem] c_black mt-[1rem] v4:mt-[0rem] 
 							${
 								!see_search()
-									? `s-0`
+									? `size_0`
 									: `w-full v4:w-[14rem] h-[1.7rem] border-[.1rem]`
 							}`}>
 							<B
@@ -176,7 +176,7 @@ export default () => {
 			</D>
 			<B
 				click={() => menu_on(!menu_on())}
-				style={`z_put z-[2] right-[1rem] top-[.5rem] see v4:hide w-[1.75rem] h-[1.75rem] hover:ibc_grey`}>
+				style={`z_put z-[2] right-[1rem] top-[.5rem] see_full v4:see_null w-[1.75rem] h-[1.75rem] hover:ibc_grey`}>
 				<MenuIcon />
 			</B>
 		</>

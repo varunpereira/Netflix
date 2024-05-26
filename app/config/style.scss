@@ -255,14 +255,14 @@ $red: red;
 	}
 	/* default: block, also: flex, grid */
 	// size 0 for trans
-	.s-0 {
-		@apply w-0 h-0 max-w-0 border-0 overflow-hidden;
+	.size_0 {
+		@apply w-0 h-0 max-w-0 max-h-0 border-0 overflow-hidden;
 	}
-	.hide {
+	.see_null {
 		display: none;
 		overflow: hidden;
 	}
-	.see {
+	.see_full {
 		display: block;
 		overflow: visible;
 	}
@@ -358,10 +358,9 @@ $red: red;
 	:root {
 		font-size: 16px;
 	}
-	button {
-		outline: none;
-	}
-	input {
+	*,
+	*:focus,
+	*:active {
 		outline: none;
 	}
 	// video::-webkit-media-controls {
@@ -378,8 +377,7 @@ $red: red;
 	w-[calc(100%-1rem)]
 	safari:
 	title on tape snip isnt perm
-	less sup:
+	less sup/ not useful:
 	aspect (set size of one then use a real calc of other axis), 
 */
-	
 }
