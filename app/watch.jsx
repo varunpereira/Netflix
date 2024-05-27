@@ -129,8 +129,15 @@ export default () => {
 			<D
 				style={`z_put z-[2] left-0 bottom-[3rem] ax_same w-full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
 				<D style="z_fit z-[2] w-full">
+					<I
+						type="range"
+						value={progress()}
+						input={handleSliderChange}
+						step=".0000000000000001"
+						style="slider"
+					/>
 					<D
-						style={`c_red z_put z-[3] h-[.3rem] w-full top-[.75rem] overflow-visible`}
+						style={`z_fit z-[3] c_red h-[.3rem] w-full mt-[-.7rem]`}
 						css={`
 							width: calc(
 								${progress() < 25
@@ -140,13 +147,6 @@ export default () => {
 									: progress()}%
 							);
 						`}
-					/>
-					<I
-						type="range"
-						value={progress()}
-						input={handleSliderChange}
-						step=".0000000000000001"
-						style="slider"
 					/>
 				</D>
 				<T style="ml-[1rem] ">{formatSeconds(time_left())}</T>
