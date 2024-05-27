@@ -40,7 +40,7 @@ export default () => {
 
 	var ProfileList = () => (
 		<D
-			style={`v4:z_put z-[3] v4:top-[2.5rem] v4:right-[1.5rem] v5:right-[3rem] v4:c_black v4:opacity-[.8] w-full h-auto v4:w-[10rem] ay_top sy_mid v4:sy_right px-[.5rem] py-[1rem] `}>
+			style={`v4:z_put z-[3] v4:top-[2.5rem] v4:right-[1.5rem] v5:right-[3rem] v4:c_black v4:opacity-[.8] w-full v4:w-[10rem] ay_top sy_mid v4:sy_right px-[.5rem] py-[1rem] `}>
 			<D style="ay_mid">
 				{profiles()
 					.filter((v) => v?.id !== globe()?.profile?.id)
