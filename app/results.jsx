@@ -57,7 +57,7 @@ export default () => {
 	var results = react(() => {
 		var term = path_par?.q.trim().toUpperCase() // path is like state so rerenders
 		var get_results = shows(
-			db?.get(`shows`)?.filter((show) => show?.keywords.toUpperCase().includes(term)),
+			db?.get_all(`shows`)?.filter((show) => show?.keywords.toUpperCase().includes(term)),
 		)
 		var chunks = chunk_dir(get_results)
 		return chunks

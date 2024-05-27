@@ -25,11 +25,11 @@ export default () => {
 
 	construct(async () => {
 		page.title = `Netflix`
-		profiles(db.get(`profiles`))
+		profiles(db?.get_all(`profiles`))
 	})
 
 	var set_profile = (v) => {
-		var profile = db.set(`profile`, v)
+		var profile = db?.set_all(`profile`, v)
 		globe({...globe(), profile})
 	}
 

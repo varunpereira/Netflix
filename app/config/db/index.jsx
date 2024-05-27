@@ -15,12 +15,13 @@ var tables = {
 }
 
 export var db = {
-	get: (key) => tables[key],
-	set: (key, value) => {
+	get_all: (key) => tables[key],
+	get_one_by_id: (key, id) => tables[key]?.filter((v) => v?.id === id)[0],
+	set_all: (key, value) => {
 		localStorage.setItem(key, JSON.stringify(value))
 		return JSON.parse(localStorage.getItem(key))
 	},
-	cut: (key) => {
+	cut_all: (key) => {
 		localStorage.removeItem(key)
 		return JSON.parse(localStorage.getItem(key))
 	},

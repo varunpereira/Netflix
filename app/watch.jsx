@@ -39,7 +39,7 @@ export default () => {
 	construct(async () => {
 		page.title = `Watch - Netflix`
 		show_nav(false)
-		show(db?.get(`shows`)?.find((show) => show?.id == show_id))
+		show(db?.get_all(`shows`)?.find((show) => show?.id == show_id))
 		page.title = `${show()?.title} - Netflix`
 		video_ref?.play()
 	})

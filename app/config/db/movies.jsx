@@ -1,4 +1,5 @@
 export default {
+	show_id: 180,
 	trending: [],
 	action: [],
 	adventure: [],
@@ -19,4 +20,3 @@ export default {
 		{title: `Kids`},
 	],
 }
-// each group has show ids

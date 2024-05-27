@@ -38,12 +38,12 @@ export default () => {
 	var path_route = path?.route()
 
 	construct(async () => {
-		profiles(db?.get(`profiles`))
+		profiles(db?.get_all(`profiles`))
 		menu_op(menu_ops?.findIndex((v)=>v?.route === path_route))
 	})
 
 	var set_profile = (v) => {
-		var profile = db.set(`profile`, v)
+		var profile = db?.set_all(`profile`, v)
 		globe({...globe(), profile})
 	}
 

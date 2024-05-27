@@ -29,7 +29,7 @@ page.getElementById("color").content = "c_grey_2"
 page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 ay_top sx_mid"
 
 // auth ok so update globe state - move to each page's const
-var get_globe = () => {
+var get_db = () => {
 	var items = {}
 	for (var i = 0; i < localStorage.length; i++) {
 		var key = localStorage.key(i)
@@ -39,7 +39,7 @@ var get_globe = () => {
 }
 
 var root = () => {
-	globe(get_globe())
+	globe(get_db())
 	return (
 		<Router>
 			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
