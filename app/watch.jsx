@@ -130,7 +130,7 @@ export default () => {
 				style={`z_put z-[2] left-0 bottom-[3rem] ax_same w-full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
 				<D style="z_fit z-[2] w-full">
 					<D
-						style={`c_red z_put z-[3] h-[.3rem] w-full top-[.75rem]`}
+						style={`c_red z_put z-[3] h-[.3rem] w-full top-[.75rem] overflow-visible`}
 						css={`
 							width: calc(
 								${progress() < 25
