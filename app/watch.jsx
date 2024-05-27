@@ -106,8 +106,8 @@ export default () => {
 				style={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
 				<ArrowLeftIcon />
 			</B>
-			<D style="z_put z-[1] bottom-0 left-0 ax_right ax_same sx_bottom w-full my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
-				<D style="ax_right">
+			<D style="z_put z-[1] bottom-0 left-0 ax_same sx_bottom w-full my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
+				<D style="ax_same">
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === false ? <PauseIcon /> : <PlayIcon />}
 					</B>
@@ -116,7 +116,7 @@ export default () => {
 					</B>
 					<T style="ml-[1rem] mt-[.3rem]">{show()?.title}</T>
 				</D>
-				<D style="ax_right">
+				<D style="ax_same">
 					<B style="w-[2rem] fill-transparent stroke-white stroke-[.2rem]">
 						<HelpIcon />
 					</B>
@@ -127,8 +127,8 @@ export default () => {
 			</D>
 
 			<D
-				style={`z_put z-[2] left-0 bottom-[3rem] ax_right w-full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
-				<D style="z_fit w-full">
+				style={`z_put z-[2] left-0 bottom-[3rem] ax_same w-full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
+				<D style="z_fit z-[2] w-full">
 					<D
 						style={`c_red z_put z-[3] h-[.3rem] w-full top-[.75rem]`}
 						css={`
@@ -146,7 +146,7 @@ export default () => {
 						value={progress()}
 						input={handleSliderChange}
 						step=".0000000000000001"
-						style=" h-[.3rem] cursor-pointer slider"
+						style="slider"
 					/>
 				</D>
 				<T style="ml-[1rem] ">{formatSeconds(time_left())}</T>

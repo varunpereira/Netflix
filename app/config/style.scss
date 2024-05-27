@@ -306,11 +306,11 @@ $red: red;
 		cursor: pointer;
 	}
 	.slider {
-		-webkit-appearance: none;
 		width: 100%;
 		height: 0.3rem;
 		background: #d3d3d3;
-		outline: none;
+		-webkit-appearance: none;
+		cursor: pointer;
 	}
 
 	.slider::-webkit-slider-thumb {
