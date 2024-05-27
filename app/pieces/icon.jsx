@@ -40,7 +40,7 @@ export var ChevronRightIcon = () => (
 
 export var DownTriangleIcon = () => (
 	<svg
-		class="w-[.6rem] h-[.3rem] stroke-[.5rem] stroke-white fill-white"
+		class="w-[.5rem] h-[.3rem] stroke-[.5rem] stroke-white fill-white"
 		preserveaspectratio="none"
 		viewbox="0 0 100 100"
 		x="0"
