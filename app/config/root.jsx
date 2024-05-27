@@ -9,12 +9,18 @@ import def from "~/pieces/def"
 import land from "~/land"
 import watch from "~/watch"
 import results from "~/results"
+import tv from "~/tv"
+import movies from "~/movies"
+import latest from "~/latest"
 
 var route = [
 	["*", def],
 	["/", land],
 	["/watch/:id", watch],
 	["/search", results],
+	["/tv", tv],
+	["/movies", movies],
+	["/latest", latest],
 ]
 
 page.title = "Netflix"

@@ -23,14 +23,23 @@ import Search from "~/pieces/search"
 
 export default () => {
 	var nav = route()
-	var menu_options = ["Home", "TV Shows", "Movies", "Latest", "My List", "Kids"]
-	var opt_pick = state(0)
-	var see_profile_list = state(false)
+	var menu_ops = [
+		{name: "Home", route: "/"},
+		{name: "TV Shows", route: "/tv"},
+		{name: "Movies", route: "/movies"},
+		{name: "Latest", route: "/latest"},
+		{name: "My List", route: "/mylist"},
+		{name: "Kids", route: "/kids"},
+	]
+	var menu_op = state(0)
 	var menu_on = state(false)
+	var see_profile_list = state(false)
 	var profiles = state()
+	var path_route = path?.route()
 
 	construct(async () => {
 		profiles(db?.get(`profiles`))
+		menu_op(menu_ops?.findIndex((v)=>v?.route === path_route))
 	})
 
 	var set_profile = (v) => {
@@ -66,7 +75,10 @@ export default () => {
 				}>
 				{/* why not w 6rem try uncom footer */}
 				<B
-					click={() => nav("/")}
+					click={() => {
+						nav("/")
+						menu_op(0)
+					}}
 					style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] v5:w-[7rem] "}>
 					<P value={"/config/logo.png"} style={`w-[6rem] see_null v5:see_full`} />
 					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:see_null`} />
@@ -76,22 +88,25 @@ export default () => {
 						!menu_on() && `see_null`
 					} ay_top v4:ax_same w-full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
 					<D style={`ay_top v4:ax_same`}>
-						{menu_options.slice(0, -1).map((v, i) => (
+						{menu_ops.slice(0, -1).map((v, i) => (
 							<B
-								click={() => opt_pick(i)}
+								click={() => {
+									menu_op(i)
+									nav(v?.route)
+								}}
 								style={`${i && `mt-[1rem] v4:mt-0 v4:ml-[1rem]`} hover:tc_white ${
-									opt_pick() === i && `tc_white`
+									menu_op() === i && `tc_white`
 								}`}>
-								{v}
+								{v?.name}
 							</B>
 						))}
 					</D>
 					<D style={`ay_top sy_mid v4:ax_same`}>
 						<Search />
 						<B
-							click={() => opt_pick(-1)}
+							click={() => menu_op(-1)}
 							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 hover:tc_white ${
-								opt_pick() === -1 && `tc_white `
+								menu_op() === -1 && `tc_white `
 							}`}>
 							Kids
 						</B>

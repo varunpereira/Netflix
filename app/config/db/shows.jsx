@@ -886,7 +886,8 @@ export default [
     "title": "Stranger Things",
     "keywords": "Stranger Things",
     "cover_link": "/shows/Stranger Things/cover.jpg",
-    "snip_link": ""
+    "snip_link": "/shows/Stranger Things/snip.mp4",
+    "logo_link": "/shows/Stranger Things/logo.png",
   },
   {
     "id": 128,
@@ -1253,5 +1254,21 @@ export default [
     "keywords": "Young Sheldon",
     "cover_link": "/shows/Young Sheldon/cover.jpg",
     "snip_link": ""
-  }
+  },
+  {
+    "id": 180,
+    "title": "Tron - Legacy",
+    "keywords": "tron legacy",
+    "cover_link": "/shows/Tron - Legacy/cover.jpg",
+    "snip_link": "/shows/Tron - Legacy/snip.mp4",
+    "logo_link": "/shows/Tron - Legacy/logo.jpg",
+  },
+  {
+    "id": 181,
+    "title": "The Internship",
+    "keywords": "the internship",
+    "cover_link": "/shows/The Internshipy/cover.jpg",
+    "snip_link": "/shows/The Internship/snip.mp4",
+    "logo_link": "/shows/The Internship/logo.jpg",
+  },
 ]
