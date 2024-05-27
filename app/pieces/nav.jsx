@@ -39,7 +39,8 @@ export default () => {
 
 	construct(async () => {
 		profiles(db?.get_all(`profiles`))
-		menu_op(menu_ops?.findIndex((v)=>v?.route === path_route))
+		var index = menu_ops?.findIndex((v) => v?.route === path_route)
+		menu_op(index)
 	})
 
 	var set_profile = (v) => {
