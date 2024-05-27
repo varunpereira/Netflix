@@ -16,7 +16,6 @@ import {
 	P,
 	num,
 } from "~/config/shop"
-import {ChevronRightIcon} from "~/pieces/icon"
 import {VolumeIcon, MuteIcon} from "~/pieces/icon"
 import {db} from "~/config/db"
 import Tape from "~/pieces/tape"
