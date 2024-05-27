@@ -283,14 +283,8 @@ $red: red;
 		position: sticky;
 	}
 	// states : hover:tc_red , focus:c_blue ,
-	.w_fit {
-		width: fit-content;
-	}
 	.w_full {
 		width: 100%;
-	}
-	.h_fit {
-		height: fit-content;
 	}
 	.h_full {
 		height: 100%;
@@ -382,5 +376,6 @@ $red: red;
 	title on tape snip isnt perm
 	less sup/ not useful:
 	aspect (set size of one then use a real calc of other axis), 
+	fit-content,
 */
 }

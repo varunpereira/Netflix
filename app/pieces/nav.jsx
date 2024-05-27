@@ -67,7 +67,7 @@ export default () => {
 				{/* why not w 6rem try uncom footer */}
 				<B
 					click={() => nav("/")}
-					style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] w-fit v5:w-[7rem] "}>
+					style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] v5:w-[7rem] "}>
 					<P value={"/config/logo.png"} style={`w-[6rem] see_null v5:see_full`} />
 					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:see_null`} />
 				</B>
@@ -75,7 +75,7 @@ export default () => {
 					style={`${
 						!menu_on() && `see_null`
 					} ay_top v4:ax_same w-full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
-					<D style={`ay_top v4:ax_same v4:w-fit`}>
+					<D style={`ay_top v4:ax_same`}>
 						{menu_options.slice(0, -1).map((v, i) => (
 							<B
 								click={() => opt_pick(i)}

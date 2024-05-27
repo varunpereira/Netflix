@@ -119,7 +119,6 @@ export default () => {
 				}>
 				<P
 					value={`/shows/The Lord of the Rings - The Return of the King/logo.png`}
-					style={`w_fit`}
 				/>
 				<T style={`my-[1rem]`}>
 					Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from
