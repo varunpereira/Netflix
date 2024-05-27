@@ -4,7 +4,7 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
+	path,
 	page,
 	req,
 	dir,

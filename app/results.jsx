@@ -4,12 +4,11 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
+	path,
 	page,
 	timer,
 	req,
 	dir,
-	path,
 	num,
 	D,
 	T,
@@ -22,8 +21,8 @@ import {
 import {db} from "~/config/db"
 
 export default () => {
-	var nav = route()
-	var path_par = path.search()
+	var nav = path?.nav()
+	var search = path.search()
 	var shows = state([])
 	var sel_tape = state()
 	var sel_slide = state(false)
@@ -55,7 +54,7 @@ export default () => {
 	})
 
 	var results = react(() => {
-		var term = path_par?.q.trim().toUpperCase() // path is like state so rerenders
+		var term = search?.q.trim().toUpperCase() // path is like state so rerenders
 		var get_results = shows(
 			db?.get_all(`shows`)?.filter((show) => show?.keywords.toUpperCase().includes(term)),
 		)
@@ -70,6 +69,7 @@ export default () => {
 					style={`z_fit z-[${
 						i === sel_tape() ? "1" : "0"
 					}] w-full h-[14rem] ax_mid sx_mid mt-[-3rem] `}>
+					{/* rep piece */}
 					{v.map((v2, i2) => (
 						<D
 							hover_in={() => {
@@ -91,10 +91,9 @@ export default () => {
 										autoplay
 										muted
 										loop
-										class="c_full z-[4] w-[30rem] h-[14rem]"
+										class="c_full z-[4] w-[30rem] h-[14rem] z_fit z-[3]"
 									/>
-									{/* <iframe class="c_norm z-[4] w-[28rem] h-[14rem]" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe> */}
-									<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null`}>{v2?.title}</T>
+									<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null z_fit z-[4]`}>{v2?.title}</T>
 								</>
 							) : (
 								<P value={v2?.cover_link} style={`w-full h-full`} />

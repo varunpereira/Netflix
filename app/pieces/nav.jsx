@@ -4,7 +4,6 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
 	view,
 	req,
 	path,
@@ -22,7 +21,6 @@ import {db} from "~/config/db"
 import Search from "~/pieces/search"
 
 export default () => {
-	var nav = route()
 	var menu_ops = [
 		{name: "Home", route: "/"},
 		{name: "TV Shows", route: "/tv"},
@@ -35,12 +33,16 @@ export default () => {
 	var menu_on = state(false)
 	var see_profile_list = state(false)
 	var profiles = state()
-	var path_route = path?.route()
+	var nav = path?.nav()
+	var route = path?.route()
 
 	construct(async () => {
 		profiles(db?.get_all(`profiles`))
-		var index = menu_ops?.findIndex((v) => v?.route === path_route)
-		menu_op(index)
+	})
+
+	react(() => {
+		var i = menu_ops?.findIndex((v) => v?.route === route?.pathname)
+		menu_op(i)
 	})
 
 	var set_profile = (v) => {
@@ -75,12 +77,7 @@ export default () => {
 					"z_put z-[2] c_grey_2 v4:c_null w_full fit_1 v4:ax_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
 				}>
 				{/* why not w 6rem try uncom footer */}
-				<B
-					click={() => {
-						nav("/")
-						menu_op(0)
-					}}
-					style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] v5:w-[7rem] "}>
+				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] v5:w-[7rem] "}>
 					<P value={"/config/logo.png"} style={`w-[6rem] see_null v5:see_full`} />
 					<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:see_null`} />
 				</B>
@@ -91,10 +88,7 @@ export default () => {
 					<D style={`ay_top v4:ax_same`}>
 						{menu_ops.slice(0, -1).map((v, i) => (
 							<B
-								click={() => {
-									menu_op(i)
-									nav(v?.route)
-								}}
+								click={() => nav(v?.route)}
 								style={`${i && `mt-[1rem] v4:mt-0 v4:ml-[1rem]`} hover:tc_white ${
 									menu_op() === i && `tc_white`
 								}`}>
@@ -105,7 +99,7 @@ export default () => {
 					<D style={`ay_top sy_mid v4:ax_same`}>
 						<Search />
 						<B
-							click={() => menu_op(-1)}
+							click={() => nav("/kids")}
 							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 hover:tc_white ${
 								menu_op() === -1 && `tc_white `
 							}`}>

@@ -4,7 +4,7 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
+	path,
 	page,
 	timer,
 	req,
@@ -19,7 +19,7 @@ import {
 import {ChevronRightIcon} from "~/pieces/icon"
 
 export default (props) => {
-	var nav = route()
+	var nav = path?.nav()
 	var sel_tape = state()
 	var sel_slide = state(false)
 	var show_vid = state(false)
@@ -67,7 +67,7 @@ export default (props) => {
 									class="c_full z-[4] w-[30rem] h-[14rem] z_fit z-[3]"
 								/>
 								{/* <iframe class="c_norm z-[4] w-[28rem] h-[14rem]" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe> */}
-								<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null z_fit z-[4]`}>{v2?.title}</T>
+								<T style={`ml-[.5rem] mt-[-3rem] a_null z_fit z-[4]`}>{v2?.title}</T>
 							</>
 						) : (
 							<P value={v2?.cover_link} style={`w-full h-full`} />

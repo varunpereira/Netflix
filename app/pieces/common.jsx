@@ -3,8 +3,8 @@ import {
 	react,
 	construct,
 	destruct,
+	path,
 	write,
-	route,
 	page,
 	timer,
 	req,
@@ -17,7 +17,7 @@ import {
 } from "~/config/shop"
 
 export default () => {
-	var nav = route()
+	var nav = path?.nav()
 
 	construct(() => {
 		page.title = ``

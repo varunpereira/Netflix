@@ -1,49 +1,37 @@
 import {createSignal, createMemo, onMount, onCleanup} from "solid-js"
-import {useNavigate, useSearchParams, useParams} from "@solidjs/router"
+import {useNavigate, useLocation, useSearchParams, useParams} from "@solidjs/router"
 
 export var state = (def) => {
 	var [get, set] = createSignal(def)
 	return (put) => (put !== undefined ? set(put) : get())
 }
-
 export var react = createMemo // any state inside is set in piece it runs
-
 export var construct = onMount
-
 export var destruct = onCleanup
-
 export var write = console.log
-
-export var route = useNavigate
-
-export var nav_full = (link) => (window.location.href = link)
-
 export var path = {
-	route: () => window.location.pathname,
+	nav: useNavigate,
+	nav_full: (link) => (window.location.href = link),
+	route: useLocation,
 	props: useParams,
 	search: () => useSearchParams()[0],
 	encode: encodeURIComponent,
 	decode: decodeURIComponent,
 }
-
 export var page = document
 export var get = (id) => document.getElementById(id)
 export var style = (id, className) => (document.getElementById(id).className = className)
-
 export var view = {
 	width: () => window.innerWidth,
 	height: () => window.innerHeight,
 	put_listen: (id, fn) => window.addEventListener(id, fn),
 	cut_listen: (id, fn) => () => window.removeEventListener(id, fn),
 }
-
 export var timer = {
 	put: (fn, time) => setInterval(fn, time),
 	cut: (fn) => clearInterval(fn),
 }
-
 export var scroll = (id) => document.getElementById(id).scrollIntoView({behavior: "smooth"})
-
 // parse
 export var str = JSON.stringify
 export var cookie = (req_cookie) => {
@@ -56,7 +44,7 @@ export var any = JSON.parse // eg bool
 // generic
 export var math = Math
 export var num = {
-	is_int: (v)=> Number.isInteger(v)
+	is_int: (v) => Number.isInteger(v),
 }
 export var date = Date
 export var dir = Array
@@ -139,20 +127,20 @@ export var V = (props) => (
 
 // networks
 export var auth = async (link) => {
-	try {
-		var res = await req("/login/auth_get")
-		// write(res?.user?.email)
-		var path_get = path.get()
-		link !== "pub" && path_get !== "/signin" && res?.user?.email?.startsWith("@")
-			? nav_full("/signin")
-			: ""
-		return globe({
-			email: !res?.user?.email?.startsWith("@") ? res?.user?.email : null,
-			cart_size: res?.cart_size,
-		})
-	} catch (flaw) {
-		write(flaw)
-	}
+	// try {
+	// 	var res = await req("/login/auth_get")
+	// 	// write(res?.user?.email)
+	// 	var route = path.route()
+	// 	link !== "pub" && route !== "/signin" && res?.user?.email?.startsWith("@")
+	// 		? nav_full("/signin")
+	// 		: ""
+	// 	return globe({
+	// 		email: !res?.user?.email?.startsWith("@") ? res?.user?.email : null,
+	// 		cart_size: res?.cart_size,
+	// 	})
+	// } catch (flaw) {
+	// 	write(flaw)
+	// }
 }
 
 export var req = async (link = "", value = {}) => {
@@ -172,5 +160,3 @@ export var req = async (link = "", value = {}) => {
 export var env = import.meta.env
 
 export var globe = state({})
-
-

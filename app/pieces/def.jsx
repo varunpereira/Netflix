@@ -4,7 +4,7 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
+	path,
 	page,
 	timer,
 	req,
@@ -16,7 +16,7 @@ import {
 } from "~/config/shop"
 
 export default () => {
-	var nav = route()
+	var nav = path?.nav()
 
 	construct(() => {
 		page.title = `404 - Netflix`

@@ -4,7 +4,7 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
+	path,
 	page,
 	timer,
 	req,
@@ -19,7 +19,7 @@ import {MuteIcon, VolumeIcon} from "~/pieces/icon"
 import {db} from "~/config/db"
 
 export default (props) => {
-	var nav = route()
+	var nav = path?.nav()
 	var mute = state(true)
 	var video_ref
 	var playing = state(false)

@@ -4,7 +4,7 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
+	path,
 	page,
 	timer,
 	req,
@@ -18,7 +18,7 @@ import {
 import {SearchIcon, CrossIcon} from "~/pieces/icon"
 
 export default () => {
-	var nav = route()
+	var nav = path?.nav()
 	var see_search = state(false)
 	var search_field
 	var form = state({search: ""})

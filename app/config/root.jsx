@@ -13,7 +13,7 @@ import tv from "~/tv"
 import movies from "~/movies"
 import latest from "~/latest"
 
-var route = [
+var routes = [
 	["*", def],
 	["/", land],
 	["/watch/:id", watch],
@@ -45,7 +45,7 @@ var root = () => {
 			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
 				{globe()?.profile && show_nav() && <Nav />}
 				<Routes>
-					{route?.map((route) => (
+					{routes?.map((route) => (
 						<Route path={route[0]} component={route[1]} />
 					))}
 				</Routes>

@@ -4,7 +4,7 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
+	path,
 	page,
 	timer,
 	req,
@@ -20,7 +20,7 @@ import Home from "~/home"
 import {db} from '~/config/db'
 
 export default () => {
-	var nav = route()
+	var nav = path?.nav()
 	var profiles = state()
 
 	construct(async () => {

@@ -4,12 +4,11 @@ import {
 	construct,
 	destruct,
 	write,
-	route,
+	path,
 	page,
 	timer,
 	req,
 	dir,
-	path,
 	D,
 	T,
 	B,
@@ -22,7 +21,7 @@ import {db} from "~/config/db"
 import {show_nav} from "~/config/state"
 
 export default () => {
-	var nav = route()
+	var nav = path?.nav()
 	var progress = state(0)
 	var mute = state(true)
 	var playing = state(false)
