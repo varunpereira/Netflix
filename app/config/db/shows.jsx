@@ -1267,7 +1267,7 @@ export default [
     "id": 181,
     "title": "The Internship",
     "keywords": "the internship",
-    "cover_link": "/shows/The Internshipy/cover.jpg",
+    "cover_link": "/shows/The Internship/cover.jpg",
     "snip_link": "/shows/The Internship/snip.mp4",
     "logo_link": "/shows/The Internship/logo.jpg",
   },
