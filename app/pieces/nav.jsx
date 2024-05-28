@@ -8,7 +8,6 @@ import {
 	req,
 	path,
 	page,
-	globe,
 	D,
 	T,
 	B,
@@ -17,6 +16,7 @@ import {
 	I,
 } from "~/config/shop"
 import {MenuIcon, BellIcon, DownTriangleIcon} from "~/pieces/icon"
+import {profile} from "~/config/state"
 import {db} from "~/config/db"
 import Search from "~/pieces/search"
 
@@ -46,8 +46,8 @@ export default () => {
 	})
 
 	var set_profile = (v) => {
-		var profile = db?.set_all(`profile`, v)
-		globe({...globe(), profile})
+		var new_profile = db?.set_all(`profile`, v)
+		profile({...profile(), profile: new_profile})
 	}
 
 	var ProfileList = () => (
@@ -55,7 +55,7 @@ export default () => {
 			style={`v4:z_put z-[3] v4:top-[2.5rem] v4:right-[1.5rem] v5:right-[3rem] v4:c_black v4:opacity-[.8] w-full v4:w-[10rem] ay_top sy_mid v4:sy_right px-[.5rem] py-[1rem] `}>
 			<D style="ay_mid">
 				{profiles()
-					.filter((v) => v?.id !== globe()?.profile?.id)
+					.filter((v) => v?.id !== profile()?.profile?.id)
 					.map((v, i) => (
 						<D style={`ax_right sx_mid ${i && `mt-[.2rem]`}`} click={() => set_profile(v)}>
 							<P value={v?.pic_link} style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`} />
@@ -112,7 +112,7 @@ export default () => {
 							click={() => see_profile_list(!see_profile_list())}
 							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ax_mid`}>
 							<P
-								value={globe()?.profile?.pic_link}
+								value={profile()?.profile?.pic_link}
 								style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
 							/>
 							<D style={`mt-[.5rem]`}>
@@ -125,7 +125,7 @@ export default () => {
 			</D>
 			<B
 				click={() => menu_on(!menu_on())}
-				style={`z_put z-[2] right-[1rem] top-[.5rem] see_full v4:see_null w-[1.75rem] h-[1.75rem] hover:ibc_grey`}>
+				style={`z_put z-[2] right-[1rem] top-[.5rem] see_full v4:see_null w-[1.75rem] h-[1.75rem]`}>
 				<MenuIcon />
 			</B>
 		</>

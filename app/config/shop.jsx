@@ -19,8 +19,6 @@ export var path = {
 	decode: decodeURIComponent,
 }
 export var page = document
-export var get = (id) => document.getElementById(id)
-export var style = (id, className) => (document.getElementById(id).className = className)
 export var view = {
 	width: () => window.innerWidth,
 	height: () => window.innerHeight,
@@ -66,15 +64,12 @@ export var D = (props) => {
 		</div>
 	)
 }
-
 export var T = (props) => <p class={props.style}>{props.children}</p>
-
 export var B = (props) => (
 	<button type="button" onClick={props?.click} class={props.style}>
 		{props.children}
 	</button>
 )
-
 export var I = (props) => (
 	<input
 		{...props}
@@ -88,7 +83,6 @@ export var I = (props) => (
 		class={props?.style}
 	/>
 )
-
 export var P = (props) => (
 	<img
 		src={props.value}
@@ -102,7 +96,6 @@ export var P = (props) => (
 		class={props.style}
 	/>
 )
-
 export var V = (props) => (
 	<video
 		// {...props}
@@ -127,20 +120,6 @@ export var V = (props) => (
 
 // networks
 export var auth = async (link) => {
-	// try {
-	// 	var res = await req("/login/auth_get")
-	// 	// write(res?.user?.email)
-	// 	var route = path.route()
-	// 	link !== "pub" && route !== "/signin" && res?.user?.email?.startsWith("@")
-	// 		? nav_full("/signin")
-	// 		: ""
-	// 	return globe({
-	// 		email: !res?.user?.email?.startsWith("@") ? res?.user?.email : null,
-	// 		cart_size: res?.cart_size,
-	// 	})
-	// } catch (flaw) {
-	// 	write(flaw)
-	// }
 }
 
 export var req = async (link = "", value = {}) => {
@@ -158,5 +137,3 @@ export var req = async (link = "", value = {}) => {
 }
 
 export var env = import.meta.env
-
-export var globe = state({})

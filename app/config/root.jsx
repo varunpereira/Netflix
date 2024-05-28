@@ -1,8 +1,8 @@
 import {render} from "solid-js/web"
 import {Router, Routes, Route} from "@solidjs/router"
 import "~/config/style.scss"
-import {globe, page, D, write} from "~/config/shop"
-import {show_nav} from "~/config/state"
+import { page, D, write} from "~/config/shop"
+import {show_nav, profile} from "~/config/state"
 import Nav from "~/pieces/nav"
 import Footer from "~/pieces/footer"
 import def from "~/pieces/def"
@@ -39,11 +39,11 @@ var get_db = () => {
 }
 
 var root = () => {
-	globe(get_db())
+	profile(get_db())
 	return (
 		<Router>
 			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
-				{globe()?.profile && show_nav() && <Nav />}
+				{profile()?.profile && show_nav() && <Nav />}
 				<Routes>
 					{routes?.map((route) => (
 						<Route path={route[0]} component={route[1]} />

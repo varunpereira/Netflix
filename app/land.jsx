@@ -9,7 +9,6 @@ import {
 	timer,
 	req,
 	dir,
-	globe,
 	D,
 	T,
 	B,
@@ -18,6 +17,7 @@ import {
 } from "~/config/shop"
 import Home from "~/home"
 import {db} from '~/config/db'
+import {profile} from '~/config/state'
 
 export default () => {
 	var nav = path?.nav()
@@ -29,13 +29,13 @@ export default () => {
 	})
 
 	var set_profile = (v) => {
-		var profile = db?.set_all(`profile`, v)
-		globe({...globe(), profile})
+		var new_profile = db?.set_all(`profile`, v)
+		profile({...profile(), profile: new_profile})
 	}
 
 	return (
 		<>
-			{globe()?.profile ? (
+			{profile()?.profile ? (
 				<Home />
 			) : (
 				<D style={`fit_1 pt-[10rem] ay_top sy_mid tc_grey`}>
@@ -60,7 +60,7 @@ export default () => {
 							</D>
 						))}
 					</D>
-					<B style={` border-[.1rem] border-gray-300 px-[1.5rem] py-[.75rem]`}>MANAGE PROFILES</B>
+					<B style={` bw_2 bc_grey_1 px-[1.5rem] py-[.75rem]`}>MANAGE PROFILES</B>
 				</D>
 			)}
 		</>
