@@ -16,7 +16,7 @@ export var BellIcon = () => (
 )
 
 export var SearchIcon = () => (
-	<svg class='ic_white stroke-[2rem] w-[1.25rem] h-[1.25rem] ' viewBox="0 0 100 100" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
+	<svg class='stroke_white stroke-[2rem] w-[1.25rem] h-[1.25rem] ' viewBox="0 0 100 100" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
 		<path d="M40.6,21.9A18.8,18.8,0,1,0,59.4,40.6,18.7,18.7,0,0,0,40.6,21.9Zm-28,18.7A28.1,28.1,0,1,1,63.5,56.9L86.1,79.4a4.7,4.7,0,0,1-6.7,6.7L56.9,63.5A28,28,0,0,1,12.6,40.6Z"></path>
 	</svg>
 )
@@ -98,7 +98,7 @@ export var PauseIcon = () => (
 
 export var VolumeIcon = () => (
 	<svg
-		class="svg-snoweb svg-theme-dark"
+		class="stroke_white"
 		preserveaspectratio="xMidYMid meet"
 		viewbox="0 0 100 100"
 		x="0"
@@ -118,7 +118,7 @@ export var VolumeIcon = () => (
 
 export var MuteIcon = () => (
 	<svg
-		class="svg-snoweb svg-theme-dark"
+		class="stroke_white"
 		preserveaspectratio="xMidYMid meet"
 		viewbox="0 0 100 100"
 		x="0"
