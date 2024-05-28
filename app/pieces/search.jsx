@@ -35,8 +35,8 @@ export default () => {
 						see_search(true)
 						search_field?.focus()
 					}}
-					style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ay_mid stroke_white`}>
-					<SearchIcon />
+					style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 ay_mid`}>
+					<SearchIcon style='stroke_white stroke-[2rem] w-[1.25rem] h-[1.25rem]'/>
 				</B>
 			)}
 			<D
@@ -44,8 +44,8 @@ export default () => {
 				style={`ax_right sx_mid bc_white px-[.1rem] c_black mt-[1rem] v4:mt-[0rem] 
 							${!see_search() ? `size_0` : `w-full v4:w-[14rem] h-[1.7rem] bw_2`}`}>
 				<B
-					click={get_results} style={`stroke_white`}>
-					<SearchIcon />
+					click={get_results}>
+					<SearchIcon style='stroke_white stroke-[2rem] w-[1.25rem] h-[1.25rem]'/>
 				</B>
 				<I
 					ref={search_field}

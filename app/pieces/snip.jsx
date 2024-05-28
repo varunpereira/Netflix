@@ -63,9 +63,9 @@ export default (props) => {
 				</D>
 			</D>
 			<B
-				style={`z_put z-[1] right-[2.5rem] top-[30rem] ic_white opacity w-[1.75rem] h-[1.75rem] c_black rounded-full opacity-[.7] `}
+				style={`z_put z-[1] right-[2.5rem] top-[30rem] opacity w-[1.75rem] h-[1.75rem] c_black rounded-full opacity-[.7] `}
 				click={() => mute(!mute())}>
-				{mute() ? <MuteIcon /> : <VolumeIcon />}
+				{mute() ? <MuteIcon style='fill-white'/> : <VolumeIcon style='fill-white'/>}
 			</B>
 			<D
 				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}

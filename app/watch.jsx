@@ -110,8 +110,8 @@ export default () => {
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === false ? <PauseIcon /> : <PlayIcon />}
 					</B>
-					<B click={() => mute(!mute())} style="ml-[1rem] w-[2rem] fill-white">
-						{mute() ? <MuteIcon /> : <VolumeIcon />}
+					<B click={() => mute(!mute())} style="ml-[1rem] w-[2rem]">
+						{mute() ? <MuteIcon style='fill-white'/> : <VolumeIcon style='fill-white'/>}
 					</B>
 					<T style="ml-[1rem] mt-[.3rem]">{show()?.title}</T>
 				</D>

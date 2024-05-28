@@ -105,8 +105,8 @@ export default () => {
 							}`}>
 							Kids
 						</B>
-						<B style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 stroke-[.5rem] stroke-white fill-white`}>
-							<BellIcon />
+						<B style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0`}>
+							<BellIcon style="w-[1.5rem] h-[1.5rem] stroke-[.5rem] stroke-white fill-white" />
 						</B>
 						<B
 							click={() => see_profile_list(!see_profile_list())}
@@ -116,7 +116,7 @@ export default () => {
 								style={`w-[1.5rem] h-[1.5rem] mr-[.6rem] rounded-[.2rem]`}
 							/>
 							<D style={`mt-[.5rem]`}>
-								<DownTriangleIcon />
+								<DownTriangleIcon style="w-[.5rem] h-[.3rem] stroke-[.5rem] stroke-white fill-white" />
 							</D>
 						</B>
 						{see_profile_list() === true && <ProfileList />}
@@ -126,7 +126,7 @@ export default () => {
 			<B
 				click={() => menu_on(!menu_on())}
 				style={`z_put z-[2] right-[1rem] top-[.5rem] see_full v4:see_null w-[1.75rem] h-[1.75rem]`}>
-				<MenuIcon />
+				<MenuIcon style={`stroke-white stroke-[.1rem]`} />
 			</B>
 		</>
 	)
