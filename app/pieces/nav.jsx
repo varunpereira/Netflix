@@ -101,7 +101,7 @@ export default () => {
 						<B
 							click={() => nav("/kids")}
 							style={`v4:ml-[1.2rem] mt-[1rem] v4:mt-0 hover:tc_white ${
-								menu_op() === menu_ops()?.length - 1 && `tc_white `
+								menu_op() === menu_ops?.length - 1 && `tc_white `
 							}`}>
 							Kids
 						</B>
