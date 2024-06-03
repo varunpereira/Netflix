@@ -21,7 +21,7 @@ import {db} from "~/config/db"
 export default (props) => {
 	var nav = path?.nav()
 	var mute = state(true)
-	var videoRef
+	var video
 	var playing = state(false)
 	var {show_id} = props
 	var show = state()
@@ -30,18 +30,16 @@ export default (props) => {
 
 	construct(() => {
 		show(db?.get_one_by_id(`shows`, show_id()))
-		const video = videoRef
 		video.preload = "none"
 		video.addEventListener("progress", loadVideoChunk)
 	})
 
 	destruct(() => {
-		const video = videoRef
 		video.removeEventListener("progress", loadVideoChunk)
 	})
 
 	var loadVideoChunk = () => {
-		const video = videoRef;
+		return
 	  const bufferedEnd = video.buffered.length > 0 ? video.buffered.end(video.buffered.length - 1) : 0;
 	  if (bufferedEnd < video.duration) {
 	    const nextChunkStart = bufferedEnd;
@@ -62,42 +60,16 @@ export default (props) => {
 	  }
 	}
 
-	// const loadVideoChunk = () => {
-	// 	const video = videoRef
-	// 	const bufferedEnd =
-	// 		video.buffered.length > 0 ? video.buffered.end(video.buffered.length - 1) : 0
-
-	// 	if (bufferedEnd < video.duration) {
-	// 		const nextChunkStart = bufferedEnd
-	// 		const nextChunkEnd = Math.min(nextChunkStart + chunkSize(), video.duration)
-	// 		const chunkBlob = video.src.slice(nextChunkStart, nextChunkEnd)
-
-	// 		const reader = new FileReader()
-	// 		reader.onload = () => {
-	// 			videoBuffer([...videoBuffer(), reader.result])
-
-	// 			if (nextChunkEnd < video.duration) {
-	// 				loadVideoChunk()
-	// 			} else {
-	// 				const videoBlob = new Blob(videoBuffer(), {type: "video/mp4"})
-	// 				video.src = URL.createObjectURL(videoBlob)
-	// 				video.load()
-	// 			}
-	// 		}
-	// 		reader.readAsArrayBuffer(chunkBlob)
-	// 	}
-	// }
-
 	var handleTimeUpdate = () => {
-		if (videoRef.currentTime >= 104) {
-			videoRef.currentTime = 0
+		if (video.currentTime >= 104) {
+			video.currentTime = 0
 		}
 	}
 
 	react(() => {
 		if (playing()) {
-			videoRef?.play()
-		} else videoRef?.pause()
+			video?.play()
+		} else video?.pause()
 	})
 
 	return (
@@ -129,7 +101,7 @@ export default (props) => {
 				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
 			/>
 			<video
-				ref={videoRef}
+				ref={video}
 				onTimeUpdate={handleTimeUpdate}
 				src={show()?.snip_link}
 				playsinline
