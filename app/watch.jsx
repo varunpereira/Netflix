@@ -136,7 +136,7 @@ export default () => {
 						style="slider"
 					/>
 					<D
-						style={`z_fit z-[3] c_red h-[.3rem] w-full t-[-.7rem]`}
+						style={`z_fit z-[3] top-[-.7rem] c_red h-[.3rem] w-full `}
 						css={`
 							width: calc(
 								${progress() < 25
