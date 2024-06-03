@@ -134,7 +134,7 @@ export default (props) => {
 				src={show()?.snip_link}
 				playsinline
 				autoplay
-				muted={true}
+				muted={mute()}
 				loop
 				class="w-full h-[50rem] c_norm"
 			/>
