@@ -148,7 +148,7 @@ export default () => {
 						`}
 					/>
 				</D>
-				{/* <T style="ml-[1r/em] ">{formatSeconds(time_left())}</T> */}
+				<T style="ml-[1rem] ">{formatSeconds(time_left())}</T>
 			</D>
 		</D>
 	)
