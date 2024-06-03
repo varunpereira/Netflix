@@ -127,7 +127,7 @@ export default () => {
 
 			<D
 				style={`z_put z-[2] left-0 bottom-[3rem] ax_same w-full v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
-				<D style="z_fit z-[2] w-full">
+				<D style="w_full h_full">
 					<I
 						type="range"
 						value={progress()}
