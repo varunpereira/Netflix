@@ -111,7 +111,7 @@ export default () => {
 						{playing() === false ? <PauseIcon /> : <PlayIcon />}
 					</B>
 					<B click={() => mute(!mute())} style="ml-[1rem] w-[2rem]">
-						{mute() ? <MuteIcon style='fill-white'/> : <VolumeIcon style='fill-white'/>}
+						{mute() ? <MuteIcon style="fill-white" /> : <VolumeIcon style="fill-white" />}
 					</B>
 					<T style="ml-[1rem] mt-[.3rem]">{show()?.title}</T>
 				</D>
@@ -127,7 +127,7 @@ export default () => {
 
 			<D
 				style={`z_put z-[2] left-0 bottom-[3rem] ax_same w_full h_auto v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
-				<D style="w_full h_full">
+				<D style="w_full h-[.3rem]">
 					<I
 						type="range"
 						value={progress()}
@@ -136,7 +136,7 @@ export default () => {
 						style="slider"
 					/>
 					<D
-						style={`z_fit z-[3] top-[-.7rem] c_red h-[.3rem] w-full `}
+						style={`z_fit z-[3] top-[-.7rem] c_red w-full h_full`}
 						css={`
 							width: calc(
 								${progress() < 25

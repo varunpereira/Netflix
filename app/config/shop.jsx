@@ -72,7 +72,6 @@ export var B = (props) => (
 )
 export var I = (props) => (
 	<input
-		{...props}
 		type={props?.type}
 		value={props?.value}
 		placeholder={props.holder}
@@ -100,11 +99,10 @@ export var V = (props) => (
 	<video
 		// {...props}
 		poster={props?.def}
-		loop={props?.rep}
+		loop={props?.rep} // must mute first
 		controls={props?.controls}
-		// muted={props?.mute}
-		muted={true}
-		autoplay={true}
+		muted={props?.mute}
+		autoplay={true} 
 		playsinline
 		onClick={props?.click}
 		onMouseOver={props?.hover_in}
