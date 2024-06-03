@@ -87,8 +87,8 @@ export default () => {
 								<>
 									<video
 										src={v2?.snip_link?.trim() !== "" ? v2?.snip_link : "/shows/def.mp4"}
-										playsinline
-										autoplay
+										playsInline
+										autoPlay
 										muted
 										loop
 										class="c_full z-[4] w-[30rem] h-[14rem] z_fit z-[3]"

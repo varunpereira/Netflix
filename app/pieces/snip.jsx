@@ -104,8 +104,8 @@ export default (props) => {
 				ref={video}
 				onTimeUpdate={handleTimeUpdate}
 				src={show()?.snip_link}
-				playsinline
-				autoplay
+				playsInline
+				autoPlay
 				muted={mute()}
 				loop
 				class="w-full h-[50rem] c_norm"

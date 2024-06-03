@@ -102,7 +102,7 @@ export var V = (props) => (
 		loop={props?.rep} // must mute first
 		controls={props?.controls}
 		muted={props?.mute}
-		autoplay={true} 
+		autoPlay={true} 
 		playsinline
 		onClick={props?.click}
 		onMouseOver={props?.hover_in}

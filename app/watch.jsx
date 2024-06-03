@@ -96,8 +96,8 @@ export default () => {
 						: "/shows/def.mp4#t=2"
 				}
 				muted={mute()}
-				playsinline
-				autoplay
+				playsInline
+				autoPlay
 				class={`c_full h-[100vh] w-full z-[-1]`}
 			/>
 			<B
