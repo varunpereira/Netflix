@@ -105,7 +105,7 @@ export default () => {
 				style={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
 				<ArrowLeftIcon />
 			</B>
-			<D style="z_put z-[1] bottom-0 left-0 ax_same sx_bottom w-full my-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
+			<D style="z_put z-[1] bottom-0 left-0 ax_same sx_bottom w-full mb-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 				<D style="ax_same">
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === false ? <PauseIcon /> : <PlayIcon />}
@@ -133,10 +133,10 @@ export default () => {
 						value={progress()}
 						input={handleSliderChange}
 						step=".0000000000000001"
-						style="slider"
+						style="slider mt-[1.1rem]"
 					/>
 					<D
-						style={`z_put z-[3] top-[0rem] c_red w-full h_full`}
+						style={`z_put z-[3] top-[.55rem] c_red w-full h_full`}
 						css={`
 							width: calc(
 								${progress() < 25
