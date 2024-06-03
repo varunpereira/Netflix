@@ -127,7 +127,7 @@ export default () => {
 
 			<D
 				style={`z_put z-[2] left-0 bottom-[3rem] ax_same w_full h_auto v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
-				<D style="w_full h-[.3rem]">
+				<D style="z_fit z-[2] ax_mid sx_mid w_full h-[.3rem]">
 					<I
 						type="range"
 						value={progress()}
@@ -136,9 +136,9 @@ export default () => {
 						style="slider"
 					/>
 					<D
-						style={`z_fit z-[3] top-[-.7rem] c_red w-full h_full`}
-						css={`
-							width: calc(
+						style={`z_put top-[0rem] c_red w-full h_full`}
+						css={`width:50%;
+							width2: calc(
 								${progress() < 25
 									? progress() + 0.25
 									: progress() > 75
