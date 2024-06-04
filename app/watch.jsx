@@ -23,16 +23,15 @@ import {show_nav} from "~/config/state"
 export default () => {
 	var nav = path?.nav()
 	var progress = state(0)
-	var mute = state(true)
+	var mute = state(false)
 	var playing = state(false)
 	var video
-	var video_fit
 	var time_left = state()
 	var show_id = path.props()?.id
 	var show = state()
 
 	react(() => {
-		if (playing()) video?.pause()
+		if (!playing()) video?.pause()
 		else video?.play()
 	})
 
@@ -41,7 +40,6 @@ export default () => {
 		show_nav(false)
 		show(db?.get_all(`shows`)?.find((show) => show?.id == show_id))
 		page.title = `${show()?.title} - Netflix`
-		video?.play()
 	})
 
 	destruct(() => {
@@ -84,10 +82,11 @@ export default () => {
 	}
 
 	return (
-		<D ref={video_fit} style={`z_fit z-[0]`}>
+		<D style={`z_fit z-[0]`}>
 			<video
 				onTimeUpdate={handleTimeUpdate}
 				ref={video}
+				poster='/config/logo.png'
 				src={
 					show()?.id == 153
 						? show()?.full_link
@@ -97,7 +96,7 @@ export default () => {
 				}
 				muted={mute()}
 				playsInline
-				autoPlay
+				// autoPlay
 				class={`c_full h-[100vh] w-full z-[-1]`}
 			/>
 			<B
@@ -108,7 +107,7 @@ export default () => {
 			<D style="z_put z-[1] bottom-0 left-0 ax_same sx_bottom w-full mb-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 				<D style="ax_same">
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
-						{playing() === false ? <PauseIcon /> : <PlayIcon />}
+						{playing() === true ? <PauseIcon /> : <PlayIcon />}
 					</B>
 					<B click={() => mute(!mute())} style="ml-[1rem] w-[2rem]">
 						{mute() ? <MuteIcon style="fill-white" /> : <VolumeIcon style="fill-white" />}
