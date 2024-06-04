@@ -76,8 +76,8 @@ export default () => {
 		var elem = page.body
 		if (elem.requestFullscreen) {
 			elem.requestFullscreen();
-		} else if (elem.webkitRequestFullscreen) { /* Safari */
-			elem.webkitRequestFullscreen();
+		} else if (video.webkitRequestFullscreen) { /* Safari */
+			video.webkitRequestFullscreen();
 		} else if (elem.msRequestFullscreen) { /* IE11 */
 			elem.msRequestFullscreen();
 		}
