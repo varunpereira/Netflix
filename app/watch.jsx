@@ -25,14 +25,15 @@ export default () => {
 	var progress = state(0)
 	var mute = state(true)
 	var playing = state(false)
-	var video_ref
+	var video
+	var video_fit
 	var time_left = state()
 	var show_id = path.props()?.id
 	var show = state()
 
 	react(() => {
-		if (playing()) video_ref?.pause()
-		else video_ref?.play()
+		if (playing()) video?.pause()
+		else video?.play()
 	})
 
 	construct(async () => {
@@ -40,7 +41,7 @@ export default () => {
 		show_nav(false)
 		show(db?.get_all(`shows`)?.find((show) => show?.id == show_id))
 		page.title = `${show()?.title} - Netflix`
-		video_ref?.play()
+		video?.play()
 	})
 
 	destruct(() => {
@@ -48,14 +49,14 @@ export default () => {
 	})
 
 	var handleTimeUpdate = () => {
-		var duration = video_ref.duration // sec
-		var currentTime = video_ref.currentTime
+		var duration = video.duration // sec
+		var currentTime = video.currentTime
 		progress((currentTime / duration) * 100)
 		time_left(duration - currentTime)
 	}
 
 	var handleSliderChange = (e) => {
-		video_ref.currentTime = video_ref.duration * (e.target.value / 100)
+		video.currentTime = video.duration * (e.target.value / 100)
 		// progress(e.target.value)
 	}
 
@@ -71,29 +72,27 @@ export default () => {
 		return hDisplay + mDisplay + sDisplay
 	}
 
-	var openFullscreen = () => {
-		if (video_ref.requestFullscreen) {
-			video_ref.requestFullscreen()
-		} else if (video_ref.webkitRequestFullscreen) {
-			/* Safari */
-			video_ref.webkitRequestFullscreen()
-		} else if (video_ref.msRequestFullscreen) {
-			/* IE11 */
-			video_ref.msRequestFullscreen()
-		}
+	var toggleFullScreen = () => {
+		if (!page.fullscreenElement) {
+      page.body.requestFullscreen();
+    } else {
+      if (page.exitFullscreen) {
+        page.exitFullscreen();
+      }
+    }
 	}
 
 	return (
-		<D style={`z_fit z-[0]`}>
+		<D ref={video_fit} style={`z_fit z-[0]`}>
 			<video
 				onTimeUpdate={handleTimeUpdate}
-				ref={video_ref}
+				ref={video}
 				src={
 					show()?.id == 153
 						? show()?.full_link
 						: show()?.snip_link?.trim() !== ""
 						? show()?.snip_link
-						: "/shows/def.mp4#t=2"
+						: "/shows/def.mp4"
 				}
 				muted={mute()}
 				playsInline
@@ -120,7 +119,7 @@ export default () => {
 						<HelpIcon />
 					</B>
 					<B style="ml-[1.2rem] fill-white">
-						<P value="/icons/full_screen.png" style="w-6 h-6" click={openFullscreen} />
+						<P value="/icons/full_screen.png" style="w-6 h-6" click={toggleFullScreen} />
 					</B>
 				</D>
 			</D>

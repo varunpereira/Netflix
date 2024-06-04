@@ -58,6 +58,7 @@ export var D = (props) => {
 			onMouseLeave={props?.hover_out}
 			onKeyDown={props?.key}
 			// use:custom
+			ref={props?.ref}
 			style={props?.css}
 			class={props.style}>
 			{props.children}
