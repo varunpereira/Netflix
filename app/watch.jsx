@@ -22,18 +22,13 @@ import {show_nav} from "~/config/state"
 
 export default () => {
 	var nav = path?.nav()
-	var progress = state(0)
+	var progress = state()
 	var mute = state(false)
 	var playing = state(false)
 	var video
 	var time_left = state()
 	var show_id = path.props()?.id
 	var show = state()
-
-	react(() => {
-		if (!playing()) video?.pause()
-		else video?.play()
-	})
 
 	construct(async () => {
 		page.title = `Watch - Netflix`
@@ -76,29 +71,33 @@ export default () => {
 		}
 		if (page.body.requestFullscreen) {
 			page.body.requestFullscreen()
-		} else if (video.webkitRequestFullscreen) { /* Safari */
+		} else if (video.webkitRequestFullscreen) {
+			/* Safari */
 			video.webkitRequestFullscreen()
 		}
 	}
 
 	return (
 		<D style={`z_fit z-[0]`}>
-			<video
-				onTimeUpdate={handleTimeUpdate}
-				ref={video}
-				poster='/config/logo.png'
-				src={
-					show()?.id == 153
-						? show()?.full_link
-						: show()?.snip_link?.trim() !== ""
-						? show()?.snip_link
-						: "/shows/def.mp4"
-				}
-				muted={mute()}
-				playsInline
-				// autoPlay
-				class={`c_full h-[100vh] w-full z-[-1]`}
-			/>
+			{progress() != null ? (
+				<video
+					onTimeUpdate={handleTimeUpdate}
+					ref={video}
+					src={
+						show()?.id == 153
+							? show()?.full_link
+							: show()?.snip_link?.trim() !== ""
+							? show()?.snip_link
+							: "/shows/def.mp4"
+					}
+					muted={mute()}
+					playsInline
+					class={`c_full h-[100vh] w-full`}
+				/>
+			) : (
+				<P value={show()?.cover_link} style={`h-[100vh] w-full overflow-hidden`} />
+			)}
+
 			<B
 				click={() => nav("/")}
 				style={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
@@ -106,7 +105,21 @@ export default () => {
 			</B>
 			<D style="z_put z-[1] bottom-0 left-0 ax_same sx_bottom w-full mb-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 				<D style="ax_same">
-					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
+					<B
+						click={() => {
+							if (!progress()) {
+								progress(0)
+								playing(false)
+							}
+							if (!playing()) {
+								video.play()
+								playing(true)
+							} else {
+								video.pause()
+								playing(false)
+							}
+						}}
+						style="w-[1.5rem] fill-white">
 						{playing() === true ? <PauseIcon /> : <PlayIcon />}
 					</B>
 					<B click={() => mute(!mute())} style="ml-[1rem] w-[2rem]">
@@ -129,23 +142,25 @@ export default () => {
 				<D style="z_fit z-[2] ax_right sx_mid w_full h-[.3rem]">
 					<I
 						type="range"
-						value={progress()}
+						value={progress() ? progress() : 0}
 						input={handleSliderChange}
 						step=".0000000000000001"
 						style="slider mt-[1.1rem]"
 					/>
-					<D
-						style={`z_put z-[3] top-[.55rem] c_red w-full h_full`}
-						css={`
-							width: calc(
-								${progress() < 25
-									? progress() + 0.25
-									: progress() > 75
-									? progress() - 0.75
-									: progress()}%
-							);
-						`}
-					/>
+					{progress() != null && (
+						<D
+							style={`z_put z-[3] top-[.55rem] c_red w-full h_full`}
+							css={`
+								width: calc(
+									${progress() < 25
+										? progress() + 0.25
+										: progress() > 75
+										? progress() - 0.75
+										: progress()}%
+								);
+							`}
+						/>
+					)}
 				</D>
 				<T style="ml-[1rem] ">{formatSeconds(time_left())}</T>
 			</D>
