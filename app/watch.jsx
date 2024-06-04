@@ -73,21 +73,14 @@ export default () => {
 	}
 
 	var toggleFullScreen = () => {
-		var elem = page.body
-		if (elem.requestFullscreen) {
-			elem.requestFullscreen();
-		} else if (video.webkitRequestFullscreen) { /* Safari */
-			video.webkitRequestFullscreen();
-		} else if (elem.msRequestFullscreen) { /* IE11 */
-			elem.msRequestFullscreen();
+		if (page.fullscreenElement) {
+			return page.exitFullscreen()
 		}
-		// if (!page.fullscreenElement) {
-		// 	page.body.requestFullscreen()
-		// } else {
-		// 	if (page.exitFullscreen) {
-		// 		page.exitFullscreen()
-		// 	}
-		// }
+		if (page.body.requestFullscreen) {
+			page.body.requestFullscreen()
+		} else if (video.webkitRequestFullscreen) { /* Safari */
+			video.webkitRequestFullscreen()
+		}
 	}
 
 	return (

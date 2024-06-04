@@ -12,9 +12,11 @@ import results from "~/results"
 import tv from "~/tv"
 import movies from "~/movies"
 import latest from "~/latest"
+import test from "~/test"
 
 var routes = [
 	["*", def],
+	["/test", test],
 	["/", land],
 	["/watch/:id", watch],
 	["/search", results],
