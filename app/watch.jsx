@@ -95,7 +95,7 @@ export default () => {
 					class={`c_full h-[100vh] w-full`}
 				/>
 			) : (
-				<P value={show()?.cover_link} style={`h-[100vh] w-full overflow-hidden`} />
+				<P value={show()?.cover_link} style={`h-[100vh] w-full c_full`} />
 			)}
 
 			<B
