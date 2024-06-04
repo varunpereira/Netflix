@@ -74,12 +74,13 @@ export default () => {
 
 	var toggleFullScreen = () => {
 		if (!page.fullscreenElement) {
-      page.body.requestFullscreen();
-    } else {
-      if (page.exitFullscreen) {
-        page.exitFullscreen();
-      }
-    }
+			page.body.requestFullscreen()
+			page.body.webkitRequestFullscreen()
+		} else {
+			if (page.exitFullscreen) {
+				page.exitFullscreen()
+			}
+		}
 	}
 
 	return (
