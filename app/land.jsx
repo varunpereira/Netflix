@@ -60,7 +60,7 @@ export default () => {
 							</D>
 						))}
 					</D>
-					<B style={` bw_2 bc_grey_1 px-[1.5rem] py-[.75rem]`}>MANAGE PROFILES</B>
+					<B click={() => set_profile(profiles()[0])} style={` bw_2 bc_grey_1 px-[1.5rem] py-[.75rem]`}>MANAGE PROFILES</B>
 				</D>
 			)}
 		</>
