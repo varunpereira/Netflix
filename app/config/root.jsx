@@ -33,9 +33,9 @@ page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 ay_top sx_
 // auth ok so update globe state - move to each page's const
 var get_db = () => {
 	var items = {}
-	for (var i = 0; i < localStorage.length; i++) {
-		var key = localStorage.key(i)
-		items[key] = JSON.parse(localStorage.getItem(key))
+	for (var i = 0; i < localStorage.length; i+=1) {
+		var key = localStorage?.key(i)
+		items[key] = JSON?.parse(localStorage?.getItem(key))
 	}
 	return items
 }
