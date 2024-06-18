@@ -3,6 +3,7 @@ import {Router, Routes, Route} from "@solidjs/router"
 import "~/config/style.scss"
 import { page, D, write} from "~/config/shop"
 import {show_nav, profile} from "~/config/state"
+import {db} from "~/config/db"
 import Nav from "~/pieces/nav"
 import Footer from "~/pieces/footer"
 import def from "~/pieces/def"
@@ -30,22 +31,12 @@ page.getElementById("logo").href = "/config/logo_small.png"
 page.getElementById("color").content = "c_grey_2"
 page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 ay_top sx_mid"
 
-// auth ok so update globe state - move to each page's const
-var get_db = () => {
-	var items = {}
-	for (var i = 0; i < localStorage.length; i+=1) {
-		var key = localStorage?.key(i)
-		items[key] = JSON?.parse(localStorage?.getItem(key))
-	}
-	return items
-}
-
 var root = () => {
-	profile(get_db())
+	profile(db?.get_auth())
 	return (
 		<Router>
 			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
-				{profile()?.profile && show_nav() && <Nav />}
+				{profile() && show_nav() && <Nav />}
 				<Routes>
 					{routes?.map((route) => (
 						<Route path={route[0]} component={route[1]} />

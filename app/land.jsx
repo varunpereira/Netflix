@@ -30,12 +30,12 @@ export default () => {
 
 	var set_profile = (v) => {
 		var new_profile = db?.set_all(`profile`, v)
-		profile({...profile(), profile: new_profile})
+		profile(new_profile)
 	}
 
 	return (
 		<>
-			{profile()?.profile ? (
+			{profile() ? (
 				<Home />
 			) : (
 				<D style={`fit_1 pt-[10rem] ay_top sy_mid tc_grey`}>

@@ -15,6 +15,7 @@ var tables = {
 }
 
 export var db = {
+	get_auth: () => JSON.parse(localStorage.getItem(`profile`)),
 	get_all: (key) => tables[key],
 	get_one_by_id: (key, id) => tables[key]?.filter((v) => v?.id === id)[0],
 	set_all: (key, value) => {
