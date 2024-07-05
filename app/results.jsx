@@ -19,11 +19,11 @@ import {
 	str,
 } from "~/config/shop"
 import {db} from "~/config/db"
+import {chunk_dir} from "~/config/funcs"
 
 export default () => {
 	var nav = path?.nav()
 	var search = path.search()
-	var shows = state([])
 	var sel_tape = state()
 	var sel_slide = state(false)
 	var show_vid = state(false)
@@ -31,16 +31,6 @@ export default () => {
 	construct(() => {
 		page.title = `Search Results - Netflix`
 	})
-
-	var chunk_dir = (v) => {
-		var chunkSize = 5
-		var chunks = []
-		for (var i = 0; i < v.length; i += chunkSize) {
-			var chunk = v.slice(i, i + chunkSize)
-			chunks.push(chunk)
-		}
-		return chunks
-	}
 
 	react(() => {
 		if (num.is_int(sel_tape())) {
@@ -53,18 +43,17 @@ export default () => {
 		}
 	})
 
-	var results = react(() => {
+	var shows = react(() => {
 		var term = search?.q.trim().toUpperCase() // path is like state so rerenders
-		var get_results = shows(
-			db?.get_all(`shows`)?.filter((show) => show?.keywords.toUpperCase().includes(term)),
-		)
-		var chunks = chunk_dir(get_results)
-		return chunks
+		var results = db
+			?.get_all(`shows`)
+			?.filter((show) => show?.keywords.toUpperCase().includes(term))
+		return chunk_dir(results)
 	})
 
 	return (
 		<D style={`fit_1 pt-[10rem] hover:px-0 ay_mid w-full h-full overflow-x-hidden`}>
-			{results().map((v, i) => (
+			{shows().map((v, i) => (
 				<D
 					style={`z_fit z-[${
 						i === sel_tape() ? "1" : "0"
