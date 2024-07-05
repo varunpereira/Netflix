@@ -1277,4 +1277,14 @@ export default [
 		details:
 			"Two salesmen find themselves unemployed when the company they work at gets shut down. In a bid to prove their competence, they land internships at Google and try to beat some tech-savvy geniuses.",
 	},
+	{
+		id: 182,
+		title: "Shrek 2",
+		keywords: "shrek 2",
+		cover_link: "/shows/Shrek 2/cover.jpg",
+		snip_link: "/shows/Shrek 2/snip.mp4",
+		logo_link: "/shows/Shrek 2/logo.png",
+		details:
+			"After returning from their honeymoon and showing home movies to their friends, Shrek and Fiona learn that her parents have heard that she has married her true love and wish to invite him to their kingdom, called Far Far Away.",
+	},
 ]

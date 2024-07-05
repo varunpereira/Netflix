@@ -4,6 +4,8 @@ import home from "~/config/db/home"
 import tv from "~/config/db/tv"
 import movies from "~/config/db/movies"
 import latest from "~/config/db/latest"
+import kids from "~/config/db/kids"
+import my_list from "~/config/db/my_list"
 
 var tables = {
 	profiles,
@@ -12,6 +14,8 @@ var tables = {
 	tv,
 	movies,
 	latest,
+	kids,
+	my_list,
 }
 
 export var db = {

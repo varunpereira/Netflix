@@ -23,7 +23,7 @@ export default (props) => {
 	var mute = state(true)
 	var video
 	var playing = state(false)
-	var {show_id} = props
+	var {show_id, ratio} = props
 	var show = state()
 	const videoBuffer = state([])
 	const chunkSize = state((1024 * 1024) / 5) // .2mb
@@ -60,11 +60,11 @@ export default (props) => {
 	  }
 	}
 
-	var handleTimeUpdate = () => {
-		if (video.currentTime >= 104) {
-			video.currentTime = 0
-		}
-	}
+	// var handleTimeUpdate = () => {
+	// 	if (video.currentTime >= 104) {
+	// 		video.currentTime = 0
+	// 	}
+	// }
 
 	react(() => {
 		if (playing()) {
@@ -75,9 +75,7 @@ export default (props) => {
 	return (
 		<>
 			<D
-				style={
-					"z_put z-[1] left-0 top-[12rem] w-[15rem] v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] ts_2 tw_5 "
-				}>
+				style={`z_put z-[1] left-0 top-[12rem] w-[15rem] ts_2 tw_5 v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
 				<P value={show()?.logo_link} />
 				<T style={`my-[1rem]`}>{show()?.details}</T>
 				<D style={`ax_right`}>
@@ -102,13 +100,13 @@ export default (props) => {
 			/>
 			<video
 				ref={video}
-				onTimeUpdate={handleTimeUpdate}
+				// onTimeUpdate={handleTimeUpdate}
 				src={show()?.snip_link}
 				playsInline
 				autoPlay
 				muted={mute()}
 				loop
-				class="w-full h-[50rem] c_norm"
+				class={ratio === `16:9` ? `w-full` : `w-full h-[50rem] c_norm`}
 			/>
 			<D
 				style={

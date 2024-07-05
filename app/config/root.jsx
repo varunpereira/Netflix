@@ -4,6 +4,7 @@ import "~/config/style.scss"
 import { page, D, write} from "~/config/shop"
 import {show_nav, profile} from "~/config/state"
 import {db} from "~/config/db"
+import test from "~/test"
 import Nav from "~/pieces/nav"
 import Footer from "~/pieces/footer"
 import def from "~/pieces/def"
@@ -13,7 +14,8 @@ import results from "~/results"
 import tv from "~/tv"
 import movies from "~/movies"
 import latest from "~/latest"
-import test from "~/test"
+import kids from "~/kids"
+import my_list from "~/my_list"
 
 var routes = [
 	["*", def],
@@ -24,6 +26,8 @@ var routes = [
 	["/tv", tv],
 	["/movies", movies],
 	["/latest", latest],
+	["/kids", kids],
+	["/mylist", my_list],
 ]
 
 page.title = "Netflix"
