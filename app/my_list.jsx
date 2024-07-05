@@ -19,6 +19,7 @@ import {db} from "~/config/db"
 import {chunk_dir} from "~/config/funcs"
 
 export default () => {
+	var nav = path?.nav()
 	var shows = state()
 	var sel_tape = state()
 	var sel_slide = state(false)

@@ -23,7 +23,7 @@ import {chunk_dir} from "~/config/funcs"
 
 export default () => {
 	var nav = path?.nav()
-	var search = path.search()
+	var search = path?.search()
 	var sel_tape = state()
 	var sel_slide = state(false)
 	var show_vid = state(false)
