@@ -44,10 +44,12 @@ export default () => {
 	})
 
 	var shows = react(() => {
-		var term = search?.q.trim().toUpperCase() // path is like state so rerenders
+		var term = search?.q.trim().toLowerCase() // path is like state so rerenders
 		var results = db
 			?.get_all(`shows`)
-			?.filter((show) => show?.keywords.toUpperCase().includes(term))
+			?.filter(({keywords}) =>
+				keywords.map((v) => v.trim().toLowerCase().includes(term)).includes(true),
+			)
 		return chunk_dir(results)
 	})
 
