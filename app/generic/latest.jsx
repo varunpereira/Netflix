@@ -15,15 +15,15 @@ import {
 	P,
 } from "~/config/shop"
 import {db} from "~/config/db"
-import Tape from "~/pieces/tape"
-import Snip from "~/pieces/snip"
+import Tape from "~/common/tape"
+import Snip from "~/common/snip"
 
 export default () => {
 	var data = state()
 
 	construct(async () => {
-		page.title = `TV - Netflix`
-		data(db?.get_all(`tv`))
+		page.title = `Latest - Netflix`
+		data(db?.get_all(`latest`))
 	})
 
 	return (
@@ -37,5 +37,4 @@ export default () => {
 			</D>
 		</D>
 	)
-
 }

@@ -15,7 +15,7 @@ import {
 	V,
 	P,
 } from "~/config/shop"
-import Home from "~/home"
+import Home from "~/generic/home"
 import {db} from '~/config/db'
 import {profile} from '~/config/state'
 

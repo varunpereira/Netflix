@@ -15,10 +15,10 @@ import {
 	P,
 	I,
 } from "~/config/shop"
-import {MenuIcon, BellIcon, DownTriangleIcon} from "~/pieces/icon"
+import {MenuIcon, BellIcon, DownTriangleIcon} from "~/common/icon"
 import {profile} from "~/config/state"
 import {db} from "~/config/db"
-import Search from "~/pieces/search"
+import Search from "~/common/search"
 
 export default () => {
 	var menu_ops = [

@@ -15,7 +15,7 @@ import {
 	I,
 	V,
 } from "~/config/shop"
-import {SearchIcon, CrossIcon} from "~/pieces/icon"
+import {SearchIcon, CrossIcon} from "~/common/icon"
 
 export default () => {
 	var nav = path?.nav()

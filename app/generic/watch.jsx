@@ -16,7 +16,7 @@ import {
 	P,
 	I,
 } from "~/config/shop"
-import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/pieces/icon"
+import {PauseIcon, PlayIcon, VolumeIcon, MuteIcon, HelpIcon, ArrowLeftIcon} from "~/common/icon"
 import {db} from "~/config/db"
 import {show_nav} from "~/config/state"
 

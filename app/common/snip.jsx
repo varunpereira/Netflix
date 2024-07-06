@@ -15,7 +15,7 @@ import {
 	I,
 	V,
 } from "~/config/shop"
-import {MuteIcon, VolumeIcon} from "~/pieces/icon"
+import {MuteIcon, VolumeIcon} from "~/common/icon"
 import {db} from "~/config/db"
 
 export default (props) => {

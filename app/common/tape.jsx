@@ -17,7 +17,7 @@ import {
 	num,
 } from "~/config/shop"
 import {db} from "~/config/db"
-import {ChevronRightIcon} from "~/pieces/icon"
+import {ChevronRightIcon} from "~/common/icon"
 
 export default (props) => {
 	var nav = path?.nav()
