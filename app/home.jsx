@@ -20,11 +20,9 @@ import Snip from "~/pieces/snip"
 
 export default () => {
 	var data = state()
-	var all_shows = state()
 
 	construct(async () => {
 		page.title = `Home - Netflix`
-		all_shows(db?.get_all(`shows`))
 		data(db?.get_all(`home`))
 	})
 
@@ -34,15 +32,7 @@ export default () => {
 			<D
 				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				{data()?.tapes?.map((v, i) => (
-					<Tape
-						data={() =>
-							all_shows()
-								?.slice((i + 1) * 18 - 18, (i + 1) * 18)
-								.reverse()
-						}
-						title={v?.title}
-						i={i}
-					/>
+					<Tape show_ids={v?.show_ids} title={v?.title} i={i} />
 				))}
 			</D>
 		</D>

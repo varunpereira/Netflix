@@ -16,14 +16,20 @@ import {
 	V,
 	num,
 } from "~/config/shop"
+import {db} from "~/config/db"
 import {ChevronRightIcon} from "~/pieces/icon"
 
 export default (props) => {
 	var nav = path?.nav()
+	var data = state([])
 	var sel_tape = state()
 	var sel_slide = state(false)
 	var show_vid = state(false)
-	var {data = () => [], title, i} = props
+	var {title, show_ids, i} = props
+
+	construct(() => {
+		data(db?.get_all(`shows`).filter((v) => show_ids.includes(v?.id)))
+	})
 
 	react(() => {
 		if (num.is_int(sel_slide())) {
