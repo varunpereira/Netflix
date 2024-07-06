@@ -43,7 +43,7 @@ export default () => {
 		}
 	})
 
-	var shows = react(() => {
+	var data = react(() => {
 		var term = search?.q.trim().toLowerCase() // path is like state so rerenders
 		var results = db
 			?.get_all(`shows`)
@@ -55,7 +55,7 @@ export default () => {
 
 	return (
 		<D style={`fit_1 pt-[10rem] hover:px-0 ay_mid w-full h-full overflow-x-hidden`}>
-			{shows().map((v, i) => (
+			{data().map((v, i) => (
 				<D
 					style={`z_fit z-[${
 						i === sel_tape() ? "1" : "0"

@@ -20,17 +20,17 @@ import {chunk_dir} from "~/config/funcs"
 
 export default () => {
 	var nav = path?.nav()
-	var shows = state()
+	var data = state()
 	var sel_tape = state()
 	var sel_slide = state(false)
 	var show_vid = state(false)
 
 	construct(async () => {
 		page.title = `My List - Netflix`
-		var my_list = db?.get_all(`my_list`)
 		var all_shows = db?.get_all(`shows`)
+		var my_list = db?.get_all(`my_list`)
 		var my_list = all_shows?.filter((v) => my_list?.show_ids?.includes(v?.id))
-		shows(chunk_dir(my_list))
+		data(chunk_dir(my_list))
 	})
 
 	react(() => {
@@ -48,7 +48,7 @@ export default () => {
 		<>
 			<T style={`fit_1 pt-[6rem] ml-[4rem] ts_3`}>My List</T>
 			<D style={`fit_1 pt-[2rem] hover:px-0 ay_mid w-full h-full overflow-x-hidden`}>
-				{shows()?.map((v, i) => (
+				{data()?.map((v, i) => (
 					<D
 						style={`z_fit z-[${
 							i === sel_tape() ? "1" : "0"
