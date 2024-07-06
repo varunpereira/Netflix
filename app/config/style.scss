@@ -42,10 +42,6 @@ $red: red;
 	.tf_1 {
 		font-family: verdana;
 	}
-	// text inside
-	.ti_c_1 {
-		fill: $c_1;
-	}
 	/* text weight */
 	.tw_1 {
 		font-weight: 900;
@@ -79,22 +75,16 @@ $red: red;
 	.ta_right {
 		text-align: right;
 	}
-	/* contain  */
-	.c_norm {
-		object-fit: none;
+	// box size/space
+	.w_full {
+		width: 100%;
 	}
-	.c_fit {
-		object-fit: contain;
-	}
-	.c_full {
-		object-fit: cover;
-	}
-	.c_stretch {
-		object-fit: fill;
+	.h_full {
+		height: 100%;
 	}
 	// background colour
 	// opacity
-	.c_c_1 {
+	.c_1 {
 		background-color: $c_1;
 	}
 	.c_white {
@@ -115,6 +105,11 @@ $red: red;
 	.c_null {
 		background-color: transparent;
 	}
+	/* rounded */
+	// shadow
+	.shadow_1 {
+		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	}
 	/* border */
 	.bc_black {
 		border-color: $black;
@@ -122,7 +117,10 @@ $red: red;
 	.bc_white {
 		border-color: $white;
 	}
-	.bc_grey {
+	.bc_grey_1 {
+		border-color: $grey_1;
+	}
+	.bc_grey_2 {
 		border-color: $grey_2;
 	}
 	.bw_null {
@@ -132,56 +130,9 @@ $red: red;
 		border-width: 0.05rem;
 	}
 	.bw_2 {
-		border-width: 0.15rem;
+		border-width: 0.1rem;
 	}
-	// icon
-	.ic_null {
-		fill: none;
-	}
-	.ic_c_1 {
-		fill: $c_1;
-	}
-	.ic_black {
-		fill: $black;
-	}
-	.ic_white {
-		fill: $white;
-	}
-	.ic_grey {
-		fill: $grey_1;
-	}
-	.iw_1 {
-		stroke-width: 1;
-	}
-	.ibc_null {
-		stroke: none;
-	}
-	.ibc_black {
-		stroke: $black;
-	}
-	.ibc_white {
-		stroke: $white;
-	}
-	.ibc_grey {
-		stroke: $grey_1;
-	}
-	/* viewport - see config (v1 - v5) */
-	/* rounded */
-	// overflow
-	.no_scroll::-webkit-scrollbar {
-		display: none;
-	}
-	.no_scroll {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
-	}
-	// shadow
-	.s_1 {
-		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-	}
-	/* w_full, msy_w-[10rem] */
-	/* align , flex has def dir of row*/
-	// todo justify, align
+	/* align */
 	.a_norm {
 		flex: none;
 	}
@@ -253,14 +204,41 @@ $red: red;
 	.sy_mid {
 		align-items: center;
 	}
-	//  gap-[1rem]
-
-	/* default: block, also: flex, grid */
-	.hide {
+	/* contain  */
+	.c_norm {
+		object-fit: none;
+	}
+	.c_fit {
+		object-fit: contain;
+	}
+	.c_full {
+		object-fit: cover;
+	}
+	.c_stretch {
+		object-fit: fill;
+	}
+	// to do overflow
+	.no_scroll::-webkit-scrollbar {
 		display: none;
 	}
-	.see {
+	.no_scroll {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+	// for size trans
+	.size_0 {
+		@apply w-0 h-0 max-w-0 max-h-0 border-0 overflow-hidden;
+	}
+	.see_null {
+		display: none;
+		overflow: hidden;
+	}
+	.see_full {
 		display: block;
+		overflow: visible;
+	}
+	.see_size {
+		visibility: hidden;
 	}
 	.z_norm {
 		position: static;
@@ -275,27 +253,6 @@ $red: red;
 	.z_fix {
 		position: sticky;
 	}
-	// states : hover:tc_red , focus:c_blue ,
-	.w_fit {
-		width: fit-content;
-	}
-	.w_full {
-		width: 100%;
-	}
-	.h_fit {
-		height: fit-content;
-	}
-	.h_full {
-		height: 100%;
-	}
-	.mx_auto {
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.my_auto {
-		margin-top: auto;
-		margin-bottom: auto;
-	}
 	.left_auto {
 		left: auto;
 	}
@@ -308,36 +265,36 @@ $red: red;
 	.bottom_auto {
 		bottom: auto;
 	}
-
 	.cursor_pointer {
 		cursor: pointer;
 	}
 	.slider {
-		-webkit-appearance: none;
 		width: 100%;
 		height: 0.3rem;
 		background: #d3d3d3;
-		outline: none;
+		-webkit-appearance: none;
+		cursor: pointer;
 	}
-
 	.slider::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
-		width: 1rem;
-		height: 1rem;
+		width: 0.9rem;
+		height: 0.9rem;
 		background: #aa0404;
 		border-radius: 100%;
 		cursor: pointer;
 	}
-
 	.slider::-moz-range-thumb {
-		width: 1rem;
-		height: 1rem;
+		width: 0.9rem;
+		height: 0.9rem;
 		background: #aa0404;
 		border-radius: 100%;
 		cursor: pointer;
 	}
-
+	// icons > svgs : stroke width + color + fill color
+	.stroke_white {
+		fill: $white;
+	}
 	.trans_start {
 		transition-property: width, height;
 		transition-duration: 1s;
@@ -348,7 +305,6 @@ $red: red;
 		-webkit-transition-timing-function: ease-in-out;
 		-webkit-transition-delay: 1s;
 	}
-
 	.trans_end {
 		transition-property: width, height;
 		transition-duration: 1s;
@@ -357,17 +313,30 @@ $red: red;
 		-webkit-transition-duration: 1s;
 		-webkit-transition-timing-function: ease-in-out;
 	}
-
-	// use rem, based of root
+	/* viewport - see config (v1 - v5) */
+	/* default: block, also: flex, grid */
+	// states : hover:tc_red , focus:c_blue ,
+	// use rem, based of root or %
 	:root {
 		font-size: 16px;
 	}
-
-	button {
+	*,
+	*:focus,
+	*:active {
 		outline: none;
 	}
-
-	input {
-		outline: none;
-	}
+	/*
+	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 left-0),
+	css dont use confusing: space auto like mx-auto (use align/shift).
+	outline doesnt work safari.
+	tailwind: *,first,last: states dont work
+	make all elements display:block;
+	look into inherit, initial, auto, none eg w flex and size
+	useful:
+	w-[calc(100%-1rem)]
+	safari:
+	less sup/ not useful:
+	aspect (set size of one then use a real calc of other axis), 
+	fit-content try auto like w-auto (auto is def for size),
+*/
 }

@@ -1,45 +1,48 @@
 import {render} from "solid-js/web"
 import {Router, Routes, Route} from "@solidjs/router"
 import "~/config/style.scss"
-import {globe, page, D, write} from "~/config/shop"
-import {show_nav} from "~/config/state"
-import Nav from "~/pieces/nav"
-import Footer from "~/pieces/footer"
-import def from "~/pieces/def"
-import land from "~/land"
-import watch from "~/watch"
-import results from "~/results"
+import { page, D, write} from "~/config/shop"
+import {show_nav, profile} from "~/config/state"
+import {db} from "~/config/db"
+import test from "~/generic/test"
+import Nav from "~/common/nav"
+import Footer from "~/common/footer"
+import def from "~/common/def"
+import land from "~/generic/land"
+import watch from "~/generic/watch"
+import results from "~/generic/results"
+import tv from "~/generic/tv"
+import movies from "~/generic/movies"
+import latest from "~/generic/latest"
+import kids from "~/generic/kids"
+import my_list from "~/generic/my_list"
 
-var route = [
+var routes = [
 	["*", def],
+	["/test", test],
 	["/", land],
 	["/watch/:id", watch],
 	["/search", results],
+	["/tv", tv],
+	["/movies", movies],
+	["/latest", latest],
+	["/kids", kids],
+	["/mylist", my_list],
 ]
 
 page.title = "Netflix"
 page.getElementById("logo").href = "/config/logo_small.png"
 page.getElementById("color").content = "c_grey_2"
-page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1"
-
-// auth ok so update globe state - move to each page's const
-var get_globe = () => {
-	var items = {}
-	for (var i = 0; i < localStorage.length; i++) {
-		var key = localStorage.key(i)
-		items[key] = JSON.parse(localStorage.getItem(key))
-	}
-	return items
-}
+page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 ay_top sx_mid"
 
 var root = () => {
-	globe(get_globe())
+	profile(db?.get_auth())
 	return (
 		<Router>
-			<D style={`min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] mx_auto z_fit z-[0]`}>
-				{globe()?.profile && show_nav() && <Nav />}
+			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
+				{profile() && show_nav() && <Nav />}
 				<Routes>
-					{route?.map((route) => (
+					{routes?.map((route) => (
 						<Route path={route[0]} component={route[1]} />
 					))}
 				</Routes>
