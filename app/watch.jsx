@@ -83,13 +83,7 @@ export default () => {
 				<video
 					onTimeUpdate={handleTimeUpdate}
 					ref={video}
-					src={
-						show()?.id == 153
-							? show()?.full_link
-							: show()?.snip_link?.trim() !== ""
-							? show()?.snip_link
-							: "/shows/def.mp4"
-					}
+					src={show()?.snip_link?.trim() !== "" ? show()?.snip_link : "/shows/def.mp4"}
 					muted={mute()}
 					playsInline
 					class={`c_full h-[100vh] w-full`}

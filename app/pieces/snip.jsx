@@ -60,12 +60,6 @@ export default (props) => {
 	  }
 	}
 
-	// var handleTimeUpdate = () => {
-	// 	if (video.currentTime >= 104) {
-	// 		video.currentTime = 0
-	// 	}
-	// }
-
 	react(() => {
 		if (playing()) {
 			video?.play()
@@ -100,13 +94,12 @@ export default (props) => {
 			/>
 			<video
 				ref={video}
-				// onTimeUpdate={handleTimeUpdate}
 				src={show()?.snip_link}
 				playsInline
 				autoPlay
 				muted={mute()}
 				loop
-				class={ratio === `16:9` ? `w-full` : `w-full h-[50rem] c_norm`}
+				class={`w-full h-[50rem] ${ratio === `16:9` ? `c_full` : `c_norm`}`}
 			/>
 			<D
 				style={
