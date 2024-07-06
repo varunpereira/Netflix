@@ -6,7 +6,6 @@ import {
 	write,
 	path,
 	page,
-	timer,
 	req,
 	D,
 	T,
