@@ -82,6 +82,7 @@ export default () => {
 										autoPlay
 										muted
 										loop
+										preload="none"
 										class="c_full z-[4] w-[30rem] h-[14rem] z_fit z-[3]"
 									/>
 									<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null z_fit z-[4]`}>{v2?.title}</T>

@@ -99,11 +99,12 @@ export var P = (props) => (
 export var V = (props) => (
 	<video
 		// {...props}
+		preload="none"
 		poster={props?.def}
-		loop={props?.rep} // must mute first
+		loop={props?.rep} 
 		controls={props?.controls}
 		muted={props?.mute}
-		autoPlay={true} 
+		autoPlay={true} // must mute first
 		playsinline
 		onClick={props?.click}
 		onMouseOver={props?.hover_in}

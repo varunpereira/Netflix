@@ -24,7 +24,7 @@ export default () => {
 	var nav = path?.nav()
 	var progress = state()
 	var mute = state(true)
-	var playing = state(false)
+	var playing = state(true)
 	var video
 	var time_left = state()
 	var show_id = path.props()?.id
@@ -37,10 +37,9 @@ export default () => {
 		page.title = `${show()?.title} - Netflix`
 	})
 
-	react(() => {
-		if (playing()) {
-			video?.play()
-		} else video?.pause()
+	react(()=>{
+		if (playing()) video?.pause()
+		else video?.play()
 	})
 
 	destruct(() => {
@@ -84,11 +83,12 @@ export default () => {
 
 	return (
 		<D style={`z_fit z-[0]`}>
-			{progress() != null ? (
+			{progress() != null || true ? (
 				<video
+					src={show()?.snip_link?.trim() !== "" ? show()?.snip_link : "/shows/def.mp4"}
 					onTimeUpdate={handleTimeUpdate}
 					ref={video}
-					src={show()?.snip_link?.trim() !== "" ? show()?.snip_link : "/shows/def.mp4"}
+					preload="none"
 					muted={mute()}
 					playsInline
 					autoPlay
@@ -106,19 +106,7 @@ export default () => {
 			<D style="z_put z-[1] bottom-0 left-0 ax_same sx_bottom w-full mb-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 				<D style="ax_same">
 					<B
-						click={() => {
-							if (!progress()) {
-								progress(0)
-								playing(false)
-							}
-							if (!playing()) {
-								video.play()
-								playing(true)
-							} else {
-								video.pause()
-								playing(false)
-							}
-						}}
+						click={() => playing(!playing())}
 						style="w-[1.5rem] fill-white">
 						{playing() === true ? <PauseIcon /> : <PlayIcon />}
 					</B>

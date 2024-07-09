@@ -30,7 +30,6 @@ export default (props) => {
 
 	construct(() => {
 		show(db?.get_one_by_id(`shows`, show_id()))
-		video.preload = "none"
 		video.addEventListener("progress", loadVideoChunk)
 	})
 
@@ -93,8 +92,9 @@ export default (props) => {
 				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
 			/>
 			<video
-				ref={video}
 				src={show()?.snip_link}
+				preload="none"
+				ref={video}
 				playsInline
 				autoPlay
 				muted={mute()}
