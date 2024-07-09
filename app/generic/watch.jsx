@@ -23,7 +23,7 @@ import {show_nav} from "~/config/state"
 export default () => {
 	var nav = path?.nav()
 	var progress = state()
-	var mute = state(false)
+	var mute = state(true)
 	var playing = state(false)
 	var video
 	var time_left = state()
@@ -35,6 +35,12 @@ export default () => {
 		show_nav(false)
 		show(db?.get_all(`shows`)?.find((show) => show?.id == show_id))
 		page.title = `${show()?.title} - Netflix`
+	})
+
+	react(() => {
+		if (playing()) {
+			video?.play()
+		} else video?.pause()
 	})
 
 	destruct(() => {
@@ -72,7 +78,6 @@ export default () => {
 		if (page.body.requestFullscreen) {
 			page.body.requestFullscreen()
 		} else if (video.webkitRequestFullscreen) {
-			/* Safari */
 			video.webkitRequestFullscreen()
 		}
 	}
@@ -86,6 +91,7 @@ export default () => {
 					src={show()?.snip_link?.trim() !== "" ? show()?.snip_link : "/shows/def.mp4"}
 					muted={mute()}
 					playsInline
+					autoPlay
 					class={`c_full h-[100vh] w-full`}
 				/>
 			) : (

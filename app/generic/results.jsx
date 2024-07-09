@@ -19,7 +19,7 @@ import {
 	str,
 } from "~/config/shop"
 import {db} from "~/config/db"
-import {chunk_dir} from "~/config/funcs"
+import {chunk_dir} from "~/common/funcs"
 
 export default () => {
 	var nav = path?.nav()

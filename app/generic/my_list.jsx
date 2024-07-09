@@ -16,7 +16,7 @@ import {
 	P,
 } from "~/config/shop"
 import {db} from "~/config/db"
-import {chunk_dir} from "~/config/funcs"
+import {chunk_dir} from "~/common/funcs"
 
 export default () => {
 	var nav = path?.nav()
@@ -46,8 +46,8 @@ export default () => {
 
 	return (
 		<>
-			<T style={`fit_1 pt-[6rem] ml-[4rem] ts_3`}>My List</T>
-			<D style={`fit_1 pt-[2rem] hover:px-0 ay_mid w-full h-full overflow-x-hidden`}>
+			<D style={`fit_1 mt-[5rem] ay_mid w-full h-full overflow-x-hidden`}>
+				<T style={`mb-[1rem] ml-[4rem]`}>My List</T>
 				{data()?.map((v, i) => (
 					<D
 						style={`z_fit z-[${
