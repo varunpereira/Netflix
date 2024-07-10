@@ -27,7 +27,7 @@ export default () => {
 	})
 
 	return (
-		<D style={`z_fit z-[1] mt-16 ml-8`}>
+		<D style={`z_fit z-[1]`}>
 			<Snip show_id={() => data()?.snip?.show_id} />
 			<D
 				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
