@@ -49,17 +49,32 @@ export var dir = Array
 export var dic = Object
 
 var s = {
-	tc: (v) => `color:${v};`,
+	x: (v) => `{width:${v}rem;}`,
+	x_p: (v) => `{width:${v}%;}`,
+	tc: (v) => `{color:${v};}`,
+	tc_h: (v) => `:hover{color:${v};}`,
+	ts: (v) => `{font-size:${v};}`,
+	s: (v) => `{font-size:${v};}`,
 }
 
-var convert = (v) => {
-	v.split(/\s+/).map((c) => {
-		var cl = c.split("__")
+var convert_v0 = (v) => {
+	v.split(/\s+/).forEach((c) => {
+		var cl = c.split("=")
 		if (cl[0] in s) {
-			var cla = `.${cl[0]}__${cl[1]}{${s?.[cl[0]](cl[1])}}`
-			if (!page.getElementById("style").innerHTML.includes(cla)) {
-				page.getElementById("style").innerHTML += cla
-			}
+			var cla = `.${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}`
+			!page.getElementById("style").innerHTML.includes(cla) &&
+				(page.getElementById("style").innerHTML += cla)
+		}
+	})
+}
+
+var convert_v2 = (v) => {
+	v.split(/\s+/).forEach((c) => {
+		var cl = c.split("=")
+		if (cl[0] in s) {
+			var cla = `@media screen and (min-width:800px){.${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}}`
+			!page.getElementById("style").innerHTML.includes(cla) &&
+				(page.getElementById("style").innerHTML += cla)
 		}
 	})
 }
@@ -70,7 +85,8 @@ export var D = (props) => {
 	// onCleanup(() => {
 	// })
 	// var custom = props?.custom
-	props?.style && convert(props?.style)
+	props?.style && convert_v0(props?.style)
+	props?.style_v2 && convert_v2(props?.style_v2)
 	return (
 		<div
 			onClick={props?.click}
@@ -80,7 +96,7 @@ export var D = (props) => {
 			// use:custom
 			ref={props?.ref}
 			style={props?.css}
-			class={props?.style}>
+			class={props?.style + " " + props?.style_v2}>
 			{props.children}
 		</div>
 	)

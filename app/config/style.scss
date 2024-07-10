@@ -9,8 +9,20 @@ $grey_2: #141414;
 $red: red;
 $v2_tc: white;
 @layer utilities {
-	.tc_green {
+	// .tc__green {
+	// 		color: green;
+	// 	}
+	
+	// 	@media screen and (min-width:800px) {
+	// 		.tc__blue {
+	// 			color: blue;
+	// 		}
+	// 	}
+	.tc_j {
 		color: blue;
+	}
+	.tc_j {
+		color: yellow;
 	}
 	// fit
 	.fit_1 {
