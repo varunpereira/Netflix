@@ -62,8 +62,8 @@ var convert_v0 = (v) => {
 		var cl = c.split("=")
 		if (cl[0] in s) {
 			var cla = `.${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}`
-			!page.getElementById("style").innerHTML.includes(cla) &&
-				(page.getElementById("style").innerHTML += cla)
+			!document.getElementById("style").innerHTML.includes(cla) &&
+				(document.getElementById("style").innerHTML += cla)
 		}
 	})
 }
@@ -73,8 +73,8 @@ var convert_v2 = (v) => {
 		var cl = c.split("=")
 		if (cl[0] in s) {
 			var cla = `@media screen and (min-width:800px){.${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}}`
-			!page.getElementById("style").innerHTML.includes(cla) &&
-				(page.getElementById("style").innerHTML += cla)
+			!document.getElementById("style").innerHTML.includes(cla) &&
+				(document.getElementById("style").innerHTML += cla)
 		}
 	})
 }
