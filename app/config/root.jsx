@@ -40,7 +40,7 @@ var root = () => {
 	return (
 		<Router>
 			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
-				{profile() && show_nav() && <Nav />}
+				{/* {profile() && show_nav() && <Nav />} */}
 				<Routes>
 					{routes?.map((route) => (
 						<Route path={route[0]} component={route[1]} />

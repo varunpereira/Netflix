@@ -51,31 +51,43 @@ export var dic = Object
 var s = {
 	x: (v) => `{width:${v}rem;}`,
 	x_p: (v) => `{width:${v}%;}`,
+	ot:(v) => `{margin-top:${v}rem;}`,
+	ol:(v) => `{margin-left:${v}rem;}`,
+	or:(v) => `{margin-right:${v}rem;}`,
 	tc: (v) => `{color:${v};}`,
 	tc_h: (v) => `:hover{color:${v};}`,
 	ts: (v) => `{font-size:${v};}`,
 	s: (v) => `{font-size:${v};}`,
 }
+/*
+screens: {
+			v1: "0px",
+			v2: "320px",
+			v3: "640px",
+			v4: "768px",
+			v5: "1024px",
+			v6: "1280px",
+		},
+		replaces first . with ./
+ */
 
 var convert_v0 = (v) => {
 	v.split(/\s+/).forEach((c) => {
 		var cl = c.split("=")
-		if (cl[0] in s) {
-			var cla = `.${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}`
-			!document.getElementById("style").innerHTML.includes(cla) &&
-				(document.getElementById("style").innerHTML += cla)
-		}
+		if (!(cl[0] in s)) return
+		var cla = `${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}`.replace('.', '\\.')
+		!document.getElementById("style").innerHTML.includes(cla) &&
+			(document.getElementById("style").innerHTML += `.${cla}`)
 	})
 }
 
 var convert_v2 = (v) => {
 	v.split(/\s+/).forEach((c) => {
 		var cl = c.split("=")
-		if (cl[0] in s) {
-			var cla = `@media screen and (min-width:800px){.${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}}`
-			!document.getElementById("style").innerHTML.includes(cla) &&
-				(document.getElementById("style").innerHTML += cla)
-		}
+		if (!(cl[0] in s)) return
+		var cla = `@media screen and (min-width:800px){.${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}}`.replace('.', '\\.')
+		!document.getElementById("style").innerHTML.includes(cla) &&
+			(document.getElementById("style").innerHTML += `.${cla}`)
 	})
 }
 
@@ -96,17 +108,25 @@ export var D = (props) => {
 			// use:custom
 			ref={props?.ref}
 			style={props?.css}
-			class={props?.style + " " + props?.style_v2}>
+			class={`${props?.style} ${props?.style_v2}`}>
 			{props.children}
 		</div>
 	)
 }
-export var T = (props) => <p class={props.style}>{props.children}</p>
-export var B = (props) => (
-	<button type="button" onClick={props?.click} class={props.style}>
-		{props.children}
-	</button>
-)
+export var T = (props) => {
+	props?.style && convert_v0(props?.style)
+	props?.style_v2 && convert_v2(props?.style_v2)
+	return <p class={`${props?.style} ${props?.style_v2}`}>{props.children}</p>
+}
+export var B = (props) => {
+	props?.style && convert_v0(props?.style)
+	props?.style_v2 && convert_v2(props?.style_v2)
+	return (
+		<button type="button" onClick={props?.click} class={`${props?.style} ${props?.style_v2}`}>
+			{props.children}
+		</button>
+	)
+}
 export var I = (props) => (
 	<input
 		type={props?.type}
