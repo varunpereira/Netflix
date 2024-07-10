@@ -38,8 +38,8 @@ export default () => {
 	})
 
 	react(()=>{
-		if (playing()) video?.pause()
-		else video?.play()
+		if (playing()) video?.play()
+		else video?.pause()
 	})
 
 	destruct(() => {
@@ -63,11 +63,10 @@ export default () => {
 		var h = Math.floor(d / 3600)
 		var m = Math.floor((d % 3600) / 60)
 		var s = Math.floor((d % 3600) % 60)
-
-		var hDisplay = h > 0 ? (h < 10 ? "0" : "") + h + ":" : "00:"
-		var mDisplay = m > 0 ? (m < 10 ? "0" : "") + m + ":" : "00:"
-		var sDisplay = s > 0 ? (s < 10 ? "0" : "") + s : "00"
-		return hDisplay + mDisplay + sDisplay
+		var h_shown = h >= 1 ? h + ":" : ""
+		var m_shown = m >= 0 ? (m <= 9 && h >= 1 ? "0" : "") + m + ":" : ""
+		var s_shown = s >= 0 ? (s <= 9 ? "0" : "") + s : "0"
+		return h_shown + m_shown + s_shown
 	}
 
 	var toggleFullScreen = () => {
