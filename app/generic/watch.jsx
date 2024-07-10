@@ -9,6 +9,7 @@ import {
 	timer,
 	req,
 	dir,
+	view,
 	D,
 	T,
 	B,
@@ -44,6 +45,18 @@ export default () => {
 
 	destruct(() => {
 		show_nav(true)
+	})
+
+	view.put_listen('keydown', (e) => {
+		if(e.key === ` `) {
+			playing(!playing())
+		}
+		else if(e.key === `m`) {
+			mute(true)
+		}
+		else if(e.key === `f`) {
+			toggleFullScreen()
+		}
 	})
 
 	var handleTimeUpdate = () => {
@@ -104,9 +117,7 @@ export default () => {
 			</B>
 			<D style="z_put z-[1] bottom-0 left-0 ax_same sx_bottom w-full mb-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 				<D style="ax_same">
-					<B
-						click={() => playing(!playing())}
-						style="w-[1.5rem] fill-white">
+					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === true ? <PauseIcon /> : <PlayIcon />}
 					</B>
 					<B click={() => mute(!mute())} style="ml-[1rem] w-[2rem]">
@@ -138,13 +149,7 @@ export default () => {
 						<D
 							style={`z_put z-[3] top-[.55rem] c_red w-full h_full`}
 							css={`
-								width: calc(
-									${progress() < 25
-										? progress() + 0.25
-										: progress() > 75
-										? progress() - 0.75
-										: progress()}%
-								);
+								width: calc(${progress()}%);
 							`}
 						/>
 					)}
