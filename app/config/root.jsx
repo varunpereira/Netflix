@@ -33,7 +33,7 @@ var routes = [
 page.title = "Netflix"
 page.getElementById("logo").href = "/config/logo_small.png"
 page.getElementById("color").content = "c_grey_2"
-page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 ay_top sx_mid"
+page.getElementById("body").className = "c_grey_2 tc_white ts_2 tf_1 ay_top sx_mid"
 
 var root = () => {
 	profile(db?.get_auth())
@@ -52,4 +52,4 @@ var root = () => {
 	)
 }
 
-render(root, page.getElementById("style"))
+render(root, page.getElementById("body"))

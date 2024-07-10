@@ -7,7 +7,11 @@ $c_1: red;
 $grey_1: #c1c1c1;
 $grey_2: #141414;
 $red: red;
+$v2_tc: white;
 @layer utilities {
+	.tc_green {
+		color: blue;
+	}
 	// fit
 	.fit_1 {
 		@apply v2:px-[.5rem] v3:px-[1rem] v4:px-[1.5rem] v5:px-[3rem];

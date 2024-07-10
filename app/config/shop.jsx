@@ -48,9 +48,29 @@ export var date = Date
 export var dir = Array
 export var dic = Object
 
+var s = {
+	tc: (v) => `color:${v};`,
+}
+
+var convert = (v) => {
+	v.split(/\s+/).map((c) => {
+		var cl = c.split("__")
+		if (cl[0] in s) {
+			var cla = `.${cl[0]}__${cl[1]}{${s?.[cl[0]](cl[1])}}`
+			if (!page.getElementById("style").innerHTML.includes(cla)) {
+				page.getElementById("style").innerHTML += cla
+			}
+		}
+	})
+}
+
 // structs
 export var D = (props) => {
+	// import css file and set innerhtml to it
+	// onCleanup(() => {
+	// })
 	// var custom = props?.custom
+	props?.style && convert(props?.style)
 	return (
 		<div
 			onClick={props?.click}
@@ -60,7 +80,7 @@ export var D = (props) => {
 			// use:custom
 			ref={props?.ref}
 			style={props?.css}
-			class={props.style}>
+			class={props?.style}>
 			{props.children}
 		</div>
 	)
