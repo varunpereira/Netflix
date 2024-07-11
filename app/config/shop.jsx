@@ -49,15 +49,53 @@ export var dir = Array
 export var dic = Object
 
 var s = {
+	// box:
+	// data size
 	x: (v) => `{width:${v}rem;}`,
 	x_p: (v) => `{width:${v}%;}`,
-	ot: (v) => `{margin-top:${v}rem;}`,
+	y: (v) => `{height:${v}rem;}`,
+	y_p: (v) => `{height:${v}%;}`,
+	x_min: (v) => `{min-width:${v}rem;}`,
+	y_min: (v) => `{min-height:${v}rem;}`,
+	x_max: (v) => `{max-width:${v}rem;}`,
+	y_max: (v) => `{max-height:${v}rem;}`,
+	// inside size
+	pl: (v) => `{padding-left:${v}rem;}`,
+	pr: (v) => `{padding-right:${v}rem;}`,
+	px: (v) => `{padding-left:${v}rem;padding-right:${v}rem;}`,
+	pt: (v) => `{padding-top:${v}rem;}`,
+	pb: (v) => `{padding-bottom:${v}rem;}`,
+	py: (v) => `{padding-top:${v}rem;padding-bottom:${v}rem;}`,
+	// edge size
+	el: (v) => `{border-left:${v}rem;}`,
+	er: (v) => `{border-right:${v}rem;}`,
+	ex: (v) => `{border-left:${v}rem;border-right:${v}rem;}`,
+	et: (v) => `{border-top:${v}rem;}`,
+	eb: (v) => `{border-bottom:${v}rem;}`,
+	ey: (v) => `{border-top:${v}rem;border-bottom:${v}rem;}`,
+	// outside size
 	ol: (v) => `{margin-left:${v}rem;}`,
 	or: (v) => `{margin-right:${v}rem;}`,
+	ox: (v) => `{margin-left:${v}rem;margin-right:${v}rem;}`,
+	ot: (v) => `{margin-top:${v}rem;}`,
+	ob: (v) => `{margin-bottom:${v}rem;}`,
+	oy: (v) => `{margin-top:${v}rem;margin-bottom:${v}rem;}`,
+	// layer , position
+	z: (v) => `{z-index:${v}}`,
+	// layout see vars
+	// other
+	c: (v) => `{background-color:${v};}`,
+	d: (v) => `{border-radius:${v}rem;}`, // disc
+	// todo shadow
+	// text:
+	ty: (v) => `{line-height:${v};}`,
+	tx: (v) => `{letter-spacing:${v};}`,
 	tc: (v) => `{color:${v};}`,
-	tc_h: (v) => `:hover{color:${v};}`,
+	tf: (v) => `{font-family:${v};}`,
+	tw: (v) => `{font-weight:${v};}`,
 	ts: (v) => `{font-size:${v};}`,
 	s: (v) => `{font-size:${v};}`,
+	tc_h: (v) => `:hover{color:${v};}`,
 }
 /*
 screens: {
@@ -92,7 +130,10 @@ var convert_v2 = (v) => {
 	v.split(/\s+/).forEach((c) => {
 		var [key, value] = c.split("=")
 		if (!(key in s)) return
-		var cla = `@media screen and (min-width:800px){${key}\\=${value}${s[key](value)}}`.replace(".", "\\.")
+		var cla = `@media screen and (min-width:800px){${key}\\=${value}${s[key](value)}}`.replace(
+			".",
+			"\\.",
+		)
 		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
 	})
 	if (newStyles) styleElement.textContent += newStyles
