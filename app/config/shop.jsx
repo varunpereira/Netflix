@@ -115,7 +115,7 @@ screens: {
 		@media screen and (min-width:800px){
  */
 
-var convert_v0 = (v) => {
+var convert_v1 = (v) => {
 	var styleElement = document.getElementById("style")
 	var existingStyles = styleElement.textContent
 	var newStyles = ""
@@ -135,7 +135,55 @@ var convert_v2 = (v) => {
 	v.split(/\s+/).forEach((c) => {
 		var [key, value] = c.split("=")
 		if (!(key in s)) return
-		var cla = `@media screen and (min-width:800px){${key}\\=${value}${s[key](value)}}`.replace(
+		var cla = `@media screen and (min-width:320px){${key}\\=${value}${s[key](value)}}`.replace(
+			".",
+			"\\.",
+		)
+		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
+	})
+	if (newStyles) styleElement.textContent += newStyles
+}
+
+var convert_v3 = (v) => {
+	var styleElement = document.getElementById("style")
+	var existingStyles = styleElement.textContent
+	var newStyles = ""
+	v.split(/\s+/).forEach((c) => {
+		var [key, value] = c.split("=")
+		if (!(key in s)) return
+		var cla = `@media screen and (min-width:640px){${key}\\=${value}${s[key](value)}}`.replace(
+			".",
+			"\\.",
+		)
+		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
+	})
+	if (newStyles) styleElement.textContent += newStyles
+}
+
+var convert_v4 = (v) => {
+	var styleElement = document.getElementById("style")
+	var existingStyles = styleElement.textContent
+	var newStyles = ""
+	v.split(/\s+/).forEach((c) => {
+		var [key, value] = c.split("=")
+		if (!(key in s)) return
+		var cla = `@media screen and (min-width:1024px){${key}\\=${value}${s[key](value)}}`.replace(
+			".",
+			"\\.",
+		)
+		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
+	})
+	if (newStyles) styleElement.textContent += newStyles
+}
+
+var convert_v5 = (v) => {
+	var styleElement = document.getElementById("style")
+	var existingStyles = styleElement.textContent
+	var newStyles = ""
+	v.split(/\s+/).forEach((c) => {
+		var [key, value] = c.split("=")
+		if (!(key in s)) return
+		var cla = `@media screen and (min-width:1280px){${key}\\=${value}${s[key](value)}}`.replace(
 			".",
 			"\\.",
 		)
@@ -150,8 +198,11 @@ export var D = (props) => {
 	// onCleanup(() => {
 	// })
 	// var custom = props?.custom
-	props?.style && convert_v0(props?.style)
-	props?.style_v2 && convert_v2(props?.style_v2)
+	props?.v1 && convert_v1(props?.v1)
+	props?.v2 && convert_v2(props?.v2)
+	props?.v3 && convert_v3(props?.v3)
+	props?.v4 && convert_v4(props?.v4)
+	props?.v5 && convert_v5(props?.v5)
 	return (
 		<div
 			onClick={props?.click}
@@ -160,29 +211,38 @@ export var D = (props) => {
 			onKeyDown={props?.key}
 			// use:custom
 			ref={props?.ref}
-			style={props?.css}
-			class={`${props?.style} ${props?.style_v2}`}>
+			v1={props?.css}
+			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
 			{props.children}
 		</div>
 	)
 }
 export var T = (props) => {
-	props?.style && convert_v0(props?.style)
-	props?.style_v2 && convert_v2(props?.style_v2)
-	return <p class={`${props?.style} ${props?.style_v2}`}>{props.children}</p>
+	props?.v1 && convert_v1(props?.v1)
+	props?.v2 && convert_v2(props?.v2)
+	props?.v3 && convert_v3(props?.v3)
+	props?.v4 && convert_v4(props?.v4)
+	props?.v5 && convert_v5(props?.v5)
+	return <p class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>{props.children}</p>
 }
 export var B = (props) => {
-	props?.style && convert_v0(props?.style)
-	props?.style_v2 && convert_v2(props?.style_v2)
+	props?.v1 && convert_v1(props?.v1)
+	props?.v2 && convert_v2(props?.v2)
+	props?.v3 && convert_v3(props?.v3)
+	props?.v4 && convert_v4(props?.v4)
+	props?.v5 && convert_v5(props?.v5)
 	return (
-		<button type="button" onClick={props?.click} class={`${props?.style} ${props?.style_v2}`}>
+		<button type="button" onClick={props?.click} class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
 			{props.children}
 		</button>
 	)
 }
 export var I = (props) => {
-	props?.style && convert_v0(props?.style)
-	props?.style_v2 && convert_v2(props?.style_v2)
+	props?.v1 && convert_v1(props?.v1)
+	props?.v2 && convert_v2(props?.v2)
+	props?.v3 && convert_v3(props?.v3)
+	props?.v4 && convert_v4(props?.v4)
+	props?.v5 && convert_v5(props?.v5)
 	return <input
 		type={props?.type}
 		value={props?.value}
@@ -191,12 +251,15 @@ export var I = (props) => {
 		onClick={props?.click}
 		onKeyDown={props?.key}
 		ref={props?.ref}
-		class={`${props?.style} ${props?.style_v2}`}
+		class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}
 	/>
 }
 export var P = (props) => {
-	props?.style && convert_v0(props?.style)
-	props?.style_v2 && convert_v2(props?.style_v2)
+	props?.v1 && convert_v1(props?.v1)
+	props?.v2 && convert_v2(props?.v2)
+	props?.v3 && convert_v3(props?.v3)
+	props?.v4 && convert_v4(props?.v4)
+	props?.v5 && convert_v5(props?.v5)
 	return (
 		<img
 			src={props.value}
@@ -206,14 +269,17 @@ export var P = (props) => {
 			onMouseLeave={props?.hover_out}
 			onKeyDown={props?.key}
 			// use:custom
-			style={props?.css}
-			class={`${props?.style} ${props?.style_v2}`}
+			v1={props?.css}
+			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}
 		/>
 	)
 }
 export var V = (props) => {
-	props?.style && convert_v0(props?.style)
-	props?.style_v2 && convert_v2(props?.style_v2)
+	props?.v1 && convert_v1(props?.v1)
+	props?.v2 && convert_v2(props?.v2)
+	props?.v3 && convert_v3(props?.v3)
+	props?.v4 && convert_v4(props?.v4)
+	props?.v5 && convert_v5(props?.v5)
 	return (
 		<video
 			// {...props}
@@ -230,7 +296,7 @@ export var V = (props) => {
 			onKeyDown={props?.key}
 			ref={props?.ref}
 			// use:custom
-			class={`${props?.style} ${props?.style_v2}`}>
+			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
 			<source src={props?.value} type={props?.type} />
 			Browser doesn't support video tag.
 		</video>

@@ -68,28 +68,29 @@ export default (props) => {
 	return (
 		<>
 			<D
-				style={`p_put z=1 pl=0 pt=12 x=15 ts_2 tw_5 v3:x=30 y_full v2:il=1 v3:il=2 v4:il=2.5 v5:il=3`}>
-				<P value={show()?.logo_link} />
-				<T style={`oy=1`}>{show()?.details}</T>
-				<D style={`ax_r`}>
+				v1={`p_put z=1 pl=0 pt=12 x=15 ts_2 tw_5 y_full`}
+				v2={`il=1`}
+				v3={`x=30 il=2`}
+				v4={`il=2.5`}
+				v5={`il=3`}>
+				<P value={show()?.logo_link} v1={`x_full`}/>
+				<T v1={`oy=1`}>{show()?.details}</T>
+				<D v1={`ax_r`}>
 					<B
 						click={() => nav(`/watch/${show()?.id}`)}
-						style={`c_black opacity-[.7] d=.1 ix=1.5 iy=.4 ix=3`}>
+						v1={`c_black opacity-[.7] d=.1 ix=1.5 iy=.4 ix=3`}>
 						<T>Play</T>
 					</B>
-					<B
-						style={`ol=.75 c_black opacity-[.7] ix=1.5 d=.1 iy=.4 ix=3`}>
-						My List
-					</B>
+					<B v1={`ol=.75 c_black opacity-[.7] ix=1.5 d=.1 iy=.4 ix=3`}>My List</B>
 				</D>
 			</D>
 			<B
-				style={`p_put z=1 pr=2.5 pt=30 x=1.75 y=1.75 c_black d=999 opacity-[.7] `}
+				v1={`p_put z=1 pr=2.5 pt=30 x=1.75 y=1.75 c_black d=999 opacity-[.7] `}
 				click={() => mute(!mute())}>
 				{mute() ? <MuteIcon style="shape_c=white" /> : <VolumeIcon style="shape_c=white" />}
 			</B>
 			{/* <D
-				style={"p_put pt=0 bg-gradient-to-b from-[#141414] to-transparent x_full y=4"}
+				v1={"p_put pt=0 bg-gradient-to-b from-[#141414] to-transparent x_full y=4"}
 			/> */}
 			<video
 				src={show()?.snip_link}
@@ -102,7 +103,7 @@ export default (props) => {
 				class={`x_full y=50 ${ratio === `16:9` ? `f_full` : `f_norm`}`}
 			/>
 			{/* <D
-				style={
+				v1={
 					"p_put z=0 pt=38 bg-gradient-to-b from-transparent to-[#141414] x_full y=12"
 				}
 			/> */}

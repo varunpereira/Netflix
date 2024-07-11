@@ -27,10 +27,10 @@ export default () => {
 	})
 
 	return (
-		<D style={`z_fit z=1`}>
+		<D v1={`z_fit z=1`}>
 			<Snip show_id={() => data()?.snip?.show_id} ratio={`16:9`} />
 			<D
-				style={`p_put z=1 top-[70rem] x_full y_full ay_mid v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
+				v1={`p_put z=1 top-[70rem] x_full y_full ay_mid v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				{data()?.tapes?.map((v, i) => (
 					<Tape show_ids={v?.show_ids} title={v?.title} i={i} />
 				))}
