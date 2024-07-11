@@ -51,9 +51,9 @@ export var dic = Object
 var s = {
 	x: (v) => `{width:${v}rem;}`,
 	x_p: (v) => `{width:${v}%;}`,
-	ot:(v) => `{margin-top:${v}rem;}`,
-	ol:(v) => `{margin-left:${v}rem;}`,
-	or:(v) => `{margin-right:${v}rem;}`,
+	ot: (v) => `{margin-top:${v}rem;}`,
+	ol: (v) => `{margin-left:${v}rem;}`,
+	or: (v) => `{margin-right:${v}rem;}`,
 	tc: (v) => `{color:${v};}`,
 	tc_h: (v) => `:hover{color:${v};}`,
 	ts: (v) => `{font-size:${v};}`,
@@ -69,27 +69,36 @@ screens: {
 			v6: "1280px",
 		},
 		replaces first . with ./
+		@media screen and (min-width:800px){here}
  */
 
 var convert_v0 = (v) => {
+	var styleElement = document.getElementById("style")
+	var existingStyles = styleElement.textContent
+	var newStyles = ""
 	v.split(/\s+/).forEach((c) => {
-		var cl = c.split("=")
-		if (!(cl[0] in s)) return
-		var cla = `${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}`.replace('.', '\\.')
-		!document.getElementById("style").innerHTML.includes(cla) &&
-			(document.getElementById("style").innerHTML += `.${cla}`)
+		var [key, value] = c.split("=")
+		if (!(key in s)) return
+		var cla = `${key}\\=${value}${s[key](value)}`.replace(".", "\\.")
+		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
 	})
+	if (newStyles) styleElement.textContent += newStyles
 }
 
 var convert_v2 = (v) => {
+	var styleElement = document.getElementById("style")
+	var existingStyles = styleElement.textContent
+	var newStyles = ""
 	v.split(/\s+/).forEach((c) => {
-		var cl = c.split("=")
-		if (!(cl[0] in s)) return
-		var cla = `@media screen and (min-width:800px){.${cl[0]}\\=${cl[1]}${s?.[cl[0]](cl[1])}}`.replace('.', '\\.')
-		!document.getElementById("style").innerHTML.includes(cla) &&
-			(document.getElementById("style").innerHTML += `.${cla}`)
+		var [key, value] = c.split("=")
+		if (!(key in s)) return
+		var cla = `${key}\\=${value}${s[key](value)}`.replace(".", "\\.")
+		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
 	})
+	if (newStyles) styleElement.textContent += newStyles
 }
+
+
 
 // structs
 export var D = (props) => {
@@ -157,7 +166,7 @@ export var V = (props) => (
 		// {...props}
 		preload="none"
 		poster={props?.def}
-		loop={props?.rep} 
+		loop={props?.rep}
 		controls={props?.controls}
 		muted={props?.mute}
 		autoPlay={true} // must mute first
@@ -175,8 +184,7 @@ export var V = (props) => (
 )
 
 // networks
-export var auth = async (link) => {
-}
+export var auth = async (link) => {}
 
 export var req = async (link = "", value = {}) => {
 	var response = await fetch(
