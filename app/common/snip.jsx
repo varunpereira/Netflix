@@ -30,34 +30,7 @@ export default (props) => {
 
 	construct(() => {
 		show(db?.get_one_by_id(`shows`, show_id()))
-		video.addEventListener("progress", loadVideoChunk)
 	})
-
-	// destruct(() => {
-	// 	video.removeEventListener("progress", loadVideoChunk)
-	// })
-
-	var loadVideoChunk = () => {
-		return
-	  const bufferedEnd = video.buffered.length > 0 ? video.buffered.end(video.buffered.length - 1) : 0;
-	  if (bufferedEnd < video.duration) {
-	    const nextChunkStart = bufferedEnd;
-	    const nextChunkEnd = Math.min(nextChunkStart + chunkSize(), video.duration);
-	    fetch(video.src)
-	      .then(response => response.arrayBuffer())
-	      .then(buffer => {
-	        videoBuffer([...videoBuffer(), buffer]);
-	        if (nextChunkEnd < video.duration) {
-	          loadVideoChunk();
-	        } else {
-	          const videoBlob = new Blob(videoBuffer(), { type: "video/mp4" });
-	          video.src = URL.createObjectURL(videoBlob);
-	          video.load();
-	        }
-	      })
-	      .catch(error => console.error("Error loading video chunk:", error));
-	  }
-	}
 
 	react(() => {
 		if (playing()) {

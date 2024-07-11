@@ -103,18 +103,49 @@ var s = {
 	shape_c: (v) => `{fill:${v};}`,
 }
 
+var sort = (cssString) =>{
+  // Split the string into individual media queries
+  const mediaQueries = cssString.match(/@media\([^)]+\)[^}]+}/g);
+  // Create an object to group queries by min-width
+  const groupedQueries = {};
+  mediaQueries && mediaQueries.forEach(query => {
+    // Extract min-width value
+    const minWidth = query.match(/min-width:(\d+)px/);
+    const width = minWidth ? parseInt(minWidth[1]) : 0;
+    // Group queries by width
+    if (!groupedQueries[width]) {
+      groupedQueries[width] = [];
+    }
+    groupedQueries[width].push(query+'\n');
+  });
+  // Sort widths in ascending order
+  const sortedWidths = Object.keys(groupedQueries).sort((a, b) => parseInt(a) - parseInt(b));
+  // Reconstruct the CSS string
+  return sortedWidths.map(width => groupedQueries[width].join('')).join('');
+}
+
+// Example usage:
+const css = `
+@media(min-width:0px){.z\=0{z-index:0}}
+@media(min-width:320px){.x_max\=60{max-width:60rem;}}
+@media(min-width:1024px){.x_max\=120{max-width:120rem;}}
+@media(min-width:0px){.z\=1{z-index:1}}
+`
 var engine = (v,mw) => {
 	if(!v) return
-	var styleElement = document.getElementById("style")
-	var existingStyles = styleElement.textContent
-	var newStyles = ""
+	var elem = document.getElementById("style")
+	var to_add = ""
 	v.split(/\s+/).forEach((d) => {
 		var [key, value] = d.split("=")
 		if (!(key in s)) return
-		var c = `@media(min-width:${mw}px){.${key}\\=${value.replace(".", "\\.")}${s[key](value)}}`
-		if (!existingStyles.includes(c)) newStyles += c
+		var c = `@media(min-width:${mw}px){.${key}\\=${value.replace(".", "\\.")}${s[key](value)}}\n`
+		if (!elem.textContent.includes(c)) to_add += c
 	})
-	if (newStyles) styleElement.textContent += newStyles
+	if (to_add) {
+		elem.textContent += to_add
+		elem.textContent = sort(elem.textContent)
+		write(elem.textContent)
+	}
 }
 
 var convert = (props) => {
@@ -148,11 +179,7 @@ export var D = (props) => {
 	)
 }
 export var T = (props) => {
-	props?.v1 && convert_v1(props?.v1)
-	props?.v2 && convert_v2(props?.v2)
-	props?.v3 && convert_v3(props?.v3)
-	props?.v4 && convert_v4(props?.v4)
-	props?.v5 && convert_v5(props?.v5)
+	convert(props)
 	return <p class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>{props.children}</p>
 }
 export var B = (props) => {
@@ -186,7 +213,6 @@ export var P = (props) => {
 			onMouseOver={props?.hover_in}
 			onMouseLeave={props?.hover_out}
 			onKeyDown={props?.key}
-			// use:custom
 			v1={props?.css}
 			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}
 		/>
@@ -209,7 +235,6 @@ export var V = (props) => {
 			onMouseLeave={props?.hover_out}
 			onKeyDown={props?.key}
 			ref={props?.ref}
-			// use:custom
 			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
 			<source src={props?.value} type={props?.type} />
 			Browser doesn't support video tag.
