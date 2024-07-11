@@ -39,7 +39,7 @@ export default () => {
 				<Home />
 			) : (
 				<D style={`fit_1 pt-[10rem] ay_top sy_mid tc_grey`}>
-					<D style={`z_put top-0 left-0 fit_1 v4:my-[1.25rem] h-[6rem] pt-[.5rem] v4:pt-0`}>
+					<D style={`p_put top-0 pl=0 fit_1 v4:my-[1.25rem] h-[6rem] pt-[.5rem] v4:pt-0`}>
 						<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem]"}>
 							<P value={"/config/logo.png"} style={` w-[6rem] see_null v5:see_full`} />
 							<P value={"/config/logo_small.png"} style={`w-[1.75rem] v5:see_null`} />

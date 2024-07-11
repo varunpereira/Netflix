@@ -52,7 +52,7 @@ export default () => {
 
 	var ProfileList = () => (
 		<D
-			style={`v4:z_put z-[3] v4:top-[2.5rem] v4:right-[1.5rem] v5:right-[3rem] v4:c_black v4:opacity-[.8] w-full v4:w-[10rem] ay_top sy_mid v4:sy_right px-[.5rem] py-[1rem] `}>
+			style={`v4:p_put z-[3] v4:top-[2.5rem] v4:right-[1.5rem] v5:right-[3rem] v4:c_black v4:opacity-[.8] x_full v4:w-[10rem] ay_top sy_mid v4:sy_right px-[.5rem] py-[1rem] `}>
 			<D style="ay_mid">
 				{profiles()
 					.filter((v) => v?.id !== profile()?.id)
@@ -74,7 +74,7 @@ export default () => {
 		<>
 			<D
 				style={
-					"z_put z-[2] c_grey_2 v4:c_null w_full fit_1 v4:ax_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
+					"p_put z-[2] c_grey_2 v4:c_null x_full fit_1 v4:ax_same pt-[.5rem] v4:pt-0 v4:my-[1.25rem] "
 				}>
 				{/* why not w 6rem try uncom footer */}
 				<B click={() => nav("/")} style={"tc_1 tw_1 ts_3 mr-[1rem] v5:mr-[2rem] v5:w-[7rem] "}>
@@ -84,7 +84,7 @@ export default () => {
 				<D
 					style={`${
 						!menu_on() && `see_null`
-					} ay_top v4:ax_same w-full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
+					} ay_top v4:ax_same x_full tc_grey ts_1 mb-[1rem] v4:mb-0`}>
 					<D style={`ay_top v4:ax_same`}>
 						{menu_ops.slice(0, -1).map((v, i) => (
 							<B
@@ -125,7 +125,7 @@ export default () => {
 			</D>
 			<B
 				click={() => menu_on(!menu_on())}
-				style={`z_put z-[2] right-[1rem] top-[.5rem] see_full v4:see_null w-[1.75rem] h-[1.75rem]`}>
+				style={`p_put z-[2] right-[1rem] top-[.5rem] see_full v4:see_null w-[1.75rem] h-[1.75rem]`}>
 				<MenuIcon style={`stroke-white stroke-[.1rem]`} />
 			</B>
 		</>

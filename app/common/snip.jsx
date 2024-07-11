@@ -33,9 +33,9 @@ export default (props) => {
 		video.addEventListener("progress", loadVideoChunk)
 	})
 
-	destruct(() => {
-		video.removeEventListener("progress", loadVideoChunk)
-	})
+	// destruct(() => {
+	// 	video.removeEventListener("progress", loadVideoChunk)
+	// })
 
 	var loadVideoChunk = () => {
 		return
@@ -68,29 +68,29 @@ export default (props) => {
 	return (
 		<>
 			<D
-				style={`z_put z-[1] left-0 top-[12rem] w-[15rem] ts_2 tw_5 v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
+				style={`p_put z=1 pl=0 pt=12 x=15 ts_2 tw_5 v3:x=30 y_full v2:il=1 v3:il=2 v4:il=2.5 v5:il=3`}>
 				<P value={show()?.logo_link} />
-				<T style={`my-[1rem]`}>{show()?.details}</T>
-				<D style={`ax_right`}>
+				<T style={`oy=1`}>{show()?.details}</T>
+				<D style={`ax_r`}>
 					<B
 						click={() => nav(`/watch/${show()?.id}`)}
-						style={`c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
+						style={`c_black opacity-[.7] d=.1 ix=1.5 iy=.4 ix=3`}>
 						<T>Play</T>
 					</B>
 					<B
-						style={`ml-[.75rem] c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `}>
+						style={`ol=.75 c_black opacity-[.7] ix=1.5 d=.1 iy=.4 ix=3`}>
 						My List
 					</B>
 				</D>
 			</D>
 			<B
-				style={`z_put z-[1] right-[2.5rem] top-[30rem] opacity w-[1.75rem] h-[1.75rem] c_black rounded-full opacity-[.7] `}
+				style={`p_put z=1 pr=2.5 pt=30 x=1.75 y=1.75 c_black d=999 opacity-[.7] `}
 				click={() => mute(!mute())}>
-				{mute() ? <MuteIcon style="fill-white" /> : <VolumeIcon style="fill-white" />}
+				{mute() ? <MuteIcon style="shape_c=white" /> : <VolumeIcon style="shape_c=white" />}
 			</B>
-			<D
-				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
-			/>
+			{/* <D
+				style={"p_put pt=0 bg-gradient-to-b from-[#141414] to-transparent x_full y=4"}
+			/> */}
 			<video
 				src={show()?.snip_link}
 				preload="none"
@@ -99,13 +99,13 @@ export default (props) => {
 				autoPlay
 				muted={mute()}
 				loop
-				class={`w-full h-[50rem] ${ratio === `16:9` ? `c_full` : `c_norm`}`}
+				class={`x_full y=50 ${ratio === `16:9` ? `f_full` : `f_norm`}`}
 			/>
-			<D
+			{/* <D
 				style={
-					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
+					"p_put z=0 pt=38 bg-gradient-to-b from-transparent to-[#141414] x_full y=12"
 				}
-			/>
+			/> */}
 		</>
 	)
 }

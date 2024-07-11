@@ -44,7 +44,7 @@ export default (props) => {
 		<D style={`z_fit z-[${i === sel_tape() ? "2" : "1"}] ${i && `mt-[-1rem]`}`}>
 			<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 			<D
-				style={`w-full ${
+				style={`x_full ${
 					sel_tape() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
 				} ax_right sx_mid no_scroll overflow-y-hidden ${
 					sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
@@ -77,11 +77,11 @@ export default (props) => {
 								<T style={`ml-[.5rem] mt-[-3rem] a_null z_fit z-[4]`}>{v2?.title}</T>
 							</>
 						) : (
-							<P value={v2?.cover_link} style={`w-full h-full`} />
+							<P value={v2?.cover_link} style={`x_full y_full`} />
 						)}
 					</D>
 				))}
-				<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] ax_mid sx_mid"}>
+				<B style={"p_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] ax_mid sx_mid"}>
 					{sel_tape() === i && (
 						<D style={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
 							<ChevronRightIcon />

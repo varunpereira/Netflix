@@ -6,21 +6,6 @@ $grey_2: #141414;
 $red: red;
 $v2_tc: white;
 
-button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  outline: none;
-}
-
-img {
-	display: block;
-}
-
 // fit
 .fit_1 {
 	padding: 0 2rem 0 2rem
@@ -122,11 +107,11 @@ img {
 }
 
 // box size/space
-.w_full {
+.x_full {
 	width: 100%;
 }
 
-.h_full {
+.y_full {
 	height: 100%;
 }
 
@@ -321,43 +306,34 @@ img {
 .see_size {
 	visibility: hidden;
 }
+// position. sometimes add z-[n], n is int
 .p_norm {
 	position: static;
 }
-
 .p_fit {
 	position: relative;
 }
-
-// sometimes add z-[n], n is int
 .p_put {
 	position: absolute;
 }
-
 .p_fix {
 	position: sticky;
 }
-
-.left_auto {
+.pl_auto {
 	left: auto;
 }
-
-.right_auto {
+.pr_auto {
 	right: auto;
 }
-
-.top_auto {
+.pt_auto {
 	top: auto;
 }
-
-.bottom_auto {
+.pb_auto {
 	bottom: auto;
 }
-
-.cursor_pointer {
+.pointer {
 	cursor: pointer;
 }
-
 .slider {
 	width: 100%;
 	height: 0.3rem;
@@ -409,22 +385,34 @@ img {
 	-webkit-transition-timing-function: ease-in-out;
 }
 
-/* viewport - see config (v1 - v5) */
-/* default: block, also: flex, grid */
-// states : hover:tc_red , focus:c_blue ,
-// use rem, based of root or %
 :root {
 	font-size: 16px;
 }
-
 *,
 *:focus,
 *:active {
 	outline: none;
 }
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+img {
+	display: block;
+}
 
 /*
-	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 left-0),
+ viewport - see config (v1 - v5)
+ default: block, also: flex, grid 
+states : hover:tc_red , focus:c_blue ,
+use rem, based of root or %
+	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 pl=0),
 	css dont use confusing: space auto like mx-auto (use align/shift).
 	outline doesnt work safari.
 	tailwind: *,first,last: states dont work

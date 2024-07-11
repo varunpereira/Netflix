@@ -33,13 +33,13 @@ var routes = [
 page.title = "Netflix"
 page.getElementById("logo").href = "/config/logo_small.png"
 page.getElementById("color").content = "c_grey_2"
-page.getElementById("body").className = "c_grey_2 tc_white ts_2 tf_1 ay_top sx_mid"
+page.getElementById("body").className = "c_grey_2 tc_white ts_2 tf_1 ay_t mx_core"
 
 var root = () => {
 	profile(db?.get_auth())
 	return (
 		<Router>
-			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
+			<D style={`x_full x_min=20 x_max=60 v5:x_max=120 p_fit z=0`}>
 				{/* {profile() && show_nav() && <Nav />} */}
 				<Routes>
 					{routes?.map((route) => (

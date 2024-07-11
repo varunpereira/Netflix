@@ -41,7 +41,7 @@ export default () => {
 			<D
 				css={"transition: width 1s ease-in-out;"}
 				style={`ax_right sx_mid bc_white px-[.1rem] c_black mt-[1rem] v4:mt-[0rem] 
-							${!see_search() ? `size_0` : `w-full v4:w-[14rem] h-[1.7rem] bw_2`}`}>
+							${!see_search() ? `size_0` : `x_full v4:w-[14rem] h-[1.7rem] bw_2`}`}>
 				<B
 					click={get_results}>
 					<SearchIcon style='stroke_white stroke-[2rem] w-[1.25rem] h-[1.25rem]'/>
@@ -54,7 +54,7 @@ export default () => {
 						get_results()
 					}}
 					holder={"Title, people, genres"}
-					style={`c_black tc_white ml-[.3rem] w-full`}
+					style={`c_black tc_white ml-[.3rem] x_full`}
 				/>
 				{form().search.trim() !== "" && (
 					<B

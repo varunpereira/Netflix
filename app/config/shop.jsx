@@ -60,12 +60,12 @@ var s = {
 	x_max: (v) => `{max-width:${v}rem;}`,
 	y_max: (v) => `{max-height:${v}rem;}`,
 	// inside size
-	pl: (v) => `{padding-left:${v}rem;}`,
-	pr: (v) => `{padding-right:${v}rem;}`,
-	px: (v) => `{padding-left:${v}rem;padding-right:${v}rem;}`,
-	pt: (v) => `{padding-top:${v}rem;}`,
-	pb: (v) => `{padding-bottom:${v}rem;}`,
-	py: (v) => `{padding-top:${v}rem;padding-bottom:${v}rem;}`,
+	il: (v) => `{padding-left:${v}rem;}`,
+	ir: (v) => `{padding-right:${v}rem;}`,
+	ix: (v) => `{padding-left:${v}rem;padding-right:${v}rem;}`,
+	it: (v) => `{padding-top:${v}rem;}`,
+	ib: (v) => `{padding-bottom:${v}rem;}`,
+	iy: (v) => `{padding-top:${v}rem;padding-bottom:${v}rem;}`,
 	// edge size
 	el: (v) => `{border-left:${v}rem;}`,
 	er: (v) => `{border-right:${v}rem;}`,
@@ -82,20 +82,25 @@ var s = {
 	oy: (v) => `{margin-top:${v}rem;margin-bottom:${v}rem;}`,
 	// layer , position
 	z: (v) => `{z-index:${v}}`,
+	pl: (v) => `{left:${v}rem;}`,
+	pr: (v) => `{right:${v}rem;}`,
+	pt: (v) => `{top:${v}rem;}`,
+	pb: (v) => `{bottom:${v}rem;}`,
 	// layout see vars
 	// other
 	c: (v) => `{background-color:${v};}`,
 	d: (v) => `{border-radius:${v}rem;}`, // disc
 	// todo shadow
 	// text:
+	ts: (v) => `{font-size:${v}rem;}`,
 	ty: (v) => `{line-height:${v};}`,
 	tx: (v) => `{letter-spacing:${v};}`,
 	tc: (v) => `{color:${v};}`,
 	tf: (v) => `{font-family:${v};}`,
 	tw: (v) => `{font-weight:${v};}`,
-	ts: (v) => `{font-size:${v};}`,
-	s: (v) => `{font-size:${v};}`,
 	tc_h: (v) => `:hover{color:${v};}`,
+	// svg
+	shape_c: (v) => `{fill:${v};}`,
 }
 /*
 screens: {
@@ -175,8 +180,10 @@ export var B = (props) => {
 		</button>
 	)
 }
-export var I = (props) => (
-	<input
+export var I = (props) => {
+	props?.style && convert_v0(props?.style)
+	props?.style_v2 && convert_v2(props?.style_v2)
+	return <input
 		type={props?.type}
 		value={props?.value}
 		placeholder={props.holder}
@@ -184,43 +191,51 @@ export var I = (props) => (
 		onClick={props?.click}
 		onKeyDown={props?.key}
 		ref={props?.ref}
-		class={props?.style}
+		class={`${props?.style} ${props?.style_v2}`}
 	/>
-)
-export var P = (props) => (
-	<img
-		src={props.value}
-		alt={props.def}
-		onClick={props?.click}
-		onMouseOver={props?.hover_in}
-		onMouseLeave={props?.hover_out}
-		onKeyDown={props?.key}
-		// use:custom
-		style={props?.css}
-		class={props.style}
-	/>
-)
-export var V = (props) => (
-	<video
-		// {...props}
-		preload="none"
-		poster={props?.def}
-		loop={props?.rep}
-		controls={props?.controls}
-		muted={props?.mute}
-		autoPlay={true} // must mute first
-		playsinline
-		onClick={props?.click}
-		onMouseOver={props?.hover_in}
-		onMouseLeave={props?.hover_out}
-		onKeyDown={props?.key}
-		ref={props?.ref}
-		// use:custom
-		class={props?.style}>
-		<source src={props?.value} type={props?.type} />
-		Browser doesn't support video tag.
-	</video>
-)
+}
+export var P = (props) => {
+	props?.style && convert_v0(props?.style)
+	props?.style_v2 && convert_v2(props?.style_v2)
+	return (
+		<img
+			src={props.value}
+			alt={props.def}
+			onClick={props?.click}
+			onMouseOver={props?.hover_in}
+			onMouseLeave={props?.hover_out}
+			onKeyDown={props?.key}
+			// use:custom
+			style={props?.css}
+			class={`${props?.style} ${props?.style_v2}`}
+		/>
+	)
+}
+export var V = (props) => {
+	props?.style && convert_v0(props?.style)
+	props?.style_v2 && convert_v2(props?.style_v2)
+	return (
+		<video
+			// {...props}
+			preload="none"
+			poster={props?.def}
+			loop={props?.rep}
+			controls={props?.controls}
+			muted={props?.mute}
+			autoPlay={true} // must mute first
+			playsinline
+			onClick={props?.click}
+			onMouseOver={props?.hover_in}
+			onMouseLeave={props?.hover_out}
+			onKeyDown={props?.key}
+			ref={props?.ref}
+			// use:custom
+			class={`${props?.style} ${props?.style_v2}`}>
+			<source src={props?.value} type={props?.type} />
+			Browser doesn't support video tag.
+		</video>
+	)
+}
 
 // networks
 export var auth = async (link) => {}

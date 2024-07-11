@@ -54,12 +54,12 @@ export default () => {
 	})
 
 	return (
-		<D style={`fit_1 pt-[10rem] hover:px-0 ay_mid w-full h-full overflow-x-hidden`}>
+		<D style={`fit_1 pt-[10rem] hover:px-0 ay_mid x_full y_full overflow-x-hidden`}>
 			{data().map((v, i) => (
 				<D
 					style={`z_fit z-[${
 						i === sel_tape() ? "1" : "0"
-					}] w-full h-[14rem] ax_mid sx_mid mt-[-3rem] `}>
+					}] x_full h-[14rem] ax_mid sx_mid mt-[-3rem] `}>
 					{/* rep piece */}
 					{v.map((v2, i2) => (
 						<D
@@ -88,7 +88,7 @@ export default () => {
 									<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null z_fit z-[4]`}>{v2?.title}</T>
 								</>
 							) : (
-								<P value={v2?.cover_link} style={`w-full h-full`} />
+								<P value={v2?.cover_link} style={`x_full y_full`} />
 							)}
 						</D>
 					))}
