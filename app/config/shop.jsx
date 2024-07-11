@@ -69,7 +69,7 @@ screens: {
 			v6: "1280px",
 		},
 		replaces first . with ./
-		@media screen and (min-width:800px){here}
+		@media screen and (min-width:800px){
  */
 
 var convert_v0 = (v) => {
@@ -92,13 +92,11 @@ var convert_v2 = (v) => {
 	v.split(/\s+/).forEach((c) => {
 		var [key, value] = c.split("=")
 		if (!(key in s)) return
-		var cla = `${key}\\=${value}${s[key](value)}`.replace(".", "\\.")
+		var cla = `@media screen and (min-width:800px){${key}\\=${value}${s[key](value)}}`.replace(".", "\\.")
 		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
 	})
 	if (newStyles) styleElement.textContent += newStyles
 }
-
-
 
 // structs
 export var D = (props) => {
