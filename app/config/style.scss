@@ -6,6 +6,8 @@ $grey_2: #141414;
 $red: red;
 $v2_tc: white;
 
+@media(min-width:0px){.x1{background-color:red;}}/**/@media(min-width:640px){.x1{background-color:blue;}}
+// arr split by /**/
 // fit
 .fit_1 {
 	padding: 0 2rem 0 2rem
@@ -423,6 +425,7 @@ video {
 }
 
 /*
+last most class in file is used, each elem can have only one property
  viewport - see config (v1 - v5)
  default: block, also: flex, grid 
 states : hover:tc_red , focus:c_blue ,

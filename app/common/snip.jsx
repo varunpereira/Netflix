@@ -73,7 +73,7 @@ export default (props) => {
 				v3={`x=30 il=2`}
 				v4={`il=2.5`}
 				v5={`il=3`}>
-				<P value={show()?.logo_link} v1={`x_full`}/>
+				<P value={show()?.logo_link} />
 				<T v1={`oy=1`}>{show()?.details}</T>
 				<D v1={`ax_r`}>
 					<B
@@ -97,7 +97,7 @@ export default (props) => {
 				preload="none"
 				ref={video}
 				playsInline
-				autoPlay
+				// autoPlay
 				muted={mute()}
 				loop
 				class={`x_full y=50 ${ratio === `16:9` ? `f_full` : `f_norm`}`}

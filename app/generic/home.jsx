@@ -27,8 +27,9 @@ export default () => {
 	})
 
 	return (
-		<D v1={`p_fit z=1 x_full pl=0`}>
-			<Snip show_id={() => data()?.snip?.show_id} />
+		<D v1={`p_fit z=1 x_full pl=0 ot=10.5`}>
+			<div class='x1 x2 '>d</div>
+			{/* <Snip show_id={() => data()?.snip?.show_id} /> */}
 			{/* <D
 				v1={`p_put z=1 pt=70 x_full y_full ay_core`}
 				v2={`il=1`}

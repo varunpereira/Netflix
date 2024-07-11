@@ -102,94 +102,28 @@ var s = {
 	// svg
 	shape_c: (v) => `{fill:${v};}`,
 }
-/*
-screens: {
-			v1: "0px",
-			v2: "320px",
-			v3: "640px",
-			v4: "768px",
-			v5: "1024px",
-			v6: "1280px",
-		},
-		replaces first . with ./
-		@media screen and (min-width:800px){
- */
 
-var convert_v1 = (v) => {
+var engine = (v,mw) => {
+	if(!v) return
 	var styleElement = document.getElementById("style")
 	var existingStyles = styleElement.textContent
 	var newStyles = ""
-	v.split(/\s+/).forEach((c) => {
-		var [key, value] = c.split("=")
+	v.split(/\s+/).forEach((d) => {
+		var [key, value] = d.split("=")
 		if (!(key in s)) return
-		var cla = `${key}\\=${value}${s[key](value)}`.replace(".", "\\.")
-		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
+		var c = `@media(min-width:${mw}px){.${key}\\=${value.replace(".", "\\.")}${s[key](value)}}`
+		if (!existingStyles.includes(c)) newStyles += c
 	})
 	if (newStyles) styleElement.textContent += newStyles
 }
 
-var convert_v2 = (v) => {
-	var styleElement = document.getElementById("style")
-	var existingStyles = styleElement.textContent
-	var newStyles = ""
-	v.split(/\s+/).forEach((c) => {
-		var [key, value] = c.split("=")
-		if (!(key in s)) return
-		var cla = `@media screen and (min-width:320px){${key}\\=${value}${s[key](value)}}`.replace(
-			".",
-			"\\.",
-		)
-		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
-	})
-	if (newStyles) styleElement.textContent += newStyles
-}
-
-var convert_v3 = (v) => {
-	var styleElement = document.getElementById("style")
-	var existingStyles = styleElement.textContent
-	var newStyles = ""
-	v.split(/\s+/).forEach((c) => {
-		var [key, value] = c.split("=")
-		if (!(key in s)) return
-		var cla = `@media screen and (min-width:640px){${key}\\=${value}${s[key](value)}}`.replace(
-			".",
-			"\\.",
-		)
-		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
-	})
-	if (newStyles) styleElement.textContent += newStyles
-}
-
-var convert_v4 = (v) => {
-	var styleElement = document.getElementById("style")
-	var existingStyles = styleElement.textContent
-	var newStyles = ""
-	v.split(/\s+/).forEach((c) => {
-		var [key, value] = c.split("=")
-		if (!(key in s)) return
-		var cla = `@media screen and (min-width:1024px){${key}\\=${value}${s[key](value)}}`.replace(
-			".",
-			"\\.",
-		)
-		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
-	})
-	if (newStyles) styleElement.textContent += newStyles
-}
-
-var convert_v5 = (v) => {
-	var styleElement = document.getElementById("style")
-	var existingStyles = styleElement.textContent
-	var newStyles = ""
-	v.split(/\s+/).forEach((c) => {
-		var [key, value] = c.split("=")
-		if (!(key in s)) return
-		var cla = `@media screen and (min-width:1280px){${key}\\=${value}${s[key](value)}}`.replace(
-			".",
-			"\\.",
-		)
-		if (!existingStyles.includes(cla)) newStyles += `.${cla}`
-	})
-	if (newStyles) styleElement.textContent += newStyles
+var convert = (props) => {
+	engine(props?.v1, '0')
+	engine(props?.v2, '320')
+	engine(props?.v3, '640')
+	engine(props?.v4, '768')
+	engine(props?.v5, '1024')
+	// engine(props?.v6, '1280')
 }
 
 // structs
@@ -198,11 +132,7 @@ export var D = (props) => {
 	// onCleanup(() => {
 	// })
 	// var custom = props?.custom
-	props?.v1 && convert_v1(props?.v1)
-	props?.v2 && convert_v2(props?.v2)
-	props?.v3 && convert_v3(props?.v3)
-	props?.v4 && convert_v4(props?.v4)
-	props?.v5 && convert_v5(props?.v5)
+	convert(props)
 	return (
 		<div
 			onClick={props?.click}
@@ -226,11 +156,7 @@ export var T = (props) => {
 	return <p class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>{props.children}</p>
 }
 export var B = (props) => {
-	props?.v1 && convert_v1(props?.v1)
-	props?.v2 && convert_v2(props?.v2)
-	props?.v3 && convert_v3(props?.v3)
-	props?.v4 && convert_v4(props?.v4)
-	props?.v5 && convert_v5(props?.v5)
+	convert(props)
 	return (
 		<button type="button" onClick={props?.click} class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
 			{props.children}
@@ -238,11 +164,7 @@ export var B = (props) => {
 	)
 }
 export var I = (props) => {
-	props?.v1 && convert_v1(props?.v1)
-	props?.v2 && convert_v2(props?.v2)
-	props?.v3 && convert_v3(props?.v3)
-	props?.v4 && convert_v4(props?.v4)
-	props?.v5 && convert_v5(props?.v5)
+	convert(props)
 	return <input
 		type={props?.type}
 		value={props?.value}
@@ -255,11 +177,7 @@ export var I = (props) => {
 	/>
 }
 export var P = (props) => {
-	props?.v1 && convert_v1(props?.v1)
-	props?.v2 && convert_v2(props?.v2)
-	props?.v3 && convert_v3(props?.v3)
-	props?.v4 && convert_v4(props?.v4)
-	props?.v5 && convert_v5(props?.v5)
+	convert(props)
 	return (
 		<img
 			src={props.value}
@@ -275,11 +193,7 @@ export var P = (props) => {
 	)
 }
 export var V = (props) => {
-	props?.v1 && convert_v1(props?.v1)
-	props?.v2 && convert_v2(props?.v2)
-	props?.v3 && convert_v3(props?.v3)
-	props?.v4 && convert_v4(props?.v4)
-	props?.v5 && convert_v5(props?.v5)
+	convert(props)
 	return (
 		<video
 			// {...props}
