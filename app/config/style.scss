@@ -393,6 +393,10 @@ $v2_tc: white;
 *:active {
 	outline: none;
 }
+body {
+	margin: 0;
+	line-height: inherit;
+}
 button {
   background: none;
   border: none;
@@ -403,8 +407,19 @@ button {
   cursor: pointer;
   outline: none;
 }
-img {
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed {
 	display: block;
+}
+video {
+	object-fit: contain;
+	overflow-clip-margin: content-box;
+	overflow: clip;
 }
 
 /*
