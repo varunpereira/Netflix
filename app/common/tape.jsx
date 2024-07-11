@@ -41,13 +41,13 @@ export default (props) => {
 	})
 
 	return (
-		<D v1={`z_fit z-[${i === sel_tape() ? "2" : "1"}] ${i && `mt-[-1rem]`}`}>
-			<T v1={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
+		<D v1={`p_fit z=${i === sel_tape() ? "2" : "1"} ${i && `ot=-1`}`}>
+			<T v1={`tw_5 ts_4 ob=-3`}>{title}</T>
 			<D
 				v1={`x_full ${
-					sel_tape() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
-				} ax_right sx_mid no_scroll overflow-y-hidden ${
-					sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
+					sel_tape() == null ? "y=7 oy=3.5" : "y=14"
+				} ax_r mx_core bar_none sy_none ${
+					sel_tape() == null || sel_tape() === i ? "sx_auto" : "sx_hide"
 				} `}>
 				{data()?.map((v2, i2) => (
 					<D
