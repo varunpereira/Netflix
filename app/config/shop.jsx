@@ -103,54 +103,23 @@ var s = {
 	shape_c: (v) => `{fill:${v};}`,
 }
 
-var sort = (cssString) =>{
-  // Split the string into individual media queries
-  const mediaQueries = cssString.match(/@media\([^)]+\)[^}]+}/g);
-  // Create an object to group queries by min-width
-  const groupedQueries = {};
-  mediaQueries && mediaQueries.forEach(query => {
-    // Extract min-width value
-    const minWidth = query.match(/min-width:(\d+)px/);
-    const width = minWidth ? parseInt(minWidth[1]) : 0;
-    // Group queries by width
-    if (!groupedQueries[width]) {
-      groupedQueries[width] = [];
-    }
-    groupedQueries[width].push(query+'}\n');
-  });
-  // Sort widths in ascending order
-  const sortedWidths = Object.keys(groupedQueries).sort((a, b) => parseInt(a) - parseInt(b));
-  // Reconstruct the CSS string
-  return sortedWidths.map(width => groupedQueries[width].join('')).join('');
-}
-
-// Example usage:
-const css = `
-@media(min-width:0px){.z\=0{z-index:0}}
-@media(min-width:320px){.x_max\=60{max-width:60rem;}}
-@media(min-width:1024px){.x_max\=120{max-width:120rem;}}
-@media(min-width:0px){.z\=1{z-index:1}}
-`
-
 var vps = {
-	v1:'0',
-	v2:'320',
-	v3:'640',
-	v4:'768',
-	v5:'1024',
-	v6:'1280',
+	v1: "0",
+	v2: "320",
+	v3: "640",
+	v4: "768",
+	v5: "1024",
+	v6: "1280",
 }
 
 var engine = (cls) => {
-	// return
-	if (!cls) return
 	var el = document.getElementById("style")
 	var cur = el.textContent
+	if (!cls) return
 	cls.split(/\s+/).forEach((c) => {
 		var [key, value, old_vp] = c.split("=")
 		if (!(key in s)) return
-		var vp = '0'
-		if (old_vp in vps) vp = vps[old_vp]
+		var vp = vps[old_vp] || "0"
 		var new_cl = `@media(min-width:${vp}px){.${key}\\=${value.replace(".", "\\.")}${
 			vp !== "0" ? `\\=${old_vp}` : ``
 		}${s[key](value)}}\n`
@@ -186,28 +155,37 @@ export var D = (props) => {
 }
 export var T = (props) => {
 	engine(props?.style)
-	return <p class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>{props.children}</p>
+	return (
+		<p class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
+			{props.children}
+		</p>
+	)
 }
 export var B = (props) => {
 	engine(props?.style)
 	return (
-		<button type="button" onClick={props?.click} class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
+		<button
+			type="button"
+			onClick={props?.click}
+			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
 			{props.children}
 		</button>
 	)
 }
 export var I = (props) => {
 	engine(props?.style)
-	return <input
-		type={props?.type}
-		value={props?.value}
-		placeholder={props.holder}
-		onInput={props?.input}
-		onClick={props?.click}
-		onKeyDown={props?.key}
-		ref={props?.ref}
-		class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}
-	/>
+	return (
+		<input
+			type={props?.type}
+			value={props?.value}
+			placeholder={props.holder}
+			onInput={props?.input}
+			onClick={props?.click}
+			onKeyDown={props?.key}
+			ref={props?.ref}
+			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}
+		/>
+	)
 }
 export var P = (props) => {
 	engine(props?.style)

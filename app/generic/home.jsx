@@ -29,7 +29,7 @@ export default () => {
 	// todo hover state, if many values eg width%, use html style attrib via css prop `width:${width}`
 
 	return (
-		<D style={`p_fit pt=12=v2 z=1 x_full pl=0 tc=red tc=blue=v3`}>
+		<D style={`p_fit pt=12=v2 z=1 z=1 x_full pl=0 tc=red tc=blue=v3`}>
 				TEST
 			{/* <div class='x1 x2 '>d</div> */}
 			{/* <Snip show_id={() => data()?.snip?.show_id} /> */}

@@ -40,7 +40,7 @@ var root = () => {
 	profile(db?.get_auth())
 	return (
 		<Router>
-			<D v1={`x_full x_min=20 p_fit z=0`} v2={`x_max=60`} v5={`x_max=120`}>
+			<D style={`x_full x_min=20 p_fit z=0 x_max=60=v2 x_max=120=v5`}>
 				{/* {profile() && show_nav() && <Nav />} */}
 				<Routes>
 					{routes?.map((route) => (

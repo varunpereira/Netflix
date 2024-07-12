@@ -430,6 +430,7 @@ last most class in file is used, each elem can have only one property
  viewport - see config (v1 - v5)
  default: block, also: flex, grid 
 states : hover:tc_red , focus:c_blue ,
+cant access dom dtlyesheet cssrules in some rbowser
 use rem, based of root or %
 	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 pl=0),
 	css dont use confusing: space auto like mx-auto (use align/shift).
