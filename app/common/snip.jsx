@@ -30,7 +30,34 @@ export default (props) => {
 
 	construct(() => {
 		show(db?.get_one_by_id(`shows`, show_id()))
+		video.addEventListener("progress", loadVideoChunk)
 	})
+
+	destruct(() => {
+		video.removeEventListener("progress", loadVideoChunk)
+	})
+
+	var loadVideoChunk = () => {
+		return
+	  const bufferedEnd = video.buffered.length > 0 ? video.buffered.end(video.buffered.length - 1) : 0;
+	  if (bufferedEnd < video.duration) {
+	    const nextChunkStart = bufferedEnd;
+	    const nextChunkEnd = Math.min(nextChunkStart + chunkSize(), video.duration);
+	    fetch(video.src)
+	      .then(response => response.arrayBuffer())
+	      .then(buffer => {
+	        videoBuffer([...videoBuffer(), buffer]);
+	        if (nextChunkEnd < video.duration) {
+	          loadVideoChunk();
+	        } else {
+	          const videoBlob = new Blob(videoBuffer(), { type: "video/mp4" });
+	          video.src = URL.createObjectURL(videoBlob);
+	          video.load();
+	        }
+	      })
+	      .catch(error => console.error("Error loading video chunk:", error));
+	  }
+	}
 
 	react(() => {
 		if (playing()) {
@@ -41,45 +68,44 @@ export default (props) => {
 	return (
 		<>
 			<D
-				v1={`p_put z=1 pl=0 pt=12 x=30 ts_2 tw_5 y_full c=white`}
-				v2={`il=1`}
-				v3={`c=red il=2`}
-				v4={`il=2.5`}
-				v5={`il=3`}>
-				{/* <P value={show()?.logo_link} v1={`w_full`}/> */}
-				<T v1={`oy=1`}>{show()?.details}</T>
-				<D v1={`ax_r`}>
+				style={`z_put z-[1] left-0 top-[12rem] w-[15rem] ts_2 tw_5 v3:w-[30rem] h_full v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem]`}>
+				<P value={show()?.logo_link} />
+				<T style={`my-[1rem]`}>{show()?.details}</T>
+				<D style={`ax_right`}>
 					<B
 						click={() => nav(`/watch/${show()?.id}`)}
-						v1={`c_black opacity-[.7] d=.1 ix=1.5 iy=.4 ix=3`}>
+						style={`c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] text-shadow-xl`}>
 						<T>Play</T>
 					</B>
-					<B v1={`ol=.75 c_black opacity-[.7] ix=1.5 d=.1 iy=.4 ix=3`}>My List</B>
+					<B
+						style={`ml-[.75rem] c_black opacity-[.7] px-[1.5rem] rounded-[.1rem] py-[.4rem] px-[3rem] `}>
+						My List
+					</B>
 				</D>
 			</D>
 			<B
-				v1={`p_put z=1 pr=2.5 pt=30 x=1.75 y=1.75 c_black d=999 opacity-[.7] `}
+				style={`z_put z-[1] right-[2.5rem] top-[30rem] opacity w-[1.75rem] h-[1.75rem] c_black rounded-full opacity-[.7] `}
 				click={() => mute(!mute())}>
-				{mute() ? <MuteIcon style="shape_c=white" /> : <VolumeIcon style="shape_c=white" />}
+				{mute() ? <MuteIcon style="fill-white" /> : <VolumeIcon style="fill-white" />}
 			</B>
-			{/* <D
-				v1={"p_put pt=0 bg-gradient-to-b from-[#141414] to-transparent x_full y=4"}
-			/> */}
+			<D
+				style={"z_put top-[0rem] bg-gradient-to-b from-[#141414] to-transparent w_full h-[4rem]"}
+			/>
 			<video
 				src={show()?.snip_link}
 				preload="none"
 				ref={video}
 				playsInline
-				// autoPlay
+				autoPlay
 				muted={mute()}
 				loop
-				class={`x_full y=50 ${ratio === `16:9` ? `f_full` : `f_norm`}`}
+				class={`w-full h-[50rem] ${ratio === `16:9` ? `c_full` : `c_norm`}`}
 			/>
-			{/* <D
-				v1={
-					"p_put z=0 pt=38 bg-gradient-to-b from-transparent to-[#141414] x_full y=12"
+			<D
+				style={
+					"z_put z-[0] top-[38rem] bg-gradient-to-b from-transparent to-[#141414] w_full h-[12rem]"
 				}
-			/> */}
+			/>
 		</>
 	)
 }

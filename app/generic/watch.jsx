@@ -94,7 +94,7 @@ export default () => {
 	}
 
 	return (
-		<D v1={`z_fit z-[0]`}>
+		<D style={`z_fit z-[0]`}>
 			{progress() != null || true ? (
 				<video
 					src={show()?.snip_link?.trim() !== "" ? show()?.snip_link : "/shows/def.mp4"}
@@ -104,18 +104,18 @@ export default () => {
 					muted={mute()}
 					playsInline
 					autoPlay
-					class={`c_full h-[100vh] x_full`}
+					class={`c_full h-[100vh] w-full`}
 				/>
 			) : (
-				<P value={show()?.cover_link} v1={`h-[100vh] x_full c_full`} />
+				<P value={show()?.cover_link} style={`h-[100vh] w-full c_full`} />
 			)}
 
 			<B
 				click={() => nav("/")}
-				v1={`p_put z-[2] top-0 pl=0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
+				style={`z_put z-[2] top-0 left-0 mt-[1rem] w-8 h-8 stroke-white stroke-[.5rem] v2:ml-[1rem] v3:ml-[2rem] v4:ml-[2.5rem] v5:ml-[3rem]`}>
 				<ArrowLeftIcon />
 			</B>
-			<D style="p_put z=1 bottom-0 pl=0 ax_same sx_bottom x_full mb-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
+			<D style="z_put z-[1] bottom-0 left-0 ax_same sx_bottom w-full mb-[.5rem] v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]">
 				<D style="ax_same">
 					<B click={() => playing(!playing())} style="w-[1.5rem] fill-white">
 						{playing() === true ? <PauseIcon /> : <PlayIcon />}
@@ -136,8 +136,8 @@ export default () => {
 			</D>
 
 			<D
-				v1={`p_put z-[2] pl=0 bottom-[3rem] ax_same x_full h_auto v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
-				<D style="z_fit z-[2] ax_right sx_mid x_full h-[.3rem]">
+				style={`z_put z-[2] left-0 bottom-[3rem] ax_same w_full h_auto v2:px-[1rem] v3:px-[2rem] v4:px-[2.5rem] v5:px-[3rem]`}>
+				<D style="z_fit z-[2] ax_right sx_mid w_full h-[.3rem]">
 					<I
 						type="range"
 						value={progress() ? progress() : 0}
@@ -147,7 +147,7 @@ export default () => {
 					/>
 					{progress() != null && (
 						<D
-							v1={`p_put z-[3] top-[.55rem] c_red x_full y_full`}
+							style={`z_put z-[3] top-[.55rem] c_red w-full h_full`}
 							css={`
 								width: calc(${progress()}%);
 							`}

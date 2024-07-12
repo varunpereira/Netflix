@@ -41,13 +41,13 @@ export default (props) => {
 	})
 
 	return (
-		<D v1={`p_fit z=${i === sel_tape() ? "2" : "1"} ${i && `ot=-1`}`}>
-			<T v1={`tw_5 ts_4 ob=-3`}>{title}</T>
+		<D style={`z_fit z-[${i === sel_tape() ? "2" : "1"}] ${i && `mt-[-1rem]`}`}>
+			<T style={`tw_5 ts_4 mb-[-3rem]`}>{title}</T>
 			<D
-				v1={`x_full ${
-					sel_tape() == null ? "y=7 oy=3.5" : "y=14"
-				} ax_r mx_core bar_none sy_none ${
-					sel_tape() == null || sel_tape() === i ? "sx_auto" : "sx_hide"
+				style={`w-full ${
+					sel_tape() == null ? "h-[7rem] my-[3.5rem]" : "h-[14rem]"
+				} ax_right sx_mid no_scroll overflow-y-hidden ${
+					sel_tape() == null || sel_tape() === i ? "overflow-x-auto" : "overflow-x-hidden"
 				} `}>
 				{data()?.map((v2, i2) => (
 					<D
@@ -60,7 +60,7 @@ export default (props) => {
 							sel_slide(false)
 						}}
 						click={() => nav(`/watch/${v2?.id}`)}
-						v1={`a_norm w-[14rem] h-[7rem] ${i2 && `ml-[.3rem]`} cursor_pointer trans_end
+						style={`a_norm w-[14rem] h-[7rem] ${i2 && `ml-[.3rem]`} cursor_pointer trans_end
 								hover:trans_start hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
 						{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 							<>
@@ -74,16 +74,16 @@ export default (props) => {
 									class="c_full z-[4] w-[30rem] h-[14rem] z_fit z-[3]"
 								/>
 								{/* <iframe class="c_norm z-[4] w-[28rem] h-[14rem]" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe> */}
-								<T v1={`ml-[.5rem] mt-[-3rem] a_null z_fit z-[4]`}>{v2?.title}</T>
+								<T style={`ml-[.5rem] mt-[-3rem] a_null z_fit z-[4]`}>{v2?.title}</T>
 							</>
 						) : (
-							<P value={v2?.cover_link} v1={`x_full y_full`} />
+							<P value={v2?.cover_link} style={`w-full h-full`} />
 						)}
 					</D>
 				))}
-				<B v1={"p_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] ax_mid sx_mid"}>
+				<B style={"z_put c_black opacity-[.6] right-0 w-[4.2rem] h-[7rem] ax_mid sx_mid"}>
 					{sel_tape() === i && (
-						<D v1={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
+						<D style={`w-[1.5rem] h-[1.5rem] stroke-white stroke-[.5rem]`}>
 							<ChevronRightIcon />
 						</D>
 					)}

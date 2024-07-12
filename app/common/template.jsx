@@ -23,5 +23,5 @@ export default () => {
 		page.title = ``
 	})
 
-	return <D v1={`fit_1`}></D>
+	return <D style={`fit_1`}></D>
 }

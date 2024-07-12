@@ -23,9 +23,9 @@ export default () => {
 	})
 
 	return (
-		<D v1={`fit_1 ax_mid sx_mid ot=10`}>
-			<T>Page Not Found </T>
-			<B click={() => nav("/")} v1={`ol=.3 tc_red`}>
+		<D style={`fit_1 ax_mid sx_mid mt-[10rem]`}>
+			<T style={``}>Page Not Found - </T>
+			<B click={() => nav("/")} style={"ml-[.3rem] hover:tc_grey"}>
 				Go Home
 			</B>
 		</D>

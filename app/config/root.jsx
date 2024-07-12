@@ -4,7 +4,7 @@ import "~/config/style.scss"
 import { page, D, write} from "~/config/shop"
 import {show_nav, profile} from "~/config/state"
 import {db} from "~/config/db"
-import test from "~/test"
+import test from "~/generic/test"
 import Nav from "~/common/nav"
 import Footer from "~/common/footer"
 import def from "~/common/def"
@@ -30,18 +30,17 @@ var routes = [
 	["/mylist", my_list],
 ]
 
-document.title = "Netflix"
-document.getElementById("logo").href = "/config/logo_small.png"
-document.getElementById("color").content = "c_grey_2"
-document.getElementById("body").className = "c_grey_2 tc_white ts_2 tf_1 ay_t mx_core"
-document.getElementById("style").textContent = `@media(min-width:0px){._{_:_}}\n@media(min-width:320px){._{_:_}}\n@media(min-width:640px){._{_:_}}\n@media(min-width:768px){._{_:_}}\n@media(min-width:1024px){._{_:_}}\n`
+page.title = "Netflix"
+page.getElementById("logo").href = "/config/logo_small.png"
+page.getElementById("color").content = "c_grey_2"
+page.getElementById("style").className = "c_grey_2 tc_white ts_2 tf_1 ay_top sx_mid"
 
 var root = () => {
 	profile(db?.get_auth())
 	return (
 		<Router>
-			<D style={`x_full x_min=20 p_fit z=0 x_max=60=v2 x_max=120=v5`}>
-				{/* {profile() && show_nav() && <Nav />} */}
+			<D style={`w-full min-w-[20rem] v2:max-w-[60rem] v5:max-w-[120rem] z_fit z-[0]`}>
+				{profile() && show_nav() && <Nav />}
 				<Routes>
 					{routes?.map((route) => (
 						<Route path={route[0]} component={route[1]} />
@@ -53,4 +52,4 @@ var root = () => {
 	)
 }
 
-render(root, document.getElementById("body"))
+render(root, page.getElementById("style"))

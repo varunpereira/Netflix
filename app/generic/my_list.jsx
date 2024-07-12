@@ -46,13 +46,13 @@ export default () => {
 
 	return (
 		<>
-			<D v1={`fit_1 mt-[5rem] ay_mid x_full y_full overflow-x-hidden`}>
-				<T v1={`mb-[1rem] ml-[4rem]`}>My List</T>
+			<D style={`fit_1 mt-[5rem] ay_mid w-full h-full overflow-x-hidden`}>
+				<T style={`mb-[1rem] ml-[4rem]`}>My List</T>
 				{data()?.map((v, i) => (
 					<D
-						v1={`z_fit z-[${
+						style={`z_fit z-[${
 							i === sel_tape() ? "1" : "0"
-						}] x_full h-[14rem] ax_mid sx_mid mt-[-3rem] `}>
+						}] w-full h-[14rem] ax_mid sx_mid mt-[-3rem] `}>
 						{/* rep piece */}
 						{v.map((v2, i2) => (
 							<D
@@ -65,7 +65,7 @@ export default () => {
 									sel_slide(false)
 								}}
 								click={() => nav(`/watch/${v2?.id}`)}
-								v1={`a_norm w-[14rem] h-[7rem] ${i2 && `ml-[.3rem]`} cursor_pointer trans_end
+								style={`a_norm w-[14rem] h-[7rem] ${i2 && `ml-[.3rem]`} cursor_pointer trans_end
 								hover:trans_start hover:w-[28rem] hover:h-[14rem] overflow-hidden`}>
 								{sel_slide() === i2 && sel_tape() === i && show_vid() === true ? (
 									<>
@@ -78,10 +78,10 @@ export default () => {
 											preload="none"
 											class="c_full z-[4] w-[30rem] h-[14rem] z_fit z-[3]"
 										/>
-										<T v1={`ml-[.5rem] mt-[-3rem] z-[5] a_null z_fit z-[4]`}>{v2?.title}</T>
+										<T style={`ml-[.5rem] mt-[-3rem] z-[5] a_null z_fit z-[4]`}>{v2?.title}</T>
 									</>
 								) : (
-									<P value={v2?.cover_link} v1={`x_full y_full`} />
+									<P value={v2?.cover_link} style={`w-full h-full`} />
 								)}
 							</D>
 						))}

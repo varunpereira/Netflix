@@ -1,438 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 $white: white;
 $black: black;
 $c_1: red;
 $grey_1: #c1c1c1;
 $grey_2: #141414;
 $red: red;
-$v2_tc: white;
-
-// @media(min-width:0px){.tc\=red{color:red;}}
-// @media(min-width:640px){.tc\=blue\=v3{color:blue;}}
-
-// fit
-.fit_1 {
-	padding: 0 2rem 0 2rem
-	// v2:px-[.5rem] v3:px-[1rem] v4:px-[1.5rem] v5:px-[3rem]
-}
-
-// text:
-/* colour */
-.tc_white {
-	color: $white;
-}
-
-.tc_1 {
-	color: $c_1;
-}
-
-.tc_grey {
-	color: $grey_1;
-}
-
-.tc_black {
-	color: $black;
-}
-
-.tc_red {
-	color: $red;
-}
-
-/* text size */
-.ts_1 {
-	font-size: 0.8rem;
-}
-
-.ts_2 {
-	font-size: 0.95rem;
-}
-
-.ts_3 {
-	font-size: 1.1rem;
-}
-
-/* text fam */
-.tf_1 {
-	font-family: verdana;
-}
-
-/* text weight */
-.tw_1 {
-	font-weight: 900;
-}
-
-.tw_2 {
-	font-weight: 800;
-}
-
-.tw_3 {
-	font-weight: 700;
-}
-
-.tw_4 {
-	font-weight: 600;
-}
-
-.tw_5 {
-	font-weight: 500;
-}
-
-/* text transform */
-.tt_lower {
-	text-transform: lowercase;
-}
-.tt_upper {
-	text-transform: uppercase;
-}
-.tt_cap {
-	text-transform: capitalize;
-}
-/* text align - use box styles for align etc*/
-.ta_l {
-	text-align: left;
-}
-.ta_r {
-	text-align: right;
-}
-.ta_core {
-	text-align: center;
-}
-.ta_same {
-	text-align: justify;
-}
-.tl_dot { // kind
-	text-decoration-style: dotted;
-}
-.tlm_under { // move
-	text-decoration: underline;
-}
-.tlc_red {
-	text-decoration-color: red;
-}
-
-// box size/space
-.x_full {
-	width: 100%;
-}
-
-.y_full {
-	height: 100%;
-}
-
-// background colour
-// opacity
-.c_1 {
-	background-color: $c_1;
-}
-
-.c_white {
-	background-color: $white;
-}
-
-.c_black {
-	background-color: $black;
-}
-
-.c_red {
-	background-color: $red;
-}
-
-.c_grey_1 {
-	background-color: $grey_1;
-}
-
-.c_grey_2 {
-	background-color: $grey_2;
-}
-
-.c_null {
-	background-color: transparent;
-}
-
-/* rounded */
-// shadow
-.shadow_1 {
-	box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-
-/* border */
-.bc_black {
-	border-color: $black;
-}
-
-.bc_white {
-	border-color: $white;
-}
-
-.bc_grey_1 {
-	border-color: $grey_1;
-}
-
-.bc_grey_2 {
-	border-color: $grey_2;
-}
-
-.bw_null {
-	border-width: 0rem;
-}
-
-.bw_1 {
-	border-width: 0.05rem;
-}
-
-.bw_2 {
-	border-width: 0.1rem;
-}
-
-/* layouts */
-.a_none {
-	flex: none;
-}
-.ax_l {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-}
-.ax_r {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-}
-.ax_core {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-.ax_same {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-.ax_same_auto {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-.mx_t {
-	align-items: flex-start;
-}
-.mx_b {
-	align-items: flex-end;
-}
-.mx_core {
-	align-items: center;
-}
-.ay_t {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-}
-.ay_b {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-}
-.ay_core {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-.ay_same {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-.ay_same_auto {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-.my_l {
-	align-items: flex-end;
-}
-.my_r {
-	align-items: flex-start;
-}
-.my_core {
-	align-items: center;
-}
-// grid: each elem x=y , fit has ax=same_auto
-/* surplus  */
-.sx_full {
-	overflow-x: visible;
-}
-.sx_scroll {
-	overflow-x: scroll;
-}
-.sx_none {
-	overflow-x: hidden;
-}
-.sy_full {
-	overflow-y: visible;
-}
-.sy_scroll {
-	overflow-y: scroll;
-}
-.sy_none {
-	overflow-y: hidden;
-}
-.bar_none::-webkit-scrollbar {
-	display: none;
-}
-.bar_none {
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
-}
-// fit 
-.f_norm {
-	object-fit: cover;
-}
-.f_full {
-	object-fit: contain;
-}
-.f_stretch {
-	object-fit: fill;
-}
-// todo ratio
-// for size trans
-.see_0 {
-	width: 0;
-  height: 0;
-  max-width: 0;
-  max-height: 0;
-  border-width: 0;
-  overflow: hidden;
-}
-.see_null {
-	display: none;
-	overflow: hidden;
-}
-.see_size {
-	visibility: hidden;
-}
-// position. sometimes add z-[n], n is int
-.p_norm {
-	position: static;
-}
-.p_fit {
-	position: relative;
-}
-.p_put {
-	position: absolute;
-}
-.p_fix {
-	position: sticky;
-}
-.pl_auto {
-	left: auto;
-}
-.pr_auto {
-	right: auto;
-}
-.pt_auto {
-	top: auto;
-}
-.pb_auto {
-	bottom: auto;
-}
-.pointer {
-	cursor: pointer;
-}
-.slider {
-	width: 100%;
-	height: 0.3rem;
-	background: #d3d3d3;
-	-webkit-appearance: none;
-	cursor: pointer;
-}
-
-.slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 0.9rem;
-	height: 0.9rem;
-	background: #aa0404;
-	border-radius: 100%;
-	cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-	width: 0.9rem;
-	height: 0.9rem;
-	background: #aa0404;
-	border-radius: 100%;
-	cursor: pointer;
-}
-
-// icons > svgs : stroke width + color + fill color
-.stroke_white {
-	fill: $white;
-}
-
-.trans_start {
-	transition-property: width, height;
-	transition-duration: 1s;
-	transition-timing-function: ease-in-out;
-	transition-delay: 1s;
-	-webkit-transition-property: width, height;
-	-webkit-transition-duration: 1s;
-	-webkit-transition-timing-function: ease-in-out;
-	-webkit-transition-delay: 1s;
-}
-
-.trans_end {
-	transition-property: width, height;
-	transition-duration: 1s;
-	transition-timing-function: ease-in-out;
-	-webkit-transition-property: width, height;
-	-webkit-transition-duration: 1s;
-	-webkit-transition-timing-function: ease-in-out;
-}
-
-:root {
-	font-size: 16px;
-}
-*,
-*:focus,
-*:active {
-	outline: none;
-}
-body {
-	margin: 0;
-	line-height: inherit;
-}
-button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  outline: none;
-}
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed {
-	display: block;
-}
-video {
-	object-fit: contain;
-	overflow-clip-margin: content-box;
-	overflow: clip;
-}
-
-/*
-last most class in file is used, each elem can have only one property
- viewport - see config (v1 - v5)
- default: block, also: flex, grid 
-states : hover:tc_red , focus:c_blue ,
-cant access dom dtlyesheet cssrules in some rbowser
-use rem, based of root or %
-	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 pl=0),
+@layer utilities {
+	// fit
+	.fit_1 {
+		@apply v2:px-[.5rem] v3:px-[1rem] v4:px-[1.5rem] v5:px-[3rem];
+	}
+	/* text colour */
+	.tc_white {
+		color: $white;
+	}
+	.tc_1 {
+		color: $c_1;
+	}
+	.tc_grey {
+		color: $grey_1;
+	}
+	.tc_black {
+		color: $black;
+	}
+	.tc_red {
+		color: $red;
+	}
+	/* text size */
+	.ts_1 {
+		font-size: 0.8rem;
+	}
+	.ts_2 {
+		font-size: 0.95rem;
+	}
+	.ts_3 {
+		font-size: 1.1rem;
+	}
+	/* text fam */
+	.tf_1 {
+		font-family: verdana;
+	}
+	/* text weight */
+	.tw_1 {
+		font-weight: 900;
+	}
+	.tw_2 {
+		font-weight: 800;
+	}
+	.tw_3 {
+		font-weight: 700;
+	}
+	.tw_4 {
+		font-weight: 600;
+	}
+	.tw_5 {
+		font-weight: 500;
+	}
+	/* text case/shift */
+	.ts_upper {
+		text-transform: uppercase;
+	}
+	/* text align */
+	.ta_mid {
+		text-align: center;
+	}
+	.ta_equal {
+		text-align: justify;
+	}
+	.ta_left {
+		text-align: left;
+	}
+	.ta_right {
+		text-align: right;
+	}
+	// box size/space
+	.w_full {
+		width: 100%;
+	}
+	.h_full {
+		height: 100%;
+	}
+	// background colour
+	// opacity
+	.c_1 {
+		background-color: $c_1;
+	}
+	.c_white {
+		background-color: $white;
+	}
+	.c_black {
+		background-color: $black;
+	}
+	.c_red {
+		background-color: $red;
+	}
+	.c_grey_1 {
+		background-color: $grey_1;
+	}
+	.c_grey_2 {
+		background-color: $grey_2;
+	}
+	.c_null {
+		background-color: transparent;
+	}
+	/* rounded */
+	// shadow
+	.shadow_1 {
+		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	}
+	/* border */
+	.bc_black {
+		border-color: $black;
+	}
+	.bc_white {
+		border-color: $white;
+	}
+	.bc_grey_1 {
+		border-color: $grey_1;
+	}
+	.bc_grey_2 {
+		border-color: $grey_2;
+	}
+	.bw_null {
+		border-width: 0rem;
+	}
+	.bw_1 {
+		border-width: 0.05rem;
+	}
+	.bw_2 {
+		border-width: 0.1rem;
+	}
+	/* align */
+	.a_norm {
+		flex: none;
+	}
+	.ax_left {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+	.ax_mid {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+	.ax_right {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+	.ax_same {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.ax_auto {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.sx_top {
+		align-items: flex-start;
+	}
+	.sx_mid {
+		align-items: center;
+	}
+	.sx_bottom {
+		align-items: flex-end;
+	}
+	.ay_top {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+	.ay_mid {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.ay_bottom {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	.ay_same {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.ay_auto {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.sy_left {
+		align-items: flex-end;
+	}
+	.sy_right {
+		align-items: flex-start;
+	}
+	.sy_mid {
+		align-items: center;
+	}
+	/* contain  */
+	.c_norm {
+		object-fit: none;
+	}
+	.c_fit {
+		object-fit: contain;
+	}
+	.c_full {
+		object-fit: cover;
+	}
+	.c_stretch {
+		object-fit: fill;
+	}
+	// to do overflow
+	.no_scroll::-webkit-scrollbar {
+		display: none;
+	}
+	.no_scroll {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+	// for size trans
+	.size_0 {
+		@apply w-0 h-0 max-w-0 max-h-0 border-0 overflow-hidden;
+	}
+	.see_null {
+		display: none;
+		overflow: hidden;
+	}
+	.see_full {
+		display: block;
+		overflow: visible;
+	}
+	.see_size {
+		visibility: hidden;
+	}
+	.z_norm {
+		position: static;
+	}
+	.z_fit {
+		position: relative;
+	}
+	// sometimes add z-[n], n is int
+	.z_put {
+		position: absolute;
+	}
+	.z_fix {
+		position: sticky;
+	}
+	.left_auto {
+		left: auto;
+	}
+	.right_auto {
+		right: auto;
+	}
+	.top_auto {
+		top: auto;
+	}
+	.bottom_auto {
+		bottom: auto;
+	}
+	.cursor_pointer {
+		cursor: pointer;
+	}
+	.slider {
+		width: 100%;
+		height: 0.3rem;
+		background: #d3d3d3;
+		-webkit-appearance: none;
+		cursor: pointer;
+	}
+	.slider::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 0.9rem;
+		height: 0.9rem;
+		background: #aa0404;
+		border-radius: 100%;
+		cursor: pointer;
+	}
+	.slider::-moz-range-thumb {
+		width: 0.9rem;
+		height: 0.9rem;
+		background: #aa0404;
+		border-radius: 100%;
+		cursor: pointer;
+	}
+	// icons > svgs : stroke width + color + fill color
+	.stroke_white {
+		fill: $white;
+	}
+	.trans_start {
+		transition-property: width, height;
+		transition-duration: 1s;
+		transition-timing-function: ease-in-out;
+		transition-delay: 1s;
+		-webkit-transition-property: width, height;
+		-webkit-transition-duration: 1s;
+		-webkit-transition-timing-function: ease-in-out;
+		-webkit-transition-delay: 1s;
+	}
+	.trans_end {
+		transition-property: width, height;
+		transition-duration: 1s;
+		transition-timing-function: ease-in-out;
+		-webkit-transition-property: width, height;
+		-webkit-transition-duration: 1s;
+		-webkit-transition-timing-function: ease-in-out;
+	}
+	/* viewport - see config (v1 - v5) */
+	/* default: block, also: flex, grid */
+	// states : hover:tc_red , focus:c_blue ,
+	// use rem, based of root or %
+	:root {
+		font-size: 16px;
+	}
+	*,
+	*:focus,
+	*:active {
+		outline: none;
+	}
+	/*
+	css props not sup in older browsers: gap (use mt,ml), inset (use top-0 left-0),
 	css dont use confusing: space auto like mx-auto (use align/shift).
 	outline doesnt work safari.
 	tailwind: *,first,last: states dont work
@@ -445,3 +339,4 @@ use rem, based of root or %
 	aspect (set size of one then use a real calc of other axis), 
 	fit-content try auto like w-auto (auto is def for size),
 */
+}

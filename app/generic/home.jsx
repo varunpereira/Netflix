@@ -12,7 +12,7 @@ import {
 	T,
 	B,
 	V,
-	P
+	P,
 } from "~/config/shop"
 import {db} from "~/config/db"
 import Tape from "~/common/tape"
@@ -26,23 +26,15 @@ export default () => {
 		data(db?.get_all(`home`))
 	})
 
-	// todo hover state, if many values eg width%, use html style attrib via css prop `width:${width}`
-
 	return (
-		<D style={`p_fit pt=12=v2 z=1 z=1 x_full pl=0 tc=red tc=blue=v3`}>
-				TEST
-			{/* <div class='x1 x2 '>d</div> */}
-			{/* <Snip show_id={() => data()?.snip?.show_id} /> */}
-			{/* <D
-				v1={`p_put z=1 pt=70 x_full y_full ay_core`}
-				v2={`il=1`}
-				v3={`il=2`}
-				v4={`il=2.5`}
-				v5={`il=3`}>
+		<D style={`z_fit z-[1]`}>
+			<Snip show_id={() => data()?.snip?.show_id} />
+			<D
+				style={`z_put z-[1] top-[70rem] w-full h-full ay_mid v2:pl-[1rem] v3:pl-[2rem] v4:pl-[2.5rem] v5:pl-[3rem] `}>
 				{data()?.tapes?.map((v, i) => (
 					<Tape show_ids={v?.show_ids} title={v?.title} i={i} />
 				))}
-			</D> */}
+			</D>
 		</D>
 	)
 }
