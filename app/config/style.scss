@@ -7,7 +7,7 @@ $red: red;
 $v2_tc: white;
 
 @media(min-width:0px){.tc\=red{color:red;}}
-@media(min-width:640px){.tc\=blue{color:blue;}}
+@media(min-width:640px){.tc\=blue\=v3{color:blue;}}
 
 // fit
 .fit_1 {

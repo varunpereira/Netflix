@@ -34,7 +34,7 @@ document.title = "Netflix"
 document.getElementById("logo").href = "/config/logo_small.png"
 document.getElementById("color").content = "c_grey_2"
 document.getElementById("body").className = "c_grey_2 tc_white ts_2 tf_1 ay_t mx_core"
-// document.getElementById("style").textContent = `@media(min-width:0px){._{_:_}}\n@media(min-width:320px){._{_:_}}\n@media(min-width:640px){._{_:_}}\n@media(min-width:768px){._{_:_}}\n@media(min-width:1024px){._{_:_}}\n`
+document.getElementById("style").textContent = `@media(min-width:0px){._{_:_}}\n@media(min-width:320px){._{_:_}}\n@media(min-width:640px){._{_:_}}\n@media(min-width:768px){._{_:_}}\n@media(min-width:1024px){._{_:_}}\n`
 
 var root = () => {
 	profile(db?.get_auth())

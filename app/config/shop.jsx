@@ -142,7 +142,7 @@ var vps = {
 }
 
 var engine = (cls) => {
-	return
+	// return
 	if (!cls) return
 	var el = document.getElementById("style")
 	var cur = el.textContent
@@ -151,9 +151,9 @@ var engine = (cls) => {
 		if (!(key in s)) return
 		if (vp in vps) vp = vps[vp]
 		else vp = "0"
-		var new_cl = `@media(min-width:${vp}px){.${key}\\=${value.replace(".", "\\.")}${s[key](
-			value,
-		)}}\n`
+		var new_cl = `@media(min-width:${vp}px){.${key}\\=${value.replace(".", "\\.")}${
+			vp !== "0" && `\\=${vp}`
+		}${s[key](value)}}\n`
 		if (cur.includes(new_cl)) return
 		cur = cur.replace(
 			`@media(min-width:${vp}px){._{_:_}}\n`,
