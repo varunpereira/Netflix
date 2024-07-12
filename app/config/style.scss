@@ -6,8 +6,9 @@ $grey_2: #141414;
 $red: red;
 $v2_tc: white;
 
-@media(min-width:0px){.x1{background-color:red;}}/**/@media(min-width:640px){.x1{background-color:blue;}}
-// arr split by /**/
+@media(min-width:0px){.tc\=red{color:red;}}
+@media(min-width:640px){.tc\=blue{color:blue;}}
+
 // fit
 .fit_1 {
 	padding: 0 2rem 0 2rem

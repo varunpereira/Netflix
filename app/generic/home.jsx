@@ -27,9 +27,10 @@ export default () => {
 	})
 
 	return (
-		<D v1={`p_fit z=1 x_full pl=0`}>
+		<D style={`p_fit pt=12=v2 z=1 x_full pl=0 tc=red tc=blue=v3`}>
+				TEST
 			{/* <div class='x1 x2 '>d</div> */}
-			<Snip show_id={() => data()?.snip?.show_id} />
+			{/* <Snip show_id={() => data()?.snip?.show_id} /> */}
 			{/* <D
 				v1={`p_put z=1 pt=70 x_full y_full ay_core`}
 				v2={`il=1`}

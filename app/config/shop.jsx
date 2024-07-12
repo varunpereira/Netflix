@@ -81,7 +81,7 @@ var s = {
 	ob: (v) => `{margin-bottom:${v}rem;}`,
 	oy: (v) => `{margin-top:${v}rem;margin-bottom:${v}rem;}`,
 	// layer , position
-	z: (v) => `{z-index:${v}}`,
+	z: (v) => `{z-index:${v};}`,
 	pl: (v) => `{left:${v}rem;}`,
 	pr: (v) => `{right:${v}rem;}`,
 	pt: (v) => `{top:${v}rem;}`,
@@ -116,7 +116,7 @@ var sort = (cssString) =>{
     if (!groupedQueries[width]) {
       groupedQueries[width] = [];
     }
-    groupedQueries[width].push(query+'\n');
+    groupedQueries[width].push(query+'}\n');
   });
   // Sort widths in ascending order
   const sortedWidths = Object.keys(groupedQueries).sort((a, b) => parseInt(a) - parseInt(b));
@@ -131,30 +131,36 @@ const css = `
 @media(min-width:1024px){.x_max\=120{max-width:120rem;}}
 @media(min-width:0px){.z\=1{z-index:1}}
 `
-var engine = (v,mw) => {
-	if(!v) return
-	var elem = document.getElementById("style")
-	var to_add = ""
-	v.split(/\s+/).forEach((d) => {
-		var [key, value] = d.split("=")
-		if (!(key in s)) return
-		var c = `@media(min-width:${mw}px){.${key}\\=${value.replace(".", "\\.")}${s[key](value)}}\n`
-		if (!elem.textContent.includes(c)) to_add += c
-	})
-	if (to_add) {
-		elem.textContent += to_add
-		elem.textContent = sort(elem.textContent)
-		write(elem.textContent)
-	}
+
+var vps = {
+	v1:'0',
+	v2:'320',
+	v3:'640',
+	v4:'768',
+	v5:'1024',
+	v6:'1280',
 }
 
-var convert = (props) => {
-	engine(props?.v1, '0')
-	engine(props?.v2, '320')
-	engine(props?.v3, '640')
-	engine(props?.v4, '768')
-	engine(props?.v5, '1024')
-	// engine(props?.v6, '1280')
+var engine = (cls) => {
+	return
+	if (!cls) return
+	var el = document.getElementById("style")
+	var cur = el.textContent
+	cls.split(/\s+/).forEach((c) => {
+		var [key, value, vp] = c.split("=")
+		if (!(key in s)) return
+		if (vp in vps) vp = vps[vp]
+		else vp = "0"
+		var new_cl = `@media(min-width:${vp}px){.${key}\\=${value.replace(".", "\\.")}${s[key](
+			value,
+		)}}\n`
+		if (cur.includes(new_cl)) return
+		cur = cur.replace(
+			`@media(min-width:${vp}px){._{_:_}}\n`,
+			`@media(min-width:${vp}px){._{_:_}}\n${new_cl}`,
+		)
+	})
+	el.textContent = cur
 }
 
 // structs
@@ -163,7 +169,7 @@ export var D = (props) => {
 	// onCleanup(() => {
 	// })
 	// var custom = props?.custom
-	convert(props)
+	engine(props?.style)
 	return (
 		<div
 			onClick={props?.click}
@@ -172,18 +178,18 @@ export var D = (props) => {
 			onKeyDown={props?.key}
 			// use:custom
 			ref={props?.ref}
-			v1={props?.css}
-			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
+			style={props?.css}
+			class={props?.style}>
 			{props.children}
 		</div>
 	)
 }
 export var T = (props) => {
-	convert(props)
+	engine(props?.style)
 	return <p class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>{props.children}</p>
 }
 export var B = (props) => {
-	convert(props)
+	engine(props?.style)
 	return (
 		<button type="button" onClick={props?.click} class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}>
 			{props.children}
@@ -191,7 +197,7 @@ export var B = (props) => {
 	)
 }
 export var I = (props) => {
-	convert(props)
+	engine(props?.style)
 	return <input
 		type={props?.type}
 		value={props?.value}
@@ -204,7 +210,7 @@ export var I = (props) => {
 	/>
 }
 export var P = (props) => {
-	convert(props)
+	engine(props?.style)
 	return (
 		<img
 			src={props.value}
@@ -213,13 +219,13 @@ export var P = (props) => {
 			onMouseOver={props?.hover_in}
 			onMouseLeave={props?.hover_out}
 			onKeyDown={props?.key}
-			v1={props?.css}
+			style={props?.css}
 			class={`${props?.v1} ${props?.v2} ${props?.v3} ${props?.v4} ${props?.v5}`}
 		/>
 	)
 }
 export var V = (props) => {
-	convert(props)
+	engine(props?.style)
 	return (
 		<video
 			// {...props}

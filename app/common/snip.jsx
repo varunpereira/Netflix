@@ -41,12 +41,12 @@ export default (props) => {
 	return (
 		<>
 			<D
-				v1={`p_put z=1 pl=0 pt=12 x=15 ts_2 tw_5 y_full`}
+				v1={`p_put z=1 pl=0 pt=12 x=30 ts_2 tw_5 y_full c=white`}
 				v2={`il=1`}
-				v3={`x=30 il=2`}
+				v3={`c=red il=2`}
 				v4={`il=2.5`}
 				v5={`il=3`}>
-				<P value={show()?.logo_link} />
+				{/* <P value={show()?.logo_link} v1={`w_full`}/> */}
 				<T v1={`oy=1`}>{show()?.details}</T>
 				<D v1={`ax_r`}>
 					<B
