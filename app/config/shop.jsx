@@ -149,8 +149,8 @@ var engine = (cls) => {
 	cls.split(/\s+/).forEach((c) => {
 		var [key, value, old_vp] = c.split("=")
 		if (!(key in s)) return
-		if (old_vp in vps) var vp = vps[old_vp]
-		else vp = "0"
+		var vp = '0'
+		if (old_vp in vps) vp = vps[old_vp]
 		var new_cl = `@media(min-width:${vp}px){.${key}\\=${value.replace(".", "\\.")}${
 			vp !== "0" ? `\\=${old_vp}` : ``
 		}${s[key](value)}}\n`
